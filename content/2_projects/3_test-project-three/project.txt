@@ -1,4 +1,4 @@
-Title: Title of the project.
+Title: Project 3
 ----
 Description: Short one line description of the game.
 ----
