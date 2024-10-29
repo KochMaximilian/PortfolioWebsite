@@ -1,9 +1,7 @@
 Title: Home
 
 ----
-Introduction:
-----
-Image:
+Introduction: Hello this is Max testing :D 
 ----
 About:
 ----
