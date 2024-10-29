@@ -11,9 +11,7 @@ $height = 500;
             <li>
                 <a href="<?= $project->url() ?>">
                     <figure>
-                        <?php foreach ($project->images() as $image): ?>
                             <?= $project->image()->crop($width, $height) ?>
-                        <?php endforeach; ?>
                         <figcaption><?= $project->title() ?></figcaption>
                     </figure>
                 </a>

@@ -1,18 +1,25 @@
 Title: Project 1
 ----
+
 Description: Short one line description of the game.
 ----
+
 Genre: Game Genre(s)
 ----
-Platfroms: Platfrom(s)
+
+Platform: pc
 ----
+
 Year: 2077
 ----
+
 Project Length: 6 months
 ----
+
 Focus: Level Design, System Design
 ----
-Website: Link here.
+
+Links: 
 
 
 

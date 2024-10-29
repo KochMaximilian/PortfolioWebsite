@@ -1,0 +1,36 @@
+.project-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 6rem; 
+}
+
+.project-info {
+    line-height: 1.5em;
+}
+
+.project-info dt {
+    font-weight: bold;
+    line-break: none;
+}
+
+
+.project-gallery ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    grid-gap: 1.5rem;
+}
+
+.project-galery li:first-child {
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
+
+.project-galery img  {
+    width: 100%;
+}
+
+.project-image {
+    border: 1px solid #ccc;
+}
