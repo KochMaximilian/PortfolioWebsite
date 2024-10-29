@@ -1,1 +1,26 @@
 Title: Site Title
+----
+(Strore Generel Images here like your background patter)
+----
+
+Contact Infomration:
+----
+Name:
+----
+Mail-Adress:
+----
+
+Socials:
+----
+LinkedIn:
+----
+Twitter (X):
+----
+BlueSky:
+----
+Itch.io:
+----
+Instagram:
+----
+YouTube:
+
