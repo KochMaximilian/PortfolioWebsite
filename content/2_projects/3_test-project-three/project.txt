@@ -1,4 +1,8 @@
-Title: Project 3
+Title: Game Title 3
+
+----
+
+Name: Valdiation check test
 
 ----
 
@@ -6,11 +10,7 @@ Description: Short one line description of the game.
 
 ----
 
-Genre: Game Genre(s)
-
-----
-
-Platfroms: Platfrom(s)
+Type: Professional Project
 
 ----
 
@@ -18,11 +18,31 @@ Year: 2077
 
 ----
 
-Project-length: 6 months
+Genre: Game Genre(s)
+
+----
+
+Platform: Playstation 4
 
 ----
 
 Focus: Level Design, System Design
+
+----
+
+Duration: 8 Months
+
+----
+
+Links: 
+
+----
+
+Platfroms: Platfrom(s)
+
+----
+
+Project-length: 6 months
 
 ----
 

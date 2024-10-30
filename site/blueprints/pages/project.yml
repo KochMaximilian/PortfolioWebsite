@@ -102,6 +102,7 @@ columns:
         label: Asset Gallery
         type: files
         layout: cards
+        template: gallery-image
         limit: 10
         image:
           ratio: 1/1

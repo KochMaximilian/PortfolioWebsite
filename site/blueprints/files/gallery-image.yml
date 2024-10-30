@@ -1,0 +1,25 @@
+title: Gallery Image
+
+fields: 
+  alt:
+    type: text
+    label: Alternative Text
+    width: 1/4
+  intention:
+    type: select
+    options: 
+      - Cover
+    label: Intention for this image
+    width: 1/4
+  caption:
+    type: text
+    label: Image Caption
+    width: 1/4
+  class:
+    type: text  
+    label: CSS-Class
+    width: 1/4
+    
+  
+
+

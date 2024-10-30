@@ -41,7 +41,7 @@ $height = 600;
                     <?php foreach ($page->images() as $image): ?>
                         <li>
                             <a href="<?= $image->url() ?>">
-                                <img class="project-image" src="<?= $image->resize($width, $height)->url() ?>" alt="<?= $image->alt() ?>">
+                                <img alt="<?= $image->alt() ?>" class="project-image" src="<?= $image->resize($width, $height)->url() ?>">
                             </a>
                         </li>
                     <?php endforeach ?>
