@@ -3,66 +3,106 @@ title: Project
 columns:
   - width: 1/2
     sections:
-    info:
-    type: fields
-    fields:
-      name:
-        type: text
-      description:
-        type: textarea
-        size: small
-      type:
-        type: select
-        options:
-           - Personal Project
-           - Proffesional Project
+      project_info:
+        type: fields
+        fields:
+          name:
+            label: Game Title
+            required: true
+            type: text
+            maxlength: 50
+          description:
+            label: Description of the Game
+            required: true
+            maxlength: 150
+            help: A short one line description of the game.
+            type: textarea
+            size: small
+          type:
+            label: Project Type
+            required: true
+            help: Personal or Commercial Project
+            type: select
+            options:
+              - Personal Project
+              - Professional Project
+            width: 1/2
+          year:
+            label: Release Year
+            required: true
+            min: 2023
+            before: "Released:"
+            help: Only the year, e.g. 2024
+            type: number
+            width: 1/2
   - width: 1/2
     sections:
-       details:
-    type: fields
-    fields:    
-      genre:
-        type: tags
-        options:
-          - RPG
-          - FPS
-          - Action
-          - Strategy
-          - Turn-Based
-          - Arcade
-      platfrom:
-        type: tags
-        options:
-          - PC Windows
-          - Playstation 4
-          - Playstation 5
-          - Xbox One
-          - Xbox Series S/X
-          - Nintendo Switch
-          - Android
-          - iOS
-          - Web
-      year:
-        type: date
-      duration:
-        type: text
-      focus:
-        type: tags
-        options:
-          - Level Design
-          - System Design
-          - Game Design
-          - Narrative Design
-      links:
-        type: link
+      project_details:
+        type: fields
+        fields:
+          genre:
+            label: Game Genre
+            required: true
+            help: Possible to pick more than one genre-tag or add a custom tag.
+            icon: heart-filled
+            type: tags
+            options:
+              - RPG
+              - FPS
+              - Action
+              - Strategy
+              - Turn-Based
+              - Arcade
+            width: 1/2
+          platform:
+            label: Release Platform
+            required: true
+            help: Possible to pick more than one platfrom-tag or add a custom tag.
+            type: tags
+            icon: blank
+            options:
+              - PC Windows
+              - Playstation 4
+              - Playstation 5
+              - Xbox One
+              - Xbox Series S/X
+              - Nintendo Switch
+              - Android
+              - iOS
+              - Web
+            width: 1/2
+          focus:
+            label: Area of Focus
+            required: true
+            help: Skills & Disciplines to highilight. Possilbe to choose more than one tag.
+            icon: badge
+            type: tags
+            options:
+              - Level Design
+              - System Design
+              - Game Design
+              - Narrative Design
+            width: 1/2
+          duration:
+            label: Project Duration
+            required: true
+            type: text
+            help: How long the project did take to complete.
+            icon: clock
+            width: 1/2
+          links:
+            label: Additional Links
+            help: Links to other websites or social media pages for the game.
+            type: link
+         
+
   - width: 1/1
     sections:
       gallery:
+        label: Asset Gallery
         type: files
         layout: cards
+        limit: 10
         image:
           ratio: 1/1
-
-
-
 

@@ -2,11 +2,11 @@ Title: Website Test Project
 
 ----
 
-Name: Portfolio Development a work in progress
+Name: This is a required field.
 
 ----
 
-Description: Short one line description of the game.
+Description: A short one-line description of the game.
 
 ----
 
@@ -14,19 +14,15 @@ Type: Personal Project
 
 ----
 
-Genre: Strategy, Horror
-
-----
-
-Platfrom: PC Windows
-
-----
-
 Year: 2024
 
 ----
 
-Duration: 5 Months
+Genre: Strategy, Horror
+
+----
+
+Platform: PC Windows
 
 ----
 
@@ -34,7 +30,15 @@ Focus: Level Design, Game Design, System Design
 
 ----
 
+Duration: 5 Months
+
+----
+
 Links: 
+
+----
+
+Platfrom: PC Windows
 
 ----
 
