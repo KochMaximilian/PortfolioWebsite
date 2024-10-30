@@ -1,27 +1,41 @@
-Title: Project 1
+Title: Website Test Project
+
+----
+
+Name: Portfolio Development a work in progress
+
 ----
 
 Description: Short one line description of the game.
+
 ----
 
-Genre: Game Genre(s)
+Genre: Strategy
+
 ----
 
-Platform: pc
+Platfrom: PC Windows
+
 ----
 
-Year: 2077
+Year: 2024
+
 ----
 
-Project Length: 6 months
+Duration: 3 Months
+
 ----
 
-Focus: Level Design, System Design
+Focus: Level Design, Game Design, System Design
+
 ----
 
 Links: 
 
+----
 
+Context: Here comes more content to descripe the project further.
 
 ----
-Context: Here comes more content to descripe the project further.
+
+Uuid: JDxwdo9xgpEOpElK

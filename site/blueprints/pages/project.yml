@@ -1,0 +1,63 @@
+title: Project
+
+columns:
+  - width: 1/2
+    sections:
+    info:
+    type: fields
+    fields:
+      name:
+        type: text
+      description:
+        type: textarea
+        size: large
+  - width: 1/2
+    sections:
+       details:
+    type: fields
+    fields:    
+      genre:
+        type: select
+        options:
+          - RPG
+          - FPS
+          - Action
+          - Strategy
+          - Turn-Based
+          - Arcade
+      platfrom:
+        type: select
+        options:
+          - PC Windows
+          - Playstation 4
+          - Playstation 5
+          - Xbox One
+          - Xbox Series S/X
+          - Nintendo Switch
+          - Android
+          - iOS
+          - Web
+      year:
+        type: number
+      duration:
+        type: text
+      focus:
+        type: tags
+        options:
+          - Level Design
+          - System Design
+          - Game Design
+          - Narrative Design
+      links:
+        type: link
+  - width: 1/1
+    sections:
+      gallery:
+        type: files
+        layout: cards
+        image:
+          ratio: 1/1
+
+
+
+
