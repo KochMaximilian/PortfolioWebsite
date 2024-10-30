@@ -1,10 +1,47 @@
 title: Portfolio
 
-sections:
-  projects:
-    type: pages
-    layout: cards
-    image:
-      ratio: 4/5
-      cover: true
-    
+columns:
+  - width: 1/1
+    sections:
+      published:
+        headline: Listed Public Projects
+        type: pages
+        layout: cards
+        template: project
+        text: "{{page.title}}"
+        info: "{{page.type}} | {{page.year}}"
+        status: listed
+        limit: 10
+        help: Visible on the page.
+        image:
+          ratio: 16/9
+          cover: true
+  - width: 1/2
+    sections:
+      drafts:
+        headline: Drafts
+        type: pages
+        layout: list
+        template: project
+        text: "{{page.title}}"
+        info: "{{page.type}} | {{page.year}}"
+        status: draft
+        help: Make sure you have a cover image!
+        image:
+          ratio: 16/9
+          cover: true
+  - width: 1/2
+    sections:
+      unlisted:
+        headline: Unlisted Projects
+        type: pages
+        layout: lists
+        template: project
+        text: "{{page.title}}"
+        info: "{{page.type}} | {{page.year}}"
+        status: unlisted
+        help: Not visible on the page but can be shared.
+        image:
+          ratio: 16/9
+          cover: true
+

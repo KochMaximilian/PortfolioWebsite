@@ -10,14 +10,19 @@ columns:
         type: text
       description:
         type: textarea
-        size: large
+        size: small
+      type:
+        type: select
+        options:
+           - Personal Project
+           - Proffesional Project
   - width: 1/2
     sections:
        details:
     type: fields
     fields:    
       genre:
-        type: select
+        type: tags
         options:
           - RPG
           - FPS
@@ -26,7 +31,7 @@ columns:
           - Turn-Based
           - Arcade
       platfrom:
-        type: select
+        type: tags
         options:
           - PC Windows
           - Playstation 4
@@ -38,7 +43,7 @@ columns:
           - iOS
           - Web
       year:
-        type: number
+        type: date
       duration:
         type: text
       focus:

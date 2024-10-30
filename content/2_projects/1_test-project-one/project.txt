@@ -10,7 +10,11 @@ Description: Short one line description of the game.
 
 ----
 
-Genre: Strategy
+Type: Personal Project
+
+----
+
+Genre: Strategy, Horror
 
 ----
 
@@ -22,7 +26,7 @@ Year: 2024
 
 ----
 
-Duration: 3 Months
+Duration: 5 Months
 
 ----
 

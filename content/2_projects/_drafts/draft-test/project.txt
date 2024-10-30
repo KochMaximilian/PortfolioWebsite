@@ -1,0 +1,25 @@
+Title: draft-test
+
+----
+
+Description: 
+
+----
+
+Genre: 
+
+----
+
+Platfrom: 
+
+----
+
+Year: 
+
+----
+
+Focus: 
+
+----
+
+Uuid: heHThCQ0IZ1janWk
