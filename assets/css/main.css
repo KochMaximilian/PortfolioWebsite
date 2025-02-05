@@ -41,6 +41,22 @@
  
 }
 
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  font-size: larger;
+  font-weight: bold;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+
+ 
+}
+
+.pagination span {
+  color: gray;
+}
+
 
 /* Base Font CSS Classes */
 .barlow-thin {

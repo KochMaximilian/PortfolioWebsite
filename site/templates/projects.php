@@ -2,8 +2,19 @@
 <?php
 $width = 400;
 $height = 500;
-$projects = $page->children()->listed()->paginate(2);
-$pagination = $projects->pagination();
+
+$filterBy = get('filter');
+
+$projects = $page
+->children()
+->listed()
+->when($filterBy, function($filterBy){
+    return $this->filterBy('year', $filterBy);
+})
+->paginate(3);
+
+$pagination = $projects
+->pagination();
 ?>
 
 
@@ -15,7 +26,10 @@ $pagination = $projects->pagination();
                 <a href="<?= $project->url() ?>">
                     <figure>
                         <?= $project->image()->crop($width, $height) ?>
-                        <figcaption><?= $project->title() ?></figcaption>
+                        <figcaption>
+                            <?= $project->title() ?><br>
+                            <small><?= $project->type() ?></small>
+                        </figcaption>
                     </figure>
                 </a>
             </li>
@@ -23,10 +37,24 @@ $pagination = $projects->pagination();
 
     </ul>
 
-    <nav>
+    <?php if ($pagination->hasPages()): ?>
+    <nav class="pagination">
+        <?php if ($pagination->hasPrevPage()): ?>
         <a href="<?= $pagination->prevPageUrl() ?>" aria-label="Previous page">&larr;</a> <!-- Todo: replace arrows with svg -->
-        <a href="<?= $pagination->nextPageUrl() ?>" aria-label="Next page">&rarr;</a>
+        <?php else: ?>
+            <span aria-hidden="true">&larr;</span>
+        <?php endif ?>
+
+            <span>Page <?=$pagination->page()?> of <?=$pagination->pages()?></span>
+
+        <?php if ($pagination->hasNextPage()): ?>
+        <a href="<?= $pagination->nextPageUrl() ?>" aria-label="Next page">&rarr;</a> <!-- Todo: replace arrows with svg -->
+        <?php else: ?>
+            <span aria-hidden="true">&rarr;</span>
+        <?php endif?>
     </nav>
+    <?php endif ?>
+
 </main>
 
 <?php snippet('footer') ?>
