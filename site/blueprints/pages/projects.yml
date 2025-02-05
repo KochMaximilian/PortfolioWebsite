@@ -8,9 +8,10 @@ columns:
         type: pages
         layout: cards
         template: project
-        text: "{{page.title}}"
-        info: "{{page.type}} | {{page.year}}"
+        text: "{{ page.title }}"
+        info: "{{ page.type }} | {{ page.year }}"
         status: listed
+        min: 1
         limit: 10
         help: Visible on the page.
         image:
@@ -23,8 +24,8 @@ columns:
         type: pages
         layout: list
         template: project
-        text: "{{page.title}}"
-        info: "{{page.type}} | {{page.year}}"
+        text: "{{ page.title }}"
+        info: "{{ page.type }} | {{ page.year }} |"
         status: draft
         help: Make sure you have a cover image!
         image:
@@ -37,8 +38,8 @@ columns:
         type: pages
         layout: lists
         template: project
-        text: "{{page.title}}"
-        info: "{{page.type}} | {{page.year}}"
+        text: "{{ page.title }}"
+        info: "{{ page.type }} | {{ page.year }}"
         status: unlisted
         help: Not visible on the page but can be shared.
         image:

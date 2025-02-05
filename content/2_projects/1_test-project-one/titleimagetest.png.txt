@@ -1,4 +1,4 @@
-Alt: Oh boy a image. hehe
+Alt: Alternative text
 
 ----
 
@@ -6,7 +6,7 @@ Intention: Cover
 
 ----
 
-Caption: 
+Caption: Test
 
 ----
 
