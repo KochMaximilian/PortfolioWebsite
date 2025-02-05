@@ -1,4 +1,8 @@
-Title: Project 2
+Title: Cancelled for the 6th time
+
+----
+
+Name: AAA Title 3
 
 ----
 
@@ -6,7 +10,31 @@ Description: Short one line description of the game.
 
 ----
 
+Type: Professional Project
+
+----
+
+Year: 2025
+
+----
+
 Genre: Game Genre(s)
+
+----
+
+Platform: PC Windows
+
+----
+
+Focus: Level Design, System Design
+
+----
+
+Duration: 12 Years
+
+----
+
+Links: 
 
 ----
 
@@ -14,15 +42,7 @@ Platfroms: Platfrom(s)
 
 ----
 
-Year: 2077
-
-----
-
 Project-length: 6 months
-
-----
-
-Focus: Level Design, System Design
 
 ----
 

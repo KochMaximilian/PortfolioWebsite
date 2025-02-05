@@ -4,21 +4,30 @@ $width = 400;
 $height = 500;
 
 $filterBy = get('filter');
+$unfilterd = $page->children()->listed()->sortBy('year', 'desc');
 
-$projects = $page
-->children()
-->listed()
+$projects = $unfilterd
 ->when($filterBy, function($filterBy){
     return $this->filterBy('year', $filterBy);
 })
 ->paginate(3);
 
-$pagination = $projects
-->pagination();
+$pagination = $projects->pagination();
+$filters = $unfilterd->pluck('year', null , true); /* unique values = true */
+
 ?>
 
 
 <main class="main-wrapper">
+    <h1><?= $page->title() ?></h1>
+    
+    <nav class="filter">
+        <a href="<?= $page->url() ?>">All</a>
+        <?php foreach ($filters as $filter): ?>
+        <a href="<?= $page->url() ?>?filter=<?= $filter ?>"><?= $filter ?></a>
+        <?php endforeach ?>
+    </nav>
+
     <ul class="projects">
 
         <?php foreach ($projects as $project): ?>

@@ -1,4 +1,8 @@
-Title: Project 2
+Title: Souls Dark 6
+
+----
+
+Name: AAA Title 1
 
 ----
 
@@ -6,7 +10,31 @@ Description: Short one line description of the game.
 
 ----
 
+Type: Professional Project
+
+----
+
+Year: 2024
+
+----
+
 Genre: Game Genre(s)
+
+----
+
+Platform: PC Windows
+
+----
+
+Focus: Level Design, System Design
+
+----
+
+Duration: 3 Years
+
+----
+
+Links: 
 
 ----
 
@@ -14,15 +42,7 @@ Platfroms: Platfrom(s)
 
 ----
 
-Year: 2077
-
-----
-
 Project-length: 6 months
-
-----
-
-Focus: Level Design, System Design
 
 ----
 

@@ -1,4 +1,4 @@
-Title: Game Title 3
+Title: Spyro: Revenge of the Dragonflies
 
 ----
 
@@ -14,7 +14,7 @@ Type: Professional Project
 
 ----
 
-Year: 2077
+Year: 2023
 
 ----
 
