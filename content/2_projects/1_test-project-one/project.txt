@@ -14,7 +14,7 @@ Description: A short one-line description of the game.
 
 ----
 
-Type: Personal Project
+Type: Game Jam
 
 ----
 
@@ -38,7 +38,7 @@ Duration: 5 Months
 
 ----
 
-Links: 
+Links: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 
 ----
 

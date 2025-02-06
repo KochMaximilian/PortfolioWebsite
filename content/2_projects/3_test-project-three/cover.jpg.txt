@@ -1,4 +1,4 @@
-Alt: test
+Alt: 
 
 ----
 
@@ -18,12 +18,8 @@ Sort: 1
 
 ----
 
-Uuid: N5s9gh7tPAAiGHWX
+Uuid: LHOzhE3bOLJYYGqD
 
 ----
 
-Template: showcase-image
-
-----
-
-Focus: 50.0% 50.0%
+Template: gallery-image

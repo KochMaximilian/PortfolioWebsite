@@ -1,5 +1,6 @@
 title: Gallery Image
-
+accept:
+  extension: jpg, jpeg, png
 fields: 
   alt:
     type: text
@@ -20,6 +21,7 @@ fields:
     type: text  
     label: CSS-Class
     width: 1/4
+
     
   
 

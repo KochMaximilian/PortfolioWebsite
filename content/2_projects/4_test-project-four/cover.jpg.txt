@@ -14,12 +14,16 @@ Class:
 
 ----
 
-Sort: 2
+Sort: 1
 
 ----
 
-Uuid: HgB3EurVLXtqRdj7
+Uuid: MQHR5MXC5wj2kyQL
 
 ----
 
 Template: gallery-image
+
+----
+
+Focus: 64.1% 38.6%

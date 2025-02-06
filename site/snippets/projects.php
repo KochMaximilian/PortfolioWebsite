@@ -1,5 +1,5 @@
 <?php
-$width  = 400;
+$width  = 500;
 $height = 500;
 ?>
 
@@ -9,9 +9,13 @@ $height = 500;
             <a href="<?= $project->url() ?>">
                 <figure>
                     <?= $project->images()->template('gallery-image')->first()->thumb([
+                        'autoOrient' => true,
                         'width' => $width, 
                         'height' => $height,
-                        'crop' => 'center',
+                        'crop' => true,
+                        'quality' => 80, /*For faster loading*/ 
+                        'fromat' => 'webp', /*For faster loading*/
+                        
                     ])
                         ?>
                     <figcaption>

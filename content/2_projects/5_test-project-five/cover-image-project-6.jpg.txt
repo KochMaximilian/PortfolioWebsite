@@ -1,0 +1,25 @@
+Alt: 
+
+----
+
+Intention: Cover
+
+----
+
+Caption: 
+
+----
+
+Class: 
+
+----
+
+Sort: 1
+
+----
+
+Uuid: L31sAx57rWsDHlmu
+
+----
+
+Template: gallery-image
