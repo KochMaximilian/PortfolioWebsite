@@ -6,6 +6,10 @@ Name: This is a required field.
 
 ----
 
+Featured: true
+
+----
+
 Description: A short one-line description of the game.
 
 ----

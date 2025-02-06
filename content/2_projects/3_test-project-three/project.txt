@@ -6,6 +6,10 @@ Name: Valdiation check test
 
 ----
 
+Featured: true
+
+----
+
 Description: Short one line description of the game.
 
 ----

@@ -2,11 +2,9 @@
 
 return function ($page) {
 
-    $width = 400;
-    $height = 500;
 
     $filterBy = get('filter');
-    $unfilterd = $page->children()->listed()->sortBy('year', 'desc');
+    $unfilterd = collection('projects')->sortBy('year', 'desc');
 
     $projects = $unfilterd
         ->when($filterBy, function ($filterBy) {
@@ -22,8 +20,6 @@ return function ($page) {
         'unfilterd' => $unfilterd,
         'projects' => $projects,
         'pagination' => $pagination,
-        'filters' => $filters,
-        'width' => $width,
-        'height' => $height
+        'filters' => $filters
     ];
 };

@@ -11,6 +11,15 @@ columns:
             required: true
             type: text
             maxlength: 50
+          featured:
+            label: Feature Project
+            type: toggle
+            text:
+              - "No"
+              - "Yes"
+            default: no
+            width: 1/2
+            help: Display this project on the front page.
           description:
             label: Description of the Game
             required: true

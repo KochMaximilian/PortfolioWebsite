@@ -6,6 +6,10 @@ Name: AAA Title 1
 
 ----
 
+Featured: false
+
+----
+
 Description: Short one line description of the game.
 
 ----
