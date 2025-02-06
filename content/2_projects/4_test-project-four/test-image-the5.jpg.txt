@@ -1,0 +1,25 @@
+Alt: 
+
+----
+
+Intention: Cover
+
+----
+
+Caption: 
+
+----
+
+Class: 
+
+----
+
+Sort: 1
+
+----
+
+Uuid: MQHR5MXC5wj2kyQL
+
+----
+
+Template: gallery-image

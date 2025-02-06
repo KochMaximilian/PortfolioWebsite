@@ -8,7 +8,12 @@ $height = 500;
         <li>
             <a href="<?= $project->url() ?>">
                 <figure>
-                    <?= $project->image()->crop($width, $height) ?>
+                    <?= $project->images()->template('gallery-image')->first()->thumb([
+                        'width' => $width, 
+                        'height' => $height,
+                        'crop' => 'center',
+                    ])
+                        ?>
                     <figcaption>
                         <?= $project->title() ?><br>
                         <small><?= $project->type() ?></small>

@@ -1,4 +1,13 @@
-<?php snippet('header') ?>
+
+<?php snippet('header', slots: true) ?>
+    <?php slot() ?><?php endslot() ?>
+
+    <?php slot('head') ?>
+        <!-- addtional meta tags or style if need.  -->
+    <?php endslot() ?>
+<!-- End of head slot -->
+<?php endsnippet() ?>
+
 <?php 
 $imageWidth = 600;
 $imageHeight = 600;
@@ -10,7 +19,8 @@ $imageHeight = 600;
 
             <div class="project-gallery">
                 <ul>
-                    <?php foreach ($page->images() as $image): ?>
+                    <?php $coverImage = $page->images()->template('gallery-image')->limit(1); ?>
+                    <?php foreach ($coverImage as $image): ?>
                         <li>
                             <a href="<?= $image->url() ?>">
                                 <img 

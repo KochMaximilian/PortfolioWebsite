@@ -6,7 +6,7 @@ Name: Valdiation check test
 
 ----
 
-Featured: true
+Featured: false
 
 ----
 

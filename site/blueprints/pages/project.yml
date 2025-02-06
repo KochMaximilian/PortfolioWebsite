@@ -35,6 +35,8 @@ columns:
             options:
               - Personal Project
               - Professional Project
+              - Game Jam
+              - Student Project
             width: 1/2
           year:
             label: Release Year
@@ -103,16 +105,35 @@ columns:
             label: Additional Links
             help: Links to other websites or social media pages for the game.
             type: link
-         
-
-  - width: 1/1
+  - width: 1/3
     sections:
       gallery:
-        label: Asset Gallery
+        label: Cover Image
         type: files
         layout: cards
+        empty: No image added yet.
         template: gallery-image
-        limit: 10
+        limit: 1
+        min: 1
+        max: 1
         image:
           ratio: 1/1
-
+ - width: 2/3
+   sections:
+     showcase:
+       label: Showcase Images
+       type: files
+       layout: table
+       info: "{{ file.alt }}"
+       empty: No images added yet.
+       columns:
+         alt: true
+         dimensions: true
+         date:
+           label: Date
+           value: "{{ file.date.toDate('d.m.Y') }}"
+       template: showcase-image
+       limit: 10
+       help: Maximum of 10 images.
+       image:
+          ratio: 1/1
