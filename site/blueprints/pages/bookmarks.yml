@@ -1,0 +1,14 @@
+title: Bookmarks
+
+sections:
+  bookmarks:
+    type: pages
+    headline: Bookmarks
+    layout: table
+    image: false
+    search: true
+    columns:
+      title: true
+      link: true
+      category: true
+    template: bookmark

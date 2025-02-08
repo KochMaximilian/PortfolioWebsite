@@ -1,0 +1,29 @@
+title: Bookmark
+
+create:
+  fields: 
+    - link
+    - category
+  status: listed
+  redirect: false
+
+fields: 
+  link:
+    type: url
+    label: Link
+  category:
+    type: select
+    label: Category
+    options:
+      - Game Design
+      - Level Design
+      - System Design
+      - Game Development
+      - Shader
+      - Unity
+      - Unreal Engine
+      - Blender
+      - Assets
+      - Plugins
+      - Tools
+      - Tutorials
