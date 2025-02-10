@@ -77,6 +77,15 @@
   background: blue;
 }
 
+.headings h1 {
+  color: aqua;
+}
+
+.headings h2 {
+  color: blue;
+}
+
+
 
 /* Base Font CSS Classes */
 .barlow-thin {

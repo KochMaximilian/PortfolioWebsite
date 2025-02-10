@@ -1,13 +1,78 @@
 Title: Home
 
 ----
-Introduction: Hello this is Max testing :D 
-----
-About:
-----
-Current Projects:
 
+Blocks:
 
+[
+    {
+        "content": {
+            "level": "h2",
+            "text": "Hello World Blockl"
+        },
+        "id": "4aa22fb0-77e7-4f76-a9ee-668176bb80c5",
+        "isHidden": false,
+        "type": "heading"
+    },
+    {
+        "content": {
+            "location": "kirby",
+            "image": [
+                "file://SNqWLx7AiUTa8ryT"
+            ],
+            "src": "",
+            "alt": "This is a image added by the block feature in the panel",
+            "caption": "Image added by the block feature in the panel",
+            "link": "",
+            "ratio": "16/9",
+            "crop": "true"
+        },
+        "id": "f77cee89-0384-4e63-b35d-25cd9057186c",
+        "isHidden": false,
+        "type": "image"
+    },
+    {
+        "content": {
+            "text": "<p>Hello, I am a text block added in the panel. </p>"
+        },
+        "id": "7f8c9219-8af6-4c05-a3fe-e354024e52d7",
+        "isHidden": false,
+        "type": "text"
+    },
+    {
+        "content": {
+            "images": [
+                "file://SNqWLx7AiUTa8ryT",
+                "file://0CmOQmd09Us9h6OW",
+                "file://AYkRqofSacc8Fxz5",
+                "file://JLIYAtxXwOGVsrNn",
+                "file://bcIKS6k8DLGoixeh",
+                "file://odkIUT5HpHG5hHeN",
+                "file://4CDT8mevKojnkviB",
+                "file://1p2dfJwkGpkv2Nxr"
+            ],
+            "caption": "",
+            "ratio": "3/2",
+            "crop": "false"
+        },
+        "id": "ebf0a17a-54c2-40cf-a699-d8271ed2bb0e",
+        "isHidden": false,
+        "type": "gallery"
+    }
+]
 
 ----
+
+Introduction: Hello this is Max testing :D
+
+----
+
+About: 
+
+----
+
+Current-projects: 
+
+----
+
 Uuid: wCczPmynz3rWsBaq

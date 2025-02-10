@@ -1,0 +1,1 @@
+<div class="headings"><<?= $level = $block->level()->or('h2') ?>><?= $block->text() ?></d<?= $level ?>></div>

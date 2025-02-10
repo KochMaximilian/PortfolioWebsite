@@ -1,0 +1,6 @@
+title: Home
+
+fields: 
+  blocks:
+    type: blocks
+    pretty: true # debug funtion set to FALSE for production
