@@ -3,4 +3,27 @@ title: Home
 fields: 
   blocks:
     type: blocks
-    pretty: true # debug funtion set to FALSE for production
+    pretty: true # debug function set to FALSE for production
+    fieldsets:
+      - heading
+      - text
+      - image
+      - gallery
+      - video
+      - line
+      - list
+      - quote
+      - markdown
+      - code
+      - type: accordion
+        preview: fields
+        wysiwyg: true
+        fields: 
+          items:
+            type: structure
+            fields:
+              summary:
+                type: text
+              details:
+                type: textarea
+                buttons: false

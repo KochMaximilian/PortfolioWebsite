@@ -85,6 +85,16 @@
   color: blue;
 }
 
+.accordion details {
+  margin: 1.5rem;
+  font-style: italic;
+  font-weight: 800;
+}
+
+.accordion summary {
+  color: blue;
+}
+
 
 
 /* Base Font CSS Classes */
