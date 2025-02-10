@@ -6,4 +6,16 @@ Link: https://test.com
 
 ----
 
+Category: Level Design
+
+----
+
+Icon: book
+
+----
+
+Back: #050404
+
+----
+
 Uuid: AiCt1ek4LyfaYncN

@@ -1,5 +1,9 @@
 title: Bookmark
 
+image: 
+  icon: "{{page.categoryIcon}}"
+  back: "{{page.categoryColor}}"
+
 create:
   fields: 
     - link
@@ -23,7 +27,10 @@ fields:
       - Unity
       - Unreal Engine
       - Blender
-      - Assets
-      - Plugins
-      - Tools
-      - Tutorials
+      - Asset
+      - Plugin
+      - Tool
+      - Tutorial
+      - Article
+      - Blog
+

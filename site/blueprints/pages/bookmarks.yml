@@ -4,11 +4,11 @@ sections:
   bookmarks:
     type: pages
     headline: Bookmarks
+    template: bookmark
     layout: table
-    image: false
     search: true
     columns:
       title: true
       link: true
       category: true
-    template: bookmark
+ 
