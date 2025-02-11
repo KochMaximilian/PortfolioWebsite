@@ -1,5 +1,18 @@
 title: Site
 
 sections:
-  pages:
+  navpages:
+    headline: Main Pages (Navigation)
     type: pages
+    layout: list
+    status: listed
+    image: false
+  
+  subpages:
+    headline: Subpages
+    type: pages
+    layout: list
+    status: unlisted
+    image: false
+    
+

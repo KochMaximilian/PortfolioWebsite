@@ -14,8 +14,7 @@ $height = 500;
                         'height' => $height,
                         'crop' => true,
                         'quality' => 80, /*For faster loading*/ 
-                        'fromat' => 'webp', /*For faster loading*/
-                        
+                        'fromat' => 'webp', /*For faster loading*/  
                     ])
                         ?>
                     <figcaption>

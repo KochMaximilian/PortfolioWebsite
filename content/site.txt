@@ -1,29 +1,49 @@
 Title: Maximilian Koch - Game Designer
+
 ----
-(Strore Generel Images here like your background patter)
+
+Linkedin: https://www.linkedin.com/in/maximilian-k-32aa37140/
+
 ----
 
 Author: Maximilian Koch
+
 ----
+
 Description: This is Maximilian Kochs portfolio webpage. Work in Progress.
-----
-Copyright: © 2024 Maximilian Koch
+
 ----
 
+Copyright: © 2025 Maximilian Koch
 
-LinkedIn:
-----
-Twitter (X):
-----
-BlueSky:
-----
-Itch.io:
-----
-Instagram:
-----
-YouTube:
-----
-Mail:
 ----
 
-Tags:
+Twitter: https://x.com/Distant7Dreamer
+
+----
+
+Bluesky: https://bsky.app/profile/thedistantdreamer.bsky.social
+
+----
+
+Itchio: https://adistantdreamer.itch.io/
+
+----
+
+Instagram: https://www.instagram.com/distantdreamer.games/
+
+----
+
+Youtube: https://www.youtube.com/@SeekSR388
+
+----
+
+Mail: maximiliankochhome@gmail.com
+
+----
+
+Github: https://github.com/KochMaximilian
+
+----
+
+Keywords: game design, level design, gameplay mechanics, game development, indie games, Unity, Unreal Enginge, game desigern portfolio

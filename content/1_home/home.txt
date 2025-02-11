@@ -7,23 +7,6 @@ Blocks:
 [
     {
         "content": {
-            "location": "kirby",
-            "image": [
-                "file://SNqWLx7AiUTa8ryT"
-            ],
-            "src": "",
-            "alt": "This is a image added by the block feature in the panel",
-            "caption": "Image added by the block feature in the panel",
-            "link": "",
-            "ratio": "16/9",
-            "crop": "true"
-        },
-        "id": "f77cee89-0384-4e63-b35d-25cd9057186c",
-        "isHidden": false,
-        "type": "image"
-    },
-    {
-        "content": {
             "items": [
                 {
                     "summary": "test",
@@ -42,6 +25,23 @@ Blocks:
         "id": "ad60b4c7-b7b8-4b0d-9cc2-70d0fbc235a3",
         "isHidden": false,
         "type": "accordion"
+    },
+    {
+        "content": {
+            "location": "kirby",
+            "image": [
+                "file://SNqWLx7AiUTa8ryT"
+            ],
+            "src": "",
+            "alt": "This is a image added by the block feature in the panel",
+            "caption": "Image added by the block feature in the panel",
+            "link": "",
+            "ratio": "16/9",
+            "crop": "true"
+        },
+        "id": "f77cee89-0384-4e63-b35d-25cd9057186c",
+        "isHidden": false,
+        "type": "image"
     },
     {
         "content": {

@@ -23,7 +23,8 @@ $imageHeight = 600;
                     <?php foreach ($coverImage as $image): ?>
                         <li>
                             <a href="<?= $image->url() ?>">
-                                <img 
+                                <img
+                                    loading="lazy" 
                                     alt="<?= $image->alt() ?>" 
                                     class="project-image" 
                                     src="<?= $image->resize($imageWidth, $imageHeight)->url() ?>"
