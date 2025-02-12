@@ -3,14 +3,14 @@
         <hr>
 
         <p><?= $site->copyright() ?></p>
-        <p>Mail: <a href="mailto:<?= $site->mail() ?>">maximiliankochhome@gmail.com</a></p>
+        <p>Mail:<a class="mail-link" href="mailto:<?= $site->mail() ?>">maximiliankochhome@gmail.com</a></p>
 
         <nav class="socials">
-            <a target="_blank" href="<?= $site->twitter() ?>">Follow me on Twitter</a>
-            <a target="_blank" href="<?= $site->itchio() ?>">Itch.io</a>
-            <a target="_blank" href="<?= $site->linkedin() ?>">LinkedIn</a>
-            <a target="_blank" href="<?= $site->bluesky() ?>">Bluesky</a>
-            <a target="_blank" href="<?= $site->youtube() ?>">YouTube</a>
+            <a class="social-link" target="_blank" href="<?= $site->twitter() ?>">Twitter</a><span>&nbsp;|</span>
+            <a class="social-link" target="_blank" href="<?= $site->itchio() ?>">Itch.io</a><span>&nbsp;|</span>
+            <a class="social-link" target="_blank" href="<?= $site->linkedin() ?>">LinkedIn</a><span>&nbsp;|</span>
+            <a class="social-link" target="_blank" href="<?= $site->bluesky() ?>">Bluesky</a><span>&nbsp;|</span>
+            <a class="social-link" target="_blank" href="<?= $site->youtube() ?>">YouTube</a>
         </nav>
     </div>
 </footer>

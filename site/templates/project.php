@@ -1,4 +1,4 @@
-
+<div class="wrapper">
 <?php snippet('header', slots: true) ?>
     <?php slot() ?><?php endslot() ?>
 
@@ -70,3 +70,4 @@ $imageHeight = 600;
     </article>
 </main>
 <?php snippet('footer') ?>
+</div>

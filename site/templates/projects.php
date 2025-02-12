@@ -1,3 +1,4 @@
+<div class="wrapper">
 <?php snippet('header', slots: true) ?>
     <?php slot() ?><?php endslot() ?>
 
@@ -19,4 +20,6 @@
     <?php snippet('pagination') ?>
 </main>
 
+
 <?php snippet('footer') ?>
+</div>

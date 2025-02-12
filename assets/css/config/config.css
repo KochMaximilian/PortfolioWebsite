@@ -26,6 +26,9 @@
     --color-olive-light: #969C96;
     --color-white: #FFFFFF;
 
+    /* Transperent Color */
+    --color-black-semi-transparent: rgba(0,0,0, 0.85);
+
 
     /* Font Size */
 

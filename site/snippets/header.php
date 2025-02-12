@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <header>
-        <a class="logo" href="<?= $site->url() ?>">Maximilian Koch</a>
+<div>
+    <header class="site-header">
         <?php snippet('navbar') ?>
     </header>

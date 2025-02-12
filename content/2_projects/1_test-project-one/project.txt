@@ -6,7 +6,7 @@ Name: This is a required field.
 
 ----
 
-Featured: false
+Featured: true
 
 ----
 

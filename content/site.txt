@@ -10,6 +10,10 @@ Author: Maximilian Koch
 
 ----
 
+Banner: Game Designer
+
+----
+
 Description: This is Maximilian Kochs portfolio webpage. Work in Progress.
 
 ----

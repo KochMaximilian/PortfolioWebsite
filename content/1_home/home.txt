@@ -2,48 +2,7 @@ Title: Home
 
 ----
 
-Blocks:
-
-[
-    {
-        "content": {
-            "items": [
-                {
-                    "summary": "test",
-                    "details": "test"
-                },
-                {
-                    "summary": "test 2",
-                    "details": "test 2"
-                },
-                {
-                    "summary": "test 3",
-                    "details": "this is the content of test 3 accordion block section whaevere"
-                }
-            ]
-        },
-        "id": "ad60b4c7-b7b8-4b0d-9cc2-70d0fbc235a3",
-        "isHidden": false,
-        "type": "accordion"
-    },
-    {
-        "content": {
-            "level": "h2",
-            "text": "Hello World Blockl"
-        },
-        "id": "4aa22fb0-77e7-4f76-a9ee-668176bb80c5",
-        "isHidden": false,
-        "type": "heading"
-    },
-    {
-        "content": {
-            "text": "<p>Hello, I am a text block added in the panel. </p>"
-        },
-        "id": "7f8c9219-8af6-4c05-a3fe-e354024e52d7",
-        "isHidden": false,
-        "type": "text"
-    }
-]
+Blocks: 
 
 ----
 
