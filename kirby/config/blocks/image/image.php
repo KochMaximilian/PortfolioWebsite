@@ -1,3 +1,4 @@
+</div>
 <?php
 
 /** @var \Kirby\Cms\Block $block */
@@ -9,10 +10,10 @@ $ratio   = $block->ratio()->or('auto');
 $src     = null;
 
 if ($block->location() == 'web') {
-	$src = $block->src()->esc();
+  $src = $block->src()->esc();
 } elseif ($image = $block->image()->toFile()) {
-	$alt = $alt->or($image->alt());
-	$src = $image->url();
+  $alt = $alt->or($image->alt());
+  $src = $image->url();
 }
 
 ?>
@@ -33,3 +34,4 @@ if ($block->location() == 'web') {
   <?php endif ?>
 </figure>
 <?php endif ?>
+<div>

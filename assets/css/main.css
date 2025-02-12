@@ -1,27 +1,57 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::after,
+*::before {
+	border-width: 0;
+	border-style: solid;
+  border-color: currentColor;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+@-moz-document url-prefix() {
+  .glider-track {
+    margin-bottom: 17px;
+  }
+  .glider-wrap {
+    overflow: hidden;
+  }
+}
+
+.wrapper {
+  width: 64em;
+  max-width: calc(100% - 4em);
+  margin: 0px auto;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: var(--font-poppins);
+  color: var(--color-black-medium);
+}
+
+
+h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-black);
+  font-family: var(--font-barlow);
+  color: var(--color-black-dark);
+  text-transform: uppercase;
+  font-style: normal;
+  text-decoration: none;
 }
 
 
 
-.main-wrapper {
-    flex-grow: 1;
-    margin-bottom: 3rem;
-}
-
-.main-wrapper h1 {
-  margin-bottom: 1.5rem;
-}
 
 .logo {
- 
-    font-family: "Barlow", sans-serif;
-    font-size: 2em;
-    font-weight: 800;
+    font-family: var(--font-barlow);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-black);
     font-style: normal;
     text-transform: uppercase;
+    text-decoration: none;
 }
 
 .projects {
@@ -31,14 +61,28 @@
   grid-row-gap: 1rem;
   list-style: none;
   margin: 1rem
-  
-
 }
 
 .projects img {
   width: 100%;
+  
+}
+
+.slider-grid img {
+  width: 100%;
   margin-bottom: .5rem;
- 
+  
+}
+
+.glider figure {
+  cursor: grab;
+}
+.glider figure:active {
+  cursor: grabbing;
+}
+
+.glider figcaption {
+  cursor: pointer;
 }
 
 .pagination {
@@ -96,223 +140,3 @@
   font-weight: 800;
   color: blue;
 }
-
-
-
-/* Base Font CSS Classes */
-.barlow-thin {
-    font-family: "Barlow", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-  }
-  
-  .barlow-extralight {
-    font-family: "Barlow", sans-serif;
-    font-weight: 200;
-    font-style: normal;
-  }
-  
-  .barlow-light {
-    font-family: "Barlow", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  .barlow-regular {
-    font-family: "Barlow", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .barlow-medium {
-    font-family: "Barlow", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-  }
-  
-  .barlow-semibold {
-    font-family: "Barlow", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-  }
-  
-  .barlow-bold {
-    font-family: "Barlow", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-  .barlow-extrabold {
-    font-family: "Barlow", sans-serif;
-    font-weight: 800;
-    font-style: normal;
-  }
-  
-  .barlow-black {
-    font-family: "Barlow", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-  }
-  
-  .barlow-thin-italic {
-    font-family: "Barlow", sans-serif;
-    font-weight: 100;
-    font-style: italic;
-  }
-  
-  .barlow-extralight-italic {
-    font-family: "Barlow", sans-serif;
-    font-weight: 200;
-    font-style: italic;
-  }
-  
-  .barlow-light-italic {
-    font-family: "Barlow", sans-serif;
-    font-weight: 300;
-    font-style: italic;
-  }
-  
-  .barlow-regular-italic {
-    font-family: "Barlow", sans-serif;
-    font-weight: 400;
-    font-style: italic;
-  }
-  
-  .barlow-medium-italic {
-    font-family: "Barlow", sans-serif;
-    font-weight: 500;
-    font-style: italic;
-  }
-  
-  .barlow-semibold-italic {
-    font-family: "Barlow", sans-serif;
-    font-weight: 600;
-    font-style: italic;
-  }
-  
-  .barlow-bold-italic {
-    font-family: "Barlow", sans-serif;
-    font-weight: 700;
-    font-style: italic;
-  }
-  
-  .barlow-extrabold-italic {
-    font-family: "Barlow", sans-serif;
-    font-weight: 800;
-    font-style: italic;
-  }
-  
-  .barlow-black-italic {
-    font-family: "Barlow", sans-serif;
-    font-weight: 900;
-    font-style: italic;
-  }
-
-  .poppins-thin {
-    font-family: "Poppins", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-  }
-  
-  .poppins-extralight {
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
-    font-style: normal;
-  }
-  
-  .poppins-light {
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  .poppins-regular {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .poppins-medium {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-  }
-  
-  .poppins-semibold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-  }
-  
-  .poppins-bold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-  .poppins-extrabold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 800;
-    font-style: normal;
-  }
-  
-  .poppins-black {
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-  }
-  
-  .poppins-thin-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 100;
-    font-style: italic;
-  }
-  
-  .poppins-extralight-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
-    font-style: italic;
-  }
-  
-  .poppins-light-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-style: italic;
-  }
-  
-  .poppins-regular-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: italic;
-  }
-  
-  .poppins-medium-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-style: italic;
-  }
-  
-  .poppins-semibold-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-style: italic;
-  }
-  
-  .poppins-bold-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: italic;
-  }
-  
-  .poppins-extrabold-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 800;
-    font-style: italic;
-  }
-  
-  .poppins-black-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-    font-style: italic;
-  }
-  

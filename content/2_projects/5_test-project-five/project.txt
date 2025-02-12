@@ -6,6 +6,10 @@ Name: AAA Title 3
 
 ----
 
+Featured: true
+
+----
+
 Description: Short one line description of the game.
 
 ----

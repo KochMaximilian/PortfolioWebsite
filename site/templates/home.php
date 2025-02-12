@@ -1,3 +1,4 @@
+<div class="wrapper">
 <?php snippet('header', slots: true) ?>
 <?php slot() ?><?php endslot() ?>
 
@@ -16,14 +17,18 @@
 
 
 
-    <?php snippet('projects', [
+    <?php snippet('projectslider', [
         'projects' => collection('featured')
             ->limit(3) /* limit to 3 projects on the home page */
     ]) ?>
 
 
 
+
+
 <?php snippet('footer') ?>
+
+
 
 
 
@@ -38,5 +43,7 @@
        
         </div>
     <?php endforeach ?>
+
+</div>
 
 </div>
