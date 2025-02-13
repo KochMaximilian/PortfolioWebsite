@@ -1,14 +1,8 @@
 
 <div class="wrapper">
     <div class="main-content">
-        <?php snippet('header', slots: true) ?>
-        <?php slot() ?><?php endslot() ?>
-
-        <?php slot('head') ?>
-        <!-- additional meta tags or style if needed -->
-        <?php endslot() ?>
-        <!-- End of head slot -->
-        <?php endsnippet() ?>
+        <?php snippet('header') ?>
+      
 
         <main class="main-wrapper">
             <section class="content-block">

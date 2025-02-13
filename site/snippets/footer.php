@@ -27,13 +27,19 @@
             new Flickity(elem, {
                 selectedAttraction: 0.01,
                 friction: 0.15,
-                cellAlign: 'left',
+                cellAlign: 'center',
                 contain: true,
                 wrapAround: true,  // Optional: Allows for infinite scrolling
                 autoPlay: 3000,    // Optional: Auto-play carousel every 3 seconds
                 prevNextButtons: true,
                 dragThreshold: 15,
-                cellSelector: '.carousel-cell'
+                cellSelector: '.carousel-cell',
+                arrowShape: {
+                    x0: 10,
+                    x1: 70, y1: 40,
+                    x2: 70, y2: 40,
+                    x3: 70
+                },
             });
         }
     });

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $page->title()->html() ?> | <?= $site->title()->html() ?></title>
+   <?php snippet('favicon') ?>
+
     <link rel="preload" href="/assets/img/pattern.png" as="image">
     
     <?php if ($page->intendedTemplate()->name() === 'home'): ?>

@@ -32,6 +32,12 @@ body {
   z-index: 0;
 }
 
+.logo-icon {
+  width: 2.5vh;
+  height: auto;
+
+
+}
 
 
 /* Scrolling Background Styling */
@@ -66,7 +72,7 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
-  width: 64em;
+  width: 64em; /*TODO Turn this into variable*/
   max-width: calc(100% - 4em);
   margin: 0 auto;
   padding-top: 80px;
@@ -90,7 +96,7 @@ body {
 }
 
 .content-block {
-  margin: 7.5rem 6rem 0 6rem;
+  margin-top: 7.5rem;
   padding: .4rem .9rem;
   text-align: center;
   background-color: var(--color-white);
@@ -235,6 +241,34 @@ p{
   margin: 0 1.2rem 0 1.2rem;
   
 }
+
+.flickity-button {
+  background: #333;
+}
+.flickity-button:hover {
+  background: #F90;
+}
+
+.flickity-prev-next-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+}
+/* icon color */
+.flickity-button-icon {
+  fill: white;
+}
+/* position outside */
+.flickity-prev-next-button.previous {
+  left: -40px;
+}
+.flickity-prev-next-button.next {
+  right: -40px;
+}
+
+
+
+
 
 /* Projects Section */
 .projects {

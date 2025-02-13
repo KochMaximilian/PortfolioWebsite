@@ -1,12 +1,6 @@
 <div class="wrapper">
-<?php snippet('header', slots: true) ?>
-    <?php slot() ?><?php endslot() ?>
+<?php snippet('header') ?>
 
-    <?php slot('head') ?>
-        <!-- addtional meta tags or style if need.  -->
-    <?php endslot() ?>
-<!-- End of head slot -->
-<?php endsnippet() ?>
 
 <?php 
 $imageWidth = 600;

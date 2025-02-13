@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Preload the images using a new Image object
     const image = new Image();
-    image.src = "path/to/your/pattern.png";  // Replace with the correct image path
+    image.src = "/assets/img/pattern.png";  // Replace with the correct image path
 
     image.onload = () => {
         console.log("Background images loaded successfully. Applying animation...");
