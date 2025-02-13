@@ -4,7 +4,7 @@ $height = 300;
 ?>
 
 <div class="main-carousel">
-<div class="static-banner"><h2></h2></div> <!--TODO maybe do sometign with this --!
+<div class="static-banner"><h2></h2></div> <!--TODO maybe do sometign with this -->
     <?php foreach ($projects as $project): ?>
         <div class="carousel-cell">
             <a href="<?= $project->url() ?>">
