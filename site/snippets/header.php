@@ -5,13 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $page->title()->html() ?> | <?= $site->title()->html() ?></title>
+    <link rel="preload" href="/assets/img/pattern.png" as="image">
     
     <?php if ($page->intendedTemplate()->name() === 'home'): ?>
         <?= css('assets/js/gliderJS/glider.css') ?>
+        <?= css('assets/css/config/utility/flickity.css') ?>
     <?php endif; ?>
     
     <?= css('assets/css/main.css') ?>
     <?= css('assets/css/config/config.css') ?>
+    
     <?= $slots->head() ?>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +24,8 @@
 </head>
 
 <body>
+<div class="scrolling-background" id="background1"></div>
+<div class="scrolling-background" id="background2"></div>
 <div>
     <header class="site-header">
         <?php snippet('navbar') ?>

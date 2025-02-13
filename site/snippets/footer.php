@@ -14,33 +14,32 @@
         </nav>
     </div>
 </footer>
+
 <?php if ($page->intendedTemplate()->name() === 'home'): ?>
-<?= js('assets/js/gliderJS/glider-compat.min.js') ?>
-<?= js('assets/js/gliderJS/glider.js') ?>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        new Glider(document.querySelector('.glider'), {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            scrollLock: true,
-            rewind: true,
-            draggable: true,
-            dragVelocity: 2.7, // Increased drag velocity for a more fluid swipe feel
-            duration: 0.5, 
-            easing: function (x, t, b, c, d) { // Custom easing function for smooth drag
-                return c*(t/=d)*t + b;
-            },
-            dots: '.dots',
-            arrows: {
-                prev: '.glider-prev',
-                next: '.glider-next'
-            },
-        });
+    <!-- Load JS for home page -->
+    <?= js('assets/js/flickity/flickity.pkgd.min.js') ?>
+
+    <script>
+    // Initialize Flickity when the page is loaded or shown
+    window.addEventListener('pageshow', function() {
+        var elem = document.querySelector('.main-carousel');
+        if (elem) {
+            new Flickity(elem, {
+                selectedAttraction: 0.01,
+                friction: 0.15,
+                cellAlign: 'left',
+                contain: true,
+                wrapAround: true,  // Optional: Allows for infinite scrolling
+                autoPlay: 3000,    // Optional: Auto-play carousel every 3 seconds
+                prevNextButtons: true,
+                dragThreshold: 15,
+                cellSelector: '.carousel-cell'
+            });
+        }
     });
-</script>
+    </script>
 <?php endif; ?>
-
-
+<?= js( 'assets/js/script.js') ?>
 
 </body>
 </html>
