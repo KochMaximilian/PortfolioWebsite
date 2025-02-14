@@ -100,15 +100,16 @@ body {
   padding: .4rem .9rem;
   text-align: center;
   background-color: var(--color-white);
-  border-radius: 0.5rem;
-  border: .4rem solid var(--color-black-dark);
+  border-radius: var(--rounded-md);
+  border: var(--border-sm) solid;
+  border-color: var(--color-black-dark);;
   /* background: #F4F2EE;*/
-  box-shadow: var(--color-black-dark) 2px 4px 0px 2px;
+  box-shadow: var(--solid-shadow);
 }
 
 footer {
   background: var(--color-black-dark);
-  border-radius: var(--rounded-xl) var(--rounded-xl) 0 0;
+  border-radius: var(--rounded-md) var(--rounded-md) 0 0;
   box-shadow: var(--shadow-lg);
   color: var(--color-white);
   padding: 3rem 0;
@@ -132,7 +133,7 @@ footer p {
 }
 
 .social-link, .mail-link {
-  color: #fff;
+  color: var(--color-white);
   text-decoration: none;
   margin: 0 10px;
   font-size: 1rem;
@@ -182,7 +183,7 @@ p{
   width: 100%; 
   height: auto; 
   display: block; 
-  border-radius: .6rem;
+
 }
 
 
@@ -195,7 +196,9 @@ p{
 }
 
 .slider-image {
-  border-radius: .6rem;
+  border-radius: var(--rounded-md);
+  border: var(--border-sm) solid;
+  border-color: var(--color-black-dark);
 }
 
 .main-carousel {
@@ -207,63 +210,102 @@ p{
 }
 
 .carousel-cell.is-selected img {
-  transition: border 0.3s ease;
+  transition: border-color 0.3s ease;
+ 
 }
 
 .carousel-cell.is-selected img:hover {
-  border: .6rem solid;
-  border-color: var(--color-black-dark);
+ border-color: var(--color-blue-medium);
 }
 
 /* position dots in carousel */
 .flickity-page-dots {
-  bottom: 5rem;
+  bottom: var(--spacing-42);
 }
 /* white circles */
 .flickity-page-dots .dot {
-  width: 12px;
-  height: 12px;
+  width: var(--spacing-3);
+  height: var(--spacing-3);
   opacity: 1;
-  background: transparent;
-  border: 2px solid var(--color-gray-dark);
+  background: var(--color-white);
+ 
   z-index: var(--z-loader);
+ 
 }
 /* fill-in selected dot */
 .flickity-page-dots .dot.is-selected {
-  background: var(--color-gray-medium);
+  background: var(--color-blue-medium);
+  transition: border 0.3s ease-in-out;
+  transition: height 0.3s ease-in-out;
+  width: var(--spacing-4);
+  height: var(--spacing-4);
+
 }
 
 
 
 .slider-figure {
-  background: var(--color-blue-dark);
+  background: var(--color-blue-light);
   border-radius: .6rem;
-  margin: 0 1.2rem 0 1.2rem;
+  margin: 0 1.2rem 1.2rem 1.2rem;
+  padding: 1rem;
+  border: var(--border-sm) solid;
+  border-color: var(--color-black-dark);
+  box-shadow: var(--solid-shadow);
+  
+  
+}
+.slider-figure figcaption {
+  padding: 1rem;
+  
   
 }
 
+.carousel-link {
+  text-decoration: none;
+  font-size: var(--font-size-xl);
+  color: var(--color-black-dark);
+  font-weight: var(--font-bold);
+  transition: color 0.3s ease;
+}
+
+
+
+
+.carousel-link small {
+  color: var(--color-white);
+  font-weight: var(--font-bold);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+}
+
+
 .flickity-button {
-  background: #333;
+  background: var(--color-white);
 }
 .flickity-button:hover {
-  background: #F90;
+  background: var(--color-yellow-dark);
 }
 
 .flickity-prev-next-button {
-  width: 30px;
-  height: 30px;
-  border-radius: 5px;
+  width: 3rem;
+  height: 5rem;
+  border-radius: var(--rounded-sm);
+  border: solid;
+  border-color: var(--color-black-dark);
+  border-width: var(--border-xs);
+  box-shadow: var(--solid-shadow-sm);
 }
 /* icon color */
 .flickity-button-icon {
-  fill: white;
+  fill: var(--color-black-dark);
 }
 /* position outside */
 .flickity-prev-next-button.previous {
-  left: -40px;
+  left: var(--negative-spacing-12);
 }
 .flickity-prev-next-button.next {
-  right: -40px;
+  right: var(--negative-spacing-12);
 }
 
 
@@ -308,7 +350,7 @@ p{
   align-items: center;
   justify-content: space-between;
   background: var(--color-black-dark);
-  border-radius: 0 0 var(--rounded-xl) var(--rounded-xl);
+  border-radius: 0 0 var(--rounded-md) var(--rounded-md);
   box-shadow: var(--shadow-lg);
 }
 
