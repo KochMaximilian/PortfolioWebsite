@@ -168,6 +168,13 @@ footer {
   margin-top: 1rem;
 }
 
+.footer-logo {
+  user-select: none;  /* Prevents text selection */
+  -moz-user-select: none; /* For Firefox */
+  -ms-user-select: none;  /* For IE/Edge */
+  
+}
+
 
 /* Footer Social Links */
 .socials {

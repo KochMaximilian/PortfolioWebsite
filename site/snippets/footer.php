@@ -9,7 +9,7 @@
         </div>
 
         <div class="footer-center">
-            <img id="wobbleElement" class="wobble-hor-top" src="<?= $site->url() ?>/assets/favicon/favicon.ico">
+            <img id="wobbleElement" class="wobble-hor-top footer-logo" src="<?= $site->url() ?>/assets/favicon/favicon.ico">
             <h5>Don't be a Stranger!</h5>
             <span class="copyright"><?= $site->copyright() ?></span>
         </div>
