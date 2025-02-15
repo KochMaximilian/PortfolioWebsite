@@ -12,14 +12,14 @@
 }
 
 html, body {
-  height: 100%;
-  margin: 0; /* Remove any default margin */
+  height: 100%; /* Full height for the viewport */
+  margin: 0;
   display: flex;
   flex-direction: column;
   background-color: var(--color-blue-light);
   font-family: var(--font-poppins);
   color: var(--color-black-medium);
-  overflow: hidden; 
+
 }
 
 html {
@@ -71,22 +71,20 @@ body {
 .wrapper {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  width: 64em; /*TODO Turn this into variable*/
+  flex: 1; /* Takes full height of the viewport */
+  width: 64em;
   max-width: calc(100% - 4em);
   margin: 0 auto;
-  padding-top: 80px;
-  box-sizing: border-box; /* Ensures padding is included in width calculation */
-  /*background: var(--color-blue-light);*/
+  padding-top: 80px; /* This might be excessive, depending on your needs */
   padding-left: 1rem;
   padding-right: 1rem;
-
+  box-sizing: border-box;
 }
 
 .main-content {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1; /* Ensures it fills remaining space */
 }
 
 .main-wrapper {
@@ -113,17 +111,21 @@ footer {
   box-shadow: var(--shadow-lg);
   color: var(--color-white);
   padding: 3rem 0;
-  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
   width: 100%;
-  margin-top: auto;
   z-index: 1000;
+  position: relative;
+  max-width: 64rem;
+  margin: auto;
 }
-
 
 footer p {
   margin: 0;
   padding: 0.5rem 0;
+}
+
+.footer-wrapper {
+  margin-top: auto;
 }
 
 
@@ -301,6 +303,8 @@ p{
 /* icon color */
 .flickity-button-icon {
   fill: var(--color-black-dark);
+
+  width: 80%;
 }
 /* Button position outside */
 .flickity-prev-next-button.previous {
@@ -310,6 +314,13 @@ p{
   right: var(--negative-spacing-16);
 }
 
+/* Ratio of the svg postion */
+.flickity-prev-next-button .flickity-button-icon {
+  height: 70%;
+  width: 70%;
+  left: 15%;
+  top: 15%
+}
 
 
 

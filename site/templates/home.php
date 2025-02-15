@@ -1,7 +1,9 @@
-
+<?php snippet('header') ?>
 <div class="wrapper">
+    
     <div class="main-content">
-        <?php snippet('header') ?>
+   
+      
       
 
         <main class="main-wrapper">
@@ -14,9 +16,13 @@
                 ]) ?>
                   
             </section>
+
+   
           
         </main>
 
     </div>
-    <?php snippet('footer') ?>
+
 </div>
+<?php snippet('footer') ?>
+

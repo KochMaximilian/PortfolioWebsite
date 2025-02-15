@@ -12,9 +12,15 @@
         <?= css('assets/js/gliderJS/glider.css') ?>
         <?= css('assets/css/config/utility/flickity.css') ?>
     <?php endif; ?>
-    
+
+    <?= css('assets/fontawesome/css/fontawesome.min.css') ?>   
+    <?= css('assets/fontawesome/css/brands.min.css') ?> 
+    <?= css('assets/fontawesome/css/solid.min.css') ?>
+
+    <?= css('assets/css/config/config.css') ?>    
     <?= css('assets/css/main.css') ?>
-    <?= css('assets/css/config/config.css') ?>
+
+
     
     <?= $slots->head() ?>
     
@@ -27,7 +33,6 @@
 <body>
 <div class="scrolling-background" id="background1"></div>
 <div class="scrolling-background" id="background2"></div>
-<div>
     <header class="site-header">
         <?php snippet('navbar') ?>
     </header>
