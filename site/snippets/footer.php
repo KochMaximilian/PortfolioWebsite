@@ -34,12 +34,7 @@
                 prevNextButtons: true,
                 dragThreshold: 15,
                 cellSelector: '.carousel-cell',
-                arrowShape: {
-                    x0: 10,
-                    x1: 70, y1: 40,
-                    x2: 70, y2: 40,
-                    x3: 70
-                },
+                arrowShape: 'm24.12 54.706 38.9 34.972c4.59 4.02 11.79 0.752 11.79-5.496V15.818c0-6.248-7.2-9.516-11.79-5.496l-38.9 34.972a7 7 0 0 0 0 10.412z'
             });
         }
     });

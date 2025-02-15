@@ -4,7 +4,6 @@ $height = 300;
 ?>
 
 <div class="main-carousel">
-<div class="static-banner"><img class="logo-icon" src="<?= $site->url()?>/assets/favicon/favicon.ico"></div> <!--TODO maybe do sometign with this -->
     <?php foreach ($projects as $project): ?>
         <div class="carousel-cell">
             <a class="carousel-link" href="<?= $project->url() ?>">

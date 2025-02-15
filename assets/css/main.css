@@ -92,11 +92,11 @@ body {
 .main-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 4rem; /* Adds space between sections */
+  gap: 3.5rem; /* Adds space between sections */
 }
 
 .content-block {
-  margin-top: 7.5rem;
+  margin-top: 6.5rem;
   padding: .4rem .9rem;
   text-align: center;
   background-color: var(--color-white);
@@ -198,7 +198,7 @@ p{
 .slider-image {
   border-radius: var(--rounded-md);
   border: var(--border-sm) solid;
-  border-color: var(--color-black-dark);
+  border-color: var(--color-black-medium);
 }
 
 .main-carousel {
@@ -247,8 +247,8 @@ p{
 .slider-figure {
   background: var(--color-blue-light);
   border-radius: .6rem;
-  margin: 0 1.2rem 1.2rem 1.2rem;
-  padding: 1rem;
+  margin: 0 1.4rem 1.2rem 1.4rem;
+  padding: 1.3rem;
   border: var(--border-sm) solid;
   border-color: var(--color-black-dark);
   box-shadow: var(--solid-shadow);
@@ -284,12 +284,14 @@ p{
   background: var(--color-white);
 }
 .flickity-button:hover {
-  background: var(--color-yellow-dark);
+  border-color: var(--color-yellow-dark);
+  box-shadow: var(--color-yellow-dark) 2px 4px 0px 2px;
+
 }
 
 .flickity-prev-next-button {
-  width: 3rem;
-  height: 5rem;
+  width: 4rem;
+  height: 7rem;
   border-radius: var(--rounded-sm);
   border: solid;
   border-color: var(--color-black-dark);
@@ -300,14 +302,13 @@ p{
 .flickity-button-icon {
   fill: var(--color-black-dark);
 }
-/* position outside */
+/* Button position outside */
 .flickity-prev-next-button.previous {
-  left: var(--negative-spacing-12);
+  left: var(--negative-spacing-16);
 }
 .flickity-prev-next-button.next {
-  right: var(--negative-spacing-12);
+  right: var(--negative-spacing-16);
 }
-
 
 
 
