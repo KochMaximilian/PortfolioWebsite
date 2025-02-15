@@ -19,7 +19,7 @@ html, body {
   background-color: var(--color-blue-light);
   font-family: var(--font-poppins);
   color: var(--color-black-medium);
-  overflow: hidden; 
+
 }
 
 html {
@@ -79,6 +79,7 @@ body {
   padding-left: 1rem;
   padding-right: 1rem;
   box-sizing: border-box;
+  height: 100%;
 }
 
 .main-content {
@@ -112,11 +113,10 @@ footer {
   color: var(--color-white);
   padding: 3rem 0;
   text-align: center;
-
   z-index: 1000;
-  position: relative;
   width: 64em;  /* TODO - add variable for width */
   max-width: calc(100% - 4em);
+  margin: 0 auto;
 
 
 }
@@ -127,9 +127,12 @@ footer p {
 }
 
 .footer-wrapper {
-  margin-top: auto; /* Ensures footer stays at the bottom */
-  margin-right: auto;
-  margin-left: auto;
+  width: 100%;
+  position: fixed; /* Keeps it at the top */
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -434,6 +437,26 @@ p{
   margin: 6px 0;
   transition: all 0.3s ease-in-out;
 }
+
+
+
+.main-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 4px solid rgb(23, 20, 21);
+  background: #F4F2EE;
+  box-shadow: rgb(23, 20, 21) 2px 4px 0px 2px;
+  transition: all 0.2s linear;
+  text-align: center;
+  margin: 20px auto; /* To center the button */
+  text-transform: uppercase;
+}
+
+
 
 /*Responsive NAV */
 
