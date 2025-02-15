@@ -16,15 +16,7 @@
                 ]) ?>
                   
             </section>
-            <section>
-                <button class="main-button">Test</button>
-            </section>
-            <section>
-                <button class="main-button">Test</button>
-            </section>
-            <section>
-                <button class="main-button">Test</button>
-            </section>
+          
             
 
    
