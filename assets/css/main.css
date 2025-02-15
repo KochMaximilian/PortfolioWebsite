@@ -19,7 +19,7 @@ html, body {
   background-color: var(--color-blue-light);
   font-family: var(--font-poppins);
   color: var(--color-black-medium);
-
+  overflow: hidden; 
 }
 
 html {
@@ -112,11 +112,13 @@ footer {
   color: var(--color-white);
   padding: 3rem 0;
   text-align: center;
-  width: 100%;
+
   z-index: 1000;
   position: relative;
-  max-width: 64rem;
-  margin: auto;
+  width: 64em;  /* TODO - add variable for width */
+  max-width: calc(100% - 4em);
+
+
 }
 
 footer p {
@@ -125,7 +127,9 @@ footer p {
 }
 
 .footer-wrapper {
-  margin-top: auto;
+  margin-top: auto; /* Ensures footer stays at the bottom */
+  margin-right: auto;
+  margin-left: auto;
 }
 
 
