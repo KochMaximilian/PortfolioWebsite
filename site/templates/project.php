@@ -1,5 +1,6 @@
-<div class="wrapper">
 <?php snippet('header') ?>
+<div class="wrapper">
+
 
 
 <?php 
@@ -63,5 +64,7 @@ $imageHeight = 600;
         </div>
     </article>
 </main>
+</div>
+<div class="footer-wrapper">
 <?php snippet('footer') ?>
 </div>

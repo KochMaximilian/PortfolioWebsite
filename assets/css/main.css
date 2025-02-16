@@ -263,6 +263,10 @@ p{
   
 }
 
+.carousel-cell img:active {
+  cursor: grabbing; 
+}
+
 .slider-image {
   border-radius: var(--rounded-md);
   border: var(--border-sm) solid;
