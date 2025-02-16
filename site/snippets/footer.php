@@ -17,7 +17,7 @@
         <div class="footer-right">
             <nav class="socials">
                 <a class="social-link" target="_blank" href="<?= $site->linkedin() ?>"><i class="fa-brands fa-linkedin custom-icon-size "></i></a>
-                <a class="social-link" target="_blank" href="<?= $site->bluesky() ?>"><i class="fa-brands fa-square-bluesky custom-icon-size"></i></a>
+                <a class="social-link" target="_blank" href="<?= $site->twitter() ?>"><i class="fa-brands fa-square-x-twitter custom-icon-size"></i></a>
                 <a class="social-link" target="_blank" href="<?= $site->youtube() ?>"><i class="fa-brands fa-square-youtube custom-icon-size"></i></a>
             </nav>
         </div>

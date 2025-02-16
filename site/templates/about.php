@@ -1,10 +1,13 @@
-
+<?php snippet('header') ?> 
 <div class="wrapper">
     <div class="main-content">
-        <?php snippet('header') ?>
+      
       
         
         
     </div>
-    <?php snippet('footer') ?>
+    
+</div>
+<div class="footer-wrapper">
+<?php snippet('footer') ?>
 </div>
