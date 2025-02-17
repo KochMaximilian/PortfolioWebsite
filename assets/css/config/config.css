@@ -30,6 +30,8 @@
     --color-black-semi-transparent: rgba(0,0,0, 0.85);
 
 
+    --bevel: 15px;
+
     /* Font Size */
 
     --font-size-xs: 0.75rem;
@@ -74,6 +76,7 @@
     --shadow: var(--shadow-sm);
     --solid-shadow: var(--color-black-dark) 3px 5px 0px 3px;
     --solid-shadow-sm: var(--color-black-dark) 1px 3px 0px 1px;
+    --solid-white-shadow-sm: var(--color-white) 1px 3px 0px 1px;
 
     /* Spacing */
 

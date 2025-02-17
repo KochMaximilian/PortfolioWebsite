@@ -94,11 +94,35 @@ body {
 .main-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 3rem;
   /* Adds space between sections */
 }
 
-.content-block {
+
+.filter a {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0 var(--spacing-4) 0 var(--spacing-4);
+  margin: 0 var(--spacing-1) 0 var(--spacing-1);
+  color: var(--color-white);
+  font-weight: var(--font-bold);
+  font-size: var(--font-size-xl);
+  border-radius: var(--rounded-sm);
+  border: solid var(--color-black-dark);
+  background: var(--color-blue-medium);
+  box-shadow: var(--solid-shadow-sm);
+  transition: transform 0.3s ease;
+
+}
+
+.filter a.activeFilter {
+  background: var(--color-yellow-dark);
+  transform: scale(1.2);
+}
+
+
+
+.content-block { /*TODO Add clip path in the future to make corner look cooler*/
   margin-top: 6.5rem;
   padding: .4rem .9rem;
   text-align: center;
@@ -106,9 +130,15 @@ body {
   border-radius: var(--rounded-md);
   border: var(--border-sm) solid;
   border-color: var(--color-black-dark);
-  ;
   /* background: #F4F2EE;*/
   box-shadow: var(--solid-shadow);
+  
+}
+
+.filter-block {
+  justify-content: center;
+  text-align: center;
+  padding: 0 var(--spacing-7) 0 var(--spacing-7);
 }
 
 footer {
@@ -544,7 +574,6 @@ p {
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
-  font-size: 14px;
   border-radius: 8px;
   border: 4px solid rgb(23, 20, 21);
   background: var(--color-white);
