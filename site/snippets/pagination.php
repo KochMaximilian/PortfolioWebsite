@@ -1,17 +1,17 @@
 <?php if ($pagination->hasPages()): ?>
-        <nav class="pagination">
+        <nav>
             <?php if ($pagination->hasPrevPage()): ?>
-                <a href="<?= $pagination->prevPageUrl() ?>" aria-label="Previous page">&larr;</a> <!-- Todo: replace arrows with svg -->
+                <a href="<?= $pagination->prevPageUrl() ?>" aria-label="Previous page"><button class="pagination-link"><i class="fa-solid fa-caret-left"></i></button></a> <!-- Todo: replace arrows with svg -->
             <?php else: ?>
-                <span aria-hidden="true">&larr;</span>
+                <button class="pagination-dead-link" aria-hidden="true"><i class="fa-solid fa-caret-left"></i></button>
             <?php endif ?>
 
-            <span>Page <?= $pagination->page() ?> of <?= $pagination->pages() ?></span>
+            <span class="indicate-page-text">Page <span class="pagination-number"><?= $pagination->page() ?></span> of <?= $pagination->pages() ?></span>
 
             <?php if ($pagination->hasNextPage()): ?>
-                <a href="<?= $pagination->nextPageUrl() ?>" aria-label="Next page">&rarr;</a> <!-- Todo: replace arrows with svg -->
+                <a href="<?= $pagination->nextPageUrl() ?>" aria-label="Next page"> <button class="pagination-link"><i class="fa-solid fa-caret-right"></i></button> </a><!-- Todo: replace arrows with svg -->
             <?php else: ?>
-                <span aria-hidden="true">&rarr;</span>
+                <button class="pagination-dead-link" aria-hidden="true"><i class="fa-solid fa-caret-right "></i></button>
             <?php endif ?>
         </nav>
 <?php endif ?>

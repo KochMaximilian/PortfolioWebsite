@@ -3,11 +3,11 @@ $width  = 500;
 $height = 500;
 ?>
 
-<ul class="projects">
+<div class="projects">
     <?php foreach ($projects as $project): ?>
-        <li>
-            <a href="<?= $project->url() ?>">
-                <figure>
+    
+            <a class="projects-link" href="<?= $project->url() ?>">
+                <figure class="projects-figure">
                     <?= $project->images()->template('gallery-image')->first()->thumb([
                         'autoOrient' => true,
                         'width' => $width, 
@@ -17,12 +17,12 @@ $height = 500;
                         'fromat' => 'webp', /*For faster loading*/  
                     ])
                         ?>
-                    <figcaption>
+                    <figcaption class="projects-caption">
                         <?= $project->title() ?><br>
                         <small><?= $project->type() ?></small>
                     </figcaption>
                 </figure>
             </a>
-        </li>
+        
     <?php endforeach ?>
-</ul>
+</>

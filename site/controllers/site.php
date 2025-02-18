@@ -2,8 +2,8 @@
 
 return function ($page, $pages, $site, $kirby) {
 
-    $width = 400;
-    $height = 500;
+    $width = 500;
+    $height = 600;
 
     return [
     

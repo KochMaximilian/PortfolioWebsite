@@ -75,7 +75,9 @@
 
     --shadow: var(--shadow-sm);
     --solid-shadow: var(--color-black-dark) 3px 5px 0px 3px;
+    --solid-shadow-md: var(--color-black-dark) 1.5px 3.5px 0px 1.5px;
     --solid-shadow-sm: var(--color-black-dark) 1px 3px 0px 1px;
+    --solid-shadow-xs: var(--color-black-dark) 0.5px 1.5px 0px 0.5px;
     --solid-white-shadow-sm: var(--color-white) 1px 3px 0px 1px;
 
     /* Spacing */

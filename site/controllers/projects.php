@@ -10,7 +10,7 @@ return function ($page) {
         ->when($filterBy, function ($filterBy) {
             return $this->filterBy('year', $filterBy);
         })
-        ->paginate(6);
+        ->paginate(3);
 
     $pagination = $projects->pagination();
     $filters = $unfilterd->pluck('year', null, true); /* unique values = true */
