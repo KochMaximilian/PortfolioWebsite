@@ -29,6 +29,7 @@ html {
 
 body {
   line-height: 1.6;
+  letter-spacing: 0.02;
   z-index: 0;
 }
 
@@ -466,19 +467,25 @@ p {
 }
 
 .projects-figure {
-  background: var(--color-blue-light);
-  border-radius: .6rem;
-  margin: 0 1rem .8rem 1rem;
-  padding: 1.3rem;
-  border: var(--border-sm) solid;
+  background: #fefefe;
+  margin: 0 var(--spacing-2) 0rem var(--spacing-2);
+  padding: 1rem;
+  border: var(--border-xsm) solid;
   border-color: var(--color-black-dark);
-  box-shadow: var(--solid-shadow);
+  box-shadow: var(--solid-shadow-md);
+  border-radius: var(--rounded-lg);
   height: 40vh;
 }
 
+.projects-figure img {
+  border-radius: var(--rounded-sm);
+  border: solid var(--border-xsm);
+}
+
 .projects-figure figcaption {
-  padding: 1rem;
+  padding: .8rem 0 0 0;
   font-family: var(--font-barlow);
+ 
 }
 
 .projects-link {
@@ -489,14 +496,19 @@ p {
   transition: color 0.3s ease;
 }
 
-
-
 .carousel-link {
   text-decoration: none;
   font-size: var(--font-size-xl);
   color: var(--color-black-dark);
   font-weight: var(--font-bold);
   transition: color 0.3s ease;
+}
+
+.projects-subtext {
+  font-family: var(--font-poppins);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-semi);
+  text-transform: uppercase;
 }
 
 
