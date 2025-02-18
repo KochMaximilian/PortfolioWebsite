@@ -101,6 +101,17 @@ columns:
             help: How long the project did take to complete.
             icon: clock
             width: 1/2
+          engine:
+            label: Game Engine
+            type: tags
+            help: Game Engine used in the production of the game.
+            min: 1
+           empty: No engine selected yet.
+           options:
+            - Unreal Engine 5
+            - Unreal Engine 4
+            - Unity
+            - Godot
           links:
             label: Additional Links
             help: Links to other websites or social media pages for the game.

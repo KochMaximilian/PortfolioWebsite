@@ -467,7 +467,7 @@ p {
 }
 
 .projects-figure {
-  background: #fefefe;
+  background: var(--color-white);
   margin: 0 var(--spacing-2) 0rem var(--spacing-2);
   padding: 1rem;
   border: var(--border-xsm) solid;

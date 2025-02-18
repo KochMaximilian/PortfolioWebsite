@@ -20,6 +20,7 @@ $height = 500;
                 <figcaption class="projects-caption">
                     <?= $project->title() ?><br>
                     <small class="projects-subtext"><?= $project->type() ?></small>
+                    <small><?=$project->duration() ?></small>
                 </figcaption>
             </figure>
         </a>
