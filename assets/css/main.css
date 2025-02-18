@@ -262,7 +262,7 @@ footer {
   grid-template-columns: 1fr auto 1fr;
   grid-template-rows: auto auto;
   align-items: center;
-  gap: .6rem;
+  column-gap: .6rem;
   /*TODO - FOOTER GAB BELOW TEXT: TWEAK*/
   margin: 0 auto;
 
@@ -298,6 +298,8 @@ footer {
   user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  height: 3rem;
+  width: auto;
 
 }
 
