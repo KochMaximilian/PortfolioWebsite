@@ -107,11 +107,20 @@ columns:
             help: Game Engine used in the production of the game.
             min: 1
            empty: No engine selected yet.
+           width: 1/2
            options:
             - Unreal Engine 5
             - Unreal Engine 4
             - Unity
             - Godot
+          icon:
+            label: Game Engine Visual
+            type: icon
+            folder: assets/fontawesome/engine-icons
+            max: 1
+            min: 1
+            help: Pick the corresponding engine logo. 
+            width: 1/2
           links:
             label: Additional Links
             help: Links to other websites or social media pages for the game.
