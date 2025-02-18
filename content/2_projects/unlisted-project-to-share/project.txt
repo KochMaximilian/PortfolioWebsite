@@ -6,11 +6,19 @@ Name: Unlisted TEst
 
 ----
 
+Featured: false
+
+----
+
 Description: Short one line description of the game.
 
 ----
 
-Type: Proffesional Project
+Type: Game Jam
+
+----
+
+Year: 2024
 
 ----
 
@@ -18,15 +26,7 @@ Genre: FPS
 
 ----
 
-Platfrom: PC Windows
-
-----
-
-Year: 2024-01-01
-
-----
-
-Duration: 1 Day
+Platform: PC Windows
 
 ----
 
@@ -34,7 +34,23 @@ Focus: System Design, Game Design
 
 ----
 
+Duration: 1 Day
+
+----
+
+Engine: Unity
+
+----
+
+Engineicon: unity.svg
+
+----
+
 Links: 
+
+----
+
+Platfrom: PC Windows
 
 ----
 

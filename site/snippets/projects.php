@@ -18,9 +18,9 @@ $height = 500;
                 ])
                 ?>
                 <figcaption class="projects-caption">
-                    <?= $project->title() ?><br>
-                    <small class="projects-subtext"><?= $project->type() ?></small>
-                    <small><?=$project->duration() ?></small>
+                    <h5><?= $project->title() ?><br></h5>
+                    <small class="projects-subtext"><?= $project->type() ?> &nbsp;|&nbsp; <?= $project->year() ?></small><br>
+                    <span class="engine-icon" aria-label="<?=$project->engine() ?> Logo Icon"><?= svg('/assets/fontawesome/engine-icons/' . $project->engineicon()) ?></span>
                 </figcaption>
             </figure>
         </a>

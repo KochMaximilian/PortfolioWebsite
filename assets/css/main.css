@@ -690,6 +690,13 @@ p {
   text-transform: uppercase;
 }
 
+.engine-icon{
+  margin-top: 1rem;
+}
+.engine-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
 
 
 /*Responsive NAV */

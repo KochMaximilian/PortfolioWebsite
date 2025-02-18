@@ -38,6 +38,14 @@ Duration: 4 Years
 
 ----
 
+Engine: Unreal Engine 4
+
+----
+
+Engineicon: unreal-engine.svg
+
+----
+
 Links: 
 
 ----
