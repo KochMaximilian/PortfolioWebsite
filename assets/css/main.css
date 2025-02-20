@@ -76,7 +76,7 @@ body {
   width: 64em;
   max-width: calc(100% - 4em);
   margin: 0 auto;
-  padding-top: var(--spacing-12);
+ 
   padding-left: 1rem;
   padding-right: 1rem;
   box-sizing: border-box;
@@ -254,7 +254,7 @@ footer {
 
 .footer-wrapper {
   width: 100%;
-  position: fixed;
+  position: sticky;
   /* Keeps it at the top */
   bottom: 0;
   z-index: 1000;
@@ -586,7 +586,7 @@ p {
 /* Navbar */
 .nav-container {
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   z-index: 1000;
