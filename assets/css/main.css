@@ -76,7 +76,7 @@ body {
   width: 64em;
   max-width: calc(100% - 4em);
   margin: 0 auto;
- 
+
   padding-left: 1rem;
   padding-right: 1rem;
   box-sizing: border-box;
@@ -99,7 +99,7 @@ body {
 
 
 .filter a {
-  transition: transform 0.3s  cubic-bezier(0.25, 1.75, 0.5, 1.2), background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2), background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
   display: inline-block;
   text-decoration: none;
   text-transform: uppercase;
@@ -112,7 +112,7 @@ body {
   border: solid var(--color-black-dark);
   background: var(--color-blue-medium);
   box-shadow: var(--solid-shadow-sm);
-  
+
 }
 
 
@@ -122,7 +122,7 @@ body {
   font-weight: var(--font-black);
   box-shadow: var(--solid-shadow-xs);
 
-  
+
 }
 
 .filter a:hover {
@@ -135,7 +135,8 @@ body {
 
 
 
-.content-block { /*TODO Add clip path in the future to make corner look cooler*/
+.content-block {
+  /*TODO Add clip path in the future to make corner look cooler*/
   margin-top: 6.5rem;
   padding: .4rem .9rem;
   text-align: center;
@@ -145,7 +146,7 @@ body {
   border-color: var(--color-black-dark);
   /* background: #F4F2EE;*/
   box-shadow: var(--solid-shadow);
-  
+
 }
 
 .filter-block {
@@ -158,7 +159,7 @@ body {
 .projects {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
- 
+
 }
 
 .projects img {
@@ -188,8 +189,8 @@ body {
   border-width: var(--border-xs);
   box-shadow: var(--solid-shadow-sm);
   cursor: no-drop;
-  
- 
+
+
 }
 
 .pagination-link {
@@ -201,17 +202,17 @@ body {
   border-color: var(--color-black-dark);
   border-width: var(--border-xs);
   box-shadow: var(--solid-shadow-sm);
-  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), 
-              background-color 0.2s ease, 
-              box-shadow 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
   cursor: pointer;
- 
+
 }
 
-.pagination-link a{
+.pagination-link a {
   color: var(--color-black-dark);
   text-decoration: none;
- 
+
 }
 
 
@@ -232,12 +233,12 @@ body {
   margin: 0 var(--spacing-6) 0 var(--spacing-6);
   text-transform: uppercase;
   opacity: 1;
-  
+
 }
 
 footer {
   background: var(--color-black-dark);
-  border-radius: var(--rounded-md) var(--rounded-md) 0 0 ;
+  border-radius: var(--rounded-md) var(--rounded-md) 0 0;
   box-shadow: var(--shadow-lg);
   color: var(--color-white);
   padding: 1.8rem 0;
@@ -318,7 +319,7 @@ footer {
   padding: 0;
   list-style: none;
   flex-wrap: nowrap;
- 
+
 }
 
 .social-link,
@@ -340,7 +341,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   font-family: var(--font-barlow);
   line-height: 1.3;
   font-weight: var(--font-black);
@@ -370,6 +372,11 @@ h4 {
 
 h5 {
   font-size: var(--font-size-lg);
+  text-transform: uppercase;
+}
+
+h6 {
+  font-size: var(--font-size-xs);
   text-transform: uppercase;
 }
 
@@ -480,17 +487,23 @@ p {
   box-shadow: var(--solid-shadow-md);
   border-radius: var(--rounded-lg);
   height: 40vh;
+  transition:
+  transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+  background-color 0.2s ease,
+  font-weight 0.2s ease,
+  box-shadow 0.2s ease;
 }
 
 .projects-figure img {
   border-radius: var(--rounded-sm);
   border: solid var(--border-xsm);
+
 }
 
 .projects-figure figcaption {
   padding: .8rem 0 0 0;
   font-family: var(--font-barlow);
- 
+
 }
 
 .projects-link {
@@ -498,8 +511,27 @@ p {
   font-size: var(--font-size-xl);
   color: var(--color-black-dark);
   font-weight: var(--font-bold);
-  transition: color 0.3s ease;
+  position: relative;
+  display: inline-block;
 }
+
+
+
+.projects-link:hover .projects-figure {
+  /* Styles for the figure inside the hovered link */
+  background-color: var(--color-yellow-dark);
+  transform: scale(0.97);
+  box-shadow: var(--solid-shadow-xs);
+}
+
+
+.projects-link:hover .projects-genre-tag {
+  background-color: var(--color-black-dark);
+  color: var(--color-white);
+  font-weight: var(--font-black);
+  /* Styles for genre tags inside the hovered link */
+}
+
 
 
 
@@ -534,15 +566,16 @@ p {
   transform: translateY(-50%);
   transform-origin: center !important;
   will-change: transform;
-  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), 
-              background-color 0.2s ease, 
-              box-shadow 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .flickity-button:hover {
   background-color: var(--color-yellow-dark);
   box-shadow: var(--solid-shadow-sm);
-  transform:scale(0.95) translateY(-50%);;
+  transform: scale(0.95) translateY(-50%);
+  ;
 
 }
 
