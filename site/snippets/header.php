@@ -9,7 +9,6 @@
     <link rel="preload" href="/assets/img/pattern.png" as="image">
     
     <?php if ($page->intendedTemplate()->name() === 'home'): ?>
-        <?= css('assets/js/gliderJS/glider.css') ?>
         <?= css('assets/css/config/utility/flickity.css') ?>
     <?php endif; ?>
 

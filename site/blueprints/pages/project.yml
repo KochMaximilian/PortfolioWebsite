@@ -121,7 +121,6 @@ columns:
             type: icon
             folder: assets/fontawesome/engine-icons
             required: true
-            max: 1
             min: 1
             help: Pick the corresponding engine logo. 
             width: 1/2

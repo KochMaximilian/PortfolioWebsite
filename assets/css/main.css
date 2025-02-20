@@ -164,7 +164,7 @@ body {
 
 .projects img {
   width: 100%;
-  display: block;
+  height: auto;
 }
 
 .pagination-block {
@@ -232,6 +232,7 @@ body {
   font-size: var(--font-size-xl);
   margin: 0 var(--spacing-6) 0 var(--spacing-6);
   text-transform: uppercase;
+  outline: black;
   opacity: 1;
 
 }

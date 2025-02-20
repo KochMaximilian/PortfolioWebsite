@@ -1,0 +1,31 @@
+{
+  "name": "scottboms/microseasons",
+  "description": "Kirby Micro Seasons plugin",
+	"type": "kirby-plugin",
+	"homepage": "https://github.com/scottboms/kirby-microseasons",
+  "authors": [
+    {
+      "name": "Scott Boms",
+      "email": "plugins@scottboms.com",
+      "homepage": "https://scottboms.com"
+    }
+  ],
+  "support": {
+    "docs": "https://github.com/scottboms/kirby-microseasons/blob/main/README.md",
+    "source": "https://github.com/scottboms/kirby-microseasons"
+  },
+  "license": "MIT",
+  "keywords": [
+    "kirby",
+    "kirby-cms",
+    "kirby-plugin"
+  ],
+  "require": {
+    "php": ">8.1.0 <8.4.0",
+    "getkirby/cms": "^4.0 || ^5.0",
+    "getkirby/composer-installer": "^1.1"
+  },
+  "extra": {
+    "installer-name": "kirby-microseasons"
+  }
+}

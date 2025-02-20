@@ -1,8 +1,3 @@
-<?php
-$width  = 500;
-$height = 500;
-?>
-
 <div class="projects">
     <?php foreach ($projects as $project): ?>
 
@@ -10,10 +5,11 @@ $height = 500;
             <figure class="projects-figure">
                 <?= $project->images()->template('gallery-image')->first()->thumb([
                     'autoOrient' => true,
-                    'width' => $width,
-                    'height' => $height,
+                    'width' => 500,
+                    'height' => 500,
                     'crop' => true,
-                    'quality' => 80, /*For faster loading*/
+                    'quality' => 50, /*For faster loading*/
+                    'driver' => 'im',
                     'fromat' => 'webp', /*For faster loading*/
                 ])
                 ?>

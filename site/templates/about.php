@@ -3,7 +3,7 @@
     <div class="main-content">
       
       
-        
+    <?= snippet('microseasons') ?>
         
     </div>
     
