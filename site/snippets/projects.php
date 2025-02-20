@@ -29,7 +29,7 @@ $height = 500;
                     </div>
                 </div>
                 <div class="engine-icon-container">
-                    <h6>Created with:</h6><svg fill=""> <?= svg('/assets/fontawesome/engine-icons/' . $project->engineicon()) ?></svg>
+                    <h6>Created with:</h6><svg role="img" aria-label="<?= $project->engine() ?> logo."> <?= svg('/assets/fontawesome/engine-icons/' . $project->engineicon()) ?></svg>
                 </div>
             </figure>
         </a>
