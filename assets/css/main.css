@@ -694,20 +694,30 @@ p {
   text-transform: uppercase;
 }
 
-.project-details {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  grid-template-rows: auto auto;
-  align-items: center;
-  column-gap: .6rem;  
-}
-.project-details svg {
-  width: 1.5rem;
-  height: 1.5rem;
+
+.engine-icon svg {
+  width: 1.8rem;
+  height: 1.8rem;
   display: inline-block;
+}
+
+.projects-genre-tag {
+  font-family: var(--font-barlow);
+  font-weight: var(--font-bold);
+  font-size: var(--font-size-xs);
+  color: var(--color-white);
+  text-transform: uppercase;
+  padding: var(--spacing-1);
+  background: var(--color-blue-dark);
+  border: solid;
+  border-color: var(--color-black-dark);
+  border-radius: var(--rounded-xs);
 
 }
 
+.tag-container {
+  margin-top: var(--spacing-2);
+}
 
 /*Responsive NAV */
 

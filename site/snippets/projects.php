@@ -19,21 +19,17 @@ $height = 500;
                 ?>
                 <figcaption class="projects-caption">
                     <h5><?= $project->name() ?></h5>
-                    <small class="projects-subtext"><?= $project->type() ?> &nbsp;|&nbsp; <?= $project->year() ?> </small><br>
-                    <div class="project-details">
-                        <div>
-                            <?php foreach ($project->genre()->split(',') as $genre): ?>
-                                <span><?= $genre ?></span>
-                            <?php endforeach; ?>
-                        </div>
-                        <div> <?= svg('/assets/fontawesome/engine-icons/' . $project->engineicon()) ?></div>
-                        <div></div>
-                    </div>
-
-
+                    <h6 class="projects-subtext"><?= $project->type() ?> &nbsp;|&nbsp; <?= $project->year() ?> </>
                 </figcaption>
+                <div class="project-details">
+                            <div class="tag-container">
+                                <?php foreach ($project->genre()->split(',') as $genre): ?>
+                                    <span class="projects-genre-tag"><?= $genre ?></span>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                <div class="engine-icon"><h6>Created in:</h6><svg width="100" height="100" > <?= svg('/assets/fontawesome/engine-icons/' . $project->engineicon()) ?></svg></div>
             </figure>
         </a>
-
     <?php endforeach ?>
 </div>
