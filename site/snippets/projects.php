@@ -28,8 +28,8 @@ $height = 500;
                         <?php endforeach; ?>
                     </div>
                 </div>
-                <div class="engine-icon">
-                    <h6>Created in:</h6><svg> <?= svg('/assets/fontawesome/engine-icons/' . $project->engineicon()) ?></svg>
+                <div class="engine-icon-container">
+                    <h6>Created with:</h6><svg fill=""> <?= svg('/assets/fontawesome/engine-icons/' . $project->engineicon()) ?></svg>
                 </div>
             </figure>
         </a>

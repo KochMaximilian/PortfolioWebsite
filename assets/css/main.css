@@ -231,6 +231,7 @@ body {
   font-size: var(--font-size-xl);
   margin: 0 var(--spacing-6) 0 var(--spacing-6);
   text-transform: uppercase;
+  opacity: 1;
   
 }
 
@@ -500,6 +501,8 @@ p {
   transition: color 0.3s ease;
 }
 
+
+
 .carousel-link {
   text-decoration: none;
   font-size: var(--font-size-xl);
@@ -694,11 +697,16 @@ p {
   text-transform: uppercase;
 }
 
+.engine-icon-container {
+  margin-top: var(--spacing-3);
+}
 
-.engine-icon svg {
-  width: 1.8rem;
-  height: 1.8rem;
+
+.engine-icon-container svg {
+  width: 2rem;
+  height: 2rem;
   display: inline-block;
+  margin-top: var(--spacing-1);
 }
 
 .projects-genre-tag {
