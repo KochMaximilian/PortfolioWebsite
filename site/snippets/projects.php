@@ -18,9 +18,19 @@ $height = 500;
                 ])
                 ?>
                 <figcaption class="projects-caption">
-                    <h5><?= $project->title() ?><br></h5>
-                    <small class="projects-subtext"><?= $project->type() ?> &nbsp;|&nbsp; <?= $project->year() ?></small><br>
-                    <span class="engine-icon" aria-label="<?=$project->engine() ?> Logo Icon"><?= svg('/assets/fontawesome/engine-icons/' . $project->engineicon()) ?></span>
+                    <h5><?= $project->name() ?></h5>
+                    <small class="projects-subtext"><?= $project->type() ?> &nbsp;|&nbsp; <?= $project->year() ?> </small><br>
+                    <div class="project-details">
+                        <div>
+                            <?php foreach ($project->genre()->split(',') as $genre): ?>
+                                <span><?= $genre ?></span>
+                            <?php endforeach; ?>
+                        </div>
+                        <div> <?= svg('/assets/fontawesome/engine-icons/' . $project->engineicon()) ?></div>
+                        <div></div>
+                    </div>
+
+
                 </figcaption>
             </figure>
         </a>

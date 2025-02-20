@@ -2,7 +2,7 @@ Title: Cancelled for the 6th time
 
 ----
 
-Name: AAA Title 3
+Name: Sorry We're Closed
 
 ----
 
@@ -22,7 +22,7 @@ Year: 2025
 
 ----
 
-Genre: Game Genre(s)
+Genre: Action
 
 ----
 

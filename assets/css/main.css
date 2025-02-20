@@ -171,6 +171,10 @@ body {
   text-align: center;
 }
 
+.projects-caption {
+  text-align: left;
+}
+
 
 .pagination-dead-link {
   color: var(--color-black-dark);
@@ -364,7 +368,7 @@ h4 {
 }
 
 h5 {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   text-transform: uppercase;
 }
 
@@ -690,12 +694,18 @@ p {
   text-transform: uppercase;
 }
 
-.engine-icon{
-  margin-top: 1rem;
+.project-details {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: .6rem;  
 }
-.engine-icon svg {
+.project-details svg {
   width: 1.5rem;
   height: 1.5rem;
+  display: inline-block;
+
 }
 
 

@@ -2,7 +2,7 @@ Title: Just give me your money - The game
 
 ----
 
-Name: AAAA Title 1
+Name: Gestalt: Steam & Cinder
 
 ----
 
@@ -22,7 +22,7 @@ Year: 2025
 
 ----
 
-Genre: Game Genre(s)
+Genre: FPS, RPG, Action
 
 ----
 
