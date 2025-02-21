@@ -25,74 +25,65 @@ Year: 2025
 Embedlink:
 
 input: >
-  https://www.youtube.com/watch?v=ceCv7vVybkI
+  https://www.youtube.com/watch?v=peVgerhXJlU
 media:
-  title: 'Low Polly - Launch Trailer'
-  description: "Download and play Low Polly here - https://brandonsimpson.itch.io/low-pollyPolly's soda-lighted you're here.Just earlier today, a strange gravity anomaly sna..."
+  title: >
+    Castlevania Series Retrospective | A
+    Complete History and Review
+  description: "The channel rises again thanks to the Patrons! - https://patreon.com/IFinishedAVideoGameThanks to Netflix, Castlevania is currently more popular than it's ev..."
   url: >
-    https://www.youtube.com/watch?v=ceCv7vVybkI
+    https://www.youtube.com/watch?v=peVgerhXJlU
   tags:
-    - music
-    - logic pro x
-    - garageband
-    - eastwest
-    - composercloud
-    - lowpolly
-    - low polly
-    - low poly
-    - low-poly
-    - n64
-    - retro
-    - classic
-    - game
-    - classic game
-    - classic gaming
-    - frog
-    - foddian
-    - foddian game
-    - platformer
-    - secrets
-    - collectibles
-    - hats
-    - soda
-    - pop
-    - bubble
-    - global game jam
-    - "2025"
-    - swamp
-    - swamp level
-    - sewer level
-    - city level
-    - frogtendo 64
+    - castlevania
+    - konami
+    - igarashi
+    - metroidvania
+    - metroid
+    - alucard
+    - netflix
+    - belmont
+    - dracula
+    - vampire
+    - video game review
+    - retrospective gaming
+    - video essay
+    - long form review
+    - video game critique
+    - video game retrospective
+    - metal gear
+    - yugioh
+    - playstation
     - nintendo 64
+    - super nintendo
     - nintendo
-    - frogtendo
-    - frogtendo power
-    - nintendo power
-    - hop to it
-    - fizzyfly
-    - fizzy fly
-    - frogwell
-    - levity city
-    - brandon simpson
-    - colton simpson
-    - tristin leon wolfe
-    - ufo
+    - sega
+    - sony
+    - mercurysteam
+    - lords of shadow
+    - symphony of the night
+    - aria of sorrow
+    - circle of the moon
+    - lords of shadow 2
+    - gabriel belmont
+    - soma cruz
+    - trevor belmont
+    - castlevania timeline
   image: >
-    https://i.ytimg.com/vi/ceCv7vVybkI/hqdefault.jpg
+    https://i.ytimg.com/vi/peVgerhXJlU/hqdefault.jpg
   feeds: [ ]
-  code: '<iframe width="200" height="113" src="https://www.youtube.com/embed/ceCv7vVybkI?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Low Polly - Launch Trailer"></iframe>'
+  code: '<iframe width="200" height="113" src="https://www.youtube.com/embed/peVgerhXJlU?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Castlevania Series Retrospective | A Complete History and Review"></iframe>'
   width: 200
   height: 113
   aspectRatio: 56.5
-  authorName: Sam Power
-  authorUrl: https://www.youtube.com/@SamJohnPower
+  authorName: I Finished A Video Game
+  authorUrl: >
+    https://www.youtube.com/@IFinishedAVideoGame
   providerIcon: >
     https://www.youtube.com/s/desktop/dd333b3f/img/logos/favicon_144x144.png
   providerName: YouTube
   providerUrl: https://www.youtube.com/
   publishedTime:
-    date: 2025-02-07 17:37:42.000000
+    date: 2022-12-03 10:31:11.000000
     timezone_type: 1
     timezone: -08:00
   license: null
