@@ -16,25 +16,21 @@
             <section class="project-visuals-block">
                 <div class="project-gallery">
                     <?php if ($embed = $page->embedlink()->toEmbed()): ?>
-                        <div>
                             <?= $embed->code() ?>
-
+                    <?php else: ?>
+                        <div>
+                            <?php $coverImage = $page->images()->template('gallery-image')->limit(1); ?>
+                            <?php foreach ($coverImage as $image): ?>
+                                    <a href="<?= $image->url() ?>">
+                                        <img
+                                            loading="lazy"
+                                            alt="<?= $image->alt() ?>"
+                                            class="project-image"
+                                            src="<?= $image->resize($imageWidth, $imageHeight)->url() ?>">
+                                    </a>
+                            <?php endforeach ?>
                         </div>
                     <?php endif ?>
-                    <ul>
-                        <?php $coverImage = $page->images()->template('gallery-image')->limit(1); ?>
-                        <?php foreach ($coverImage as $image): ?>
-                            <li>
-                                <a href="<?= $image->url() ?>">
-                                    <img
-                                        loading="lazy"
-                                        alt="<?= $image->alt() ?>"
-                                        class="project-image"
-                                        src="<?= $image->resize($imageWidth, $imageHeight)->url() ?>">
-                                </a>
-                            </li>
-                        <?php endforeach ?>
-                    </ul>
                 </div>
             </section>
 
@@ -81,6 +77,23 @@
                         <?php endif ?>
                     </dl>
                 </div>
+            </section>
+
+            <section>
+                <ul>
+                    <?php $coverImage = $page->images()->template('showcase-image'); ?>
+                    <?php foreach ($coverImage as $image): ?>
+                        <li>
+                            <a href="<?= $image->url() ?>">
+                                <img
+                                    loading="lazy"
+                                    alt="<?= $image->alt() ?>"
+                                    class="project-image"
+                                    src="<?= $image->resize($imageWidth, $imageHeight)->url() ?>">
+                            </a>
+                        </li>
+                    <?php endforeach ?>
+                </ul>
             </section>
 
 
