@@ -1,0 +1,25 @@
+Alt: 
+
+----
+
+Intention: Schowcase
+
+----
+
+Caption: 
+
+----
+
+Class: 
+
+----
+
+Sort: 1
+
+----
+
+Uuid: VYUBMKlSvFRCdkHc
+
+----
+
+Template: showcase-image

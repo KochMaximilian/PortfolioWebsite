@@ -9,12 +9,18 @@
     ?>
     <div class="project-layout">
         <main>
-            <section>
+            <section class="content-block">
                 <h1><?= $page->title() ?></h1>
             </section>
 
-            <section>
+            <section class="project-visuals-block">
                 <div class="project-gallery">
+                    <?php if ($embed = $page->embedlink()->toEmbed()): ?>
+                        <div>
+                            <?= $embed->code() ?>
+
+                        </div>
+                    <?php endif ?>
                     <ul>
                         <?php $coverImage = $page->images()->template('gallery-image')->limit(1); ?>
                         <?php foreach ($coverImage as $image): ?>
@@ -31,7 +37,7 @@
                     </ul>
                 </div>
             </section>
-            
+
             <section>
                 <div class="project-info">
                     <?= $page->context() ?>
@@ -41,6 +47,9 @@
 
                         <dt>Description:</dt>
                         <dd><?= $page->description() ?></dd>
+
+                        <dt>Project Type</dt>
+                        <dd><?= $page->type() ?></dd>
 
                         <dt>Genre:</dt>
                         <?php foreach ($page->genre()->split(',') as $genre): ?>
@@ -62,6 +71,9 @@
                         <?php foreach ($page->focus()->split(',') as $focus): ?>
                             <dd><?= $focus ?></dd>
                         <?php endforeach; ?>
+
+                        <dt>Game Engine:</dt>
+                        <dd><?= $page->engine() ?></dd>
 
                         <?php if ($page->links()->isNotEmpty()): ?>
                             <dt>Links:</dt>

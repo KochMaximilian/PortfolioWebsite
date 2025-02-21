@@ -76,7 +76,6 @@ body {
   width: 64em;
   max-width: calc(100% - 4em);
   margin: 0 auto;
-
   padding-left: 1rem;
   padding-right: 1rem;
   box-sizing: border-box;
@@ -137,7 +136,7 @@ body {
 
 .content-block {
   /*TODO Add clip path in the future to make corner look cooler*/
-  margin-top: 6.5rem;
+  margin-top: 10rem;
   padding: .4rem .9rem;
   text-align: center;
   background-color: var(--color-white);
@@ -623,7 +622,7 @@ p {
 /* Navbar */
 .nav-container {
   width: 100%;
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;

@@ -46,6 +46,12 @@ columns:
             help: Only the year, e.g. 2024
             type: number
             width: 1/2
+          embedlink:
+            label: Embedet Link
+            type: embed
+            before: "Copy just URL"
+            help: Copy the link (just url) to YT; Vimeo, Soundcloud, Instagram etc.
+            icons: ture
   - width: 1/2
     sections:
       project_details:
