@@ -22,7 +22,7 @@ Year: 2025
 
 ----
 
-Genre: Action
+Genre: Action, RPG
 
 ----
 
