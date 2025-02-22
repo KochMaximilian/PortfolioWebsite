@@ -36,7 +36,7 @@
                 <div><dt>Area of Focus:</dt> <dd><?php foreach ($page->focus() as $focus): ?> <span class="project-focus"><?= $focus ?></span> <?php endforeach; ?></dd></div>
                 <div><dt>Game Engine:</dt> <dd><?= $page->engine() ?></dd></div>
                 <?php if ($page->links()->isNotEmpty()): ?>
-                    <div><dt>Additional Links:</dt> <dd><a href="<?= $page->links() ?>"><?= preg_replace('/.*\//', ' ',$page->links()->url()->short(22, '…') ) ?></a></dd></div>
+                    <div><dt>Additional Links:</dt> <dd><a href="<?= $page->links() ?>" title="<?= $page->links()?>"><?= preg_replace('/.*\//', ' ',$page->links()->url()->short(22, '…') ) ?></a></dd></div>
                 <?php endif; ?>
             </dl>
         </figcaption>
