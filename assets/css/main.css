@@ -29,8 +29,13 @@ html {
 
 body {
   line-height: 1.6;
-  letter-spacing: 0.02;
+  letter-spacing: 0.02em;
   z-index: 0;
+}
+
+::selection {
+  background: var(--color-yellow-dark); 
+  color: var(--color-black-dark); 
 }
 
 
@@ -177,50 +182,63 @@ body {
 }
 
 /* Porject Detail Page */
-.project-main-container {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-
-
+.project-figure {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem; 
+  background: var(--color-white);
+  border-radius: var(--rounded-md);
+  border: solid var(--color-black-dark) var(--border-md);
+  box-shadow: var(--solid-shadow-md);
 }
 
 .project-gallery {
-  padding: 2rem;
-}
-
-.project-gallery iframe {
-  width: 100%;
-  height: 30vh;
-  border-radius: var(--rounded-md);
-  border: solid;
-  border-color: var(--color-black-dark);
-  border-width: var(--border-md);
+  flex: 1; /* Makes the image/video take up one part of the space */
+  max-width: 65%; /* Ensures it doesn’t take over too much */
 }
 
 .project-info {
-  padding-top: 2rem;
+  flex: 1; /* Makes the text take up the remaining space */
+  max-width: 35%;
+  padding-top: 1.5rem;
+  padding-right: 0.45rem;
 }
-
 
 .project-info dl {
   display: flex;
   flex-direction: column;
-  gap: 0.3em; /* Minimal spacing between items */
+  gap: 0.3em;
 }
 
-.project-info dt, 
+.project-info dt,
 .project-info dd {
   display: inline;
   margin: 0;
 }
 
 .project-info dt {
-  font-weight: bold;
+  font-family: var(--font-barlow);
+  font-weight: var(--font-black);
+  text-transform: uppercase;
 }
 
 .project-info dd {
-  margin-left: 0.3em; /* Just enough space to separate label from value */
-  display: inline;
+  margin-left: 0.3em;
+}
+
+
+.project-gallery iframe {
+  display: block;
+  width: 100%;
+  height: 30vh;
+  border-right: solid var(--color-black-dark)  var(--border-md);
+}
+
+.project-image {
+  display: block;
+  width: 100%;
+  height: 30vh;
+  border-right: solid var(--color-black-dark)  var(--border-md);
 }
 
 

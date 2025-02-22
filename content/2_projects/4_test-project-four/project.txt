@@ -25,67 +25,37 @@ Year: 2025
 Embedlink:
 
 input: >
-  https://www.youtube.com/watch?v=peVgerhXJlU
+  https://www.youtube.com/watch?v=aQoIh43_mJw
 media:
-  title: >
-    Castlevania Series Retrospective | A
-    Complete History and Review
-  description: "The channel rises again thanks to the Patrons! - https://patreon.com/IFinishedAVideoGameThanks to Netflix, Castlevania is currently more popular than it's ev..."
+  title: 'Gestalt: Steam & Cinder - Official Release Date Trailer'
+  description: 'Embark on an epic journey to shatter the chains of fate in Gestalt: Steam & Cinder, an eagerly-anticipated, stunningly-handcrafted action-RPG, launching May ...'
   url: >
-    https://www.youtube.com/watch?v=peVgerhXJlU
+    https://www.youtube.com/watch?v=aQoIh43_mJw
   tags:
-    - castlevania
-    - konami
-    - igarashi
-    - metroidvania
-    - metroid
-    - alucard
-    - netflix
-    - belmont
-    - dracula
-    - vampire
-    - video game review
-    - retrospective gaming
-    - video essay
-    - long form review
-    - video game critique
-    - video game retrospective
-    - metal gear
-    - yugioh
-    - playstation
-    - nintendo 64
-    - super nintendo
-    - nintendo
-    - sega
-    - sony
-    - mercurysteam
-    - lords of shadow
-    - symphony of the night
-    - aria of sorrow
-    - circle of the moon
-    - lords of shadow 2
-    - gabriel belmont
-    - soma cruz
-    - trevor belmont
-    - castlevania timeline
+    - vídeo
+    - compartir
+    - teléfono con cámara
+    - teléfono con vídeo
+    - gratis
+    - subida
   image: >
-    https://i.ytimg.com/vi/peVgerhXJlU/hqdefault.jpg
+    https://i.ytimg.com/vi/aQoIh43_mJw/hqdefault.jpg
   feeds: [ ]
-  code: '<iframe width="200" height="113" src="https://www.youtube.com/embed/peVgerhXJlU?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Castlevania Series Retrospective | A Complete History and Review"></iframe>'
+  code: '<iframe width="200" height="113" src="https://www.youtube.com/embed/aQoIh43_mJw?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Gestalt: Steam &amp; Cinder - Official Release Date Trailer"></iframe>'
   width: 200
   height: 113
   aspectRatio: 56.5
-  authorName: I Finished A Video Game
+  authorName: GameSpot Trailers
   authorUrl: >
-    https://www.youtube.com/@IFinishedAVideoGame
+    https://www.youtube.com/@GameSpotTrailers
   providerIcon: >
-    https://www.youtube.com/s/desktop/dd333b3f/img/logos/favicon_144x144.png
+    https://www.youtube.com/s/desktop/784cc796/img/logos/favicon_144x144.png
   providerName: YouTube
   providerUrl: https://www.youtube.com/
   publishedTime:
-    date: 2022-12-03 10:31:11.000000
+    date: 2024-04-10 12:04:56.000000
     timezone_type: 1
-    timezone: -08:00
+    timezone: -07:00
   license: null
 
 ----
