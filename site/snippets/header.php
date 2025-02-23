@@ -16,8 +16,10 @@
     <?= css('assets/fontawesome/css/brands.min.css') ?> 
     <?= css('assets/fontawesome/css/solid.min.css') ?>
 
+   <?php snippet('cookieconsentCss') ?> 
     <?= css('assets/css/config/config.css') ?>    
     <?= css('assets/css/main.css') ?>
+
 
 
     

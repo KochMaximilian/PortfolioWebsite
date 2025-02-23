@@ -46,12 +46,22 @@ columns:
             help: Only the year, e.g. 2024
             type: number
             width: 1/2
+
           embedlink:
+            width: 1/2
             label: Embedet Link
-            type: embed
-            before: "Copy just URL"
-            help: Copy the link (just url) to YT; Vimeo, Soundcloud, Instagram etc.
-            icons: ture
+            type: link
+            before: "Copy Url"
+            help: Best to copy the "privacy-enhanced mode" link here.
+            required: true
+          embedTitle:
+            width: 1/2
+            label: Video Titel
+            type: text
+            max-length: 50
+            required: true
+            help: Copy title form YouTube Vido.
+
   - width: 1/2
     sections:
       project_details:

@@ -22,6 +22,47 @@ Year: 2024
 
 ----
 
+Embedlink:
+
+input: 'https://www.youtube.com/watch?v=guQPJwcCkt4&list=PLcMFCrmedM7T4TWC-TaOYr60yOzicuOLh&index=1'
+media:
+  title: 'Title - Super Mario Bros. Wonder OST Extended'
+  description: 'In this extra video I wanted to share an extended version of the Title Theme from Super Mario Bros. Wonder.Playlist: https://www.youtube.com/playlist?list=PL...'
+  url: >
+    https://www.youtube.com/watch?v=guQPJwcCkt4
+  tags:
+    - vídeo
+    - compartir
+    - teléfono con cámara
+    - teléfono con vídeo
+    - gratis
+    - subida
+  image: >
+    https://i.ytimg.com/vi/guQPJwcCkt4/hqdefault.jpg
+  feeds: [ ]
+  code: '<iframe width="200" height="113" src="https://www.youtube.com/embed/guQPJwcCkt4?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Title - Super Mario Bros. Wonder OST Extended"></iframe>'
+  width: 200
+  height: 113
+  aspectRatio: 56.5
+  authorName: MarioandLuigi1
+  authorUrl: >
+    https://www.youtube.com/@marioandluigi1701
+  providerIcon: >
+    https://www.youtube.com/s/desktop/784cc796/img/logos/favicon_144x144.png
+  providerName: YouTube
+  providerUrl: https://www.youtube.com/
+  publishedTime:
+    date: 2023-11-03 23:37:12.000000
+    timezone_type: 1
+    timezone: -07:00
+  license: null
+
+----
+
+Iframe: 
+
+----
+
 Genre: Strategy, Horror
 
 ----
@@ -46,7 +87,7 @@ Engineicon: unreal-engine.svg
 
 ----
 
-Links: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+Links: 
 
 ----
 

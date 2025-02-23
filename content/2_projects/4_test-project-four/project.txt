@@ -29,77 +29,11 @@ Year: 2025
 
 ----
 
-Embedlink:
+Embedlink: https://www.youtube-nocookie.com/embed/4m_RkA3jtec?si=0Ogt2T7WbjJRxUw8
 
-input: >
-  https://www.youtube.com/watch?v=28Kq_1onePc
-media:
-  title: >
-    Metroid Series Retrospective | A
-    Complete History and Review
-  description: 'The channel morphs into action thanks to the Patrons! - https://patreon.com/IFinishedAVideoGame TWITTER - https://twitter.com/IFinishedAGame DISCORD - https:...'
-  url: >
-    https://www.youtube.com/watch?v=28Kq_1onePc
-  tags:
-    - metroid
-    - nintendo
-    - mario
-    - zelda
-    - pokemon
-    - nintendo switch
-    - sega
-    - sony
-    - microsoft
-    - donkey kong
-    - wario
-    - video game
-    - video game review
-    - video game retrospective
-    - gamecube
-    - switch
-    - nintendo 64
-    - playstation
-    - gameboy
-    - gameboy advance
-    - fire emblem
-    - smash bros
-    - retro games
-    - video essay
-    - metroidvania
-    - castlevania
-    - hollow knight
-    - mercurysteam
-    - luigi
-    - video game critique
-    - sleep
-    - asmr
-    - virtual boy
-    - xbox
-    - super mario bros movie
-    - sonic
-    - metroid dread
-    - metroid prime
-    - super metroid
-    - metroid prime 4
-  image: >
-    https://i.ytimg.com/vi/28Kq_1onePc/hqdefault.jpg
-  feeds: [ ]
-  code: '<iframe width="200" height="113" src="https://www.youtube.com/embed/28Kq_1onePc?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Metroid Series Retrospective | A Complete History and Review"></iframe>'
-  width: 200
-  height: 113
-  aspectRatio: 56.5
-  authorName: I Finished A Video Game
-  authorUrl: >
-    https://www.youtube.com/@IFinishedAVideoGame
-  providerIcon: >
-    https://www.youtube.com/s/desktop/784cc796/img/logos/favicon_144x144.png
-  providerName: YouTube
-  providerUrl: https://www.youtube.com/
-  publishedTime:
-    date: 2023-12-03 10:00:02.000000
-    timezone_type: 1
-    timezone: -08:00
-  license: null
+----
+
+Embedtitle: The Beautiful Chaos of Dishonored 2 | A Lengthy Retrospective
 
 ----
 
@@ -128,6 +62,10 @@ Engineicon: unreal-engine.svg
 ----
 
 Links: https://noclip.website/
+
+----
+
+Iframe: https://www.youtube-nocookie.com/embed/4m_RkA3jtec?si=KjTtQlaCJW8oYscU
 
 ----
 

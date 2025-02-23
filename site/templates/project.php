@@ -9,8 +9,9 @@
             <section class="project-main-container">
                 <figure class="project-figure">
                     <div class="project-gallery">
-                        <?php if ($embed = $page->embedlink()->toEmbed()): ?>
-                            <?= $embed->code() ?>
+                    <?php if ($embed = $page->embedlink()->isNotEmpty()): ?>
+                        <?= Html::iframe($page->embedlink(), ['title' => $page->embedTitle(), 'frameborder' => '0']) ?>
+
                         <?php else: ?>
                             <div>
                                 <?php $coverImage = $page->images()->template('gallery-image')->limit(1); ?>
@@ -72,7 +73,7 @@
             <section class="project-description">
                 <details>
                     <summary aria-expanded="false">Project Description<br>
-                     <i aria-hidden="true" class="fa-solid fa-caret-down"></i>
+                        <i aria-hidden="true" class="fa-solid fa-caret-down"></i>
                     </summary>
                     <?= $page->description()->kirbytext() ?>
                 </details>
@@ -80,6 +81,4 @@
         </main>
     </div>
 </div>
-<div class="footer-wrapper">
-    <?php snippet('footer') ?>
-</div>
+<?php snippet('footer') ?>
