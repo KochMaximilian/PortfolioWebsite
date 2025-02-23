@@ -10,7 +10,14 @@ Featured: true
 
 ----
 
-Description: Short one line description of the game.
+Description:
+
+#### Samus Aran
+
+ And her **battle** against the Metroids form one of Nintendo's most iconic series - a franchise that has seen 17 releases throughout the company's storied history - a beloved mainstay of everything from Gameboy to Super Nintendo, GameCube to Switch.
+
+
+And yet - for all it,critical acclaim and longevity - it exists , the shadow of its siblings - never find. Itg the fachievesl success enjoyed by Mario, Zelda or Pokémon a,nd often disappearing disappears hibernation.
 
 ----
 
@@ -25,37 +32,73 @@ Year: 2025
 Embedlink:
 
 input: >
-  https://www.youtube.com/watch?v=aQoIh43_mJw
+  https://www.youtube.com/watch?v=28Kq_1onePc
 media:
-  title: 'Gestalt: Steam & Cinder - Official Release Date Trailer'
-  description: 'Embark on an epic journey to shatter the chains of fate in Gestalt: Steam & Cinder, an eagerly-anticipated, stunningly-handcrafted action-RPG, launching May ...'
+  title: >
+    Metroid Series Retrospective | A
+    Complete History and Review
+  description: 'The channel morphs into action thanks to the Patrons! - https://patreon.com/IFinishedAVideoGame TWITTER - https://twitter.com/IFinishedAGame DISCORD - https:...'
   url: >
-    https://www.youtube.com/watch?v=aQoIh43_mJw
+    https://www.youtube.com/watch?v=28Kq_1onePc
   tags:
-    - vídeo
-    - compartir
-    - teléfono con cámara
-    - teléfono con vídeo
-    - gratis
-    - subida
+    - metroid
+    - nintendo
+    - mario
+    - zelda
+    - pokemon
+    - nintendo switch
+    - sega
+    - sony
+    - microsoft
+    - donkey kong
+    - wario
+    - video game
+    - video game review
+    - video game retrospective
+    - gamecube
+    - switch
+    - nintendo 64
+    - playstation
+    - gameboy
+    - gameboy advance
+    - fire emblem
+    - smash bros
+    - retro games
+    - video essay
+    - metroidvania
+    - castlevania
+    - hollow knight
+    - mercurysteam
+    - luigi
+    - video game critique
+    - sleep
+    - asmr
+    - virtual boy
+    - xbox
+    - super mario bros movie
+    - sonic
+    - metroid dread
+    - metroid prime
+    - super metroid
+    - metroid prime 4
   image: >
-    https://i.ytimg.com/vi/aQoIh43_mJw/hqdefault.jpg
+    https://i.ytimg.com/vi/28Kq_1onePc/hqdefault.jpg
   feeds: [ ]
-  code: '<iframe width="200" height="113" src="https://www.youtube.com/embed/aQoIh43_mJw?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Gestalt: Steam &amp; Cinder - Official Release Date Trailer"></iframe>'
+  code: '<iframe width="200" height="113" src="https://www.youtube.com/embed/28Kq_1onePc?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Metroid Series Retrospective | A Complete History and Review"></iframe>'
   width: 200
   height: 113
   aspectRatio: 56.5
-  authorName: GameSpot Trailers
+  authorName: I Finished A Video Game
   authorUrl: >
-    https://www.youtube.com/@GameSpotTrailers
+    https://www.youtube.com/@IFinishedAVideoGame
   providerIcon: >
     https://www.youtube.com/s/desktop/784cc796/img/logos/favicon_144x144.png
   providerName: YouTube
   providerUrl: https://www.youtube.com/
   publishedTime:
-    date: 2024-04-10 12:04:56.000000
+    date: 2023-12-03 10:00:02.000000
     timezone_type: 1
-    timezone: -07:00
+    timezone: -08:00
   license: null
 
 ----
@@ -68,7 +111,7 @@ Platform: Playstation 5
 
 ----
 
-Focus: Level Design, System Design
+Focus: Level Design, System Design, Game Design
 
 ----
 

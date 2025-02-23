@@ -23,7 +23,7 @@ columns:
           description:
             label: Description of the Game
             required: true
-            maxlength: 150
+            maxlength: 500
             help: A short one line description of the game.
             type: textarea
             size: small
