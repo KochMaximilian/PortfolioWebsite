@@ -9,9 +9,17 @@
             <section class="project-main-container">
                 <figure class="project-figure">
                     <div class="project-gallery">
-                    <?php if ($embed = $page->embedlink()->isNotEmpty()): ?>
-                        <?= Html::iframe($page->embedlink(), ['title' => $page->embedTitle(), 'frameborder' => '0']) ?>
+                        <?php if ($embed = $page->embedlink()->isNotEmpty()): ?>
 
+                            <?= Html::iframe($page->embedlink(), [
+                                'title' => $page->embedTitle(),
+                                'frameborder' => '0',
+                                'allowfullscreen' => true,
+                                'allow' => 'accelerometer; autoplay; encrypted-media; gyroscope;',
+                                'loading' => 'lazy',
+                                'sandbox' => 'allow-scripts allow-same-origin',
+                                'referrerpolicy' => 'strict-origin-when-cross-origin'
+                            ]) ?>
                         <?php else: ?>
                             <div>
                                 <?php $coverImage = $page->images()->template('gallery-image')->limit(1); ?>

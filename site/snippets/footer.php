@@ -52,8 +52,6 @@
         });
     </script>
 <?php endif; ?>
-
-<?php snippet('cookieconsentJs') ?>
 <?= js('assets/js/script.js') ?>
 
 </body>
