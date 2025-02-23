@@ -17,7 +17,9 @@
         <div class="footer-right">
             <nav class="socials">
                 <a class="social-link" target="_blank" href="<?= $site->linkedin() ?>"><i class="fa-brands fa-linkedin custom-icon-size "></i></a>
-                <a class="social-link" target="_blank" href="mailto:<?= $site->mail() ?>"><i class="fa-solid fa-square-envelope custom-icon-size"></i></a>
+                
+                <a class="social-link" target="_blank" href="mailto:<?= Str::encode($site->mail()) ?>?subject=Game Design Portfolio Inquiry" title=""><i class="fa-solid fa-square-envelope custom-icon-size"></i></a>
+
                 <a class="social-link" target="_blank" href="<?= $site->github() ?>"><i class="fa-brands fa-square-github custom-icon-size"></i></a>
             </nav>
         </div>
