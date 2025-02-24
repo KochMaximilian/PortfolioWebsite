@@ -20,6 +20,7 @@
                                 'sandbox' => 'allow-scripts allow-same-origin',
                                 'referrerpolicy' => 'strict-origin-when-cross-origin'
                             ]) ?>
+                            
                         <?php else: ?>
                             <div>
                                 <?php $coverImage = $page->images()->template('gallery-image')->limit(1); ?>
@@ -78,6 +79,14 @@
                     </figcaption>
                 </figure>
             </section>
+
+            <section>
+                <div>
+
+                </div>
+            </section>
+
+
             <section class="project-description">
                 <details>
                     <summary aria-expanded="false">Project Description<br>
@@ -85,6 +94,10 @@
                     </summary>
                     <?= $page->description()->kirbytext() ?>
                 </details>
+            </section>
+
+            <section>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </section>
         </main>
     </div>

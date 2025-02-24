@@ -77,14 +77,14 @@ body {
 .wrapper {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex-grow: 1;
   width: 64em;
   max-width: calc(100% - 4em);
   margin: 0 auto;
   padding-left: 1rem;
   padding-right: 1rem;
   box-sizing: border-box;
-  height: 100%;
+  min-height: 100vh;
 }
 
 .main-content {
@@ -379,24 +379,21 @@ footer {
   text-align: center;
   z-index: 1000;
   width: 64em;
-  /* TODO - add variable for width */
   max-width: calc(100% - 4em);
   margin: 0 auto;
-
-
+  position: fixed; /* Make footer fixed */
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
-
 
 
 .footer-wrapper {
   width: 100%;
-  position: fixed;
-  /* Keeps it at the top */
-  bottom: 0;
-  z-index: 1000;
   display: flex;
   justify-content: center;
 }
+
 
 .footer-container {
   display: grid;
@@ -404,9 +401,7 @@ footer {
   grid-template-rows: auto auto;
   align-items: center;
   column-gap: .6rem;
-  /*TODO - FOOTER GAB BELOW TEXT: TWEAK*/
   margin: 0 auto;
-
 }
 
 .footer-left {

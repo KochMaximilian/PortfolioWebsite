@@ -11,6 +11,7 @@ columns:
             required: true
             type: text
             maxlength: 50
+            width: 5/6
           featured:
             label: Feature Project
             type: toggle
@@ -18,7 +19,7 @@ columns:
               - "No"
               - "Yes"
             default: no
-            width: 1/2
+            width: 1/6
             help: Display this project on the front page.
           description:
             label: Description of the Game
@@ -118,6 +119,18 @@ columns:
             help: How long the project did take to complete.
             icon: clock
             width: 1/2
+          team:
+            label: Team Size
+            type: text
+            icon: users
+            width: 1/5
+            help: Number of Teammembers.
+          awards:
+            label: Projcet Awards
+            type: text
+            icon: sparkling
+            width: 4/5
+            help: Fill in any award this project has won.
           engine:
             label: Game Engine
             type: tags
