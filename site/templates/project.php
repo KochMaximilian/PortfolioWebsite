@@ -80,15 +80,26 @@
                 </figure>
             </section>
 
+            
+            <section class="project-description">
+                <details>
+                    <summary aria-expanded="false">Project Description<br>
+                        <i aria-hidden="true" class="fa-solid fa-caret-down"></i>
+                    </summary>
+                    <?= $page->description()->kirbytext() ?>
+                </details>
+            </section>
+
+
 
             <section>
                 <div id="gallery" class="project-image-container">
                     <?php foreach ($page->images()->template('showcase-image') as $image): ?>
                         <?php $thumb = $image->thumb([
                             'autoOrient' => true,
-                            'width' => 300,
-                            'height' => 300,
-                            'crop' => true,
+                            'width' => 200,
+                            'height' => 200,
+                            'crop' => 'true',
                             'quality' => 50,
                             'driver' => 'im',
                             'format' => 'webp'
@@ -106,15 +117,6 @@
 
 
 
-
-            <section class="project-description">
-                <details>
-                    <summary aria-expanded="false">Project Description<br>
-                        <i aria-hidden="true" class="fa-solid fa-caret-down"></i>
-                    </summary>
-                    <?= $page->description()->kirbytext() ?>
-                </details>
-            </section>
 
 
 
