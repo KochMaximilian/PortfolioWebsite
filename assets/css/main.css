@@ -247,7 +247,33 @@ body {
   border-radius: var(--rounded-sm);
   border-width: var(--border-sm);
   box-shadow: var(--solid-shadow-md);
+  margin-bottom: 16rem;
 
+}
+.project-image-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  justify-items: center;
+  margin-top: 20px;
+  width: 100%; /* Ensures it fills the available space */
+  max-width: 1200px; /* Optional: prevents it from stretching too wide */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.project-gallary-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-gallary-image:hover {
+  transform: scale(1.05);
 }
 
 
@@ -381,6 +407,7 @@ footer {
   width: 64em;
   max-width: calc(100% - 4em);
   margin: 0 auto;
+  margin-top: 10rem;
   position: fixed; /* Make footer fixed */
   bottom: 0;
   left: 0;

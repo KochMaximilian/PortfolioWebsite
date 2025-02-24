@@ -17,7 +17,7 @@
         <div class="footer-right">
             <nav class="socials">
                 <a class="social-link" target="_blank" href="<?= $site->linkedin() ?>"><i class="fa-brands fa-linkedin custom-icon-size "></i></a>
-                
+
                 <a class="social-link" target="_blank" href="mailto:<?= Str::encode($site->mail()) ?>?subject=Game Design Portfolio Inquiry"><i class="fa-solid fa-square-envelope custom-icon-size"></i></a>
 
                 <a class="social-link" target="_blank" href="<?= $site->github() ?>"><i class="fa-brands fa-square-github custom-icon-size"></i></a>
@@ -25,7 +25,25 @@
         </div>
     </div>
 </footer>
+<?php if ($page->intendedTemplate()->name() === 'project'): ?>
 
+
+    <?= js('assets/photoswipe/photoswipe.umd.min.js') ?>
+    <?= js('assets/photoswipe/photoswipe-lightbox.umd.min.js') ?>
+
+    <script type="text/javascript">
+      var lightbox = new PhotoSwipeLightbox({
+        gallery: '#gallery',
+        children: 'a',
+        // dynamic import is not supported in UMD version
+        pswpModule: PhotoSwipe 
+      });
+      lightbox.init();
+    </script>
+
+
+
+<?php endif ?>
 
 <?php if ($page->intendedTemplate()->name() === 'home'): ?>
     <!-- Load JS for home page -->

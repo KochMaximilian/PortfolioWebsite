@@ -20,7 +20,7 @@
                                 'sandbox' => 'allow-scripts allow-same-origin',
                                 'referrerpolicy' => 'strict-origin-when-cross-origin'
                             ]) ?>
-                            
+
                         <?php else: ?>
                             <div>
                                 <?php $coverImage = $page->images()->template('gallery-image')->limit(1); ?>
@@ -80,11 +80,31 @@
                 </figure>
             </section>
 
-            <section>
-                <div>
 
+            <section>
+                <div id="gallery" class="project-image-container">
+                    <?php foreach ($page->images()->template('showcase-image') as $image): ?>
+                        <?php $thumb = $image->thumb([
+                            'autoOrient' => true,
+                            'width' => 300,
+                            'height' => 300,
+                            'crop' => true,
+                            'quality' => 50,
+                            'driver' => 'im',
+                            'format' => 'webp'
+                        ]); ?>
+                        <a href="<?= $image->url() ?>"
+                            data-pswp-width="<?= $image->width() ?>"
+                            data-pswp-height="<?= $image->height() ?>"
+                            target="_blank">
+                            <img loading="lazy" alt="<?= $image->alt() ?>" class="project-gallary-image" src="<?= $thumb->url() ?>" />
+                        </a>
+                    <?php endforeach; ?>
                 </div>
             </section>
+
+
+
 
 
             <section class="project-description">
@@ -96,9 +116,8 @@
                 </details>
             </section>
 
-            <section>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            </section>
+
+
         </main>
     </div>
 </div>

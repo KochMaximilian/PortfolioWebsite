@@ -12,10 +12,13 @@
         <?= css('assets/css/config/utility/flickity.css') ?>
     <?php endif; ?>
 
+    <?php if($page->intendedTemplate()->name() === 'project'): ?>
+        <?= css('assets/photoswipe/photoswipe.css') ?>
+    <?php endif ?>
+
     <?= css('assets/fontawesome/css/fontawesome.min.css') ?>   
     <?= css('assets/fontawesome/css/brands.min.css') ?> 
     <?= css('assets/fontawesome/css/solid.min.css') ?>
-
 
     <?= css('assets/css/config/config.css') ?>    
     <?= css('assets/css/main.css') ?>
