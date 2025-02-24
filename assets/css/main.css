@@ -272,11 +272,31 @@ body {
   object-fit: cover; /* Ensures images fill their grid cells without distortion */
 }
 
-.project-gallary-image:hover {
-  transform: scale(1.05);
+
+.image-caption-badge {
+  z-index: var(--z-loader);
+  background-color: var(--color-black-dark);
+  font-family: var(--font-barlow);
+  color: var(--color-white);
+  text-transform: uppercase;
+  font-weight: var(--font-bold);
+  text-decoration: none;
+  position: relative;
+  bottom: 5rem;
+  width: auto;
+  text-align: center;
+  margin: 0 auto;
 }
 
+.project-image-container a {
+  display: block;
+  text-decoration: none;
+  
+}
 
+.project-image-container a:hover {
+  transform: scale(1.05);
+}
 
 details summary {
   list-style: none;

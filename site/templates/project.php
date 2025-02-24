@@ -80,7 +80,7 @@
                 </figure>
             </section>
 
-            
+
             <section class="project-description">
                 <details>
                     <summary aria-expanded="false">Project Description<br>
@@ -99,22 +99,37 @@
                             'autoOrient' => true,
                             'width' => 200,
                             'height' => 200,
-                            'crop' => 'true',
+                            'crop' => true,
                             'quality' => 50,
                             'driver' => 'im',
                             'format' => 'webp'
                         ]); ?>
-                        <a href="<?= $image->url() ?>"
+                        <a class="project-image-link" href="<?= $image->url() ?>"
                             data-pswp-width="<?= $image->width() ?>"
                             data-pswp-height="<?= $image->height() ?>"
+                            data-cropped="true"
                             target="_blank">
                             <img loading="lazy" alt="<?= $image->alt() ?>" class="project-gallary-image" src="<?= $thumb->url() ?>" />
+                            <?php if($image->caption()->isNotEmpty()): ?>
+                            <div class="image-caption-badge"><?= $image->caption() ?></div>
+                            <?php endif ?>
                         </a>
                     <?php endforeach; ?>
                 </div>
             </section>
 
 
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
 
 
 
