@@ -92,31 +92,38 @@
 
 
 
-            <section>
-                <div id="gallery" class="project-image-container">
-                    <?php foreach ($page->images()->template('showcase-image') as $image): ?>
-                        <?php $thumb = $image->thumb([
-                            'autoOrient' => true,
-                            'width' => 250,
-                            'height' => 250,
-                            'crop' => true,
-                            'quality' => 50,
-                            'driver' => 'im',
-                            'format' => 'webp'
-                        ]); ?>
-                        <a class="project-image-link" href="<?= $image->url() ?>"
-                            data-pswp-width="<?= $image->width() ?>"
-                            data-pswp-height="<?= $image->height() ?>"
-                            data-cropped="true"
-                            target="_blank">
-                            <img loading="lazy" alt="<?= $image->alt() ?>" class="project-gallary-image" src="<?= $thumb->url() ?>" />
-                            <?php if($image->caption()->isNotEmpty()): ?>
-                            <div class="image-caption-badge"><?= $image->caption() ?></div>
-                            <?php endif ?>
-                        </a>
-                    <?php endforeach; ?>
-                </div>
-            </section>
+            <?php
+            $showcaseImages = $page->images()->filterBy('template', 'showcase-image');
+
+            if ($showcaseImages->isNotEmpty()): ?>
+                <section>
+                    <div id="gallery" class="project-image-container">
+                        <?php foreach ($showcaseImages as $image): ?>
+                            <?php $thumb = $image->thumb([
+                                'autoOrient' => true,
+                                'width' => 250,
+                                'height' => 250,
+                                'crop' => true,
+                                'quality' => 50,
+                                'driver' => 'im',
+                                'format' => 'webp'
+                            ]); ?>
+                            <a class="project-image-link" href="<?= $image->url() ?>"
+                                data-pswp-width="<?= $image->width() ?>"
+                                data-pswp-height="<?= $image->height() ?>"
+                                data-cropped="true"
+                                target="_blank">
+                                <img loading="lazy" alt="<?= $image->alt() ?>" class="project-gallary-image" src="<?= $thumb->url() ?>" />
+                                <?php if ($image->caption()->isNotEmpty()): ?>
+                                    <div class="image-caption-badge"><?= $image->caption() ?></div>
+                                <?php endif ?>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                </section>
+            <?php endif; ?>
+
+
 
 
             <br>

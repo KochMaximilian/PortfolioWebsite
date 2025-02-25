@@ -1,9 +1,0 @@
-Sort: 5
-
-----
-
-Uuid: 4TkQWVlRiXYVrU6k
-
-----
-
-Template: showcase-image
