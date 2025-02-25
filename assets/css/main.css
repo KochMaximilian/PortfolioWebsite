@@ -33,6 +33,10 @@ body {
   z-index: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 ::selection {
   background: var(--color-yellow-dark); 
   color: var(--color-black-dark); 
@@ -244,64 +248,92 @@ body {
 .project-description {
   background: var(--color-white);
   border: solid var(--color-black-dark);
-  border-radius: var(--rounded-sm);
-  border-width: var(--border-sm);
+  border-radius: var(--rounded-md);
+  border-width: var(--border-md);
   box-shadow: var(--solid-shadow-md);
 
 
 }
+
+/* Project Image Container */
 .project-image-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Dynamically adjusts based on available space */
-  gap: 16px;
+  gap: var(--spacing-2);
   justify-items: center;
-  margin-top: 20px;
   width: 100%;
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  padding: var(--spacing-2);
 }
 
+/* Project Gallery Image */
 .project-gallary-image {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-  object-fit: cover; /* Ensures images fill their grid cells without distortion */
+  border-radius: var(--rounded-md);
+  object-fit: cover; 
+  border: solid;
+  border-color: var(--color-black-dark);
+  border-width: var(--border-md);
+  box-shadow: var(--solid-shadow-sm);
+  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), 
+              box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), 
+              border-width 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
 }
 
-
+/* Image Caption Badge */
 .image-caption-badge {
-  z-index: var(--z-loader);
-  background-color: var(--color-black-dark);
   font-family: var(--font-barlow);
-  color: var(--color-white);
+  font-weight: var(--font-black);
+  font-size: var(--font-size-md);
+  color: var(--color-black-dark);
   text-transform: uppercase;
-  font-weight: var(--font-bold);
-  text-decoration: none;
-  position: relative;
-  bottom: 5rem;
-  width: auto;
   text-align: center;
-  margin: 0 auto;
+  text-decoration: none;
+
+  background: var(--color-white);
+  border: solid var(--border-xsm) var(--color-black-dark);
+  border-radius: var(--rounded-xs);
+  padding: var(--spacing-1);
+
+  width: 50%;
+  position: absolute;
+  bottom: var(--spacing-4);
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), 
+              background 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2); 
+  z-index: var(--z-notification);
 }
 
+/* Badge Hover Effect when Hovering the Entire Link */
+.project-image-container a:hover .image-caption-badge {
+  background: var(--color-yellow-dark); 
+  transform: translateX(-50%) scale(0.95); 
+}
+
+/* Project Image Container Link */
 .project-image-container a {
+  position: relative;
   display: block;
   text-decoration: none;
-  
+  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
 }
 
-.project-image-container a:hover {
-  transform: scale(1.05);
+/* Hover Effect on Image Link */
+.project-image-container a:hover .project-gallary-image {
+  transform: scale(0.95); 
+  box-shadow: var(--solid-shadow-xs);
+  border-width: var(--border-sm);
 }
+
 
 details summary {
   list-style: none;
   display: flex;
-  flex-direction: column; /* Stack text and icon vertically */
+  flex-direction: column; 
   align-items: center;
   text-align: center;
   font-family: var(--font-barlow);
@@ -887,7 +919,6 @@ p {
   margin: 6px 0;
   transition: all 0.2s ease-in-out;
 }
-
 
 
 .main-button {

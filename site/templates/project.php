@@ -97,8 +97,8 @@
                     <?php foreach ($page->images()->template('showcase-image') as $image): ?>
                         <?php $thumb = $image->thumb([
                             'autoOrient' => true,
-                            'width' => 200,
-                            'height' => 200,
+                            'width' => 250,
+                            'height' => 250,
                             'crop' => true,
                             'quality' => 50,
                             'driver' => 'im',
