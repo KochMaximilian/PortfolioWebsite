@@ -72,7 +72,7 @@
                             <?php if ($page->links()->isNotEmpty()): ?>
                                 <div>
                                     <dt>Additional Links:</dt>
-                                    <dd><a href="<?= $page->links() ?>" title="<?= $page->links() ?>"><?= preg_replace('/.*\//', ' ', $page->links()->url()->short(22, '…')) ?></a></dd>
+                                    <dd><a class="additional-link" href="<?= $page->links() ?>" title="<?= $page->links() ?>"><?= preg_replace('/.*\//', ' ', $page->links()->url()->short(22, '…')) ?></a></dd>
                                 </div>
                             <?php endif; ?>
                         </dl>

@@ -42,7 +42,20 @@ a {
   color: var(--color-black-dark); 
 }
 
+.additional-link {
+  color: var(--color-blue-dark);
+  font-family: var(--font-barlow);
+  font-weight: var(--font-bold);
+}
 
+.additional-link:hover {
+  font-weight: var(--font-black);
+  color: var(--color-yellow-dark);
+}
+
+.additional-link:visited {
+  color: var(--color-yellow-dark);
+}
 
 /* Scrolling Background Styling */
 .scrolling-background {
@@ -264,7 +277,7 @@ a {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--spacing-2);
+ 
 }
 
 /* Project Gallery Image */

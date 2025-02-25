@@ -54,13 +54,11 @@ columns:
             type: link
             before: "Copy Url"
             help: Best to copy the "privacy-enhanced mode" link here.
-            required: true
           embedTitle:
             width: 1/2
             label: Video Titel
             type: text
             max-length: 50
-            required: true
             help: Copy title form YouTube Vido.
 
   - width: 1/2
