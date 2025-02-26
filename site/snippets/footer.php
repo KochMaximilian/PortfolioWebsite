@@ -62,6 +62,33 @@
     lightbox.init();
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const imageContainers = document.querySelectorAll('.project-image-container');
+  
+  imageContainers.forEach(container => {
+    const totalImages = container.querySelectorAll('.project-image-link').length;
+    const badgeElements = container.querySelectorAll('.image-caption-badge');
+
+    badgeElements.forEach(badge => {
+      if (totalImages <= 2) {
+     
+        badge.style.bottom = 'var(--spacing-7)';
+        badge.style.fontSize = 'var(--font-size-lg)';
+      } else if (totalImages <= 6) {
+       
+        badge.style.bottom = 'var(--spacing-4)';
+        badge.style.fontSize = 'var(--font-size-md)';
+      } else {
+       
+        badge.style.bottom = 'var(--spacing-2)';
+        badge.style.fontSize = 'var(--font-size-xs';
+      }
+    });
+  });
+});
+</script>
+
 <?php endif ?>
 
 <?php if ($page->intendedTemplate()->name() === 'home'): ?>
