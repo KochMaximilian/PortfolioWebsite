@@ -42,35 +42,69 @@ sections:
           - Play Testing
           - Clear Communication (Verbal & Written)
 
-      tools:
-        label: Game Engines, Tools & Editors
+      software:
+        label: Tools & Software
         type: tags
         required: true
-        min: 3
         width: 1/2
         help: Add engines, tools, or other software you have experience with.
         options:
-          - Unreal Engine (Blueprints)
-          - Unity Engine (C#)
-          - Godot (C#)
-          - Playmaker Unity Plugin
-          - Perforce
-          - Git
           - Adobe Photoshop
           - Adobe Illustrator
           - Adobe InDesign
           - Affinity Photo
           - Affinity Designer
           - Blender
+          - Ink (Narrative Scripting)
+
+      production:
+        label: Production & Communication
+        type: tags
+        required: true
+        width: 1/2
+        help: Add tools and software in the productive area that you have experience with.
+        options:
           - MS Office 365
           - Google Suite
-          - Slack
-          - Discord
-          - Ink (Narrative Scripting)
           - Miro
           - Confluence
           - Trello
           - Notion
+          - Slack
+          - Discord
+
+      editors:
+        label: Game Engines & Editors
+        type: tags
+        required: true
+        min: 1
+        width: 1/2
+        help: Add engines you have experience with.
+        options:
+          - Unreal Engine
+          - Unity Engine
+          - Godot
+          - Playmaker Unity Plugin
+
+      version-ctrl:
+        label: Version Control Software
+        type: tags
+        width: 1/2
+        help: Add version control software you have experience with.
+        options:
+          - Perforce
+          - Git
+
+      programming:
+        label: Programming
+        type: tags
+        width: 1/2
+        help: Add programming languages and tools you know.
+        options:
+          - C#
+          - Unreal Blueprints
+          - Python
+          - Web Technologies
 
       languages:
         label: Known Languages
@@ -80,16 +114,6 @@ sections:
           - German (Native)
           - English (C1)
 
-      other_skills:
-        label: Other Skills
-        type: tags
-        width: 1/2
-        options:
-          - JavaScript
-          - PHP
-          - HTML & CSS
-          - Public Speaking
-  # Image
   personal_image:
     label: Personal Photo
     type: files
