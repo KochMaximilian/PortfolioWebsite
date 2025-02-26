@@ -2,4 +2,166 @@ Title: About
 
 ----
 
+Author-name: Maximilian Koch
+
+----
+
+Fav-games: 
+
+----
+
+Author-description: Placeholder
+
+----
+
+Game-design-skills: Game System Design, Balancing, Level Design
+
+----
+
+Tools: Unity Eninge (C, Unreal Engine (Blueprints), Playmaker Unity Plugin
+
+----
+
+Languages: German (Native), Egnlish (C1)
+
+----
+
+Other-skills: 
+
+----
+
+Personal-image:
+
+- 
+  id: capture1.png
+  image:
+    back: pattern
+    color: orange-500
+    cover: true
+    icon: image
+    ratio: 1/1
+    url: >
+      http://localhost:8000/media/pages/about/06ef10b20b-1740537364/capture1.png
+    src: >
+      data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw
+    srcset: >
+      http://localhost:8000/media/pages/about/06ef10b20b-1740537364/capture1-352x352-crop.png
+      352w,
+      http://localhost:8000/media/pages/about/06ef10b20b-1740537364/capture1-864x864-crop.png
+      864w,
+      http://localhost:8000/media/pages/about/06ef10b20b-1740537364/capture1-1408x1408-crop.png
+      1408w
+  info: ""
+  link: /pages/about/files/capture1.png
+  sortable: true
+  text: capture1.png
+  uuid: file://Urie1MQUvaz9TBHW
+  dragText: '(image: capture1.png)'
+  filename: capture1.png
+  type: image
+  url: >
+    http://localhost:8000/media/pages/about/06ef10b20b-1740537364/capture1.png
+- 
+  id: 2a282235e226358ab9df931bba1699fb.jpg
+  image:
+    back: pattern
+    color: orange-500
+    cover: true
+    icon: image
+    ratio: 1/1
+    url: >
+      http://localhost:8000/media/pages/about/57f49ed447-1740537464/2a282235e226358ab9df931bba1699fb.jpg
+    src: >
+      data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw
+    srcset: >
+      http://localhost:8000/media/pages/about/57f49ed447-1740537464/2a282235e226358ab9df931bba1699fb-352x352-crop.jpg
+      352w,
+      http://localhost:8000/media/pages/about/57f49ed447-1740537464/2a282235e226358ab9df931bba1699fb-864x864-crop.jpg
+      864w,
+      http://localhost:8000/media/pages/about/57f49ed447-1740537464/2a282235e226358ab9df931bba1699fb-1408x1408-crop.jpg
+      1408w
+  info: ""
+  link: >
+    /pages/about/files/2a282235e226358ab9df931bba1699fb.jpg
+  sortable: true
+  text: 2a282235e226358ab9df931bba1699fb.jpg
+  uuid: file://Ev1kFp0CyGokW2fK
+  dragText: '(image: 2a282235e226358ab9df931bba1699fb.jpg)'
+  filename: 2a282235e226358ab9df931bba1699fb.jpg
+  type: image
+  url: >
+    http://localhost:8000/media/pages/about/57f49ed447-1740537464/2a282235e226358ab9df931bba1699fb.jpg
+
+----
+
+Author-image:
+
+- 
+  id: maximilian-koch-right.webp
+  image:
+    back: pattern
+    color: orange-500
+    cover: true
+    icon: image
+    ratio: 1/1
+    url: >
+      http://localhost:8000/media/pages/about/a214deb5eb-1740536620/maximilian-koch-right.webp
+    src: >
+      data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw
+    srcset: >
+      http://localhost:8000/media/pages/about/a214deb5eb-1740536620/maximilian-koch-right-352x352-crop.webp
+      352w,
+      http://localhost:8000/media/pages/about/a214deb5eb-1740536620/maximilian-koch-right-864x864-crop.webp
+      864w,
+      http://localhost:8000/media/pages/about/a214deb5eb-1740536620/maximilian-koch-right-1408x1408-crop.webp
+      1408w
+  info: ""
+  link: >
+    /pages/about/files/maximilian-koch-right.webp
+  sortable: true
+  text: maximilian-koch-right.webp
+  uuid: file://47Zvr2T1CxsRfvgN
+  dragText: '(image: maximilian-koch-right.webp)'
+  filename: maximilian-koch-right.webp
+  type: image
+  url: >
+    http://localhost:8000/media/pages/about/a214deb5eb-1740536620/maximilian-koch-right.webp
+
+----
+
 Uuid: 8sQyVvpaOeRovgvR
+
+----
+
+Images:
+
+- 
+  id: 2a282235e226358ab9df931bba1699fb.jpg
+  image:
+    back: pattern
+    color: orange-500
+    cover: true
+    icon: image
+    ratio: 5/4
+    url: >
+      http://localhost:8000/media/pages/about/57f49ed447-1740537201/2a282235e226358ab9df931bba1699fb.jpg
+    src: >
+      data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw
+    srcset: >
+      http://localhost:8000/media/pages/about/57f49ed447-1740537201/2a282235e226358ab9df931bba1699fb-352x282-crop.jpg
+      352w,
+      http://localhost:8000/media/pages/about/57f49ed447-1740537201/2a282235e226358ab9df931bba1699fb-864x691-crop.jpg
+      864w,
+      http://localhost:8000/media/pages/about/57f49ed447-1740537201/2a282235e226358ab9df931bba1699fb-1408x1126-crop.jpg
+      1408w
+  info: 236 × 236
+  link: >
+    /pages/about/files/2a282235e226358ab9df931bba1699fb.jpg
+  sortable: true
+  text: 2a282235e226358ab9df931bba1699fb.jpg
+  uuid: file://mO5xU4lIq7HwJXua
+  dragText: '(image: 2a282235e226358ab9df931bba1699fb.jpg)'
+  filename: 2a282235e226358ab9df931bba1699fb.jpg
+  type: image
+  url: >
+    http://localhost:8000/media/pages/about/57f49ed447-1740537201/2a282235e226358ab9df931bba1699fb.jpg

@@ -1,0 +1,14 @@
+title: Personal Image
+accept:
+  extension: jpg, jpeg, png, webp
+fields: 
+  alt:
+    type: text
+    label: Alternative Text Personal Image Template
+  caption:
+    label: Meta Tags
+    type: tags
+  
+
+
+

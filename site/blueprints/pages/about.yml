@@ -1,1 +1,102 @@
-title: About
+sections:
+  author_info:
+    type: fields
+    fields:
+      author_name:
+        label: Author Name
+        type: text
+        required: true
+        maxlength: 50
+        width: 1/2
+
+      fav_games:
+        label: Favourite Games
+        type: tags
+        width: 1/2
+
+      author_description:
+        label: Author Description
+        type: textarea
+        required: true
+        maxlength: 500
+        size: medium
+        help: A description of yourself.
+
+      game_design_skills:
+        label: Game Design Skills
+        type: tags
+        required: true
+        min: 3
+        width: 1/2
+        options:
+          - Game System Design
+          - Implementation
+          - Balancing
+          - Level Design
+          - Blockouts
+          - Rapid Prototyping
+          - Combat Encounter Design
+          - Scripting
+          - Visually Focused
+          - Design Documentation
+          - Play Testing
+          - Clear Communication (Verbal & Written)
+
+      tools:
+        label: Game Engines, Tools & Editors
+        type: tags
+        required: true
+        min: 3
+        width: 1/2
+        help: Add engines, tools, or other software you have experience with.
+        options:
+          - Unreal Engine (Blueprints)
+          - Unity Engine (C#)
+          - Godot (C#)
+          - Playmaker Unity Plugin
+          - Perforce
+          - Git
+          - Adobe Photoshop
+          - Adobe Illustrator
+          - Adobe InDesign
+          - Affinity Photo
+          - Affinity Designer
+          - Blender
+          - MS Office 365
+          - Google Suite
+          - Slack
+          - Discord
+          - Ink (Narrative Scripting)
+          - Miro
+          - Confluence
+          - Trello
+          - Notion
+
+      languages:
+        label: Known Languages
+        type: tags
+        width: 1/2
+        options:
+          - German (Native)
+          - English (C1)
+
+      other_skills:
+        label: Other Skills
+        type: tags
+        width: 1/2
+        options:
+          - JavaScript
+          - PHP
+          - HTML & CSS
+          - Public Speaking
+  # Image
+  personal_image:
+    label: Personal Photo
+    type: files
+    layout: cards
+    empty: No image uploaded yet.
+    template: personal-img
+    help: Upload a personal image to display on the about page.
+    image:
+      ratio: 1/1
+      cover: true
