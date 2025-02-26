@@ -38,8 +38,8 @@ a {
 }
 
 ::selection {
-  background: var(--color-yellow-dark); 
-  color: var(--color-black-dark); 
+  background: var(--color-yellow-dark);
+  color: var(--color-black-dark);
 }
 
 .additional-link {
@@ -202,7 +202,7 @@ a {
 .project-figure {
   display: flex;
   align-items: flex-start;
-  gap: 2rem; 
+  gap: 2rem;
   background: var(--color-white);
   border-radius: var(--rounded-md);
   border: solid var(--color-black-dark) var(--border-md);
@@ -210,12 +210,15 @@ a {
 }
 
 .project-gallery {
-  flex: 1; /* Makes the image/video take up one part of the space */
-  max-width: 65%; /* Ensures it doesn’t take over too much */
+  flex: 1;
+  /* Makes the image/video take up one part of the space */
+  max-width: 65%;
+  /* Ensures it doesn’t take over too much */
 }
 
 .project-info {
-  flex: 1; /* Makes the text take up the remaining space */
+  flex: 1;
+  /* Makes the text take up the remaining space */
   max-width: 35%;
   padding-top: 1.5rem;
   padding-right: 0.45rem;
@@ -248,14 +251,14 @@ a {
   display: block;
   width: 100%;
   height: 30vh;
-  border-right: solid var(--color-black-dark)  var(--border-md);
+  border-right: solid var(--color-black-dark) var(--border-md);
 }
 
 .project-image {
   display: block;
   width: 100%;
   height: auto;
-  border-right: solid var(--color-black-dark)  var(--border-md);
+  border-right: solid var(--color-black-dark) var(--border-md);
 }
 
 .project-description {
@@ -268,32 +271,52 @@ a {
 
 }
 
+
+/* Lightbox Container */
+.lightbox {
+  margin-bottom: var(--spacing-60);
+}
+
 /* Project Image Container */
 .project-image-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Dynamically adjusts based on available space */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  /* Dynamically adjusts based on available space */
   gap: var(--spacing-2);
   justify-items: center;
+  justify-content: center;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
- 
+  contain: layout;
+}
+
+/* Project Image Link (to maintain consistent container aspect ratio) */
+.project-image-link {
+  position: relative;
+  overflow: visible; /* Allow shadow to show */
+  display: block;
+  width: 100%;
+  aspect-ratio: 1; /* Ensures a square ratio for all image containers */
 }
 
 /* Project Gallery Image */
 .project-gallary-image {
   display: block;
   width: 100%;
-  height: auto;
-  border-radius: var(--rounded-md);
-  object-fit: cover; 
+  height: 100%; /* Ensure the image fills the container */
+  object-fit: cover; /* Ensures the image covers the container */
+  border-radius: var(--rounded-lg);
   border: solid;
   border-color: var(--color-black-dark);
   border-width: var(--border-md);
-  box-shadow: var(--solid-shadow-sm);
-  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), 
-              box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), 
-              border-width 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+  box-shadow: var(--solid-shadow-md); /* Default shadow */
+  position: relative;  /* Ensure box-shadow appears above other content */
+  z-index: 1;
+  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+    box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+    border-width 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+  will-change: transform;
 }
 
 /* Image Caption Badge */
@@ -316,15 +339,16 @@ a {
   bottom: var(--spacing-4);
   left: 50%;
   transform: translateX(-50%);
-  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), 
-              background 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2); 
+  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+    background 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
   z-index: var(--z-notification);
+  will-change: transform;
 }
 
 /* Badge Hover Effect when Hovering the Entire Link */
 .project-image-container a:hover .image-caption-badge {
-  background: var(--color-yellow-dark); 
-  transform: translateX(-50%) scale(0.95); 
+  background: var(--color-yellow-dark);
+  transform: translateX(-50%) scale(0.95);
 }
 
 /* Project Image Container Link */
@@ -333,20 +357,38 @@ a {
   display: block;
   text-decoration: none;
   transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+  will-change: transform;
 }
 
 /* Hover Effect on Image Link */
 .project-image-container a:hover .project-gallary-image {
-  transform: scale(0.95); 
-  box-shadow: var(--solid-shadow-xs);
+  transform: scale(0.95);
+  box-shadow: var(--solid-shadow-sm); /* Hover shadow */
   border-width: var(--border-sm);
+  transition: box-shadow 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2),; /* Adjust transition for shadow */
 }
+
+/* Optimize performance by preventing layout shifts during transition */
+.project-image-container img {
+  will-change: transform;  /* Optimizes for transforms */
+}
+
+/* Adjusting margin on lightbox based on gallery height */
+.lightbox {
+  transition: margin-bottom 0.3s ease;
+}
+
+/* Disable margin transition during image scaling */
+.project-image-container a:active {
+  transition: none;  /* Disable during scaling */
+}
+
 
 
 details summary {
   list-style: none;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
   text-align: center;
   font-family: var(--font-barlow);
@@ -372,7 +414,7 @@ details summary {
 summary i {
   font-size: var(--font-size-3xl);
   color: var(--color-black-dark);
-  transition: transform 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2); 
+  transition: transform 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
 }
 
 summary:hover i {
@@ -380,12 +422,12 @@ summary:hover i {
   transform: scale(1.3);
 
 
-  
+
 }
 
 details[open] summary {
   font-size: var(--font-size-2xl);
-  
+
 }
 
 details[open] summary i {
@@ -394,7 +436,7 @@ details[open] summary i {
 
 details[open] summary:hover i {
   color: var(--color-yellow-dark);
-  
+
 }
 
 /*Pagination section */
@@ -472,7 +514,8 @@ footer {
   max-width: calc(100% - 4em);
   margin: 0 auto;
   margin-top: 10rem;
-  position: fixed; /* Make footer fixed */
+  position: fixed;
+  /* Make footer fixed */
   bottom: 0;
   left: 0;
   right: 0;
@@ -708,10 +751,10 @@ p {
   border-radius: var(--rounded-lg);
   height: 40vh;
   transition:
-  transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-  background-color 0.2s ease,
-  font-weight 0.2s ease,
-  box-shadow 0.2s ease;
+    transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+    background-color 0.2s ease,
+    font-weight 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .projects-figure img {

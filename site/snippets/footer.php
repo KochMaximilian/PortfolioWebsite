@@ -62,15 +62,6 @@
     lightbox.init();
 </script>
 
-
-
-
-
-
-
-
-
-
 <?php endif ?>
 
 <?php if ($page->intendedTemplate()->name() === 'home'): ?>

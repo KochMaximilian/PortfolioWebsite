@@ -96,7 +96,7 @@
             $showcaseImages = $page->images()->filterBy('template', 'showcase-image');
 
             if ($showcaseImages->isNotEmpty()): ?>
-                <section>
+                <section class="lightbox">
                     <div id="gallery" class="project-image-container">
                         <?php foreach ($showcaseImages as $image): ?>
                             <?php $thumb = $image->thumb([
@@ -111,9 +111,10 @@
                             <a class="project-image-link" href="<?= $image->url() ?>"
                                 data-pswp-width="<?= $image->width() ?>"
                                 data-pswp-height="<?= $image->height() ?>"
-                                data-cropped="true"
                                 target="_blank">
-                                <img loading="lazy" alt="<?= $image->alt() ?>" class="project-gallary-image" src="<?= $thumb->url() ?>" />
+                                <div class="image-wrapper">
+                                    <img loading="lazy" alt="<?= $image->alt() ?>" class="project-gallary-image" src="<?= $thumb->url() ?>" />
+                                </div>
                                 <?php if ($image->caption()->isNotEmpty()): ?>
                                     <div class="image-caption-badge"><?= $image->caption() ?></div>
                                 <?php endif ?>
@@ -126,17 +127,6 @@
 
 
 
-            <br>
-            <br>
-            <br>
-            <br>
-
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
 
 
 
