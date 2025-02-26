@@ -41,6 +41,14 @@ sections:
           - Design Documentation
           - Play Testing
           - Clear Communication (Verbal & Written)
+      version-control:
+            label: Version Control Software
+            type: tags
+            width: 1/2
+            help: Add version control software you have experience with.
+            options:
+              - Perforce
+              - Git
 
       software:
         label: Tools & Software
@@ -85,16 +93,6 @@ sections:
           - Unity Engine
           - Godot
           - Playmaker Unity Plugin
-
-      version-ctrl:
-        label: Version Control Software
-        type: tags
-        width: 1/2
-        help: Add version control software you have experience with.
-        options:
-          - Perforce
-          - Git
-
       programming:
         label: Programming
         type: tags
