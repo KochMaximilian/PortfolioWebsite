@@ -2,6 +2,9 @@ sections:
   author_info:
     type: fields
     fields:
+      page_name:
+        label: Page Name
+        type: text
       author_name:
         label: Author Name
         type: text
@@ -41,14 +44,16 @@ sections:
           - Design Documentation
           - Play Testing
           - Clear Communication (Verbal & Written)
-      version-control:
-            label: Version Control Software
-            type: tags
-            width: 1/2
-            help: Add version control software you have experience with.
-            options:
-              - Perforce
-              - Git
+
+      source:
+        label: Version Control Software
+        type: tags
+        required: true
+        width: 1/2
+        help: Add version control software you have experience with.
+        options:
+          - Perforce
+          - Git
 
       software:
         label: Tools & Software

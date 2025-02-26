@@ -4,7 +4,7 @@ accept:
 fields: 
   alt:
     type: text
-    label: Alternative Text Personal Image Template
+    label: Alternative Text
   caption:
     label: Meta Tags
     type: tags

@@ -2,4 +2,52 @@ Title: About
 
 ----
 
+Author-name: Maximilian Koch
+
+----
+
+Fav-games: 
+
+----
+
+Author-description: Hello this is me.
+
+----
+
+Game-design-skills: Game System Design, Implementation, Balancing, Level Design, Blockouts, Rapid Prototyping, Combat Encounter Design, Scripting, Visually Focused, Design Documentation, Play Testing, Clear Communication (Verbal & Written)
+
+----
+
+Source: Perforce, Git
+
+----
+
+Software: Adobe Photoshop, Adobe Illustrator, Adobe InDesign, Affinity Photo, Affinity Designer, Blender, Ink (Narrative Scripting)
+
+----
+
+Production: MS Office 365, Google Suite, Miro, Confluence, Trello, Notion, Slack, Discord
+
+----
+
+Editors: Unreal Engine, Unity Engine, Godot, Playmaker Unity Plugin
+
+----
+
+Programming: C#, Unreal Blueprints, Python, Web Technologies
+
+----
+
+Languages: German (Native), English (C1)
+
+----
+
+Source-control: Perforce, Git
+
+----
+
+Version-control: Perforce, Git
+
+----
+
 Uuid: Lksn9ROZUvYUqZ0k
