@@ -170,6 +170,18 @@ a {
 
 }
 
+.subcontent-block {
+  padding: .4rem .9rem;
+  text-align: center;
+  background-color: var(--color-white);
+  border-radius: var(--rounded-md);
+  border: var(--border-sm) solid;
+  border-color: var(--color-black-dark);
+  /* background: #F4F2EE;*/
+  box-shadow: var(--solid-shadow);
+  margin-bottom: var(--spacing-10);
+}
+
 .filter-block {
   justify-content: center;
   text-align: center;
@@ -501,6 +513,136 @@ details[open] summary:hover i {
   opacity: 1;
 
 }
+
+.about-content {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5em;
+  align-items: start;
+  background: var(--color-white);
+  border-radius: var(--rounded-md);
+  border: solid var(--color-black-dark) var(--border-md);
+  box-shadow: var(--solid-shadow-md);
+}
+
+.about-image {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.about-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-right: solid var(--color-black-dark) var(--border-md);
+  width: 100%;
+  max-width: 1200px; /* Keeps the max-width at 1200px */
+  position: relative;
+  overflow: hidden; /* Ensures the image stays cropped */
+}
+
+.author-image {
+  width: 100%;
+  height: auto; /* Ensures the aspect ratio is maintained */
+  object-fit: cover; /* Keeps the cropping without distortion */
+}
+
+/* Smoother Responsive Scaling */
+@media (max-width: 1600px) {
+  .about-image {
+    max-width: 60vw; /* Gradual scaling for slightly smaller screens */
+  }
+}
+
+@media (max-width: 1200px) {
+  .about-image {
+    max-width: 50vw; /* More scaling down for mid-size screens */
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-image {
+    max-width: 45vw; /* Slightly smaller scaling for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 1em;
+  }
+
+  .about-image {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .about-image img {
+    border-right: none;
+    border-bottom: solid var(--color-black-dark) var(--border-md);
+  }
+
+  .about-text {
+    padding: 1rem;
+  }
+
+  .about-image {
+    max-width: 100vw; /* Full width on smaller screens (phones) */
+  }
+}
+
+.about-text {
+  padding: 1.5rem 1.5rem 0 1rem;
+}
+
+.about-text p {
+  padding-bottom: 0.4rem;
+}
+
+
+
+
+.skills-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
+}
+
+.skills-category {
+  background: var(--color-white);
+  padding: 1.5em;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skills-category h3 {
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+  color: var(--color-black-dark);
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-item {
+  margin-bottom: 0.3em;
+  font-size: 1em;
+  color: var(--color-black-dark);
+}
+
+
+
+
+
+
 
 footer {
   background: var(--color-black-dark);

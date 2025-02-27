@@ -2,6 +2,10 @@ Title: About
 
 ----
 
+Page-name: 
+
+----
+
 Author-name: Maximilian Koch
 
 ----
@@ -10,7 +14,7 @@ Fav-games:
 
 ----
 
-Author-description: Hello this is me.
+Author-description: <p>Since childhood, video games have been my greatest passion. Growing up in a small Austrian town, I was drawn to their virtual worlds. While classic games like Donkey Kong Country initially caught my attention, it was World of Warcraft: The Burning Crusade that truly captivated me with its open world and community. </p><p></p><p>My fascination with game design began as I examined the mechanics of Pocky &amp; Rocky (1993) and went more in-depth as I explored level design and narrative in games like Fallout: New Vegas and Dishonored.</p><p></p><p>Having a background in computer science gave me a systematic way of learning about game mechanics. This allows me to be able to summarize design concepts and learn new tools easily. My interest areas are working on gameplay mechanics and level design to create engaging experiences.</p>
 
 ----
 

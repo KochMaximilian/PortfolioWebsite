@@ -19,9 +19,9 @@ sections:
 
       author_description:
         label: Author Description
-        type: textarea
+        type: writer
         required: true
-        maxlength: 500
+        maxlength: 1500
         size: medium
         help: A description of yourself.
 
@@ -40,8 +40,7 @@ sections:
           - Rapid Prototyping
           - Combat Encounter Design
           - Scripting
-          - Visually Focused
-          - Design Documentation
+          - Design Documentation (Visual & Written)
           - Play Testing
           - Clear Communication (Verbal & Written)
 
@@ -68,6 +67,7 @@ sections:
           - Affinity Photo
           - Affinity Designer
           - Blender
+          - Playmaker Unity Plugin
           - Ink (Narrative Scripting)
 
       production:
@@ -97,7 +97,6 @@ sections:
           - Unreal Engine
           - Unity Engine
           - Godot
-          - Playmaker Unity Plugin
       programming:
         label: Programming
         type: tags
