@@ -19,8 +19,9 @@ $height = 300;
                     ])->url() ?>" 
                     alt="Featured Project: <?= $project->title() ?>"> 
                     <figcaption class="slider-caption">
-                        <?= $project->title()->html() ?><br>
-                        <small><?= $project->type() ?></small>
+                        <h4 class="slider-heading"><?= $project->title()->html() ?></h4>
+                        <small><?= $project->type() . ' | ' . $project->year() ?></small>
+
                     </figcaption>
                 </figure>
             </a>

@@ -42,17 +42,8 @@ sections:
           - Scripting
           - Design Documentation (Visual & Written)
           - Play Testing
-          - Clear Communication (Verbal & Written)
+          - Clear Communication
 
-      source:
-        label: Version Control Software
-        type: tags
-        required: true
-        width: 1/2
-        help: Add version control software you have experience with.
-        options:
-          - Perforce
-          - Git
 
       software:
         label: Tools & Software
@@ -97,16 +88,18 @@ sections:
           - Unreal Engine
           - Unity Engine
           - Godot
-      programming:
+      programming_source:
         label: Programming
         type: tags
         width: 1/2
-        help: Add programming languages and tools you know.
+        help: Add programming languages and version controll tools you know.
         options:
           - C#
           - Unreal Blueprints
           - Python
           - Web Technologies
+          - Git
+          - Perforce
 
       languages:
         label: Known Languages

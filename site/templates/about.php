@@ -6,7 +6,7 @@
                 <h1><?= $page->title() ?></h1>
             </section>
             <section class="about-content">
-                <figure class="about-image">
+                <div class="about-image">
                     <img class="author-image"
                         src="<?= $page->images()->template('personal-img')->first()->thumb([
                                     'autoOrient' => true,
@@ -32,8 +32,8 @@
                     'format' => 'webp',
                 ])->url() ?> 400w,
                 <?= $page->images()->template('personal-img')->first()->thumb([
-                    'width' => 400,
-                    'height' => 500,
+                    'width' => 600,
+                    'height' => 700,
                     'crop' => true,
                     'format' => 'webp',
                 ])->url() ?> 600w,
@@ -45,12 +45,8 @@
                 ])->url() ?> 800w
             "
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px">
-                    <figcaption>
-                        <?php foreach ($page->fav_games()->split(',') as $favs): ?>
-                            <p><?= $favs ?> </p>
-                        <?php endforeach ?>
-                    </figcaption>
-                </figure>
+            
+                </div>
                 <div class="about-text">
                     <p><?= $page->author_description() ?></p>
                 </div>
@@ -88,15 +84,7 @@
                         </ul>
                     </div>
                     <div class="skills-category">
-                        <h3>Version Control</h3>
-                        <ul class="skills-list">
-                            <?php foreach ($page->source()->split(',') as $engine): ?>
-                                <li class="skill-item"><?= $engine ?></li>
-                            <?php endforeach ?>
-                        </ul>
-                    </div>
-                    <div class="skills-category">
-                        <h3>Production</h3>
+                        <h3>Production & Communication</h3>
                         <ul class="skills-list">
                             <?php foreach ($page->production()->split(',') as $engine): ?>
                                 <li class="skill-item"><?= $engine ?></li>
@@ -104,9 +92,9 @@
                         </ul>
                     </div>
                     <div class="skills-category">
-                        <h3>Programming</h3>
+                        <h3>Programming & Version Control</h3>
                         <ul class="skills-list">
-                            <?php foreach ($page->programming()->split(',') as $engine): ?>
+                            <?php foreach ($page->programming_source()->split(',') as $engine): ?>
                                 <li class="skill-item"><?= $engine ?></li>
                             <?php endforeach ?>
                         </ul>

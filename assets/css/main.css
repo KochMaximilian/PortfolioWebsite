@@ -120,7 +120,7 @@ a {
 
 
 .filter a {
-  transition: transform 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2), background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2), background 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2), box-shadow 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2), color 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
   display: inline-block;
   text-decoration: none;
   text-transform: uppercase;
@@ -179,7 +179,7 @@ a {
   border-color: var(--color-black-dark);
   /* background: #F4F2EE;*/
   box-shadow: var(--solid-shadow);
-  margin-bottom: var(--spacing-10);
+  margin-bottom: var(--spacing-14);
 }
 
 .filter-block {
@@ -306,24 +306,30 @@ a {
 /* Project Image Link (to maintain consistent container aspect ratio) */
 .project-image-link {
   position: relative;
-  overflow: visible; /* Allow shadow to show */
+  overflow: visible;
+  /* Allow shadow to show */
   display: block;
   width: 100%;
-  aspect-ratio: 1; /* Ensures a square ratio for all image containers */
+  aspect-ratio: 1;
+  /* Ensures a square ratio for all image containers */
 }
 
 /* Project Gallery Image */
 .project-gallary-image {
   display: block;
   width: 100%;
-  height: 100%; /* Ensure the image fills the container */
-  object-fit: cover; /* Ensures the image covers the container */
+  height: 100%;
+  /* Ensure the image fills the container */
+  object-fit: cover;
+  /* Ensures the image covers the container */
   border-radius: var(--rounded-lg);
   border: solid;
   border-color: var(--color-black-dark);
   border-width: var(--border-md);
-  box-shadow: var(--solid-shadow-md); /* Default shadow */
-  position: relative;  /* Ensure box-shadow appears above other content */
+  box-shadow: var(--solid-shadow-md);
+  /* Default shadow */
+  position: relative;
+  /* Ensure box-shadow appears above other content */
   z-index: 1;
   transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
     box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
@@ -375,24 +381,28 @@ a {
 /* Hover Effect on Image Link */
 .project-image-container a:hover .project-gallary-image {
   transform: scale(0.95);
-  box-shadow: var(--solid-shadow-sm); /* Hover shadow */
+  box-shadow: var(--solid-shadow-sm);
+  /* Hover shadow */
   border-width: var(--border-sm);
-  transition: box-shadow 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2),; /* Adjust transition for shadow */
+  transition: box-shadow 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2), ;
+  /* Adjust transition for shadow */
 }
 
 /* Optimize performance by preventing layout shifts during transition */
 .project-image-container img {
-  will-change: transform;  /* Optimizes for transforms */
+  will-change: transform;
+  /* Optimizes for transforms */
 }
 
 /* Adjusting margin on lightbox based on gallery height */
 .lightbox {
-  transition: margin-bottom 0.3s ease;
+  transition: margin-bottom 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
 }
 
 /* Disable margin transition during image scaling */
 .project-image-container a:active {
-  transition: none;  /* Disable during scaling */
+  transition: none;
+  /* Disable during scaling */
 }
 
 
@@ -480,8 +490,8 @@ details[open] summary:hover i {
   border-width: var(--border-xs);
   box-shadow: var(--solid-shadow-sm);
   transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-    background-color 0.2s ease,
-    box-shadow 0.2s ease;
+    background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+    box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
   cursor: pointer;
 
 }
@@ -517,7 +527,7 @@ details[open] summary:hover i {
 .about-content {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1.5em;
+  gap: 2rem;
   align-items: start;
   background: var(--color-white);
   border-radius: var(--rounded-md);
@@ -540,35 +550,48 @@ details[open] summary:hover i {
   height: auto;
   border-right: solid var(--color-black-dark) var(--border-md);
   width: 100%;
-  max-width: 1200px; /* Keeps the max-width at 1200px */
-  position: relative;
-  overflow: hidden; /* Ensures the image stays cropped */
+  max-width: 1200px;
+  overflow: hidden;
 }
 
 .author-image {
   width: 100%;
-  height: auto; /* Ensures the aspect ratio is maintained */
-  object-fit: cover; /* Keeps the cropping without distortion */
+  height: auto;
+  object-fit: cover;
 }
 
 /* Smoother Responsive Scaling */
 @media (max-width: 1600px) {
   .about-image {
-    max-width: 60vw; /* Gradual scaling for slightly smaller screens */
+    max-width: 60vw;
   }
 }
 
 @media (max-width: 1200px) {
   .about-image {
-    max-width: 50vw; /* More scaling down for mid-size screens */
+    max-width: 60vw;
   }
+
+  .about-text {
+    overflow-y: scroll;
+    max-height: 35vh;
+  }
+
 }
 
 @media (max-width: 1024px) {
   .about-image {
-    max-width: 45vw; /* Slightly smaller scaling for tablets */
+    max-width: 40vw;
+
   }
+
+  .about-text {
+    overflow-y: scroll;
+    max-height: 35vh;
+  }
+
 }
+
 
 @media (max-width: 768px) {
   .about-content {
@@ -592,7 +615,7 @@ details[open] summary:hover i {
   }
 
   .about-image {
-    max-width: 100vw; /* Full width on smaller screens (phones) */
+    max-width: 100vw;
   }
 }
 
@@ -601,11 +624,13 @@ details[open] summary:hover i {
 }
 
 .about-text p {
-  padding-bottom: 0.4rem;
+  padding-bottom: 0.5rem;
 }
 
 
-
+.skills {
+  margin-bottom: 15rem;
+}
 
 .skills-content {
   display: grid;
@@ -614,15 +639,18 @@ details[open] summary:hover i {
 }
 
 .skills-category {
-  background: var(--color-white);
-  padding: 1.5em;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-5);
+  background-color: var(--color-white);
+  border-radius: var(--rounded-md);
+  border: var(--border-sm) solid;
+  border-color: var(--color-black-dark);
+  /* background: #F4F2EE;*/
+  box-shadow: var(--solid-shadow);
 }
 
 .skills-category h3 {
   margin-bottom: 0.5em;
-  font-size: 1.2em;
+  font-size: var(--font-size-2xl);
   color: var(--color-black-dark);
 }
 
@@ -634,7 +662,7 @@ details[open] summary:hover i {
 
 .skill-item {
   margin-bottom: 0.3em;
-  font-size: 1em;
+  font-size: var(--font-size-md);
   color: var(--color-black-dark);
 }
 
@@ -731,7 +759,7 @@ footer {
 .mail-link {
   color: var(--color-white);
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
 }
 
 .social-link:hover {
@@ -838,12 +866,12 @@ p {
 }
 
 .carousel-cell.is-selected img {
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
 
 }
 
 .carousel-cell.is-selected img:hover {
-  border-color: var(--color-blue-medium);
+  border-color: var(--color-black-dark);
 }
 
 /* position dots in carousel */
@@ -863,9 +891,9 @@ p {
 
 /* fill-in selected dot */
 .flickity-page-dots .dot.is-selected {
-  background: var(--color-blue-medium);
-  transition: border 0.3s ease-in-out;
-  transition: height 0.3s ease-in-out;
+  background: var(--color-yellow-dark);
+  transition: border 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+  transition: height 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
   width: var(--spacing-4);
   height: var(--spacing-4);
 
@@ -874,13 +902,26 @@ p {
 
 
 .slider-figure {
-  background: var(--color-blue-light);
-  border-radius: .6rem;
-  margin: 0 1.4rem 1.2rem 1.4rem;
+  background: var(--color-white);
+  border-radius: var(--rounded-lg);
+  margin: 0 1.6rem 1.2rem 1.6rem;
   padding: 1.3rem;
   border: var(--border-sm) solid;
   border-color: var(--color-black-dark);
   box-shadow: var(--solid-shadow);
+}
+
+.slider-figure:hover {
+  background-color: var(--color-yellow-dark);
+}
+
+.slider-figure:hover small {
+  color: var(--color-black-dark);
+  /* Change to the color you want */
+}
+
+.slider-heading {
+  padding-top: 1rem;
 }
 
 .projects-figure {
@@ -894,9 +935,9 @@ p {
   height: 40vh;
   transition:
     transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-    background-color 0.2s ease,
-    font-weight 0.2s ease,
-    box-shadow 0.2s ease;
+    background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+    font-weight 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+    box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
 }
 
 .projects-figure img {
@@ -945,7 +986,7 @@ p {
   font-size: var(--font-size-xl);
   color: var(--color-black-dark);
   font-weight: var(--font-bold);
-  transition: color 0.3s ease;
+  transition: color 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
 }
 
 .projects-subtext {
@@ -959,9 +1000,10 @@ p {
 
 
 .carousel-link small {
-  color: var(--color-white);
+  font-family: var(--font-poppins);
+  color: var(--color-blue-dark);
   font-weight: var(--font-bold);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-md);
   text-transform: uppercase;
 }
 
@@ -972,8 +1014,8 @@ p {
   transform-origin: center !important;
   will-change: transform;
   transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-    background-color 0.2s ease,
-    box-shadow 0.2s ease;
+    background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+    box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
 }
 
 .flickity-button:hover {
@@ -1058,13 +1100,13 @@ p {
   text-transform: uppercase;
   color: var(--color-white);
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
   display: inline-block;
 }
 
 .logo-container .logo:hover {
-  color: var(--color-yellow-medium);
-  transform: scale(1.08);
+  color: var(--color-yellow-dark);
+  transform: scale(0.95);
 }
 
 .navbar-nav {
@@ -1082,24 +1124,24 @@ p {
   font-size: var(--font-size-1xl);
   text-transform: uppercase;
   padding: var(--spacing-1) var(--spacing-2);
-  transition: color 0.2s ease, background 0.2s ease, font-weight 0.2s ease;
+  transition: color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), background 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), font-weight 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
   position: relative;
 }
 
 .nav-link:hover {
-  color: var(--color-yellow-medium);
+  color: var(--color-yellow-dark);
 
 }
 
 .nav-link.active {
   border-bottom: solid;
-  border-color: var(--color-yellow-medium);
-  transition: font-weight 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  border-color: var(--color-yellow-dark);
+  transition: font-weight 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), border-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
 }
 
 .nav-link.active:hover {
   border-bottom: solid;
-  border-color: var(--color-yellow-medium);
+  border-color: var(--color-yellow-dark);
   font-weight: var(--font-bold);
 
 
@@ -1115,7 +1157,7 @@ p {
   height: 3px;
   background: var(--color-white);
   margin: 6px 0;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
 }
 
 
@@ -1128,7 +1170,7 @@ p {
   border: 4px solid rgb(23, 20, 21);
   background: var(--color-white);
   box-shadow: var(--solid-shadow-sm);
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
   text-align: center;
   margin: 20px auto;
   text-transform: uppercase;
@@ -1179,7 +1221,7 @@ p {
     background: rgba(0, 0, 0, 0.9);
     text-align: center;
     padding: 10px 0;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
   }
 
   .navbar-nav.active {
