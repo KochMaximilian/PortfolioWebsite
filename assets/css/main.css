@@ -189,12 +189,12 @@ a {
 }
 
 /* Projects Section */
+/* Projects Section */
 .projects {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
+  gap: 2rem;
 }
-
 
 .projects img {
   width: 100%;
@@ -210,7 +210,7 @@ a {
   text-align: left;
 }
 
-/* Porject Detail Page */
+/* Project Detail Page */
 .project-figure {
   display: flex;
   align-items: flex-start;
@@ -223,14 +223,11 @@ a {
 
 .project-gallery {
   flex: 1;
-  /* Makes the image/video take up one part of the space */
   max-width: 65%;
-  /* Ensures it doesn’t take over too much */
 }
 
 .project-info {
   flex: 1;
-  /* Makes the text take up the remaining space */
   max-width: 35%;
   padding-top: 1.5rem;
   padding-right: 0.45rem;
@@ -258,7 +255,6 @@ a {
   margin-left: 0.3em;
 }
 
-
 .project-gallery iframe {
   display: block;
   width: 100%;
@@ -279,8 +275,83 @@ a {
   border-radius: var(--rounded-md);
   border-width: var(--border-md);
   box-shadow: var(--solid-shadow-md);
+}
 
+/* Responsive Design */
 
+/* Medium Screens */
+@media (max-width: 1024px) {
+  .projects {
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+  }
+
+  .project-figure {
+    flex-direction: column; /* Stack gallery and info vertically */
+  }
+
+  .project-gallery {
+    max-width: 100%;
+  }
+
+  .project-info {
+    max-width: 100%;
+    padding-right: 0;
+  }
+
+  .project-gallery iframe {
+    height: 50vh; /* Adjust iframe height for smaller screens */
+    border-right: none; /* Remove border */
+  }
+}
+
+/* Small Screens (Mobile) */
+@media (max-width: 768px) {
+  .projects {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 1rem;
+  }
+
+  .project-figure {
+    flex-direction: column; /* Stack gallery and info vertically */
+  }
+
+  .project-gallery {
+    max-width: 100%;
+  }
+
+  .project-info {
+    max-width: 100%;
+    padding-right: 0;
+  }
+
+  .project-gallery iframe {
+    height: 40vh; /* Adjust iframe height */
+  }
+
+  .project-description details {
+    padding: 1rem; /* Add padding to description */
+  }
+
+  .project-description summary {
+    font-size: 1rem; /* Smaller font for mobile */
+  }
+
+  .project-info dt,
+  .project-info dd {
+    font-size: 0.9rem; /* Smaller font size for project details */
+  }
+
+  .project-image {
+    width: 100%;
+    height: auto;
+    border-right: none;
+  }
+
+  /* Adjust pagination block */
+  .pagination-block {
+    text-align: center;
+    padding: 1rem;
+  }
 }
 
 
@@ -666,107 +737,6 @@ details[open] summary:hover i {
   color: var(--color-black-dark);
 }
 
-
-
-
-
-
-
-footer {
-  background: var(--color-black-dark);
-  border-radius: var(--rounded-md) var(--rounded-md) 0 0;
-  box-shadow: var(--shadow-lg);
-  color: var(--color-white);
-  padding: 1.8rem 0;
-  text-align: center;
-  z-index: 1000;
-  width: 64em;
-  max-width: calc(100% - 4em);
-  margin: 0 auto;
-  margin-top: 10rem;
-  position: fixed;
-  /* Make footer fixed */
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-
-.footer-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-
-.footer-container {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  grid-template-rows: auto auto;
-  align-items: center;
-  column-gap: .6rem;
-  margin: 0 auto;
-}
-
-.footer-left {
-  grid-column: 1;
-  grid-row: 1;
-  text-align: left;
-}
-
-.footer-center {
-  grid-column: 2;
-  grid-row: 1;
-  text-align: center;
-
-}
-
-.footer-right {
-  grid-column: 3;
-  grid-row: 1;
-  text-align: right;
-}
-
-.footer-language {
-  grid-column: 2;
-  grid-row: 2;
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.footer-logo {
-  user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  height: 3rem;
-  width: auto;
-
-}
-
-
-/* Footer Social Links */
-.socials {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  padding: 0;
-  list-style: none;
-  flex-wrap: nowrap;
-
-}
-
-.social-link,
-.mail-link {
-  color: var(--color-white);
-  text-decoration: none;
-  transition: color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-}
-
-.social-link:hover {
-  color: var(--color-yellow-dark);
-  transform: scale(1.2);
-
-}
 
 
 
