@@ -148,260 +148,6 @@ a {
   margin-bottom: var(--spacing-14);
 }
 
-
-/* Project Detail Page */
-.project-figure {
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem;
-  background: var(--color-white);
-  border-radius: var(--rounded-md);
-  border: solid var(--color-black-dark) var(--border-md);
-  box-shadow: var(--solid-shadow-md);
-}
-
-.project-gallery {
-  flex: 1;
-  max-width: 65%;
-}
-
-.project-info {
-  flex: 1;
-  max-width: 35%;
-  padding-top: 1.5rem;
-  padding-right: 0.45rem;
-}
-
-.project-info dl {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3em;
-}
-
-.project-info dt,
-.project-info dd {
-  display: inline;
-  margin: 0;
-}
-
-.project-info dt {
-  font-family: var(--font-barlow);
-  font-weight: var(--font-black);
-  text-transform: uppercase;
-}
-
-.project-info dd {
-  margin-left: 0.3em;
-}
-
-.project-gallery iframe {
-  display: block;
-  width: 100%;
-  height: 30vh;
-  border-right: solid var(--color-black-dark) var(--border-md);
-}
-
-.project-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-right: solid var(--color-black-dark) var(--border-md);
-}
-
-.project-description {
-  background: var(--color-white);
-  border: solid var(--color-black-dark);
-  border-radius: var(--rounded-md);
-  border-width: var(--border-md);
-  box-shadow: var(--solid-shadow-md);
-}
-
-/* Responsive Design */
-
-
-
-
-
-
-/* Lightbox Container */
-.lightbox {
-  margin-bottom: var(--spacing-60);
-}
-
-/* Project Image Container */
-.project-image-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  /* Dynamically adjusts based on available space */
-  gap: var(--spacing-2);
-  justify-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  contain: layout;
-}
-
-/* Project Image Link (to maintain consistent container aspect ratio) */
-.project-image-link {
-  position: relative;
-  overflow: visible;
-  /* Allow shadow to show */
-  display: block;
-  width: 100%;
-  aspect-ratio: 1;
-  /* Ensures a square ratio for all image containers */
-}
-
-/* Project Gallery Image */
-.project-gallary-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  /* Ensure the image fills the container */
-  object-fit: cover;
-  /* Ensures the image covers the container */
-  border-radius: var(--rounded-lg);
-  border: solid;
-  border-color: var(--color-black-dark);
-  border-width: var(--border-md);
-  box-shadow: var(--solid-shadow-md);
-  /* Default shadow */
-  position: relative;
-  /* Ensure box-shadow appears above other content */
-  z-index: 1;
-  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-    box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-    border-width 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-  will-change: transform;
-}
-
-/* Image Caption Badge */
-.image-caption-badge {
-  font-family: var(--font-barlow);
-  font-weight: var(--font-black);
-  font-size: var(--font-size-md);
-  color: var(--color-black-dark);
-  text-transform: uppercase;
-  text-align: center;
-  text-decoration: none;
-
-  background: var(--color-white);
-  border: solid var(--border-xsm) var(--color-black-dark);
-  border-radius: var(--rounded-xs);
-  padding: var(--spacing-1);
-
-  width: 50%;
-  position: absolute;
-  bottom: var(--spacing-4);
-  left: 50%;
-  transform: translateX(-50%);
-  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-    background 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-  z-index: var(--z-notification);
-  will-change: transform;
-}
-
-/* Badge Hover Effect when Hovering the Entire Link */
-.project-image-container a:hover .image-caption-badge {
-  background: var(--color-yellow-dark);
-  transform: translateX(-50%) scale(0.95);
-}
-
-/* Project Image Container Link */
-.project-image-container a {
-  position: relative;
-  display: block;
-  text-decoration: none;
-  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-  will-change: transform;
-}
-
-/* Hover Effect on Image Link */
-.project-image-container a:hover .project-gallary-image {
-  transform: scale(0.95);
-  box-shadow: var(--solid-shadow-sm);
-  /* Hover shadow */
-  border-width: var(--border-sm);
-  transition: box-shadow 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2), ;
-  /* Adjust transition for shadow */
-}
-
-/* Optimize performance by preventing layout shifts during transition */
-.project-image-container img {
-  will-change: transform;
-  /* Optimizes for transforms */
-}
-
-/* Adjusting margin on lightbox based on gallery height */
-.lightbox {
-  transition: margin-bottom 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-}
-
-/* Disable margin transition during image scaling */
-.project-image-container a:active {
-  transition: none;
-  /* Disable during scaling */
-}
-
-
-
-details summary {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  font-family: var(--font-barlow);
-  font-weight: var(--font-black);
-  font-size: var(--font-size-xl);
-  text-transform: uppercase;
-  cursor: pointer;
-  padding: var(--spacing-3);
-  transition: font-size 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-}
-
-
-
-.project-description details[open] {
-  padding: 1rem;
-  line-height: 1.6;
-}
-
-.project-description :is(p, h1, h2, h3, h4, h5, h6) {
-  padding-bottom: var(--spacing-3);
-}
-
-summary i {
-  font-size: var(--font-size-3xl);
-  color: var(--color-black-dark);
-  transition: transform 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-}
-
-summary:hover i {
-  color: var(--color-yellow-dark);
-  transform: scale(1.3);
-
-
-
-}
-
-details[open] summary {
-  font-size: var(--font-size-2xl);
-
-}
-
-details[open] summary i {
-  transform: rotate(180deg);
-}
-
-details[open] summary:hover i {
-  color: var(--color-yellow-dark);
-
-}
-
-
-
 h1,
 h2,
 h3,
@@ -569,35 +315,7 @@ p {
   text-transform: uppercase;
 }
 
-.engine-icon-container {
-  margin-top: var(--spacing-3);
-}
 
-
-.engine-icon-container svg {
-  width: 2rem;
-  height: 2rem;
-  display: inline-block;
-  margin-top: var(--spacing-1);
-}
-
-.projects-genre-tag {
-  font-family: var(--font-barlow);
-  font-weight: var(--font-bold);
-  font-size: var(--font-size-xs);
-  color: var(--color-white);
-  text-transform: uppercase;
-  padding: var(--spacing-1);
-  background: var(--color-blue-dark);
-  border: solid;
-  border-color: var(--color-black-dark);
-  border-radius: var(--rounded-xs);
-
-}
-
-.tag-container {
-  margin-top: var(--spacing-2);
-}
 
 /*Responsive NAV */
 
@@ -772,4 +490,161 @@ p {
   pointer-events: none;
   cursor: not-allowed;
 
+}
+
+
+
+
+
+/*HEADINGS*/
+
+/* General responsive heading styles */
+@media (max-width: 992px) {
+  h1 {
+    font-size: var(--font-size-4xl) !important;
+  }
+  
+  h2 {
+    font-size: var(--font-size-3xl) !important;
+  }
+  
+  h3 {
+    font-size: var(--font-size-2xl) !important;
+  }
+  
+  h4 {
+    font-size: var(--font-size-xl) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--font-size-3xl) !important;
+  }
+  
+  h2 {
+    font-size: var(--font-size-2xl) !important;
+  }
+  
+  h3 {
+    font-size: var(--font-size-xl) !important;
+  }
+  
+  h4 {
+    font-size: var(--font-size-lg) !important;
+  }
+  
+  h5 {
+    font-size: var(--font-size-md) !important;
+  }
+  
+  .project-description h1,
+  .project-description h2,
+  .project-description h3,
+  .project-description h4,
+  .project-description h5,
+  .project-description h6 {
+    margin-top: var(--spacing-2);
+    margin-bottom: var(--spacing-2);
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: var(--font-size-2xl) !important;
+  }
+  
+  h2 {
+    font-size: var(--font-size-xl) !important;
+  }
+  
+  h3 {
+    font-size: var(--font-size-lg) !important;
+  }
+  
+  h4 {
+    font-size: var(--font-size-md) !important;
+  }
+  
+  h5 {
+    font-size: var(--font-size-sm) !important;
+  }
+  
+  h6 {
+    font-size: var(--font-size-xs) !important;
+  }
+  
+  p {
+    font-size: var(--font-size-md) !important;
+  }
+  
+  .project-description h1 {
+    font-size: var(--font-size-xl) !important; 
+  }
+  
+  .project-description h2 {
+    font-size: var(--font-size-lg) !important;
+  }
+  
+  .project-description h3 {
+    font-size: var(--font-size-md) !important;
+  }
+  
+  .project-description h4 {
+    font-size: var(--font-size-md) !important;
+  }
+  
+  .project-description h5 {
+    font-size: var(--font-size-sm) !important;
+  }
+  
+  .project-description h6 {
+    font-size: var(--font-size-xs) !important;
+  }
+  
+  .project-description p {
+    font-size: var(--font-size-md) !important;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: var(--font-size-xl) !important;
+  }
+  
+  h2 {
+    font-size: var(--font-size-lg) !important;
+  }
+  
+  h3 {
+    font-size: var(--font-size-md) !important;
+  }
+  
+  h4, h5 {
+    font-size: var(--font-size-sm) !important;
+  }
+  
+  p {
+    font-size: var(--font-size-sm) !important;
+  }
+  
+  .project-description h1 {
+    font-size: var(--font-size-lg) !important; 
+  }
+  
+  .project-description h2 {
+    font-size: var(--font-size-md) !important;
+  }
+  
+  .project-description h3,
+  .project-description h4,
+  .project-description h5 {
+    font-size: var(--font-size-sm) !important;
+  }
+  
+  .project-description p {
+    font-size: var(--font-size-sm) !important;
+    line-height: 1.3;
+  }
 }

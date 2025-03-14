@@ -220,6 +220,38 @@ nav {
     margin: var(--spacing-6) 0;
 }
 
+
+.engine-icon-container {
+    margin-top: var(--spacing-3);
+  }
+  
+  
+  .engine-icon-container svg {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    margin-top: var(--spacing-1);
+  }
+  
+  .projects-genre-tag {
+    font-family: var(--font-barlow);
+    font-weight: var(--font-bold);
+    font-size: var(--font-size-xs);
+    color: var(--color-white);
+    text-transform: uppercase;
+    padding: var(--spacing-1);
+    background: var(--color-blue-dark);
+    border: solid;
+    border-color: var(--color-black-dark);
+    border-radius: var(--rounded-xs);
+  
+  }
+  
+  .tag-container {
+    margin-top: var(--spacing-2);
+  }
+
+
 /* =====================================
    Responsive Styles
 ===================================== */
