@@ -8,6 +8,7 @@
 
     <link rel="preload" href="/assets/img/pattern.png" as="image">
     
+    <?= css('assets/css/config/config.css') ?>  
     <?php if ($page->intendedTemplate()->name() === 'home'): ?>
         <?= css('assets/css/config/utility/flickity.css') ?>
     <?php endif; ?>
@@ -20,11 +21,15 @@
     <?= css('assets/fontawesome/css/brands.min.css') ?> 
     <?= css('assets/fontawesome/css/solid.min.css') ?>
 
-    <?= css('assets/css/config/config.css') ?>  
     <?= css('assets/css/footer.css') ?>  
     <?php if($page->intendedTemplate()->name() === 'about'): ?>
         <?= css('assets/css/about.css') ?>
     <?php endif ?>
+
+    <?php if($page->intendedTemplate()->name() === 'projects'): ?>
+        <?= css('assets/css/projects.css') ?>
+    <?php endif ?>
+    
     <?= css('assets/css/carousel.css') ?>
     <?= css('assets/css/main.css') ?>
 

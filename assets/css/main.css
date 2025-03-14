@@ -119,40 +119,6 @@ a {
 }
 
 
-.filter a {
-  transition: transform 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2), background 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2), box-shadow 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2), color 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-  display: inline-block;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 0 var(--spacing-4) 0 var(--spacing-4);
-  margin: 0 var(--spacing-1) 0 var(--spacing-1);
-  color: var(--color-white);
-  font-weight: var(--font-bold);
-  font-size: var(--font-size-xl);
-  border-radius: var(--rounded-sm);
-  border: solid var(--color-black-dark);
-  background: var(--color-blue-medium);
-  box-shadow: var(--solid-shadow-sm);
-
-}
-
-
-.filter a.activeFilter {
-  background: var(--color-yellow-dark);
-  color: var(--color-black-dark);
-  font-weight: var(--font-black);
-  box-shadow: var(--solid-shadow-xs);
-
-
-}
-
-.filter a:hover {
-  color: var(--color-black-dark);
-  font-weight: var(--font-black);
-  background: var(--color-yellow-dark);
-  transform: scale(0.95);
-  box-shadow: var(--solid-shadow-xs);
-}
 
 
 
@@ -182,11 +148,6 @@ a {
   margin-bottom: var(--spacing-14);
 }
 
-.filter-block {
-  justify-content: center;
-  text-align: center;
-  padding: 0 var(--spacing-7) 0 var(--spacing-7);
-}
 
 /* Projects Section */
 /* Projects Section */
