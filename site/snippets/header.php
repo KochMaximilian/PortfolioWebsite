@@ -22,6 +22,9 @@
 
     <?= css('assets/css/config/config.css') ?>  
     <?= css('assets/css/footer.css') ?>  
+    <?php if($page->intendedTemplate()->name() === 'about'): ?>
+        <?= css('assets/css/about.css') ?>
+    <?php endif ?>
     <?= css('assets/css/carousel.css') ?>
     <?= css('assets/css/main.css') ?>
 

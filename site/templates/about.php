@@ -33,7 +33,7 @@
                 ])->url() ?> 400w,
                 <?= $page->images()->template('personal-img')->first()->thumb([
                     'width' => 600,
-                    'height' => 700,
+                    'height' => 750,
                     'crop' => true,
                     'format' => 'webp',
                 ])->url() ?> 600w,
@@ -44,8 +44,11 @@
                     'format' => 'webp',
                 ])->url() ?> 800w
             "
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px">
-            
+                        sizes="(max-width: 480px) 100vw, 
+                   (max-width: 768px) 100vw, 
+                   (max-width: 992px) 300px,
+                   (max-width: 1200px) 350px,
+                   400px">
                 </div>
                 <div class="about-text">
                     <p><?= $page->author_description() ?></p>
