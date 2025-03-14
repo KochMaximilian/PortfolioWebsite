@@ -121,3 +121,222 @@
       padding: 0 var(--spacing-4);
     }
   }
+
+
+
+  /*Project Gird*/ 
+/* Projects Section - Multiple approaches to fix spacing */
+
+/* Base grid properties with smaller gap */
+.projects {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem !important; /* Reduced gap that won't be overridden */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Approach 2: Override container and cell widths */
+  .projects-link {
+    text-decoration: none;
+    font-size: var(--font-size-xl);
+    color: var(--color-black-dark);
+    font-weight: var(--font-bold);
+    position: relative;
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+  }
+  
+  /* Approach 3: Tighten the figure margins */
+  .projects-figure {
+    background: var(--color-white);
+    margin: 0 0.25rem !important; /* Minimal margin */
+    padding: 0.75rem;
+    border: var(--border-xsm) solid;
+    border-color: var(--color-black-dark);
+    box-shadow: var(--solid-shadow-md);
+    border-radius: var(--rounded-lg);
+    height: 40vh;
+    transition:
+      transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+      background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+      font-weight 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+      box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+    width: calc(100% - 0.5rem); /* Account for margins */
+    box-sizing: border-box;
+  }
+  
+  .projects img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .pagination-block {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .projects-caption {
+    text-align: left;
+  }
+  
+  .project-details {
+    margin-top: auto;
+  }
+  
+  .tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .projects-genre-tag {
+    background-color: var(--color-blue-medium);
+    color: var(--color-white);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--rounded-sm);
+    font-size: var(--font-size-sm);
+    display: inline-block;
+    transition: background-color 0.2s ease-out, color 0.2s ease-out;
+  }
+  
+  .engine-icon-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .engine-icon-container svg {
+    height: 1.5rem;
+    width: auto;
+  }
+  
+  .projects-link:hover .projects-figure {
+    background-color: var(--color-yellow-dark);
+    transform: scale(0.97);
+    box-shadow: var(--solid-shadow-xs);
+  }
+  
+  .projects-link:hover .projects-genre-tag {
+    background-color: var(--color-black-dark);
+    color: var(--color-white);
+    font-weight: var(--font-black);
+  }
+  
+  /* Alternate approach using CSS vars */
+  :root {
+    --projects-gap: 0.5rem;
+  }
+  
+  /* Responsive styles for larger screens */
+  @media (min-width: 1400px) {
+    .projects-figure {
+      height: 45vh;
+    }
+    
+    /* Removed the conflicting gap setting here */
+  }
+  
+  /* Responsive styles for laptops and small desktops */
+  @media (max-width: 1200px) {
+    .projects-figure {
+      height: 42vh;
+    }
+  }
+  
+  /* Responsive styles for tablets */
+  @media (max-width: 992px) {
+    /* Keep the 3-column layout for tablets */
+    .projects {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+    
+    .projects-figure {
+      height: 38vh; /* Slightly reduced height */
+      padding: 0.75rem; /* Smaller padding */
+    }
+    
+    .projects-link {
+      font-size: var(--font-size-xl);
+    }
+    
+    .projects-genre-tag {
+      font-size: var(--font-size-sm);
+      padding: 0.2rem 0.5rem;
+    }
+  }
+  
+  /* Only switch to 2 columns at smaller tablet sizes */
+  @media (max-width: 768px) {
+    .projects {
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+    
+    .projects-figure {
+      height: 42vh;
+    }
+    
+    .projects-caption h5 {
+      font-size: calc(var(--font-size-xl) * 1.2);
+    }
+    
+    .projects-caption h6 {
+      font-size: calc(var(--font-size-lg) * 1.1);
+    }
+  }
+  
+  /* Responsive styles for mobile */
+  @media (max-width: 576px) {
+    .projects {
+      grid-template-columns: 1fr !important;
+    }
+    
+    .projects-figure {
+      height: auto;
+      min-height: 480px;
+      max-height: 550px;
+    }
+    
+    .projects-figure img {
+      max-height: 300px;
+    }
+    
+    .projects-caption h5 {
+      font-size: calc(var(--font-size-xl) * 1.2);
+    }
+    
+    .tag-container {
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+    }
+    
+    .projects-genre-tag {
+      padding: 0.4rem 0.8rem;
+    }
+    
+    .engine-icon-container svg {
+      height: 1.8rem;
+    }
+  }
+  
+  /* Responsive styles for small mobile */
+  @media (max-width: 375px) {
+    .projects-figure {
+      min-height: 460px;
+      max-height: 520px;
+    }
+    
+    .projects-figure img {
+      max-height: 260px;
+    }
+    
+    .projects-caption {
+      padding-top: 0.8rem;
+    }
+  }
