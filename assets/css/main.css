@@ -149,28 +149,6 @@ a {
 }
 
 
-/* Projects Section */
-/* Projects Section */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.projects img {
-  width: 100%;
-  height: auto;
-}
-
-.pagination-block {
-  justify-content: center;
-  text-align: center;
-}
-
-.projects-caption {
-  text-align: left;
-}
-
 /* Project Detail Page */
 .project-figure {
   display: flex;
@@ -240,80 +218,9 @@ a {
 
 /* Responsive Design */
 
-/* Medium Screens */
-@media (max-width: 1024px) {
-  .projects {
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-  }
 
-  .project-figure {
-    flex-direction: column; /* Stack gallery and info vertically */
-  }
 
-  .project-gallery {
-    max-width: 100%;
-  }
 
-  .project-info {
-    max-width: 100%;
-    padding-right: 0;
-  }
-
-  .project-gallery iframe {
-    height: 50vh; /* Adjust iframe height for smaller screens */
-    border-right: none; /* Remove border */
-  }
-}
-
-/* Small Screens (Mobile) */
-@media (max-width: 768px) {
-  .projects {
-    grid-template-columns: 1fr; /* Single column */
-    gap: 1rem;
-  }
-
-  .project-figure {
-    flex-direction: column; /* Stack gallery and info vertically */
-  }
-
-  .project-gallery {
-    max-width: 100%;
-  }
-
-  .project-info {
-    max-width: 100%;
-    padding-right: 0;
-  }
-
-  .project-gallery iframe {
-    height: 40vh; /* Adjust iframe height */
-  }
-
-  .project-description details {
-    padding: 1rem; /* Add padding to description */
-  }
-
-  .project-description summary {
-    font-size: 1rem; /* Smaller font for mobile */
-  }
-
-  .project-info dt,
-  .project-info dd {
-    font-size: 0.9rem; /* Smaller font size for project details */
-  }
-
-  .project-image {
-    width: 100%;
-    height: auto;
-    border-right: none;
-  }
-
-  /* Adjust pagination block */
-  .pagination-block {
-    text-align: center;
-    padding: 1rem;
-  }
-}
 
 
 /* Lightbox Container */
@@ -493,68 +400,6 @@ details[open] summary:hover i {
 
 }
 
-/*Pagination section */
-
-
-.pagination-dead-link {
-  color: var(--color-black-dark);
-  background-color: var(--color-white);
-  opacity: 0.6;
-  font-size: var(--font-size-2xl);
-  padding: var(--spacing-2);
-  border: solid;
-  border-radius: var(--rounded-sm);
-  border-color: var(--color-black-dark);
-  border-width: var(--border-xs);
-  box-shadow: var(--solid-shadow-sm);
-  cursor: no-drop;
-
-
-}
-
-.pagination-link {
-  padding: var(--spacing-2);
-  font-size: var(--font-size-2xl);
-  background-color: var(--color-white);
-  border: solid;
-  border-radius: var(--rounded-sm);
-  border-color: var(--color-black-dark);
-  border-width: var(--border-xs);
-  box-shadow: var(--solid-shadow-sm);
-  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-    background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-    box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-  cursor: pointer;
-
-}
-
-.pagination-link a {
-  color: var(--color-black-dark);
-  text-decoration: none;
-
-}
-
-
-.pagination-link:hover {
-  background-color: var(--color-yellow-dark);
-  transform: scale(0.95);
-  box-shadow: var(--solid-shadow-xs);
-
-
-}
-
-
-
-.indicate-page-text {
-  color: var(--color-white);
-  font-weight: var(--font-bold);
-  font-size: var(--font-size-xl);
-  margin: 0 var(--spacing-6) 0 var(--spacing-6);
-  text-transform: uppercase;
-  outline: black;
-  opacity: 1;
-
-}
 
 
 h1,
@@ -612,68 +457,6 @@ p {
   text-transform: uppercase;
   font-size: var(--font-size-sm);
 }
-
-
-
-
-
-.projects-figure {
-  background: var(--color-white);
-  margin: 0 var(--spacing-2) 0rem var(--spacing-2);
-  padding: 1rem;
-  border: var(--border-xsm) solid;
-  border-color: var(--color-black-dark);
-  box-shadow: var(--solid-shadow-md);
-  border-radius: var(--rounded-lg);
-  height: 40vh;
-  transition:
-    transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-    background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-    font-weight 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-    box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-}
-
-.projects-figure img {
-  border-radius: var(--rounded-sm);
-  border: solid var(--border-xsm);
-
-}
-
-.projects-figure figcaption {
-  padding: .8rem 0 0 0;
-  font-family: var(--font-barlow);
-
-}
-
-.projects-link {
-  text-decoration: none;
-  font-size: var(--font-size-xl);
-  color: var(--color-black-dark);
-  font-weight: var(--font-bold);
-  position: relative;
-  display: inline-block;
-}
-
-
-
-.projects-link:hover .projects-figure {
-  /* Styles for the figure inside the hovered link */
-  background-color: var(--color-yellow-dark);
-  transform: scale(0.97);
-  box-shadow: var(--solid-shadow-xs);
-}
-
-
-.projects-link:hover .projects-genre-tag {
-  background-color: var(--color-black-dark);
-  color: var(--color-white);
-  font-weight: var(--font-black);
-  /* Styles for genre tags inside the hovered link */
-}
-
-
-
-
 
 
 /* Navbar */

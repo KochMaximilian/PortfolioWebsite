@@ -8,13 +8,13 @@
     padding: var(--spacing-2) 0;
     width: 100%;
     max-width: 100%;
-  }
-  
-  .filter a {
-    transition: transform 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2), 
-                background 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2), 
-                box-shadow 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2), 
-                color 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+}
+
+.filter a {
+    transition: transform 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+        background 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+        box-shadow 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+        color 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
     display: inline-block;
     text-decoration: none;
     text-transform: uppercase;
@@ -29,173 +29,171 @@
     box-shadow: var(--solid-shadow-sm);
     text-align: center;
     line-height: 2;
-  }
-  
-  .filter a.activeFilter {
+}
+
+.filter a.activeFilter {
     background: var(--color-yellow-dark);
     color: var(--color-black-dark);
     font-weight: var(--font-black);
     box-shadow: var(--solid-shadow-xs);
-  }
-  
-  .filter a:hover {
+}
+
+.filter a:hover {
     color: var(--color-black-dark);
     font-weight: var(--font-black);
     background: var(--color-yellow-dark);
     transform: scale(0.95);
     box-shadow: var(--solid-shadow-xs);
-  }
-  
-  .filter-block {
+}
+
+.filter-block {
     display: flex;
     justify-content: center;
     text-align: center;
     padding: 0 var(--spacing-7);
     width: 100%;
-  }
-  
-  /* Responsive adjustments - smooth scaling */
-  @media (max-width: 1200px) {
+}
+
+/* Responsive adjustments - smooth scaling */
+@media (max-width: 1200px) {
     .filter a {
-      font-size: calc(var(--font-size-xl) * 0.9);
-      padding: 0 var(--spacing-3);
+        font-size: calc(var(--font-size-xl) * 0.9);
+        padding: 0 var(--spacing-3);
     }
-  }
-  
-  @media (max-width: 992px) {
+}
+
+@media (max-width: 992px) {
     .filter a {
-      font-size: calc(var(--font-size-xl) * 1.1);
-      padding: 0 var(--spacing-4);
-      line-height: 2.2;
+        font-size: calc(var(--font-size-xl) * 1.1);
+        padding: 0 var(--spacing-4);
+        line-height: 2.2;
     }
-    
+
     .filter-block {
-      padding: 0 var(--spacing-5);
+        padding: 0 var(--spacing-5);
     }
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .filter {
-      justify-content: center;
-      padding: var(--spacing-2) 0;
+        justify-content: center;
+        padding: var(--spacing-2) 0;
     }
-    
+
     .filter a {
-      font-size: calc(var(--font-size-xl) * 1.25);
-      margin: var(--spacing-2);
-      padding: 0 var(--spacing-4);
-      line-height: 2.4;
+        font-size: calc(var(--font-size-xl) * 1.25);
+        margin: var(--spacing-2);
+        padding: 0 var(--spacing-4);
+        line-height: 2.4;
     }
-    
+
     .filter-block {
-      padding: 0 var(--spacing-3);
+        padding: 0 var(--spacing-3);
     }
-  }
-  
-  @media (max-width: 576px) {
+}
+
+@media (max-width: 576px) {
     .filter {
-      justify-content: center;
+        justify-content: center;
     }
-    
+
     .filter a {
-      font-size: calc(var(--font-size-xl) * 1.1);
-      margin: var(--spacing-2);
-      padding: 0 var(--spacing-3);
-      line-height: 2.4;
+        font-size: calc(var(--font-size-xl) * 1.1);
+        margin: var(--spacing-2);
+        padding: 0 var(--spacing-3);
+        line-height: 2.4;
     }
-    
+
     .filter-block {
-      padding: 0 var(--spacing-2);
+        padding: 0 var(--spacing-2);
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
     .filter {
-      gap: var(--spacing-2);
+        gap: var(--spacing-2);
     }
-    
+
     .filter a {
-      font-size: calc(var(--font-size-xl) * 1.2);
-      line-height: 2.5;
-      margin: var(--spacing-2);
-      padding: 0 var(--spacing-4);
+        font-size: calc(var(--font-size-xl) * 1.2);
+        line-height: 2.5;
+        margin: var(--spacing-2);
+        padding: 0 var(--spacing-4);
     }
-  }
+}
 
 
 
-  /*Project Gird*/ 
-/* Projects Section - Multiple approaches to fix spacing */
-
-/* Base grid properties with smaller gap */
+/*Project Gird*/
+/* Projects Section - Base Styles */
 .projects {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 0.5rem !important; /* Reduced gap that won't be overridden */
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  
-  /* Approach 2: Override container and cell widths */
-  .projects-link {
-    text-decoration: none;
-    font-size: var(--font-size-xl);
-    color: var(--color-black-dark);
-    font-weight: var(--font-bold);
-    position: relative;
-    display: block;
-    margin: 0 !important;
-    padding: 0 !important;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem !important;
+}
+
+.projects img {
     width: 100%;
-  }
-  
-  /* Approach 3: Tighten the figure margins */
-  .projects-figure {
+    height: auto;
+    object-fit: cover;
+}
+
+.pagination-block {
+    justify-content: center;
+    text-align: center;
+}
+
+.projects-caption {
+    text-align: left;
+}
+
+.projects-figure {
     background: var(--color-white);
-    margin: 0 0.25rem !important; /* Minimal margin */
-    padding: 0.75rem;
+    margin: 0 var(--spacing-2) 0rem var(--spacing-2);
+    padding: 1rem;
     border: var(--border-xsm) solid;
     border-color: var(--color-black-dark);
     box-shadow: var(--solid-shadow-md);
     border-radius: var(--rounded-lg);
     height: 40vh;
     transition:
-      transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-      background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-      font-weight 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-      box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-    width: calc(100% - 0.5rem); /* Account for margins */
-    box-sizing: border-box;
-  }
-  
-  .projects img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+        transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+        background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+        font-weight 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+        box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+}
+
+.projects-figure img {
+    border-radius: var(--rounded-sm);
+    border: solid var(--border-xsm);
+}
+
+.projects-figure figcaption {
+    padding: .8rem 0 0 0;
+    font-family: var(--font-barlow);
+}
+
+.projects-link {
+    text-decoration: none;
+    font-size: var(--font-size-xl);
+    color: var(--color-black-dark);
+    font-weight: var(--font-bold);
+    position: relative;
     display: block;
-  }
-  
-  .pagination-block {
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .projects-caption {
-    text-align: left;
-  }
-  
-  .project-details {
+}
+
+.project-details {
     margin-top: auto;
-  }
-  
-  .tag-container {
+}
+
+.tag-container {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: 0.5rem;
-  }
-  
-  .projects-genre-tag {
+}
+
+.projects-genre-tag {
     background-color: var(--color-blue-medium);
     color: var(--color-white);
     padding: 0.2rem 0.5rem;
@@ -203,140 +201,206 @@
     font-size: var(--font-size-sm);
     display: inline-block;
     transition: background-color 0.2s ease-out, color 0.2s ease-out;
-  }
-  
-  .engine-icon-container {
+}
+
+.engine-icon-container {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     margin-top: 0.5rem;
-  }
-  
-  .engine-icon-container svg {
+}
+
+.engine-icon-container svg {
     height: 1.5rem;
     width: auto;
-  }
-  
-  .projects-link:hover .projects-figure {
+}
+
+.projects-link:hover .projects-figure {
     background-color: var(--color-yellow-dark);
     transform: scale(0.97);
     box-shadow: var(--solid-shadow-xs);
-  }
-  
-  .projects-link:hover .projects-genre-tag {
+}
+
+.projects-link:hover .projects-genre-tag {
     background-color: var(--color-black-dark);
     color: var(--color-white);
     font-weight: var(--font-black);
-  }
-  
-  /* Alternate approach using CSS vars */
-  :root {
-    --projects-gap: 0.5rem;
-  }
-  
-  /* Responsive styles for larger screens */
-  @media (min-width: 1400px) {
+}
+
+/* Responsive styles for larger screens */
+@media (min-width: 1400px) {
     .projects-figure {
-      height: 45vh;
+        height: 40vh;
     }
-    
-    /* Removed the conflicting gap setting here */
-  }
-  
-  /* Responsive styles for laptops and small desktops */
-  @media (max-width: 1200px) {
+}
+
+/* Responsive styles for laptops and small desktops */
+@media (max-width: 1200px) {
     .projects-figure {
-      height: 42vh;
+        height: 40vh;
     }
-  }
-  
-  /* Responsive styles for tablets */
-  @media (max-width: 992px) {
-    /* Keep the 3-column layout for tablets */
+}
+
+/* TABLET AND MOBILE: Single column stacked layout */
+@media (max-width: 992px) {
+
+    /* Force single column - completely different approach */
     .projects {
-      grid-template-columns: repeat(3, 1fr) !important;
+        display: block !important;
+        /* Change from grid to block */
     }
-    
-    .projects-figure {
-      height: 38vh; /* Slightly reduced height */
-      padding: 0.75rem; /* Smaller padding */
-    }
-    
+
     .projects-link {
-      font-size: var(--font-size-xl);
+        display: block !important;
+        margin-bottom: 2rem !important;
+        font-size: var(--font-size-lg);
+        /* Reduced from xl */
     }
-    
-    .projects-genre-tag {
-      font-size: var(--font-size-sm);
-      padding: 0.2rem 0.5rem;
-    }
-  }
-  
-  /* Only switch to 2 columns at smaller tablet sizes */
-  @media (max-width: 768px) {
-    .projects {
-      grid-template-columns: repeat(1, 1fr) !important;
-    }
-    
+
     .projects-figure {
-      height: 42vh;
+        height: auto !important;
+        min-height: 35vh;
+        /* Reduced height */
+        padding: 1rem;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
-    
+
+    .projects-figure img {
+        max-height: 250px;
+    }
+
     .projects-caption h5 {
-      font-size: calc(var(--font-size-xl) * 1.2);
+        font-size: var(--font-size-xl);
+        margin-bottom: 0.5rem;
     }
-    
+
     .projects-caption h6 {
-      font-size: calc(var(--font-size-lg) * 1.1);
+        font-size: var(--font-size-md);
     }
-  }
-  
-  /* Responsive styles for mobile */
-  @media (max-width: 576px) {
-    .projects {
-      grid-template-columns: 1fr !important;
-    }
-    
-    .projects-figure {
-      height: auto;
-      min-height: 480px;
-      max-height: 550px;
-    }
-    
-    .projects-figure img {
-      max-height: 300px;
-    }
-    
-    .projects-caption h5 {
-      font-size: calc(var(--font-size-xl) * 1.2);
-    }
-    
-    .tag-container {
-      gap: 0.7rem;
-      margin-top: 0.7rem;
-    }
-    
+
     .projects-genre-tag {
-      padding: 0.4rem 0.8rem;
+        font-size: var(--font-size-sm);
+        padding: 0.2rem 0.5rem;
     }
-    
+
+    .engine-icon-container h6 {
+        font-size: var(--font-size-md);
+    }
+
     .engine-icon-container svg {
-      height: 1.8rem;
+        height: 1.5rem;
     }
-  }
-  
-  /* Responsive styles for small mobile */
-  @media (max-width: 375px) {
+}
+
+/* Small mobile adjustments */
+@media (max-width: 575px) {
     .projects-figure {
-      min-height: 460px;
-      max-height: 520px;
+        min-height: 32vh;
+        padding: 0.75rem;
     }
-    
+
+    .projects-caption h5 {
+        font-size: var(--font-size-lg);
+        margin-bottom: 0.25rem;
+    }
+
+    .projects-caption h6 {
+        font-size: var(--font-size-sm);
+    }
+
+    .projects-genre-tag {
+        font-size: var(--font-size-xs);
+        padding: 0.15rem 0.4rem;
+    }
+
+    .engine-icon-container h6 {
+        font-size: var(--font-size-sm);
+    }
+
+    .engine-icon-container svg {
+        height: 1.2rem;
+    }
+}
+
+/* Extra small mobile adjustments */
+@media (max-width: 375px) {
+    .projects-figure {
+        min-height: 30vh;
+        width: 95% !important;
+        padding: 0.5rem;
+    }
+
     .projects-figure img {
-      max-height: 260px;
+        max-height: 200px;
     }
-    
+
     .projects-caption {
-      padding-top: 0.8rem;
+        padding-top: 0.5rem;
     }
-  }
+}
+
+
+/*Pagination section */
+
+
+.pagination-dead-link {
+    color: var(--color-black-dark);
+    background-color: var(--color-white);
+    opacity: 0.6;
+    font-size: var(--font-size-2xl);
+    padding: var(--spacing-2);
+    border: solid;
+    border-radius: var(--rounded-sm);
+    border-color: var(--color-black-dark);
+    border-width: var(--border-xs);
+    box-shadow: var(--solid-shadow-sm);
+    cursor: no-drop;
+
+
+}
+
+.pagination-link {
+    padding: var(--spacing-2);
+    font-size: var(--font-size-2xl);
+    background-color: var(--color-white);
+    border: solid;
+    border-radius: var(--rounded-sm);
+    border-color: var(--color-black-dark);
+    border-width: var(--border-xs);
+    box-shadow: var(--solid-shadow-sm);
+    transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+        background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+        box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+    cursor: pointer;
+
+}
+
+.pagination-link a {
+    color: var(--color-black-dark);
+    text-decoration: none;
+
+}
+
+
+.pagination-link:hover {
+    background-color: var(--color-yellow-dark);
+    transform: scale(0.95);
+    box-shadow: var(--solid-shadow-xs);
+
+
+}
+
+
+
+.indicate-page-text {
+    color: var(--color-white);
+    font-weight: var(--font-bold);
+    font-size: var(--font-size-xl);
+    margin: 0 var(--spacing-6) 0 var(--spacing-6);
+    text-transform: uppercase;
+    outline: black;
+    opacity: 1;
+
+}

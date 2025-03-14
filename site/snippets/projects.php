@@ -43,8 +43,9 @@
                             'format' => 'webp',
                         ])->url() ?> 900w
                     "
-                    sizes="(max-width: 576px) 100vw, 
-                           (max-width: 992px) 50vw, 
+                    sizes="(max-width: 375px) 200px, 
+                           (max-width: 575px) 300px,
+                           (max-width: 992px) 350px, 
                            33vw"
                 >
                 <figcaption class="projects-caption">
