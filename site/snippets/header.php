@@ -36,6 +36,7 @@
         <?= css('assets/css/project.css') ?>
     <?php endif ?>
 
+    <?= css('assets/css/navbar.css') ?>
     <?= css('assets/css/main.css') ?>
 
 
