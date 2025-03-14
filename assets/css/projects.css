@@ -343,8 +343,7 @@
 
 
 /*Pagination section */
-
-
+/* Pagination Base Styles */
 .pagination-dead-link {
     color: var(--color-black-dark);
     background-color: var(--color-white);
@@ -357,8 +356,6 @@
     border-width: var(--border-xs);
     box-shadow: var(--solid-shadow-sm);
     cursor: no-drop;
-
-
 }
 
 .pagination-link {
@@ -374,25 +371,18 @@
         background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
         box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
     cursor: pointer;
-
 }
 
 .pagination-link a {
     color: var(--color-black-dark);
     text-decoration: none;
-
 }
-
 
 .pagination-link:hover {
     background-color: var(--color-yellow-dark);
     transform: scale(0.95);
     box-shadow: var(--solid-shadow-xs);
-
-
 }
-
-
 
 .indicate-page-text {
     color: var(--color-white);
@@ -402,5 +392,82 @@
     text-transform: uppercase;
     outline: black;
     opacity: 1;
+}
 
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: var(--spacing-6) 0;
+}
+
+/* Responsive styles for laptops and small desktops */
+@media (max-width: 1200px) {
+    .pagination-link,
+    .pagination-dead-link {
+        font-size: var(--font-size-xl);
+        padding: var(--spacing-2);
+    }
+    
+    .indicate-page-text {
+        font-size: var(--font-size-lg);
+        margin: 0 var(--spacing-5) 0 var(--spacing-5);
+    }
+}
+
+/* Responsive styles for tablets */
+@media (max-width: 992px) {
+    .pagination-link,
+    .pagination-dead-link {
+        font-size: var(--font-size-lg);
+        padding: var(--spacing-1) var(--spacing-2);
+        border-width: calc(var(--border-xs) * 0.9);
+    }
+    
+    .indicate-page-text {
+        font-size: var(--font-size-md);
+        margin: 0 var(--spacing-4) 0 var(--spacing-4);
+    }
+    
+    nav {
+        margin: var(--spacing-5) 0;
+    }
+}
+
+/* Responsive styles for small tablets and mobile */
+@media (max-width: 768px) {
+    .pagination-link,
+    .pagination-dead-link {
+        font-size: var(--font-size-md);
+        padding: var(--spacing-1);
+        border-width: calc(var(--border-xs) * 0.8);
+    }
+    
+    .indicate-page-text {
+        font-size: var(--font-size-sm);
+        margin: 0 var(--spacing-3) 0 var(--spacing-3);
+    }
+    
+    nav {
+        margin: var(--spacing-4) 0;
+    }
+}
+
+/* Responsive styles for small mobile */
+@media (max-width: 480px) {
+    .pagination-link,
+    .pagination-dead-link {
+        font-size: var(--font-size-sm);
+        padding: calc(var(--spacing-1) * 0.75);
+        border-width: calc(var(--border-xs) * 0.7);
+    }
+    
+    .indicate-page-text {
+        font-size: var(--font-size-xs);
+        margin: 0 var(--spacing-2) 0 var(--spacing-2);
+    }
+    
+    nav {
+        margin: var(--spacing-3) 0;
+    }
 }
