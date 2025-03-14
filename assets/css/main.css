@@ -121,7 +121,6 @@ a {
 
 
 
-
 .content-block {
   /*TODO Add clip path in the future to make corner look cooler*/
   margin-top: 10rem;
@@ -150,14 +149,6 @@ a {
 
 /*NAVIGATION */
 
-.custom-icon-size {
-  font-size: 2rem;
-}
-
-.copyright {
-  text-transform: uppercase;
-  font-size: var(--font-size-sm);
-}
 
 
 
