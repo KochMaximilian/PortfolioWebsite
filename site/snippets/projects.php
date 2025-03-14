@@ -48,6 +48,7 @@
                            (max-width: 992px) 350px, 
                            33vw"
                 >
+                
                 <figcaption class="projects-caption">
                     <h5><?= $project->name() ?></h5>
                     <h6 class="projects-subtext"><?= $project->type() ?> &nbsp;|&nbsp; <?= $project->year() ?></h6>

@@ -1,4 +1,6 @@
-/* Base styles for filter navigation */
+/* =====================================
+   Filter Navigation
+===================================== */
 .filter {
     display: flex;
     flex-wrap: wrap;
@@ -12,9 +14,9 @@
 
 .filter a {
     transition: transform 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-        background 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-        box-shadow 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-        color 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+                background 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+                box-shadow 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+                color 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
     display: inline-block;
     text-decoration: none;
     text-transform: uppercase;
@@ -54,78 +56,9 @@
     width: 100%;
 }
 
-/* Responsive adjustments - smooth scaling */
-@media (max-width: 1200px) {
-    .filter a {
-        font-size: calc(var(--font-size-xl) * 0.9);
-        padding: 0 var(--spacing-3);
-    }
-}
-
-@media (max-width: 992px) {
-    .filter a {
-        font-size: calc(var(--font-size-xl) * 1.1);
-        padding: 0 var(--spacing-4);
-        line-height: 2.2;
-    }
-
-    .filter-block {
-        padding: 0 var(--spacing-5);
-    }
-}
-
-@media (max-width: 768px) {
-    .filter {
-        justify-content: center;
-        padding: var(--spacing-2) 0;
-    }
-
-    .filter a {
-        font-size: calc(var(--font-size-xl) * 1.25);
-        margin: var(--spacing-2);
-        padding: 0 var(--spacing-4);
-        line-height: 2.4;
-    }
-
-    .filter-block {
-        padding: 0 var(--spacing-3);
-    }
-}
-
-@media (max-width: 576px) {
-    .filter {
-        justify-content: center;
-    }
-
-    .filter a {
-        font-size: calc(var(--font-size-xl) * 1.1);
-        margin: var(--spacing-2);
-        padding: 0 var(--spacing-3);
-        line-height: 2.4;
-    }
-
-    .filter-block {
-        padding: 0 var(--spacing-2);
-    }
-}
-
-@media (max-width: 480px) {
-    .filter {
-        gap: var(--spacing-2);
-    }
-
-    .filter a {
-        font-size: calc(var(--font-size-xl) * 1.2);
-        line-height: 2.5;
-        margin: var(--spacing-2);
-        padding: 0 var(--spacing-4);
-    }
-}
-
-
-
-/*Project Gird*/
-/* Projects Section - Base Styles */
+/* =====================================
+   Projects Grid
+===================================== */
 .projects {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -169,7 +102,7 @@
 }
 
 .projects-figure figcaption {
-    padding: .8rem 0 0 0;
+    padding: 0.8rem 0 0 0;
     font-family: var(--font-barlow);
 }
 
@@ -227,123 +160,9 @@
     font-weight: var(--font-black);
 }
 
-/* Responsive styles for larger screens */
-@media (min-width: 1400px) {
-    .projects-figure {
-        height: 40vh;
-    }
-}
-
-/* Responsive styles for laptops and small desktops */
-@media (max-width: 1200px) {
-    .projects-figure {
-        height: 40vh;
-    }
-}
-
-/* TABLET AND MOBILE: Single column stacked layout */
-@media (max-width: 992px) {
-
-    /* Force single column - completely different approach */
-    .projects {
-        display: block !important;
-        /* Change from grid to block */
-    }
-
-    .projects-link {
-        display: block !important;
-        margin-bottom: 2rem !important;
-        font-size: var(--font-size-lg);
-        /* Reduced from xl */
-    }
-
-    .projects-figure {
-        height: auto !important;
-        min-height: 35vh;
-        /* Reduced height */
-        padding: 1rem;
-        width: 90% !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
-    .projects-figure img {
-        max-height: 250px;
-    }
-
-    .projects-caption h5 {
-        font-size: var(--font-size-xl);
-        margin-bottom: 0.5rem;
-    }
-
-    .projects-caption h6 {
-        font-size: var(--font-size-md);
-    }
-
-    .projects-genre-tag {
-        font-size: var(--font-size-sm);
-        padding: 0.2rem 0.5rem;
-    }
-
-    .engine-icon-container h6 {
-        font-size: var(--font-size-md);
-    }
-
-    .engine-icon-container svg {
-        height: 1.5rem;
-    }
-}
-
-/* Small mobile adjustments */
-@media (max-width: 575px) {
-    .projects-figure {
-        min-height: 32vh;
-        padding: 0.75rem;
-    }
-
-    .projects-caption h5 {
-        font-size: var(--font-size-lg);
-        margin-bottom: 0.25rem;
-    }
-
-    .projects-caption h6 {
-        font-size: var(--font-size-sm);
-    }
-
-    .projects-genre-tag {
-        font-size: var(--font-size-xs);
-        padding: 0.15rem 0.4rem;
-    }
-
-    .engine-icon-container h6 {
-        font-size: var(--font-size-sm);
-    }
-
-    .engine-icon-container svg {
-        height: 1.2rem;
-    }
-}
-
-/* Extra small mobile adjustments */
-@media (max-width: 375px) {
-    .projects-figure {
-        min-height: 30vh;
-        width: 95% !important;
-        padding: 0.5rem;
-    }
-
-    .projects-figure img {
-        max-height: 200px;
-    }
-
-    .projects-caption {
-        padding-top: 0.5rem;
-    }
-}
-
-
-/*Pagination section */
-/* Pagination Base Styles */
+/* =====================================
+   Pagination Section
+===================================== */
 .pagination-dead-link {
     color: var(--color-black-dark);
     background-color: var(--color-white);
@@ -368,8 +187,8 @@
     border-width: var(--border-xs);
     box-shadow: var(--solid-shadow-sm);
     transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-        background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-        box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+                background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+                box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
     cursor: pointer;
 }
 
@@ -401,8 +220,31 @@ nav {
     margin: var(--spacing-6) 0;
 }
 
-/* Responsive styles for laptops and small desktops */
+/* =====================================
+   Responsive Styles
+===================================== */
+
+/* Large Screens */
+@media (min-width: 1400px) {
+    .projects-figure {
+        height: 40vh;
+    }
+}
+
+/* Laptops and Small Desktops */
 @media (max-width: 1200px) {
+    /* Filter */
+    .filter a {
+        font-size: calc(var(--font-size-xl) * 0.9);
+        padding: 0 var(--spacing-3);
+    }
+    
+    /* Projects */
+    .projects-figure {
+        height: 40vh;
+    }
+    
+    /* Pagination */
     .pagination-link,
     .pagination-dead-link {
         font-size: var(--font-size-xl);
@@ -415,8 +257,66 @@ nav {
     }
 }
 
-/* Responsive styles for tablets */
+/* Tablets */
 @media (max-width: 992px) {
+    /* Filter */
+    .filter a {
+        font-size: calc(var(--font-size-xl) * 1.1);
+        padding: 0 var(--spacing-4);
+        line-height: 2.2;
+    }
+
+    .filter-block {
+        padding: 0 var(--spacing-5);
+    }
+    
+    /* Projects */
+    .projects {
+        display: block !important; /* Change from grid to block */
+    }
+
+    .projects-link {
+        display: block !important;
+        margin-bottom: 2rem !important;
+        font-size: var(--font-size-lg);
+    }
+
+    .projects-figure {
+        height: auto !important;
+        min-height: 35vh;
+        padding: 1rem;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .projects-figure img {
+        max-height: 250px;
+    }
+
+    .projects-caption h5 {
+        font-size: var(--font-size-xl);
+        margin-bottom: 0.5rem;
+    }
+
+    .projects-caption h6 {
+        font-size: var(--font-size-md);
+    }
+
+    .projects-genre-tag {
+        font-size: var(--font-size-sm);
+        padding: 0.2rem 0.5rem;
+    }
+
+    .engine-icon-container h6 {
+        font-size: var(--font-size-md);
+    }
+
+    .engine-icon-container svg {
+        height: 1.5rem;
+    }
+    
+    /* Pagination */
     .pagination-link,
     .pagination-dead-link {
         font-size: var(--font-size-lg);
@@ -434,8 +334,26 @@ nav {
     }
 }
 
-/* Responsive styles for small tablets and mobile */
+/* Small Tablets */
 @media (max-width: 768px) {
+    /* Filter */
+    .filter {
+        justify-content: center;
+        padding: var(--spacing-2) 0;
+    }
+
+    .filter a {
+        font-size: calc(var(--font-size-xl) * 1.25);
+        margin: var(--spacing-2);
+        padding: 0 var(--spacing-4);
+        line-height: 2.4;
+    }
+
+    .filter-block {
+        padding: 0 var(--spacing-3);
+    }
+    
+    /* Pagination */
     .pagination-link,
     .pagination-dead-link {
         font-size: var(--font-size-md);
@@ -453,8 +371,68 @@ nav {
     }
 }
 
-/* Responsive styles for small mobile */
+/* Mobile */
+@media (max-width: 576px) {
+    /* Filter */
+    .filter {
+        justify-content: center;
+    }
+
+    .filter a {
+        font-size: calc(var(--font-size-xl) * 1.1);
+        margin: var(--spacing-2);
+        padding: 0 var(--spacing-3);
+        line-height: 2.4;
+    }
+
+    .filter-block {
+        padding: 0 var(--spacing-2);
+    }
+    
+    /* Projects */
+    .projects-figure {
+        min-height: 32vh;
+        padding: 0.75rem;
+    }
+
+    .projects-caption h5 {
+        font-size: var(--font-size-lg);
+        margin-bottom: 0.25rem;
+    }
+
+    .projects-caption h6 {
+        font-size: var(--font-size-sm);
+    }
+
+    .projects-genre-tag {
+        font-size: var(--font-size-xs);
+        padding: 0.15rem 0.4rem;
+    }
+
+    .engine-icon-container h6 {
+        font-size: var(--font-size-sm);
+    }
+
+    .engine-icon-container svg {
+        height: 1.2rem;
+    }
+}
+
+/* Small Mobile */
 @media (max-width: 480px) {
+    /* Filter */
+    .filter {
+        gap: var(--spacing-2);
+    }
+
+    .filter a {
+        font-size: calc(var(--font-size-xl) * 1.2);
+        line-height: 2.5;
+        margin: var(--spacing-2);
+        padding: 0 var(--spacing-4);
+    }
+    
+    /* Pagination */
     .pagination-link,
     .pagination-dead-link {
         font-size: var(--font-size-sm);
@@ -469,5 +447,23 @@ nav {
     
     nav {
         margin: var(--spacing-3) 0;
+    }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 375px) {
+    /* Projects */
+    .projects-figure {
+        min-height: 30vh;
+        width: 95% !important;
+        padding: 0.5rem;
+    }
+
+    .projects-figure img {
+        max-height: 200px;
+    }
+
+    .projects-caption {
+        padding-top: 0.5rem;
     }
 }
