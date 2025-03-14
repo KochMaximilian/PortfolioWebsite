@@ -22,6 +22,7 @@
 
     <?= css('assets/css/config/config.css') ?>  
     <?= css('assets/css/footer.css') ?>  
+    <?= css('assets/css/carousel.css') ?>
     <?= css('assets/css/main.css') ?>
 
 
