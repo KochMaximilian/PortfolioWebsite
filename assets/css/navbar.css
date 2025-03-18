@@ -127,9 +127,7 @@
     font-size: var(--font-size-lg);
   }
   
-  .logo-container .logo span {
-    display: none; /* Hide the separator on smaller screens */
-  }
+  /* Removed the rule that hides the span to keep it visible */
   
   .navbar-nav {
     gap: var(--spacing-2);
