@@ -84,10 +84,9 @@
   font-weight: var(--font-bold);
 }
 
-/* Hamburger menu styling */
-.hamburger {
-  display: none; /* Hidden by default on all screens */
-}
+
+
+
 
 /* =====================================
    Responsive Styles
@@ -126,10 +125,7 @@
   .logo-container .logo {
     font-size: var(--font-size-lg);
   }
-  
-  /* Removed the rule that hides the span to keep it visible */
-  
-  .navbar-nav {
+    .navbar-nav {
     gap: var(--spacing-2);
     padding-right: 0.5rem;
   }
@@ -180,7 +176,7 @@
     line-height: 1.2; /* Tighter line height for wrapping */
   }
   
-  .navbar-nav {
+  .navbar-desktop {
     display: none; /* Hide the navbar on mobile phones */
   }
   
