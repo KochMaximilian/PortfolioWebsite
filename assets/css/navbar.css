@@ -186,7 +186,7 @@
   
   .nav-link {
     font-size: var(--font-size-md);
-    padding: var(--spacing-1) calc(var(--spacing-1) * 0.75);
+    padding: var(--spacing-1) calc(var(--spacing-4) * 0.75);
   }
 
   .navbar-mobile .navbar-nav {
@@ -204,3 +204,4 @@
     margin: 10px 0; /* Add some margin to separate from other footer content */
   }
 }
+

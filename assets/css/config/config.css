@@ -1,5 +1,14 @@
 :root {
 
+    /*Screen Sizes*/
+    --mobile-s: 320px;
+    --mobile-m: 375px;
+    --mobile-l: 425px;
+    --tablet-s: 768px;
+    --laptop: 1024px;
+    --laptop-l: 1440px;
+    --desktop: 2560px;
+
     /* Colors */
     --color-black-dark: #0A0A0A;
     --color-black-medium: #181818;
