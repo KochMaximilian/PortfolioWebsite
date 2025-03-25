@@ -6,7 +6,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: var(--z-navigation);
   display: flex;
   justify-content: center;
 }
@@ -57,7 +57,7 @@
   text-decoration: none;
   color: var(--color-white);
   font-weight: var(--font-bold);
-  font-size: var(--font-size-1xl);
+  font-size: var(--font-size-xl);
   text-transform: uppercase;
   padding: var(--spacing-1) var(--spacing-2);
   transition: color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), 
@@ -96,7 +96,7 @@
 ===================================== */
 
 /* Laptops and small desktops */
-@media (max-width: 1200px) {
+@media (max-width: 1440px) {
   .navbar {
     height: 70px;
     max-width: calc(100% - 3em);
@@ -140,7 +140,7 @@
 }
 
 /* Small tablets and large phones */
-@media (max-width: var(--tablet-s)) {
+@media (max-width: 768px) {
   .navbar {
     height: 50px;
     max-width: calc(100% - 1em);
@@ -164,6 +164,8 @@
 
 /* Mobile phones */
 @media (max-width: 576px) {
+
+
   .navbar {
     height: 45px;
     max-width: calc(100% - 1rem);
@@ -173,7 +175,7 @@
   }
   
   .logo-container .logo {
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-xs);
     white-space: normal; /* Allow text to wrap */
     overflow: visible; /* Show all content */
     line-height: 1.2; /* Tighter line height for wrapping */
@@ -201,7 +203,6 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    margin: 10px 0; /* Add some margin to separate from other footer content */
+    margin: 1.5rem 0; /* Add some margin to separate from other footer content */
   }
 }
-

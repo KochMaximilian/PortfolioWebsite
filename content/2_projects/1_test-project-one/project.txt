@@ -2,7 +2,7 @@ Title: The Cutest Game Simply Demure
 
 ----
 
-Name: Frog Detective 1: The haunted island
+Name: Another Test Sadly
 
 ----
 
@@ -43,6 +43,14 @@ Focus: Level Design, Game Design, System Design
 ----
 
 Duration: 5 Months
+
+----
+
+Team: 
+
+----
+
+Awards: 
 
 ----
 

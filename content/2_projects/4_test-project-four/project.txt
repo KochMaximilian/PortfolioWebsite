@@ -2,7 +2,7 @@ Title: Project: Gestalt: Steam & Cinder
 
 ----
 
-Name: Gestalt: Steam & Cinder
+Name: Test Project
 
 ----
 
@@ -50,6 +50,14 @@ Focus: Level Design, System Design, Game Design
 ----
 
 Duration: 4 Years
+
+----
+
+Team: 
+
+----
+
+Awards: 
 
 ----
 

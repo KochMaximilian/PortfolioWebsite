@@ -226,14 +226,14 @@ nav {
   }
   
   
-  .engine-icon-container svg {
+.engine-icon-container svg {
     width: 2rem;
     height: 2rem;
     display: inline-block;
     margin-top: var(--spacing-1);
-  }
+}
   
-  .projects-genre-tag {
+.projects-genre-tag {
     font-family: var(--font-barlow);
     font-weight: var(--font-bold);
     font-size: var(--font-size-xs);
@@ -244,12 +244,11 @@ nav {
     border: solid;
     border-color: var(--color-black-dark);
     border-radius: var(--rounded-xs);
+}
   
-  }
-  
-  .tag-container {
+.tag-container {
     margin-top: var(--spacing-2);
-  }
+}
 
 
 /* =====================================
@@ -257,14 +256,14 @@ nav {
 ===================================== */
 
 /* Large Screens */
-@media (min-width: 1400px) {
+@media (min-width: 1441px) {
     .projects-figure {
         height: 40vh;
     }
 }
 
 /* Laptops and Small Desktops */
-@media (max-width: 1200px) {
+@media (max-width: 1440px) {
     /* Filter */
     .filter a {
         font-size: calc(var(--font-size-xl) * 0.9);
@@ -375,7 +374,7 @@ nav {
     }
 
     .filter a {
-        font-size: calc(var(--font-size-xl) * 1.25);
+        font-size: var(--font-size-md);
         margin: var(--spacing-2);
         padding: 0 var(--spacing-4);
         line-height: 2.4;
@@ -458,16 +457,16 @@ nav {
     }
 
     .filter a {
-        font-size: calc(var(--font-size-xl) * 1.2);
+        font-size: var(--font-size-md);
         line-height: 2.5;
-        margin: var(--spacing-2);
-        padding: 0 var(--spacing-4);
+        margin: calc(var(--spacing-1)* 0.2);
+        padding: 0 var(--spacing-2);
     }
     
     /* Pagination */
     .pagination-link,
     .pagination-dead-link {
-        font-size: var(--font-size-sm);
+        font-size: var(--font-size-md);
         padding: calc(var(--spacing-1) * 0.75);
         border-width: calc(var(--border-xs) * 0.7);
     }
@@ -483,7 +482,7 @@ nav {
 }
 
 /* Extra Small Mobile */
-@media (max-width: 375px) {
+@media (max-width: 320px) {
     /* Projects */
     .projects-figure {
         min-height: 30vh;

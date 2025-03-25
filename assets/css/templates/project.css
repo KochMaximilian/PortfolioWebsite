@@ -1,36 +1,540 @@
-.project-layout {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 6rem; 
-}
-
-.project-info {
-    line-height: 1.5em;
-}
-
-.project-info dt {
-    font-weight: bold;
-    line-break: none;
-}
-
-
-.project-gallery ul {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    align-items: center;
-    grid-gap: 1.5rem;
-}
-
-.project-galery li:first-child {
-    grid-column-start: 1;
-    grid-column-end: -1;
-}
-
-.project-galery img  {
+/* =====================================
+   Project Detail Page
+===================================== */
+.project-figure {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    background: var(--color-white);
+    border-radius: var(--rounded-md);
+    border: solid var(--color-black-dark) var(--border-md);
+    box-shadow: var(--solid-shadow-md);
+  }
+  
+  .project-gallery {
+    flex: 1;
+    max-width: 65%;
+  }
+  
+  .project-info {
+    flex: 1;
+    max-width: 35%;
+    padding-top: 1.5rem;
+    padding-right: 0.45rem;
+  }
+  
+  .project-info dl {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+  }
+  
+  .project-info dt,
+  .project-info dd {
+    display: inline;
+    margin: 0;
+  }
+  
+  .project-info dt {
+    font-family: var(--font-barlow);
+    font-weight: var(--font-black);
+    text-transform: uppercase;
+  }
+  
+  .project-info dd {
+    margin-left: 0.3em;
+  }
+  
+  .project-gallery iframe {
+    display: block;
     width: 100%;
-}
+    height: 30vh;
+    border-right: solid var(--color-black-dark) var(--border-md);
+  }
+  
+  .project-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-right: solid var(--color-black-dark) var(--border-md);
+  }
+  
+  .project-description {
+    background: var(--color-white);
+    border: solid var(--color-black-dark);
+    border-radius: var(--rounded-md);
+    border-width: var(--border-md);
+    box-shadow: var(--solid-shadow-md);
+  }
+  
+  /* Lightbox Container */
+  .lightbox {
+    margin-bottom: var(--spacing-60);
+  }
+  
+  /* Project Image Container */
+  .project-image-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-2);
+    justify-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    contain: layout;
+  }
+  
+  /* Project Image Link (to maintain consistent container aspect ratio) */
+  .project-image-link {
+    position: relative;
+    overflow: visible;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+  }
+  
+    /* Project Gallery Image */
+  .project-gallary-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--rounded-lg);
+    border: solid;
+    border-color: var(--color-black-dark);
+    border-width: var(--border-md);
+    box-shadow: var(--solid-shadow-md);
+    position: relative;
+    z-index: 1;
+    transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+                box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+                border-width 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+    will-change: transform;
+  }
+  
+  /* Image Caption Badge */
+  .image-caption-badge {
+    font-family: var(--font-barlow);
+    font-weight: var(--font-black);
+    font-size: var(--font-size-md);
+    color: var(--color-black-dark);
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    background: var(--color-white);
+    border: solid var(--border-xsm) var(--color-black-dark);
+    border-radius: var(--rounded-xs);
+    padding: var(--spacing-1);
+    width: 50%;
+    position: absolute;
+    bottom: var(--spacing-4);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
+                background 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+    z-index: var(--z-notification);
+    will-change: transform;
+  }
+  
+  /* Badge Hover Effect when Hovering the Entire Link */
+  .project-image-container a:hover .image-caption-badge {
+    background: var(--color-yellow-dark);
+    transform: translateX(-50%) scale(0.95);
+  }
+  
+  /* Project Image Container Link */
+  .project-image-container a {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+    will-change: transform;
+  }
+  
+  /* Hover Effect on Image Link */
+  .project-image-container a:hover .project-gallary-image {
+    transform: scale(0.95);
+    box-shadow: var(--solid-shadow-sm);
+    border-width: var(--border-sm);
+  }
+  
+  /* Optimize performance by preventing layout shifts during transition */
+  .project-image-container img {
+    will-change: transform;
+  }
+  
+  /* Adjusting margin on lightbox based on gallery height */
+  .lightbox {
+    transition: margin-bottom 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+  }
+  
+  /* Disable margin transition during image scaling */
+  .project-image-container a:active {
+    transition: none;
+  }
+  
+  details summary {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: var(--font-barlow);
+    font-weight: var(--font-black);
+    font-size: var(--font-size-xl);
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: var(--spacing-3);
+    transition: font-size 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+  }
+  
+  .project-description details[open] {
+    padding: 1rem;
+    line-height: 1.6;
+  }
+  
+  .project-description :is(p, h1, h2, h3, h4, h5, h6) {
+    padding-bottom: var(--spacing-3);
+  }
+  
+  summary i {
+    font-size: var(--font-size-3xl);
+    color: var(--color-black-dark);
+    transition: transform 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+  }
+  
+  summary:hover i {
+    color: var(--color-yellow-dark);
+    transform: scale(1.3);
+  }
+  
+  details[open] summary {
+    font-size: var(--font-size-2xl);
+  }
+  
+  details[open] summary i {
+    transform: rotate(180deg);
+  }
+  
+  details[open] summary:hover i {
+    color: var(--color-yellow-dark);
+  }
+  
+  /* =====================================
+     Responsive Styles
+  ===================================== */
+  
+  /* Laptops and Small Desktops */
+  @media (max-width: 1440px) {
+    .project-figure {
+      gap: 1.5rem;
+    }
+    
+    .project-gallery iframe {
+      height: 28vh;
+    }
+    
+    .project-info {
+      padding-top: 1.2rem;
+    }
+    
+    .project-info dt {
+      font-size: var(--font-size-md);
+    }
+    
+    .project-info dd {
+      font-size: var(--font-size-md);
+    }
+    
+    .project-image-container {
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    }
+    
+    .image-caption-badge {
+      font-size: var(--font-size-sm);
+      width: 60%;
+      bottom: var(--spacing-3);
+    }
+    
+    details summary {
+      font-size: var(--font-size-lg);
+      padding: var(--spacing-2);
+    }
+    
+    summary i {
+      font-size: var(--font-size-2xl);
+    }
+    
+    details[open] summary {
+      font-size: var(--font-size-xl);
+    }
+  }
+  
+  /* Tablets */
+  @media (max-width: 992px) {
+    .project-figure {
+      flex-direction: column;
+      gap: 0;
+    }
+    
+    .project-gallery {
+      max-width: 100%;
+      width: 100%;
+    }
+    
+    .project-info {
+      max-width: 100%;
+      width: 100%;
+      padding: 1.5rem;
+    }
+    
+    .project-gallery iframe {
+      height: 40vh;
+      border-right: none;
+      border-bottom: solid var(--color-black-dark) var(--border-md);
+    }
+    
+    .project-image {
+      border-right: none;
+      border-bottom: solid var(--color-black-dark) var(--border-md);
+    }
+    
+    .project-info dl {
+      gap: 0.5em;
+    }
+    
+    .project-info dt {
+      font-size: var(--font-size-lg);
+      display: block;
+      margin-bottom: 0.2em;
+    }
+    
+    .project-info dd {
+      margin-left: 0;
+      font-size: var(--font-size-md);
+    }
+    
+    .project-image-container {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    
+    .project-gallary-image {
+      border-width: var(--border-sm);
+    }
+    
+    .image-caption-badge {
+      width: 70%;
+    }
+    
+    .lightbox {
+      margin-bottom: var(--spacing-40);
+    }
+  }
+  
+  /* Small Tablets */
+  @media (max-width: 768px) {
+    .project-figure {
+      border-width: var(--border-sm);
+    }
+    
+    .project-gallery iframe {
+      height: 35vh;
+      border-bottom-width: var(--border-sm);
+    }
+    
+    .project-image {
+      border-bottom-width: var(--border-sm);
+    }
+    
+    .project-info {
+      padding: 1.2rem;
+    }
+    
+    .project-info dt {
+      font-size: var(--font-size-lg);
+    }
+    
+    .project-info dd {
+      font-size: var(--font-size-md);
+    }
+    
+    .project-description {
+      border-width: var(--border-sm);
+    }
+    
+    .project-description details[open] {
+      padding: 0.75rem;
+    }
+    
+    .project-image-container {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: var(--spacing-1);
+    }
+    
+    .project-gallary-image {
+      border-width: var(--border-xs);
+    }
+    
+    .image-caption-badge {
+      font-size: var(--font-size-md);
+      padding: var(--spacing-1) var(--spacing-2);
+      border-width: 1px;
+      bottom: var(--spacing-2);
+    }
+    
+    details summary {
+      font-size: var(--font-size-xl);
+      padding: var(--spacing-2);
+    }
+    
+    summary i {
+      font-size: var(--font-size-2xl);
+    }
+    
+    details[open] summary {
+      font-size: var(--font-size-2xl);
+    }
+    
+    .lightbox {
+      margin-bottom: var(--spacing-32);
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 576px) {
+    .project-figure {
+      border-width: var(--border-xs);
+    }
+    
+    .project-gallery iframe {
+      height: 30vh;
+      border-bottom-width: var(--border-xs);
+    }
+    
+    .project-image {
+      border-bottom-width: var(--border-xs);
+    }
+    
+    .project-info {
+      padding: 1rem;
+    }
+    
+    .project-info dl {
+      gap: 0.8em;
+    }
+    
+    .project-info dt {
+      font-size: var(--font-size-lg);
+    }
+    
+    .project-info dd {
+      font-size: var(--font-size-md);
+    }
+    
+    .project-description {
+      border-width: var(--border-xs);
+    }
+    
+    .project-description details[open] {
+      padding: 0.5rem;
+      line-height: 1.4;
+    }
+    
+    .project-description :is(p, h1, h2, h3, h4, h5, h6) {
+      padding-bottom: var(--spacing-2);
+    }
+    
+    .project-image-container {
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    }
+    
+    .project-gallary-image {
+      border-radius: var(--rounded-md);
+    }
+    
+    .image-caption-badge {
+      width: 80%;
+      bottom: var(--spacing-1);
+      font-size: var(--font-size-md);
+    }
+    
+    details summary {
+      font-size: var(--font-size-lg);
+      padding: var(--spacing-1);
+    }
+    
+    summary i {
+      font-size: var(--font-size-xl);
+    }
+    
+    details[open] summary {
+      font-size: var(--font-size-xl);
+    }
+    
+    .lightbox {
+      margin-bottom: var(--spacing-24);
+    }
+  }
+  
+  /* Small Mobile */
+  @media (max-width: 480px) {
 
-.project-image {
-    border: 1px solid #ccc;
-}
+
+    .project-gallery iframe {
+      height: 25vh;
+    }
+    
+    .project-image-container {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+    
+    .project-info dt {
+      font-size: var(--font-size-md);
+    }
+    
+    .project-info dd {
+      font-size: var(--font-size-sm);
+    }
+    
+    .image-caption-badge {
+      width: 90%;
+      font-size: var(--font-size-sm);
+      padding: var(--spacing-1);
+    }
+    
+    details summary {
+      font-size: var(--font-size-md);
+    }
+    
+    summary i {
+      font-size: var(--font-size-lg);
+    }
+    
+    details[open] summary {
+      font-size: var(--font-size-lg);
+    }
+    
+    .lightbox {
+      margin-bottom: var(--spacing-16);
+    }
+  }
+
+  /* Extra Small Mobile */
+  @media (max-width: 320px) {
+    .project-info dt {
+      font-size: var(--font-size-sm);
+    }
+    
+    .project-info dd {
+      font-size: var(--font-size-xs);
+    }
+    
+    .project-gallery iframe {
+      height: 22vh;
+    }
+    
+    .image-caption-badge {
+      font-size: var(--font-size-xs);
+    }
+  }

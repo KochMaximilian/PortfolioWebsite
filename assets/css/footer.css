@@ -114,7 +114,7 @@ footer {
   }
   
   .socials {
-    gap: 0.5rem;
+    gap: 0.7rem;
   }
   
   .slogan {
@@ -193,7 +193,7 @@ footer {
   }
   
   .socials {
-    gap: 0.7rem; /* More space between larger icons */
+    display: none;
   }
 }
 
@@ -219,10 +219,6 @@ footer {
   
   .custom-icon-size {
     font-size: 1.4rem !important; /* Keep icons prominently sized */
-  }
-  
-  .socials {
-    gap: 0.6rem;
   }
   
   .footer-logo {
