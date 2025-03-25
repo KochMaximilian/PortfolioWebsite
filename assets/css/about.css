@@ -181,6 +181,10 @@
 
 /* Responsive Skills Section */
 @media (max-width: 576px) {
+
+  .skills {
+    margin-top: 1rem;
+  }
   .skills-content {
     grid-template-columns: 1fr;
     gap: 1rem;

@@ -98,6 +98,10 @@ footer {
   font-size: var(--font-size-sm);
 }
 
+.mobile-socials {
+  display: none; /* Hide on desktop */
+}
+
 /* Responsive styles for smaller screens */
 @media screen and (max-width: 768px) {
   footer {
@@ -140,10 +144,15 @@ footer {
   }
   
   .footer-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: center;
     grid-column: 1;
     grid-row: 1;
-    text-align: center;
-    margin-bottom: 0.2rem;
   }
   
   /* Combine social icon sections side-by-side */
@@ -174,26 +183,52 @@ footer {
   .footer-logo {
     height: 2rem;
   }
+
+  .mobile-socials.left,
+  .footer-logo,
+  .mobile-socials.right {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-socials.left,
+  .mobile-socials.right {
+    gap: 0.9rem;
+  }
+
+  .footer-logo {
+    margin: 0 var(--spacing-6) 0 var(--spacing-6);
+  }
   
   .slogan {
-    font-size: 1rem; /* BIGGER text for "Don't be a Stranger!" */
-    margin: 0.2rem 0 0.1rem 0;
-    font-weight: var(--font-black);
+    display: none;
   }
   
   .copyright {
-    font-size: 0.5rem; /* Smaller copyright text */
-    opacity: 0.7; /* More subtle */
+    width: 100%;
+    margin-top: 0.4rem;
     display: block;
-    margin-top: 0.1rem;
+    font-size: 0.65rem;
+    opacity: 0.7;
+    text-align: center;
   }
-  
   .custom-icon-size {
-    font-size: 1.5rem !important; /* Larger icons */
+    font-size: 1.5rem !important; 
   }
   
   .socials {
     display: none;
+  }
+
+  .mobile-socials {
+    display: flex;
+    gap: 0.4rem;
+    justify-content: center;
+  }
+
+  .mobile-socials .custom-icon-size {
+    font-size: 1.3rem !important;
   }
 }
 
@@ -225,10 +260,14 @@ footer {
     height: 1.8rem;
   }
 
-  .slogan {
-    font-size: 2rem;
-  }
 
+
+  .mobile-socials {
+    gap: 0.2rem;
+  }
   
+  .mobile-socials .custom-icon-size {
+    font-size: 1.1rem !important;
+  }
 
 }

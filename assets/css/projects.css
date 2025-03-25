@@ -363,6 +363,10 @@ nav {
     nav {
         margin: var(--spacing-5) 0;
     }
+
+    .projects-block {
+        margin-bottom: var(--spacing-32);
+    }
 }
 
 /* Small Tablets */
@@ -399,6 +403,10 @@ nav {
     
     nav {
         margin: var(--spacing-4) 0;
+    }
+
+    .projects-block {
+        margin-bottom: var(--spacing-32);
     }
 }
 
@@ -447,6 +455,10 @@ nav {
     .engine-icon-container svg {
         height: 1.2rem;
     }
+
+    .projects-block {
+        margin-bottom: var(--spacing-32);
+    }
 }
 
 /* Small Mobile */
@@ -479,6 +491,10 @@ nav {
     nav {
         margin: var(--spacing-3) 0;
     }
+
+    .projects-block {
+        margin-bottom: var(--spacing-32);
+    }
 }
 
 /* Extra Small Mobile */
@@ -496,5 +512,9 @@ nav {
 
     .projects-caption {
         padding-top: 0.5rem;
+    }
+
+    .projects-block {
+        margin-bottom: var(--spacing-32);
     }
 }
