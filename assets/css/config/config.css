@@ -1,14 +1,5 @@
 :root {
 
-    /*Screen Sizes*/
-    --mobile-s: 320px;
-    --mobile-m: 375px;
-    --mobile-l: 425px;
-    --tablet-s: 768px;
-    --laptop: 1024px;
-    --laptop-l: 1440px;
-    --desktop: 2560px;
-
     /* Colors */
     --color-black-dark: #0A0A0A;
     --color-black-medium: #181818;
@@ -38,11 +29,30 @@
     /* Transperent Color */
     --color-black-semi-transparent: rgba(0, 0, 0, 0.85);
 
+    /* Breakpoints */
+    --mobile-s: 320px;
+    --mobile-m: 375px;
+    --mobile-l: 425px;
+    --tablet-s: 768px;
+    --laptop: 1024px;
+    --laptop-l: 1440px;
+    --desktop: 2560px;
+
+    /* Responsive Adjustments - NEW */
+    --container-padding-desktop: 2rem;
+    --container-padding-tablet: 1.5rem;
+    --container-padding-mobile: 1rem;
+    --container-padding-mobile-s: 0.5rem;
+    
+    --touch-target-size: 44px;
+    --content-spacing-desktop: 3rem;
+    --content-spacing-tablet: 2rem;
+    --content-spacing-mobile: 1.5rem;
+    --content-spacing-mobile-s: 1rem;
 
     --bevel: 15px;
 
     /* Font Size */
-
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
     --font-size-md: 1rem;
@@ -55,18 +65,15 @@
     --font-size-6xl: 4rem;
 
     /* Font Family */
-
     --font-barlow: 'Barlow', sans-serif;
     --font-poppins: 'Poppins', sans-serif;
 
     /* Font Weight */
-
     --font-thin: 300;
     --font-normal: 400;
     --font-semi: 500;
     --font-bold: 600;
     --font-black: 800;
-
 
     /* Rounded */
     --rounded-xs: 0.25rem;
@@ -74,7 +81,6 @@
     --rounded-md: 0.6rem;
     --rounded-lg: 0.75rem;
     --rounded-xl: 0.9rem;
-
 
     /* Shadow */
     --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.025);
@@ -90,7 +96,6 @@
     --solid-white-shadow-sm: var(--color-white) 1px 3px 0px 1px;
 
     /* Spacing */
-
     --spacing-0: 0;
     --spacing-1: 0.25rem;
     --spacing-2: 0.5rem;
@@ -132,9 +137,7 @@
     --negative-spacing-12: -3rem;
     --negative-spacing-16: -4.5rem;
 
-
     /* Z-Index */
-
     --z-offine: 1200;
     --z-fatal: 1100;
     --z-loader: 1000;
@@ -148,15 +151,12 @@
     --z-content: 200;
     --z-background: 100;
 
-
     /* Height */
-
     --height-xs: 1.5rem;
     --height-sm: 1.75rem;
     --height-md: 2rem;
     --height-lg: 2.25rem;
     --height-xl: 2.5rem;
-
 
     /* Border */
     --border-xxs: 0.1rem;
@@ -167,4 +167,9 @@
     --border-lg: 0.8rem;
     --border-xl: 1rem;
 
+    /* Transition Timing - NEW */
+    --transition-fast: 0.2s;
+    --transition-medium: 0.3s;
+    --transition-slow: 0.5s;
+    --transition-easing: cubic-bezier(0.25, 1.75, 0.5, 1.2);
 }
