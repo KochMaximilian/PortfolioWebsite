@@ -168,18 +168,7 @@
   
   /* Responsive font size variables */
   @media screen and (max-width: 1200px) {
-    :root {
-      --font-size-xs: 0.7rem;
-      --font-size-sm: 0.8rem;
-      --font-size-md: 0.95rem;
-      --font-size-lg: 1.05rem;
-      --font-size-xl: 1.15rem;
-      --font-size-2xl: 1.35rem;
-      --font-size-3xl: 1.6rem;
-      --font-size-4xl: 2.25rem;
-      --font-size-5xl: 2.75rem;
-      --font-size-6xl: 3.5rem;
-    }
+
     
     .flickity-prev-next-button {
       width: 3.5rem;
@@ -196,19 +185,7 @@
   }
   
   @media screen and (max-width: 992px) {
-    :root {
-      --font-size-xs: 0.65rem;
-      --font-size-sm: 0.75rem;
-      --font-size-md: 0.9rem;
-      --font-size-lg: 1rem;
-      --font-size-xl: 1.1rem;
-      --font-size-2xl: 1.25rem;
-      --font-size-3xl: 1.5rem;
-      --font-size-4xl: 2rem;
-      --font-size-5xl: 2.5rem;
-      --font-size-6xl: 3rem;
-    }
-    
+
     .slider-figure {
       margin: 0 1.5rem 1rem 1.5rem;
       padding: 1rem;
@@ -229,18 +206,7 @@
   }
   
   @media screen and (max-width: 768px) {
-    :root {
-      --font-size-xs: 0.6rem;
-      --font-size-sm: 0.7rem;
-      --font-size-md: 0.85rem;
-      --font-size-lg: 0.95rem;
-      --font-size-xl: 1.05rem;
-      --font-size-2xl: 1.15rem;
-      --font-size-3xl: 1.35rem;
-      --font-size-4xl: 1.75rem;
-      --font-size-5xl: 2.25rem;
-      --font-size-6xl: 2.75rem;
-    }
+
     
     .slider-figure {
       margin: 0 1.5rem 0.8rem 1.5rem;
@@ -266,18 +232,7 @@
   }
   
   @media screen and (max-width: 576px) {
-    :root {
-      --font-size-xs: 0.55rem;
-      --font-size-sm: 0.65rem;
-      --font-size-md: 0.8rem;
-      --font-size-lg: 0.9rem;
-      --font-size-xl: 1rem;
-      --font-size-2xl: 1.1rem;
-      --font-size-3xl: 1.25rem;
-      --font-size-4xl: 1.5rem;
-      --font-size-5xl: 2rem;
-      --font-size-6xl: 2.5rem;
-    }
+
     
     .slider-figure {
       margin: 0 1.5rem 0.6rem 1.5rem;
@@ -310,18 +265,7 @@
   }
   
   @media screen and (max-width: 480px) {
-    :root {
-      --font-size-xs: 0.5rem;
-      --font-size-sm: 0.6rem;
-      --font-size-md: 0.75rem;
-      --font-size-lg: 0.85rem;
-      --font-size-xl: 0.95rem;
-      --font-size-2xl: 1.05rem;
-      --font-size-3xl: 1.15rem;
-      --font-size-4xl: 1.35rem;
-      --font-size-5xl: 1.75rem;
-      --font-size-6xl: 2.25rem;
-    }
+
     
     .slider-figure {
       margin: 0 1.5rem 0.4rem 1.5rem;
@@ -334,19 +278,7 @@
   }
   
   @media screen and (max-width: 375px) {
-    :root {
-      --font-size-xs: 0.45rem;
-      --font-size-sm: 0.55rem;
-      --font-size-md: 0.7rem;
-      --font-size-lg: 0.8rem;
-      --font-size-xl: 0.9rem;
-      --font-size-2xl: 1rem;
-      --font-size-3xl: 1.1rem;
-      --font-size-4xl: 1.25rem;
-      --font-size-5xl: 1.5rem;
-      --font-size-6xl: 2rem;
-    }
-    
+
     .slider-figure {
       margin: 0 1.5rem 0.3rem 1.5rem;
       padding: 0.3rem;

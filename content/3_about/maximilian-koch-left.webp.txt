@@ -18,4 +18,4 @@ Template: personal-img
 
 ----
 
-Focus: 55.0% 35.1%
+Focus: 56.1% 42.1%

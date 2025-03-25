@@ -84,6 +84,9 @@
   font-weight: var(--font-bold);
 }
 
+.navbar-mobile {
+  display: none;
+}
 
 
 
@@ -179,9 +182,25 @@
   .navbar-desktop {
     display: none; /* Hide the navbar on mobile phones */
   }
+
   
   .nav-link {
     font-size: var(--font-size-md);
     padding: var(--spacing-1) calc(var(--spacing-1) * 0.75);
+  }
+
+  .navbar-mobile .navbar-nav {
+    margin-left: 0; 
+    justify-content: center; 
+    width: 100%; 
+    padding-right: 0; 
+  }
+
+  .navbar-mobile {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0; /* Add some margin to separate from other footer content */
   }
 }
