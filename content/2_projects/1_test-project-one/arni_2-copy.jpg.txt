@@ -1,9 +1,0 @@
-Sort: 4
-
-----
-
-Uuid: y54xSoDJ5z5CH5Ff
-
-----
-
-Template: showcase-image

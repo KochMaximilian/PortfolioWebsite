@@ -1,9 +1,0 @@
-Sort: 1
-
-----
-
-Uuid: Ai1nYdXNWrfLLXWc
-
-----
-
-Template: showcase-image

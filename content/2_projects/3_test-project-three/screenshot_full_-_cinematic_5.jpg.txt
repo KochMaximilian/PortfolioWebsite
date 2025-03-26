@@ -1,9 +1,0 @@
-Sort: 3
-
-----
-
-Uuid: hktgvgDDFqguWgFR
-
-----
-
-Template: showcase-image

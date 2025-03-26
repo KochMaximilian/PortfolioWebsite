@@ -13,7 +13,7 @@
                                     'width' => 400,
                                     'height' => 500,
                                     'crop' => true,
-                                    'quality' => 100,
+                                    'quality' => 10,
                                     'format' => 'webp',
                                     'driver' => 'im'
                                 ])->url() ?>"

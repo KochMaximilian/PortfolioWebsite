@@ -1,0 +1,29 @@
+Alt: Screenshot 1 Afterwords Game
+
+----
+
+Intention: Schowcase
+
+----
+
+Caption: 
+
+----
+
+Class: 
+
+----
+
+Sort: 1
+
+----
+
+Uuid: 6cubNMqnU50byPfV
+
+----
+
+Template: showcase-image
+
+----
+
+Focus: 64.9% 46.5%

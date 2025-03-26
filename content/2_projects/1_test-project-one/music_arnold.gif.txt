@@ -1,9 +1,0 @@
-Sort: 10
-
-----
-
-Uuid: PB5HrbkAwZCtXzfe
-
-----
-
-Template: showcase-image

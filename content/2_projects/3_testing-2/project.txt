@@ -1,0 +1,69 @@
+Title: Testing 2
+
+----
+
+Name: Test Project 2
+
+----
+
+Featured: false
+
+----
+
+Description: This is a test project to share it and check it on different devices.
+
+----
+
+Type: Professional Project
+
+----
+
+Year: 2023
+
+----
+
+Embedlink: https://www.youtube-nocookie.com/embed/jjiJVBnw7L8?si=zhoC752KDQlOERBa"
+
+----
+
+Embedtitle: Teaster Trailer - EXPERIMENT ZERØ
+
+----
+
+Genre: RPG, FPS, Action
+
+----
+
+Platform: PC Windows, Playstation 4, Xbox One, Nintendo Switch
+
+----
+
+Focus: Level Design, System Design
+
+----
+
+Duration: 11 Months
+
+----
+
+Team: 
+
+----
+
+Awards: 
+
+----
+
+Engine: Godot
+
+----
+
+Engineicon: godot-engine.svg
+
+----
+
+Links: 
+
+----
+
+Uuid: bciiZQFJ3apD45sx

@@ -1,0 +1,73 @@
+Title: Project Afterwords
+
+----
+
+Name: Afterwords
+
+----
+
+Featured: true
+
+----
+
+Description:
+
+Afterwords takes you on a journey through the fading memories of your past. This puzzle-driven, story-focused game allows you to explore different phases of your life within the same family home. 
+
+As you solve puzzles, you'll uncover your name along the way. Each level represents a unique memory, with the environment changing to reflect the time period you are reliving. To progress, you'll listen to conversations, find hidden words, and combine them into passwords to unlock the next memory.
+
+----
+
+Type: Game Jam
+
+----
+
+Year: 2024
+
+----
+
+Embedlink: 
+
+----
+
+Embedtitle: 
+
+----
+
+Genre: Puzzle, Walking Simulator
+
+----
+
+Platform: PC Windows
+
+----
+
+Focus: Game Design, Level Design
+
+----
+
+Duration: 1 Month
+
+----
+
+Team: 8
+
+----
+
+Awards: 
+
+----
+
+Engine: Unity
+
+----
+
+Engineicon: unity.svg
+
+----
+
+Links: https://adistantdreamer.itch.io/afterwords
+
+----
+
+Uuid: CjBeFo2PVXo9JQi1

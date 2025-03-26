@@ -1,9 +1,0 @@
-Sort: 2
-
-----
-
-Uuid: FRlqGatamIlaKdWD
-
-----
-
-Template: showcase-image

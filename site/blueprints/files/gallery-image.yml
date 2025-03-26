@@ -1,6 +1,6 @@
 title: Gallery Image
 accept:
-  extension: jpg, jpeg, png
+  extension: jpg, jpeg, png, webp
 fields: 
   alt:
     type: text

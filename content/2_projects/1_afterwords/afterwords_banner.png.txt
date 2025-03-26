@@ -1,0 +1,29 @@
+Alt: Afterwords Title Image
+
+----
+
+Intention: Cover
+
+----
+
+Caption: 
+
+----
+
+Class: 
+
+----
+
+Sort: 1
+
+----
+
+Uuid: PDh9o1zH83sOhXtE
+
+----
+
+Template: gallery-image
+
+----
+
+Focus: 50.0% 50.0%
