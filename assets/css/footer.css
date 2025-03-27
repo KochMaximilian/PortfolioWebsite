@@ -10,7 +10,7 @@ footer {
   width: 64em;
   max-width: calc(100% - 2rem);
   margin: 0 auto;
-  margin-top: 10rem;
+  margin-top: 8rem;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -260,8 +260,6 @@ footer {
     height: 1.8rem;
   }
 
-
-
   .mobile-socials {
     gap: 0.2rem;
   }
@@ -269,5 +267,4 @@ footer {
   .mobile-socials .custom-icon-size {
     font-size: 1.1rem !important;
   }
-
 }

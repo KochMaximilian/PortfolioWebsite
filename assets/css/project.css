@@ -21,6 +21,11 @@
     max-width: 35%;
     padding-top: 1.5rem;
     padding-right: 0.45rem;
+    overflow: auto;
+    max-height: 25vh;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-black-dark) var(--color-white);
+    scrollbar-gutter: auto;
   }
   
   .project-info dl {
@@ -229,6 +234,7 @@
   @media (max-width: 1200px) {
     .project-figure {
       gap: 1.5rem;
+   
     }
     
     .project-gallery iframe {
@@ -237,6 +243,8 @@
     
     .project-info {
       padding-top: 1.2rem;
+      overflow: hidden;
+      max-height: fit-content;
     }
     
     .project-info dt {
@@ -369,7 +377,7 @@
     
     .project-image-container {
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: var(--spacing-1);
+      gap: var(--spacing-3);
     }
     
     .project-gallary-image {

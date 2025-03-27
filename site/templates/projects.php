@@ -8,25 +8,27 @@
 <?php endsnippet() ?>
 
 <div class="wrapper">
-    <main class="main-wrapper">
+    <div class=page-zoom>
+        <main class="main-wrapper">
 
-        <section class="content-block">
-            <h1><?= $page->title() ?></h1>
-        </section>
+            <section class="content-block">
+                <h1><?= $page->title() ?></h1>
+            </section>
 
-        <section class="filter-block">
-            <?php snippet('filter') ?>
-        </section>
+            <section class="filter-block">
+                <?php snippet('filter') ?>
+            </section>
 
-        <section class="projects-block">
-            <?php snippet('projects') ?>
-        </section>
+            <section class="projects-block">
+                <?php snippet('projects') ?>
+            </section>
 
-        <section class="pagination-block">
-            <?php snippet('pagination') ?>
-        </section>
+            <section class="pagination-block">
+                <?php snippet('pagination') ?>
+            </section>
 
-    </main>
+        </main>
+    </div>
 </div>
 
 <div class="footer-wrapper">

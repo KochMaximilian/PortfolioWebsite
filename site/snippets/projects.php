@@ -5,8 +5,8 @@
                 <img 
                     src="<?= $project->images()->template('gallery-image')->first()->thumb([
                         'autoOrient' => true,
-                        'width' => 500,
-                        'height' => 500,
+                        'width' => 420,  /* Reduced from 500 */
+                        'height' => 420, /* Reduced from 500 */
                         'crop' => true,
                         'quality' => 60,
                         'format' => 'webp',
@@ -15,17 +15,31 @@
                     alt="<?= $project->name() ?>"
                     srcset="
                         <?= $project->images()->template('gallery-image')->first()->thumb([
-                            'width' => 300,
-                            'height' => 300,
+                            'width' => 250,
+                            'height' => 250,
                             'crop' => true,
                             'quality' => 50,
                             'format' => 'webp',
-                        ])->url() ?> 300w,
+                        ])->url() ?> 250w,
+                        <?= $project->images()->template('gallery-image')->first()->thumb([
+                            'width' => 350,
+                            'height' => 350,
+                            'crop' => true,
+                            'quality' => 55,
+                            'format' => 'webp',
+                        ])->url() ?> 350w,
+                        <?= $project->images()->template('gallery-image')->first()->thumb([
+                            'width' => 420,
+                            'height' => 420,
+                            'crop' => true,
+                            'quality' => 60,
+                            'format' => 'webp',
+                        ])->url() ?> 420w,
                         <?= $project->images()->template('gallery-image')->first()->thumb([
                             'width' => 500,
                             'height' => 500,
                             'crop' => true,
-                            'quality' => 60,
+                            'quality' => 65,
                             'format' => 'webp',
                         ])->url() ?> 500w,
                         <?= $project->images()->template('gallery-image')->first()->thumb([
@@ -34,19 +48,15 @@
                             'crop' => true, 
                             'quality' => 70,
                             'format' => 'webp',
-                        ])->url() ?> 700w,
-                        <?= $project->images()->template('gallery-image')->first()->thumb([
-                            'width' => 900,
-                            'height' => 900,
-                            'crop' => true,
-                            'quality' => 75,
-                            'format' => 'webp',
-                        ])->url() ?> 900w
+                        ])->url() ?> 700w
                     "
                     sizes="(max-width: 375px) 200px, 
-                           (max-width: 575px) 300px,
-                           (max-width: 992px) 350px, 
-                           33vw"
+                           (max-width: 575px) 250px,
+                           (max-width: 768px) 300px,
+                           (max-width: 992px) 350px,
+                           (max-width: 1366px) 380px,
+                           (max-width: 1920px) 420px,
+                           (min-width: 1921px) 450px"
                 >
                 
                 <figcaption class="projects-caption">

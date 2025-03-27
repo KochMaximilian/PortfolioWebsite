@@ -10,17 +10,17 @@
                 <figure class="project-figure">
                     <div class="project-gallery">
                         <?php if ($embed = $page->embedlink()->isNotEmpty()): ?>
-
-                            <?= Html::iframe($page->embedlink(), [
-                                'title' => $page->embedTitle(),
-                                'frameborder' => '0',
-                                'allowfullscreen' => true,
-                                'allow' => 'accelerometer; autoplay; encrypted-media; gyroscope;',
-                                'loading' => 'lazy',
-                                'sandbox' => 'allow-scripts allow-same-origin',
-                                'referrerpolicy' => 'strict-origin-when-cross-origin'
-                            ]) ?>
-
+                            <div class="responsive-iframe-container">
+                                <?= Html::iframe($page->embedlink(), [
+                                    'title' => $page->embedTitle(),
+                                    'frameborder' => '0',
+                                    'allowfullscreen' => true,
+                                    'allow' => 'accelerometer; autoplay; encrypted-media; gyroscope;',
+                                    'loading' => 'lazy',
+                                    'sandbox' => 'allow-scripts allow-same-origin',
+                                    'referrerpolicy' => 'strict-origin-when-cross-origin'
+                                ]) ?>
+                            </div>
                         <?php else: ?>
                             <div>
                                 <?php $coverImage = $page->images()->template('gallery-image')->limit(1); ?>
@@ -33,18 +33,21 @@
                                 <?php endforeach ?>
                             </div>
                         <?php endif ?>
+
                     </div>
 
                     <figcaption class="project-info">
                         <dl>
                             <div>
-                                <dt>Title:</dt>
-                                <dd><?= $page->name() ?></dd>
-                            </div>
-                            <div>
                                 <dt>Project Type:</dt>
                                 <dd><?= $page->type() ?></dd>
                             </div>
+                            <?php if ($page->team()->isNotEmpty()): ?>
+                                <div>
+                                    <dt>Team Size:</dt>
+                                    <dd><?= $page->team() ?></dd>
+                                </div>
+                            <?php endif; ?>
                             <div>
                                 <dt>Genre:</dt>
                                 <dd><?php foreach ($page->genre() as $genre): ?><span class="project-genre"> <?= $genre ?></span> <?php endforeach; ?></dd>
@@ -65,6 +68,12 @@
                                 <dt>Area of Focus:</dt>
                                 <dd><?php foreach ($page->focus() as $focus): ?> <span class="project-focus"><?= $focus ?></span> <?php endforeach; ?></dd>
                             </div>
+                            <?php if ($page->awards()->isNotEmpty()): ?>
+                                <div>
+                                    <dt>Awards:</dt>
+                                    <dd><?= $page->awards() ?></dd>
+                                </div>
+                            <?php endif; ?>
                             <div>
                                 <dt>Game Engine:</dt>
                                 <dd><?= $page->engine() ?></dd>

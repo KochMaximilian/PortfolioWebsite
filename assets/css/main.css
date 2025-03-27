@@ -96,7 +96,7 @@ a {
   flex-direction: column;
   flex-grow: 1;
   width: 64em;
-  max-width: calc(100% - 4em);
+  max-width: calc(100% - 2em);
   margin: 0 auto;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -114,8 +114,8 @@ a {
 .main-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  margin-bottom: 14rem;
+  gap: 2rem;
+  margin-bottom: 12rem;
 }
 
 
@@ -123,7 +123,7 @@ a {
 
 .content-block {
   /*TODO Add clip path in the future to make corner look cooler*/
-  margin-top: 10rem;
+  margin-top: 7rem;
   padding: .4rem .9rem;
   text-align: center;
   background-color: var(--color-white);
@@ -393,10 +393,9 @@ p {
   }
 
   .content-block {
-
-    margin-top: var(--spacing-28)
-   
+    margin-top: var(--spacing-28);
   }
+
 
 }
 
@@ -457,6 +456,8 @@ p {
     font-size: var(--font-size-md) !important;
     line-height: 1.4;
   }
+
+
 }
 
 @media (max-width: 480px) {
@@ -500,17 +501,13 @@ p {
   }
 
   .content-block {
-
     margin-top: var(--spacing-24);
     padding: .4rem .9rem;
-
   }
 
   .wrapper {
     padding: 0;
-
-   }
-  
+  }
 }
 
 

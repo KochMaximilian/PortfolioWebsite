@@ -38,7 +38,7 @@ Genre: Puzzle, Walking Simulator
 
 ----
 
-Platform: PC Windows
+Platform: PC Windows, Playstation 4, Playstation 5, Xbox One, Xbox Series S/X, Nintendo Switch, Android
 
 ----
 
