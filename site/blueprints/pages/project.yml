@@ -47,7 +47,6 @@ columns:
             help: Only the year, e.g. 2024
             type: number
             width: 1/2
-
           embedlink:
             width: 1/2
             label: Embedet Link
@@ -58,7 +57,7 @@ columns:
             width: 1/2
             label: Video Titel
             type: text
-            max-length: 50
+            maxlength: 50
             help: Copy title form YouTube Vido.
 
   - width: 1/2
@@ -136,25 +135,30 @@ columns:
             required: true
             min: 1
             max: 1
-           empty: No engine selected yet.
-           width: 1/2
-           options:
-            - Unreal Engine 5
-            - Unreal Engine 4
-            - Unity
-            - Godot
+            empty: No engine selected yet.
+            width: 1/2
+            options:
+              - Unreal Engine 5
+              - Unreal Engine 4
+              - Unity
+              - Godot
           engineicon:
             label: Game Engine Visual
-            type: icon
-            folder: assets/fontawesome/engine-icons
+            type: select # <-- Final successful field type
+            options:
+              # <-- Hardcoded filenames from your assets folder. 
+              godot-engine.svg: Godot Engine
+              svg-sprite.svg: SVG Sprite
+              unity.svg: Unity
+              unreal-engine.svg: Unreal Engine
             required: true
-            min: 1
-            help: Pick the corresponding engine logo. 
+            help: Pick the corresponding engine logo.
             width: 1/2
           links:
             label: Additional Links
             help: Links to other websites or social media pages for the game.
             type: link
+
   - width: 1/4
     sections:
       gallery:
@@ -170,20 +174,21 @@ columns:
         image:
           ratio: 1/1
           cover: true
- - width: 3/4
-   sections:
-     showcase:
-       label: Showcase Images
-       type: files
-       layout: table
-       empty: No images added yet.
-       columns:
-         alt: true
-          label: Alternative Text
-         focus: true
-       template: showcase-image
-       limit: 10
-       help: Maximum of 10 images.
-       image:
+
+  - width: 3/4
+    sections:
+      showcase:
+        label: Showcase Images
+        type: files
+        layout: table
+        empty: No images added yet.
+        columns:
+          alt:
+            label: Alternative Text
+          focus: true
+        template: showcase-image
+        limit: 10
+        help: Maximum of 10 images.
+        image:
           ratio: 1/1
           cover: true
