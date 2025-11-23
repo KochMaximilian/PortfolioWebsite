@@ -17,9 +17,9 @@
 }
 
 .slider-image {
-  border-radius: var(--rounded-md);
-  border: var(--border-sm) solid;
-  border-color: var(--color-black-medium);
+  border-radius: 0.6rem;
+  border: 4px solid;
+  border-color: #181818;
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -36,48 +36,48 @@
 }
 
 .carousel-cell.is-selected img:hover {
-  border-color: var(--color-black-dark);
+  border-color: #0A0A0A;
 }
 
 /* position dots in carousel */
 .flickity-page-dots {
-  bottom: var(--spacing-42);
+  bottom: 10.5rem;
 }
 
 /* white circles */
 .flickity-page-dots .dot {
-  width: var(--spacing-3);
-  height: var(--spacing-3);
+  width: 0.75rem;
+  height: 0.75rem;
   opacity: 1;
-  background: var(--color-white);
-  z-index: var(--z-loader);
+  background: #FEFEFE;
+  z-index: 1000;
 }
 
 /* fill-in selected dot */
 .flickity-page-dots .dot.is-selected {
-  background: var(--color-yellow-dark);
+  background: #FCBB3F;
   transition: border 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
   transition: height 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-  width: var(--spacing-4);
-  height: var(--spacing-4);
+  width: 1rem;
+  height: 1rem;
 }
 
 .slider-figure {
-  background: var(--color-white);
-  border-radius: var(--rounded-lg);
+  background: #FEFEFE;
+  border-radius: 0.75rem;
   margin: 0 1.6rem 1.2rem 1.6rem;
   padding: 1.3rem;
-  border: var(--border-sm) solid;
-  border-color: var(--color-black-dark);
-  box-shadow: var(--solid-shadow);
+  border: 5px solid;
+  border-color: #0A0A0A;
+  box-shadow: #0A0A0A 3px 5px 0px 3px;
 }
 
 .slider-figure:hover {
-  background-color: var(--color-yellow-dark);
+  background-color: #FCBB3F;
 }
 
 .slider-figure:hover small {
-  color: var(--color-black-dark);
+  color: #0A0A0A;
 }
 
 .slider-heading {
@@ -87,25 +87,25 @@
 
 .carousel-link {
   text-decoration: none;
-  font-size: var(--font-size-xl);
-  color: var(--color-black-dark);
-  font-weight: var(--font-bold);
+  font-size: 1.25rem;
+  color: #0A0A0A;
+  font-weight: 700;
   transition: color 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
   display: block;
 }
 
 .projects-subtext {
-  font-family: var(--font-poppins);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-semi);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
 .carousel-link small {
-  font-family: var(--font-poppins);
-  color: var(--color-blue-dark);
-  font-weight: var(--font-bold);
-  font-size: var(--font-size-md);
+  font-family: "Poppins", sans-serif;
+  color: #2C56C3;
+  font-weight: 700;
+  font-size: 1rem;
   text-transform: uppercase;
   display: block;
   word-wrap: break-word;
@@ -141,7 +141,7 @@
   }
 }
 .flickity-button {
-  background: var(--color-white);
+  background: #FEFEFE;
   transform: translateY(-50%);
   transform-origin: center !important;
   will-change: transform;
@@ -149,8 +149,8 @@
 }
 
 .flickity-button:hover {
-  background-color: var(--color-yellow-dark);
-  box-shadow: var(--solid-shadow-sm);
+  background-color: #FCBB3F;
+  box-shadow: #0A0A0A 1px 3px 0px 1px;
   transform: scale(0.95) translateY(-50%);
 }
 
@@ -158,21 +158,21 @@
   width: 4rem;
   height: 7rem;
   border: solid;
-  border-radius: var(--rounded-sm);
-  border-color: var(--color-black-dark);
-  border-width: var(--border-xs);
-  box-shadow: var(--solid-shadow-md);
+  border-radius: 0.25rem;
+  border-color: #0A0A0A;
+  border-width: 5px;
+  box-shadow: #0A0A0A 1.4px 3.5px 0px 1.4px;
 }
 
 /* Apply the animations to both buttons */
 .flickity-prev-next-button.previous {
-  left: var(--negative-spacing-16);
-  animation: bounce-left 5s cubic-bezier(0.25, 1.75, 0.5, 1.2) infinite; /* Using existing bezier curve from your CSS */
+  left: -4rem;
+  animation: bounce-left 5s cubic-bezier(0.25, 1.75, 0.5, 1.2) infinite;
 }
 
 .flickity-prev-next-button.next {
-  right: var(--negative-spacing-16);
-  animation: bounce-right 5s cubic-bezier(0.25, 1.75, 0.5, 1.2) infinite; /* Using existing bezier curve from your CSS */
+  right: -4rem;
+  animation: bounce-right 5s cubic-bezier(0.25, 1.75, 0.5, 1.2) infinite;
 }
 
 /* Pause the animations on hover to improve usability */
@@ -182,7 +182,7 @@
 
 /* icon color */
 .flickity-button-icon {
-  fill: var(--color-black-dark);
+  fill: #0A0A0A;
   width: 80%;
 }
 
@@ -250,7 +250,7 @@
     animation: bounce-right 5s cubic-bezier(0.25, 1.75, 0.5, 1.2) infinite;
   }
   .flickity-page-dots {
-    bottom: calc(var(--spacing-42) * 0.8);
+    bottom: 8.4rem;
   }
 }
 @media screen and (max-width: 576px) {
@@ -264,22 +264,22 @@
   .flickity-prev-next-button {
     width: 2rem;
     height: 3.5rem;
-    display: none; /* Hide navigation buttons on very small screens */
+    display: none;
   }
   .flickity-prev-next-button.previous,
   .flickity-prev-next-button.next {
-    animation: none; /* Disable animation on very small screens where buttons are hidden */
+    animation: none;
   }
   .flickity-page-dots {
-    bottom: calc(var(--spacing-42) * 0.6);
+    bottom: 6.3rem;
   }
   .flickity-page-dots .dot {
-    width: calc(var(--spacing-3) * 0.8);
-    height: calc(var(--spacing-3) * 0.8);
+    width: calc(0.75rem * 0.8);
+    height: calc(0.75rem * 0.8);
   }
   .flickity-page-dots .dot.is-selected {
-    width: calc(var(--spacing-4) * 0.8);
-    height: calc(var(--spacing-4) * 0.8);
+    width: calc(1rem * 0.8);
+    height: calc(1rem * 0.8);
   }
 }
 @media screen and (max-width: 480px) {

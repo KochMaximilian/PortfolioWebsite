@@ -132,15 +132,6 @@
                     </div>
                 </section>
             <?php endif; ?>
-
-
-
-
-
-
-
-
-
         </main>
     </div>
 </div>

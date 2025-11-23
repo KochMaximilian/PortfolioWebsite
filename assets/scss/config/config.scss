@@ -1,0 +1,227 @@
+// Import Sass map module (required for map.get)
+@use "sass:map";
+
+// Base colors
+$black-dark: #0A0A0A;
+$black-medium: #181818;
+$black-light: #292929;
+$gray-dark: #484848;
+$gray-medium: #676767;
+$blue-dark: #2C56C3;
+$blue-medium: #3D69D9;
+$blue-light: #6487E1;
+$red-dark: #FA2718;
+$red-medium: #FB4235;
+$red-light: #FC5D52;
+$green-dark: #5DC246;
+$green-medium: #7ECE6B;
+$green-light: #A9DE9C;
+$yellow-dark: #FCBB3F;
+$yellow-medium: #FDCC6F;
+$yellow-light: #FEDD9F;
+$purple-dark: #2D2636;
+$purple-medium: #342D3D;
+$purple-light: #484250;
+$olive-dark: #313D31;
+$olive-medium: #485248;
+$olive-light: #969C96;
+$white: #FEFEFE;
+
+// Bulma color mappings (for framework compatibility)
+$primary: $blue-medium;
+$dark: $black-dark;
+$light: $white;
+$success: $green-medium;
+$warning: $yellow-medium;
+$danger: $red-medium;
+$grey: $gray-medium;
+$grey-dark: $gray-dark;
+$text: $black-dark;
+
+// Transparent
+$black-semi-transparent: rgba(0, 0, 0, 0.85);
+
+
+// Font families
+$font-barlow: 'Barlow', sans-serif;
+$font-poppins: 'Poppins', sans-serif;
+
+// Bulma font variables
+$family-sans-serif: $font-barlow;
+$family-primary: $font-barlow;
+$family-secondary: $font-poppins;
+
+// Font sizes (simplified map)
+$font-sizes: (
+  xs: 0.75rem,    // 12px
+  sm: 0.875rem,   // 14px
+  md: 1rem,       // 16px
+  lg: 1.125rem,   // 18px
+  xl: 1.25rem,    // 20px
+  2xl: 1.5rem,    // 24px
+  3xl: 1.75rem,   // 28px
+  4xl: 2.5rem,    // 40px
+  5xl: 3rem,      // 48px
+  6xl: 4rem       // 64px
+);
+
+// Bulma size variables
+$size-1: map.get($font-sizes, 6xl);
+$size-2: map.get($font-sizes, 5xl);
+$size-3: map.get($font-sizes, 4xl);
+$size-4: map.get($font-sizes, 3xl);
+$size-5: map.get($font-sizes, 2xl);
+$size-6: map.get($font-sizes, xl);
+$size-7: map.get($font-sizes, md);
+
+// Font weights
+$weight-light: 300;
+$weight-normal: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+$weight-black: 800;
+
+
+// SPACING
+$spacing: (
+  0: 0,
+  1: 0.25rem,   // 4px
+  2: 0.5rem,    // 8px
+  3: 0.75rem,   // 12px
+  4: 1rem,      // 16px
+  5: 1.25rem,   // 20px
+  6: 1.5rem,    // 24px
+  8: 2rem,      // 32px
+  10: 2.5rem,   // 40px
+  12: 3rem,     // 48px
+  16: 4rem,     // 64px
+  20: 5rem,     // 80px
+  24: 6rem,     // 96px
+  32: 8rem      // 128px
+);
+
+// Quick access
+$spacer: 1rem;
+$gap: map.get($spacing, 8);
+
+// Bulma spacing
+$block-spacing: map.get($spacing, 6);
+$section-padding: map.get($spacing, 12);
+$column-gap: map.get($spacing, 4);
+
+
+// BREAKPOINTS
+$mobile: 425px;
+$tablet: 768px;
+$desktop: 1024px;
+$widescreen: 1440px;
+$fullhd: 1920px;
+
+// Container max widths
+$container-max-width: 1200px;
+
+
+// Border radius
+$radius-xs: 0.2rem;
+$radius-small: 0.25rem;
+$radius: 0.4rem;
+$radius-medium: 0.6rem;
+$radius-large: 0.75rem;
+$radius-xlarge: 0.9rem;
+
+// Border widths
+$border-xsm: 2px;
+$border-xs: 3px;
+$border-sm: 4px;
+$border-md: 5px;
+
+// Border widths map (for advanced use)
+$border-widths: (
+  xsm: $border-xsm,
+  xs: $border-xs,
+  sm: $border-sm,
+  md: $border-md
+);
+
+
+// shadows
+$shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.025);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
+
+$solid-shadow: $black-dark 3px 5px 0px 3px;
+$solid-shadow-lg: $black-dark 2.2px 4.2px 0px 2.2px;
+$solid-shadow-md: $black-dark 1.4px 3.5px 0px 1.4px;
+$solid-shadow-sm: $black-dark 1px 3px 0px 1px;
+$solid-shadow-xs: $black-dark 0.5px 1.5px 0px 0.5px;
+$solid-white-shadow-sm: $white 1px 3px 0px 1px;
+
+// Bulma shadow
+$shadow: $shadow-sm;
+
+// Z-INDEX
+$z-layers: (
+  background: 100,
+  content: 200,
+  toolbar: 300,
+  dropzone: 400,
+  drawer: 500,
+  dropdown: 600,
+  navigation: 700,
+  dialog: 800,
+  footer: 900,
+  loader: 1000,
+  fatal: 1100,
+  offline: 1200
+);
+
+
+// TRANSITIONS
+$transition-speed: (
+  fast: 0.2s,
+  base: 0.3s,
+  slow: 0.5s
+);
+
+$easing-bounce: cubic-bezier(0.25, 1.75, 0.5, 1.2);
+$easing-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+$easing-default: ease-in-out;
+
+// Bulma speed
+$speed: map.get($transition-speed, base);
+
+// COMPONENT SIZES
+$heights: (
+  xs: 1.5rem,   // 24px
+  sm: 1.75rem,  // 28px
+  md: 2rem,     // 32px
+  lg: 2.25rem,  // 36px
+  xl: 2.5rem    // 40px
+);
+
+
+// BULMA OVERRIDES
+$navbar-height: 4rem;
+$navbar-breakpoint: $tablet;
+$card-content-padding: map.get($spacing, 6);
+$card-shadow: $shadow-md;
+$box-padding: map.get($spacing, 6);
+$box-shadow: $shadow-md;
+
+
+// Helper function to get spacing
+@function space($key) {
+  @return map.get($spacing, $key);
+}
+
+// Helper function to get font size
+@function font-size($key) {
+  @return map.get($font-sizes, $key);
+}
+
+// Helper function to get z-index
+@function z($key) {
+  @return map.get($z-layers, $key);
+}

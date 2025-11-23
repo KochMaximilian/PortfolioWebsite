@@ -1,14 +1,11 @@
-/* =====================================
-   Project Detail Page
-===================================== */
 .project-figure {
   display: flex;
   align-items: flex-start;
   gap: 2rem;
-  background: var(--color-white);
-  border-radius: var(--rounded-md);
-  border: solid var(--color-black-dark) var(--border-md);
-  box-shadow: var(--solid-shadow-md);
+  background: #FEFEFE;
+  border-radius: 0.6rem;
+  border: solid #0A0A0A 5px;
+  box-shadow: #0A0A0A 1.4px 3.5px 0px 1.4px;
 }
 
 .project-gallery {
@@ -24,7 +21,7 @@
   overflow: auto;
   max-height: 25vh;
   scrollbar-width: thin;
-  scrollbar-color: var(--color-black-dark) var(--color-white);
+  scrollbar-color: #0A0A0A #FEFEFE;
   scrollbar-gutter: auto;
 }
 
@@ -41,8 +38,8 @@
 }
 
 .project-info dt {
-  font-family: var(--font-barlow);
-  font-weight: var(--font-black);
+  font-family: "Barlow", sans-serif;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
@@ -54,34 +51,34 @@
   display: block;
   width: 100%;
   height: 30vh;
-  border-right: solid var(--color-black-dark) var(--border-md);
+  border-right: solid #0A0A0A 5px;
 }
 
 .project-image {
   display: block;
   width: 100%;
   height: auto;
-  border-right: solid var(--color-black-dark) var(--border-md);
+  border-right: solid #0A0A0A 5px;
 }
 
 .project-description {
-  background: var(--color-white);
-  border: solid var(--color-black-dark);
-  border-radius: var(--rounded-md);
-  border-width: var(--border-md);
-  box-shadow: var(--solid-shadow-md);
+  background: #FEFEFE;
+  border: solid #0A0A0A;
+  border-radius: 0.6rem;
+  border-width: 5px;
+  box-shadow: #0A0A0A 1.4px 3.5px 0px 1.4px;
 }
 
 /* Lightbox Container */
 .lightbox {
-  margin-bottom: var(--spacing-60);
+  margin-bottom: 15rem;
 }
 
 /* Project Image Container */
 .project-image-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--spacing-2);
+  gap: 0.5rem;
   justify-items: center;
   justify-content: center;
   width: 100%;
@@ -105,11 +102,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--rounded-lg);
+  border-radius: 0.75rem;
   border: solid;
-  border-color: var(--color-black-dark);
-  border-width: var(--border-md);
-  box-shadow: var(--solid-shadow-md);
+  border-color: #0A0A0A;
+  border-width: 5px;
+  box-shadow: #0A0A0A 1.4px 3.5px 0px 1.4px;
   position: relative;
   z-index: 1;
   transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), border-width 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
@@ -118,30 +115,29 @@
 
 /* Image Caption Badge */
 .image-caption-badge {
-  font-family: var(--font-barlow);
-  font-weight: var(--font-black);
-  font-size: var(--font-size-md);
-  color: var(--color-black-dark);
+  font-family: "Barlow", sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #0A0A0A;
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
-  background: var(--color-white);
-  border: solid var(--border-xsm) var(--color-black-dark);
-  border-radius: var(--rounded-xs);
-  padding: var(--spacing-1);
+  background: #FEFEFE;
+  border: solid 4px #0A0A0A;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
   width: 50%;
   position: absolute;
-  bottom: var(--spacing-4);
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
   transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), background 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-  z-index: var(--z-notification);
   will-change: transform;
 }
 
 /* Badge Hover Effect when Hovering the Entire Link */
 .project-image-container a:hover .image-caption-badge {
-  background: var(--color-yellow-dark);
+  background: #FCBB3F;
   transform: translateX(-50%) scale(0.95);
 }
 
@@ -157,8 +153,8 @@
 /* Hover Effect on Image Link */
 .project-image-container a:hover .project-gallary-image {
   transform: scale(0.95);
-  box-shadow: var(--solid-shadow-sm);
-  border-width: var(--border-sm);
+  box-shadow: #0A0A0A 1px 3px 0px 1px;
+  border-width: 5px;
 }
 
 /* Optimize performance by preventing layout shifts during transition */
@@ -182,12 +178,12 @@ details summary {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  font-family: var(--font-barlow);
-  font-weight: var(--font-black);
-  font-size: var(--font-size-xl);
+  font-family: "Barlow", sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
   text-transform: uppercase;
   cursor: pointer;
-  padding: var(--spacing-3);
+  padding: 0.75rem;
   transition: font-size 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
 }
 
@@ -197,22 +193,22 @@ details summary {
 }
 
 .project-description :is(p, h1, h2, h3, h4, h5, h6) {
-  padding-bottom: var(--spacing-3);
+  padding-bottom: 0.75rem;
 }
 
 summary i {
-  font-size: var(--font-size-3xl);
-  color: var(--color-black-dark);
+  font-size: 1.75rem;
+  color: #0A0A0A;
   transition: transform 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
 }
 
 summary:hover i {
-  color: var(--color-yellow-dark);
+  color: #FCBB3F;
   transform: scale(1.3);
 }
 
 details[open] summary {
-  font-size: var(--font-size-2xl);
+  font-size: 1.5rem;
 }
 
 details[open] summary i {
@@ -220,12 +216,9 @@ details[open] summary i {
 }
 
 details[open] summary:hover i {
-  color: var(--color-yellow-dark);
+  color: #FCBB3F;
 }
 
-/* =====================================
-   Responsive Styles
-===================================== */
 /* Laptops and Small Desktops */
 @media (max-width: 1200px) {
   .project-figure {
@@ -240,28 +233,28 @@ details[open] summary:hover i {
     max-height: fit-content;
   }
   .project-info dt {
-    font-size: var(--font-size-md);
+    font-size: 1rem;
   }
   .project-info dd {
-    font-size: var(--font-size-md);
+    font-size: 1rem;
   }
   .project-image-container {
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   }
   .image-caption-badge {
-    font-size: var(--font-size-sm);
+    font-size: 0.875rem;
     width: 60%;
-    bottom: var(--spacing-3);
+    bottom: 0.75rem;
   }
   details summary {
-    font-size: var(--font-size-lg);
-    padding: var(--spacing-2);
+    font-size: 1.125rem;
+    padding: 0.5rem;
   }
   summary i {
-    font-size: var(--font-size-2xl);
+    font-size: 1.5rem;
   }
   details[open] summary {
-    font-size: var(--font-size-xl);
+    font-size: 1.25rem;
   }
 }
 /* Tablets */
@@ -282,102 +275,102 @@ details[open] summary:hover i {
   .project-gallery iframe {
     height: 40vh;
     border-right: none;
-    border-bottom: solid var(--color-black-dark) var(--border-md);
+    border-bottom: solid #0A0A0A 5px;
   }
   .project-image {
     border-right: none;
-    border-bottom: solid var(--color-black-dark) var(--border-md);
+    border-bottom: solid #0A0A0A 5px;
   }
   .project-info dl {
     gap: 0.5em;
   }
   .project-info dt {
-    font-size: var(--font-size-lg);
+    font-size: 1.125rem;
     display: block;
     margin-bottom: 0.2em;
   }
   .project-info dd {
     margin-left: 0;
-    font-size: var(--font-size-md);
+    font-size: 1rem;
   }
   .project-image-container {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
   .project-gallary-image {
-    border-width: var(--border-sm);
+    border-width: 5px;
   }
   .image-caption-badge {
     width: 70%;
   }
   .lightbox {
-    margin-bottom: var(--spacing-40);
+    margin-bottom: 10rem;
   }
 }
 /* Small Tablets */
 @media (max-width: 768px) {
   .project-figure {
-    border-width: var(--border-sm);
+    border-width: 5px;
   }
   .project-gallery iframe {
     height: 35vh;
-    border-bottom-width: var(--border-sm);
+    border-bottom-width: 5px;
   }
   .project-image {
-    border-bottom-width: var(--border-sm);
+    border-bottom-width: 5px;
   }
   .project-info {
     padding: 1.2rem;
   }
   .project-info dt {
-    font-size: var(--font-size-lg);
+    font-size: 1.125rem;
   }
   .project-info dd {
-    font-size: var(--font-size-md);
+    font-size: 1rem;
   }
   .project-description {
-    border-width: var(--border-sm);
+    border-width: 5px;
   }
   .project-description details[open] {
     padding: 0.75rem;
   }
   .project-image-container {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: var(--spacing-3);
+    gap: 0.75rem;
   }
   .project-gallary-image {
-    border-width: var(--border-xs);
+    border-width: 5px;
   }
   .image-caption-badge {
-    font-size: var(--font-size-md);
-    padding: var(--spacing-1) var(--spacing-2);
-    border-width: 1px;
-    bottom: var(--spacing-2);
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-width: 4px;
+    bottom: 0.5rem;
   }
   details summary {
-    font-size: var(--font-size-xl);
-    padding: var(--spacing-2);
+    font-size: 1.25rem;
+    padding: 0.5rem;
   }
   summary i {
-    font-size: var(--font-size-2xl);
+    font-size: 1.5rem;
   }
   details[open] summary {
-    font-size: var(--font-size-2xl);
+    font-size: 1.5rem;
   }
   .lightbox {
-    margin-bottom: var(--spacing-32);
+    margin-bottom: 8rem;
   }
 }
 /* Mobile */
 @media (max-width: 576px) {
   .project-figure {
-    border-width: var(--border-xs);
+    border-width: 4px;
   }
   .project-gallery iframe {
     height: 30vh;
-    border-bottom-width: var(--border-xs);
+    border-bottom-width: 4px;
   }
   .project-image {
-    border-bottom-width: var(--border-xs);
+    border-bottom-width: 4px;
   }
   .project-info {
     padding: 1rem;
@@ -386,44 +379,44 @@ details[open] summary:hover i {
     gap: 0.8em;
   }
   .project-info dt {
-    font-size: var(--font-size-lg);
+    font-size: 1.125rem;
   }
   .project-info dd {
-    font-size: var(--font-size-md);
+    font-size: 1rem;
   }
   .project-description {
-    border-width: var(--border-xs);
+    border-width: 4px;
   }
   .project-description details[open] {
     padding: 0.5rem;
     line-height: 1.4;
   }
   .project-description :is(p, h1, h2, h3, h4, h5, h6) {
-    padding-bottom: var(--spacing-2);
+    padding-bottom: 0.5rem;
   }
   .project-image-container {
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   }
   .project-gallary-image {
-    border-radius: var(--rounded-md);
+    border-radius: 0.6rem;
   }
   .image-caption-badge {
     width: 80%;
-    bottom: var(--spacing-1);
-    font-size: var(--font-size-md);
+    bottom: 0.25rem;
+    font-size: 1rem;
   }
   details summary {
-    font-size: var(--font-size-lg);
-    padding: var(--spacing-1);
+    font-size: 1.125rem;
+    padding: 0.25rem;
   }
   summary i {
-    font-size: var(--font-size-xl);
+    font-size: 1.25rem;
   }
   details[open] summary {
-    font-size: var(--font-size-xl);
+    font-size: 1.25rem;
   }
   .lightbox {
-    margin-bottom: var(--spacing-24);
+    margin-bottom: 6rem;
   }
 }
 /* Small Mobile */
@@ -435,27 +428,27 @@ details[open] summary:hover i {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
   .project-info dt {
-    font-size: var(--font-size-md);
+    font-size: 1rem;
   }
   .project-info dd {
-    font-size: var(--font-size-sm);
+    font-size: 0.875rem;
   }
   .image-caption-badge {
     width: 90%;
-    font-size: var(--font-size-sm);
-    padding: var(--spacing-1);
+    font-size: 0.875rem;
+    padding: 0.25rem;
   }
   details summary {
-    font-size: var(--font-size-md);
+    font-size: 1rem;
   }
   summary i {
-    font-size: var(--font-size-lg);
+    font-size: 1.125rem;
   }
   details[open] summary {
-    font-size: var(--font-size-lg);
+    font-size: 1.125rem;
   }
   .lightbox {
-    margin-bottom: var(--spacing-16);
+    margin-bottom: 4rem;
   }
 }
 

@@ -1,27 +1,24 @@
+@use 'config/config' as *;
+
 /* Base footer styling */
 footer {
-  background: var(--color-black-dark);
-  border-radius: var(--rounded-md) var(--rounded-md) 0 0;
-  box-shadow: var(--shadow-lg);
-  color: var(--color-white);
+  background: $black-dark;
+  border-radius: $radius-medium $radius-medium 0 0;
+  box-shadow: $shadow-lg;
+  color: $white;
   padding: 1.8rem 0;
   text-align: center;
-  z-index: 1000;
-  width: 64em;
-  max-width: calc(100% - 2rem);
+  z-index: z(footer);
+  width: 80em;
+  max-width: calc(100% - 4rem);
   margin: 0 auto;
-  margin-top: 8rem;
+  margin-top: space(32);
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
 }
 
-.footer-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
 
 .footer-container {
   display: grid;
@@ -31,7 +28,7 @@ footer {
   column-gap: .6rem;
   margin: 0 auto;
   width: 100%;
-  padding: 0 1rem;
+  padding: 0 space(4);
 }
 
 .footer-left {
@@ -56,7 +53,7 @@ footer {
   grid-column: 2;
   grid-row: 2;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: space(4);
 }
 
 .footer-logo {
@@ -65,13 +62,14 @@ footer {
   -ms-user-select: none;
   height: 3rem;
   width: auto;
+ 
 }
 
 /* Footer Social Links */
 .socials {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: space(4);
   padding: 0;
   list-style: none;
   flex-wrap: nowrap;
@@ -79,13 +77,13 @@ footer {
 
 .social-link,
 .mail-link {
-  color: var(--color-white);
+  color: $white;
   text-decoration: none;
-  transition: color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+  transition: color 0.2s $easing-bounce, transform 0.2s $easing-bounce;
 }
 
 .social-link:hover {
-  color: var(--color-yellow-dark);
+  color: $yellow-dark;
   transform: scale(1.2);
 }
 
@@ -95,15 +93,15 @@ footer {
 
 .copyright {
   text-transform: uppercase;
-  font-size: var(--font-size-sm);
+  font-size: font-size(sm);
 }
 
 .mobile-socials {
-  display: none; /* Hide on desktop */
+  display: none;
 }
 
 /* Responsive styles for smaller screens */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $tablet) {
   footer {
     padding: 1.2rem 0;
     max-width: calc(100% - 1rem);
@@ -198,7 +196,7 @@ footer {
   }
 
   .footer-logo {
-    margin: 0 var(--spacing-6) 0 var(--spacing-6);
+    margin: 0 space(6) 0 space(6);
   }
   
   .slogan {
@@ -243,17 +241,17 @@ footer {
   }
   
   .slogan {
-    font-size: 0.9rem; /* Keep "Don't be a Stranger!" relatively big */
+    font-size: 0.9rem;
     margin: 0.1rem 0 0.05rem 0;
   }
   
   .copyright {
-    font-size: 0.45rem; /* Even smaller copyright */
+    font-size: 0.45rem;
     opacity: 0.6;
   }
   
   .custom-icon-size {
-    font-size: 1.4rem !important; /* Keep icons prominently sized */
+    font-size: 1.4rem !important;
   }
   
   .footer-logo {

@@ -13,9 +13,4 @@
         </main>
     </div>
 </div>
-<div>
-    
-</div>
-<div class="footer-wrapper">
-    <?php snippet('footer') ?>
-</div>
+<?php snippet('footer') ?>

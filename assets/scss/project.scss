@@ -1,14 +1,15 @@
-/* =====================================
-   Project Detail Page
-===================================== */
+@use 'config/config' as *;
+
+   //Project Detail Page
+
 .project-figure {
     display: flex;
     align-items: flex-start;
-    gap: 2rem;
-    background: var(--color-white);
-    border-radius: var(--rounded-md);
-    border: solid var(--color-black-dark) var(--border-md);
-    box-shadow: var(--solid-shadow-md);
+    gap: space(8);
+    background: $white;
+    border-radius: $radius-medium;
+    border: solid $black-dark $border-md;
+    box-shadow: $solid-shadow-md;
   }
   
   .project-gallery {
@@ -24,7 +25,7 @@
     overflow: auto;
     max-height: 25vh;
     scrollbar-width: thin;
-    scrollbar-color: var(--color-black-dark) var(--color-white);
+    scrollbar-color: $black-dark $white;
     scrollbar-gutter: auto;
   }
   
@@ -41,8 +42,8 @@
   }
   
   .project-info dt {
-    font-family: var(--font-barlow);
-    font-weight: var(--font-black);
+    font-family: $font-barlow;
+    font-weight: $weight-black;
     text-transform: uppercase;
   }
   
@@ -54,34 +55,34 @@
     display: block;
     width: 100%;
     height: 30vh;
-    border-right: solid var(--color-black-dark) var(--border-md);
+    border-right: solid $black-dark $border-md;
   }
   
   .project-image {
     display: block;
     width: 100%;
     height: auto;
-    border-right: solid var(--color-black-dark) var(--border-md);
+    border-right: solid $black-dark $border-md;
   }
   
   .project-description {
-    background: var(--color-white);
-    border: solid var(--color-black-dark);
-    border-radius: var(--rounded-md);
-    border-width: var(--border-md);
-    box-shadow: var(--solid-shadow-md);
+    background: $white;
+    border: solid $black-dark;
+    border-radius: $radius-medium;
+    border-width: $border-md;
+    box-shadow: $solid-shadow-md;
   }
   
   /* Lightbox Container */
   .lightbox {
-    margin-bottom: var(--spacing-60);
+    margin-bottom: 15rem;
   }
   
   /* Project Image Container */
   .project-image-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: var(--spacing-2);
+    gap: space(2);
     justify-items: center;
     justify-content: center;
     width: 100%;
@@ -105,46 +106,46 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: var(--rounded-lg);
+    border-radius: $radius-large;
     border: solid;
-    border-color: var(--color-black-dark);
-    border-width: var(--border-md);
-    box-shadow: var(--solid-shadow-md);
+    border-color: $black-dark;
+    border-width: $border-md;
+    box-shadow: $solid-shadow-md;
     position: relative;
     z-index: 1;
-    transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-                box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-                border-width 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+    transition: transform 0.2s $easing-bounce,
+                box-shadow 0.2s $easing-bounce,
+                border-width 0.2s $easing-bounce;
     will-change: transform;
   }
   
   /* Image Caption Badge */
   .image-caption-badge {
-    font-family: var(--font-barlow);
-    font-weight: var(--font-black);
-    font-size: var(--font-size-md);
-    color: var(--color-black-dark);
+    font-family: $font-barlow;
+    font-weight: $weight-black;
+    font-size: font-size(md);
+    color: $black-dark;
     text-transform: uppercase;
     text-align: center;
     text-decoration: none;
-    background: var(--color-white);
-    border: solid var(--border-xsm) var(--color-black-dark);
-    border-radius: var(--rounded-xs);
-    padding: var(--spacing-1);
+    background: $white;
+    border: solid $border-sm $black-dark;
+    border-radius: $radius-small;
+    padding: space(1);
     width: 50%;
     position: absolute;
-    bottom: var(--spacing-4);
+    bottom: space(4);
     left: 50%;
     transform: translateX(-50%);
-    transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-                background 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-    z-index: var(--z-notification);
+    transition: transform 0.2s $easing-bounce,
+                background 0.2s $easing-bounce;
+    z-index: z(notification);
     will-change: transform;
   }
   
   /* Badge Hover Effect when Hovering the Entire Link */
   .project-image-container a:hover .image-caption-badge {
-    background: var(--color-yellow-dark);
+    background: $yellow-dark;
     transform: translateX(-50%) scale(0.95);
   }
   
@@ -153,15 +154,15 @@
     position: relative;
     display: block;
     text-decoration: none;
-    transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+    transition: transform 0.2s $easing-bounce;
     will-change: transform;
   }
   
   /* Hover Effect on Image Link */
   .project-image-container a:hover .project-gallary-image {
     transform: scale(0.95);
-    box-shadow: var(--solid-shadow-sm);
-    border-width: var(--border-sm);
+    box-shadow: $solid-shadow-sm;
+    border-width: $border-md;
   }
   
   /* Optimize performance by preventing layout shifts during transition */
@@ -171,7 +172,7 @@
   
   /* Adjusting margin on lightbox based on gallery height */
   .lightbox {
-    transition: margin-bottom 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+    transition: margin-bottom 0.3s $easing-bounce;
   }
   
   /* Disable margin transition during image scaling */
@@ -185,37 +186,37 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    font-family: var(--font-barlow);
-    font-weight: var(--font-black);
-    font-size: var(--font-size-xl);
+    font-family: $font-barlow;
+    font-weight: $weight-black;
+    font-size: font-size(xl);
     text-transform: uppercase;
     cursor: pointer;
-    padding: var(--spacing-3);
-    transition: font-size 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+    padding: space(3);
+    transition: font-size 0.3s $easing-bounce;
   }
   
   .project-description details[open] {
-    padding: 1rem;
+    padding: space(4);
     line-height: 1.6;
   }
   
   .project-description :is(p, h1, h2, h3, h4, h5, h6) {
-    padding-bottom: var(--spacing-3);
+    padding-bottom: space(3);
   }
   
   summary i {
-    font-size: var(--font-size-3xl);
-    color: var(--color-black-dark);
-    transition: transform 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+    font-size: font-size(3xl);
+    color: $black-dark;
+    transition: transform 0.3s $easing-bounce;
   }
   
   summary:hover i {
-    color: var(--color-yellow-dark);
+    color: $yellow-dark;
     transform: scale(1.3);
   }
   
   details[open] summary {
-    font-size: var(--font-size-2xl);
+    font-size: font-size(2xl);
   }
   
   details[open] summary i {
@@ -223,18 +224,16 @@
   }
   
   details[open] summary:hover i {
-    color: var(--color-yellow-dark);
+    color: $yellow-dark;
   }
-  
-  /* =====================================
-     Responsive Styles
-  ===================================== */
+
+ //Responsive Styles
+
   
   /* Laptops and Small Desktops */
   @media (max-width: 1200px) {
     .project-figure {
       gap: 1.5rem;
-   
     }
     
     .project-gallery iframe {
@@ -248,11 +247,11 @@
     }
     
     .project-info dt {
-      font-size: var(--font-size-md);
+      font-size: font-size(md);
     }
     
     .project-info dd {
-      font-size: var(--font-size-md);
+      font-size: font-size(md);
     }
     
     .project-image-container {
@@ -260,22 +259,22 @@
     }
     
     .image-caption-badge {
-      font-size: var(--font-size-sm);
+      font-size: font-size(sm);
       width: 60%;
-      bottom: var(--spacing-3);
+      bottom: space(3);
     }
     
     details summary {
-      font-size: var(--font-size-lg);
-      padding: var(--spacing-2);
+      font-size: font-size(lg);
+      padding: space(2);
     }
     
     summary i {
-      font-size: var(--font-size-2xl);
+      font-size: font-size(2xl);
     }
     
     details[open] summary {
-      font-size: var(--font-size-xl);
+      font-size: font-size(xl);
     }
   }
   
@@ -300,12 +299,12 @@
     .project-gallery iframe {
       height: 40vh;
       border-right: none;
-      border-bottom: solid var(--color-black-dark) var(--border-md);
+      border-bottom: solid $black-dark $border-md;
     }
     
     .project-image {
       border-right: none;
-      border-bottom: solid var(--color-black-dark) var(--border-md);
+      border-bottom: solid $black-dark $border-md;
     }
     
     .project-info dl {
@@ -313,14 +312,14 @@
     }
     
     .project-info dt {
-      font-size: var(--font-size-lg);
+      font-size: font-size(lg);
       display: block;
       margin-bottom: 0.2em;
     }
     
     .project-info dd {
       margin-left: 0;
-      font-size: var(--font-size-md);
+      font-size: font-size(md);
     }
     
     .project-image-container {
@@ -328,7 +327,7 @@
     }
     
     .project-gallary-image {
-      border-width: var(--border-sm);
+      border-width: $border-md;
     }
     
     .image-caption-badge {
@@ -336,23 +335,23 @@
     }
     
     .lightbox {
-      margin-bottom: var(--spacing-40);
+      margin-bottom: 10rem;
     }
   }
   
   /* Small Tablets */
-  @media (max-width: 768px) {
+  @media (max-width: $tablet) {
     .project-figure {
-      border-width: var(--border-sm);
+      border-width: $border-md;
     }
     
     .project-gallery iframe {
       height: 35vh;
-      border-bottom-width: var(--border-sm);
+      border-bottom-width: $border-md;
     }
     
     .project-image {
-      border-bottom-width: var(--border-sm);
+      border-bottom-width: $border-md;
     }
     
     .project-info {
@@ -360,15 +359,15 @@
     }
     
     .project-info dt {
-      font-size: var(--font-size-lg);
+      font-size: font-size(lg);
     }
     
     .project-info dd {
-      font-size: var(--font-size-md);
+      font-size: font-size(md);
     }
     
     .project-description {
-      border-width: var(--border-sm);
+      border-width: $border-md;
     }
     
     .project-description details[open] {
@@ -377,55 +376,55 @@
     
     .project-image-container {
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: var(--spacing-3);
+      gap: space(3);
     }
     
     .project-gallary-image {
-      border-width: var(--border-xs);
+      border-width: $border-md;
     }
     
     .image-caption-badge {
-      font-size: var(--font-size-md);
-      padding: var(--spacing-1) var(--spacing-2);
-      border-width: 1px;
-      bottom: var(--spacing-2);
+      font-size: font-size(md);
+      padding: space(1) space(2);
+      border-width: $border-sm;
+      bottom: space(2);
     }
     
     details summary {
-      font-size: var(--font-size-xl);
-      padding: var(--spacing-2);
+      font-size: font-size(xl);
+      padding: space(2);
     }
     
     summary i {
-      font-size: var(--font-size-2xl);
+      font-size: font-size(2xl);
     }
     
     details[open] summary {
-      font-size: var(--font-size-2xl);
+      font-size: font-size(2xl);
     }
     
     .lightbox {
-      margin-bottom: var(--spacing-32);
+      margin-bottom: space(32);
     }
   }
   
   /* Mobile */
   @media (max-width: 576px) {
     .project-figure {
-      border-width: var(--border-xs);
+      border-width: $border-sm;
     }
     
     .project-gallery iframe {
       height: 30vh;
-      border-bottom-width: var(--border-xs);
+      border-bottom-width: $border-sm;
     }
     
     .project-image {
-      border-bottom-width: var(--border-xs);
+      border-bottom-width: $border-sm;
     }
     
     .project-info {
-      padding: 1rem;
+      padding: space(4);
     }
     
     .project-info dl {
@@ -433,15 +432,15 @@
     }
     
     .project-info dt {
-      font-size: var(--font-size-lg);
+      font-size: font-size(lg);
     }
     
     .project-info dd {
-      font-size: var(--font-size-md);
+      font-size: font-size(md);
     }
     
     .project-description {
-      border-width: var(--border-xs);
+      border-width: $border-sm;
     }
     
     .project-description details[open] {
@@ -450,7 +449,7 @@
     }
     
     .project-description :is(p, h1, h2, h3, h4, h5, h6) {
-      padding-bottom: var(--spacing-2);
+      padding-bottom: space(2);
     }
     
     .project-image-container {
@@ -458,30 +457,30 @@
     }
     
     .project-gallary-image {
-      border-radius: var(--rounded-md);
+      border-radius: $radius-medium;
     }
     
     .image-caption-badge {
       width: 80%;
-      bottom: var(--spacing-1);
-      font-size: var(--font-size-md);
+      bottom: space(1);
+      font-size: font-size(md);
     }
     
     details summary {
-      font-size: var(--font-size-lg);
-      padding: var(--spacing-1);
+      font-size: font-size(lg);
+      padding: space(1);
     }
     
     summary i {
-      font-size: var(--font-size-xl);
+      font-size: font-size(xl);
     }
     
     details[open] summary {
-      font-size: var(--font-size-xl);
+      font-size: font-size(xl);
     }
     
     .lightbox {
-      margin-bottom: var(--spacing-24);
+      margin-bottom: space(24);
     }
   }
   
@@ -496,32 +495,32 @@
     }
     
     .project-info dt {
-      font-size: var(--font-size-md);
+      font-size: font-size(md);
     }
     
     .project-info dd {
-      font-size: var(--font-size-sm);
+      font-size: font-size(sm);
     }
     
     .image-caption-badge {
       width: 90%;
-      font-size: var(--font-size-sm);
-      padding: var(--spacing-1);
+      font-size: font-size(sm);
+      padding: space(1);
     }
     
     details summary {
-      font-size: var(--font-size-md);
+      font-size: font-size(md);
     }
     
     summary i {
-      font-size: var(--font-size-lg);
+      font-size: font-size(lg);
     }
     
     details[open] summary {
-      font-size: var(--font-size-lg);
+      font-size: font-size(lg);
     }
     
     .lightbox {
-      margin-bottom: var(--spacing-16);
+      margin-bottom: space(16);
     }
   }

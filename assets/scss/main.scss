@@ -1,7 +1,6 @@
-
+@use 'config/config' as *;
 
 /* Global Reset */
-
 
 *,
 *::after,
@@ -21,10 +20,9 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-blue-light);
-  font-family: var(--font-poppins);
-  color: var(--color-black-medium);
-
+  background-color: $blue-light;
+  font-family: $font-poppins;
+  color: $black-medium;
 }
 
 html {
@@ -42,41 +40,38 @@ a {
 }
 
 ::selection {
-  background: var(--color-yellow-dark);
-  color: var(--color-black-dark);
+  background: $yellow-dark;
+  color: $black-dark;
 }
 
 .additional-link {
-  color: var(--color-blue-dark);
-  font-family: var(--font-barlow);
-  font-weight: var(--font-bold);
+  color: $blue-dark;
+  font-family: $font-barlow;
+  font-weight: $weight-bold;
 }
 
 .additional-link:hover {
-  font-weight: var(--font-black);
-  color: var(--color-yellow-dark);
+  font-weight: $weight-black;
+  color: $yellow-dark;
 }
 
 .additional-link:visited {
-  color: var(--color-yellow-dark);
+  color: $yellow-dark;
 }
 
 /* Scrolling Background Styling */
 .scrolling-background {
   position: fixed;
-  /* Stays in place when scrolling */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--color-blue-light);
-  /* Match the body */
+  background-color: $blue-light;
   background-image: url('/assets/img/pattern.png');
   background-repeat: repeat;
   background-size: 960px 540px;
   opacity: 0.2;
   z-index: -1;
-
 }
 
 /* Background Animation */
@@ -87,7 +82,6 @@ a {
 
   100% {
     background-position: -960px -540px;
-    /* Move background to cover its size */
   }
 }
 
@@ -95,11 +89,11 @@ a {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  width: 76em;
+  width: 80em;
   max-width: calc(100% - 2em);
   margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: space(4);
+  padding-right: space(4);
   box-sizing: border-box;
   min-height: 100vh;
 }
@@ -108,49 +102,38 @@ a {
   display: flex;
   flex-direction: column;
   flex: 1;
-  /* Ensures it fills remaining space */
 }
 
 .main-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 12rem;
+  gap: space(8);
+  margin-bottom: space(32);
 }
 
-
-
-
 .content-block {
-  /*TODO Add clip path in the future to make corner look cooler*/
   margin-top: 7rem;
   padding: .4rem .9rem;
   text-align: center;
-  background-color: var(--color-white);
-  border-radius: var(--rounded-md);
-  border: var(--border-sm) solid;
-  border-color: var(--color-black-dark);
-  /* background: #F4F2EE;*/
-  box-shadow: var(--solid-shadow);
-
+  background-color: $white;
+  border-radius: $radius-medium;
+  border: $border-md solid;
+  border-color: $black-dark;
+  box-shadow: $solid-shadow;
 }
 
 .subcontent-block {
   padding: .4rem .9rem;
   text-align: center;
-  background-color: var(--color-white);
-  border-radius: var(--rounded-md);
-  border: var(--border-sm) solid;
-  border-color: var(--color-black-dark);
-  /* background: #F4F2EE;*/
-  box-shadow: var(--solid-shadow);
-  margin-bottom: var(--spacing-14);
+  background-color: $white;
+  border-radius: $radius-medium;
+  border: $border-md solid;
+  border-color: $black-dark;
+  box-shadow: $solid-shadow;
+  margin-bottom: 3.5rem;
 }
 
 /*NAVIGATION */
-
-
-
 
 /* Keyframes */
 
@@ -253,12 +236,7 @@ a {
 #wobbleElement.disabled {
   pointer-events: none;
   cursor: not-allowed;
-
 }
-
-
-
-
 
 /*HEADINGS*/
 h1,
@@ -267,45 +245,44 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-barlow);
+  font-family: $font-barlow;
   line-height: 1.3;
-  font-weight: var(--font-black);
-  /* TODO var for lineheigt */
+  font-weight: $weight-black;
 }
 
 h1 {
-  font-size: var(--font-size-5xl);
+  font-size: font-size(5xl);
   text-transform: uppercase;
-  font-weight: var(font-black);
+  font-weight: $weight-black;
 }
 
 h2 {
-  font-size: var(--font-size-4xl);
+  font-size: font-size(4xl);
   text-transform: uppercase;
 }
 
 h3 {
-  font-size: var(--font-size-3xl);
+  font-size: font-size(3xl);
   text-transform: uppercase;
 }
 
 h4 {
-  font-size: var(--font-size-2xl);
+  font-size: font-size(2xl);
   text-transform: uppercase;
 }
 
 h5 {
-  font-size: var(--font-size-lg);
+  font-size: font-size(lg);
   text-transform: uppercase;
 }
 
 h6 {
-  font-size: var(--font-size-xs);
+  font-size: font-size(xs);
   text-transform: uppercase;
 }
 
 p {
-  font-size: var(--font-size-md);
+  font-size: font-size(md);
 }
 
 /*MEDIA QUERY TYPOGRAPHY*/
@@ -317,9 +294,10 @@ p {
 }
 
 /* For medium screens like tablets */
-@media (max-width: 1024px) {
+@media (max-width: $desktop) {
   html {
-    font-size: 93.75%;  }
+    font-size: 93.75%;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -328,15 +306,15 @@ p {
   }
 
   h1 {
-    font-size: var(--font-size-6xl);
+    font-size: font-size(6xl);
   }
 
   h2 {
-    font-size: var(--font-size-5xl);
+    font-size: font-size(5xl);
   }
 
   h3 {
-    font-size: var(--font-size-4xl);
+    font-size: font-size(4xl);
   }
 }
 
@@ -344,41 +322,41 @@ p {
 /* General responsive heading styles */
 @media (max-width: 992px) {
   h1 {
-    font-size: var(--font-size-4xl) !important;
+    font-size: font-size(4xl) !important;
   }
   
   h2 {
-    font-size: var(--font-size-3xl) !important;
+    font-size: font-size(3xl) !important;
   }
   
   h3 {
-    font-size: var(--font-size-2xl) !important;
+    font-size: font-size(2xl) !important;
   }
   
   h4 {
-    font-size: var(--font-size-xl) !important;
+    font-size: font-size(xl) !important;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $tablet) {
   h1 {
-    font-size: var(--font-size-3xl) !important;
+    font-size: font-size(3xl) !important;
   }
   
   h2 {
-    font-size: var(--font-size-2xl) !important;
+    font-size: font-size(2xl) !important;
   }
   
   h3 {
-    font-size: var(--font-size-xl) !important;
+    font-size: font-size(xl) !important;
   }
   
   h4 {
-    font-size: var(--font-size-lg) !important;
+    font-size: font-size(lg) !important;
   }
   
   h5 {
-    font-size: var(--font-size-md) !important;
+    font-size: font-size(md) !important;
   }
   
   .project-description h1,
@@ -387,120 +365,116 @@ p {
   .project-description h4,
   .project-description h5,
   .project-description h6 {
-    margin-top: var(--spacing-2);
-    margin-bottom: var(--spacing-2);
+    margin-top: space(2);
+    margin-bottom: space(2);
   }
 
   .content-block {
-    margin-top: var(--spacing-28);
+    margin-top: 7rem;
   }
-
-
 }
 
 @media (max-width: 576px) {
   h1 {
-    font-size: var(--font-size-2xl) !important;
+    font-size: font-size(2xl) !important;
   }
   
   h2 {
-    font-size: var(--font-size-xl) !important;
+    font-size: font-size(xl) !important;
   }
   
   h3 {
-    font-size: var(--font-size-lg) !important;
+    font-size: font-size(lg) !important;
   }
   
   h4 {
-    font-size: var(--font-size-md) !important;
+    font-size: font-size(md) !important;
   }
   
   h5 {
-    font-size: var(--font-size-sm) !important;
+    font-size: font-size(sm) !important;
   }
   
   h6 {
-    font-size: var(--font-size-xs) !important;
+    font-size: font-size(xs) !important;
   }
   
   p {
-    font-size: var(--font-size-md) !important;
+    font-size: font-size(md) !important;
   }
   
   .project-description h1 {
-    font-size: var(--font-size-xl) !important; 
+    font-size: font-size(xl) !important; 
   }
   
   .project-description h2 {
-    font-size: var(--font-size-lg) !important;
+    font-size: font-size(lg) !important;
   }
   
   .project-description h3 {
-    font-size: var(--font-size-md) !important;
+    font-size: font-size(md) !important;
   }
   
   .project-description h4 {
-    font-size: var(--font-size-md) !important;
+    font-size: font-size(md) !important;
   }
   
   .project-description h5 {
-    font-size: var(--font-size-sm) !important;
+    font-size: font-size(sm) !important;
   }
   
   .project-description h6 {
-    font-size: var(--font-size-xs) !important;
+    font-size: font-size(xs) !important;
   }
   
   .project-description p {
-    font-size: var(--font-size-md) !important;
+    font-size: font-size(md) !important;
     line-height: 1.4;
   }
-
-
 }
 
 @media (max-width: 480px) {
   h1 {
-    font-size: var(--font-size-xl) !important;
+    font-size: font-size(xl) !important;
   }
   
   h2 {
-    font-size: var(--font-size-lg) !important;
+    font-size: font-size(lg) !important;
   }
   
   h3 {
-    font-size: var(--font-size-md) !important;
+    font-size: font-size(md) !important;
   }
   
   h4, h5 {
-    font-size: var(--font-size-sm) !important;
+    font-size: font-size(sm) !important;
   }
   
   p {
-    font-size: var(--font-size-sm) !important;
+    font-size: font-size(sm) !important;
   }
   
   .project-description h1 {
-    font-size: var(--font-size-lg) !important; 
+    font-size: font-size(lg) !important; 
   }
   
   .project-description h2 {
-    font-size: var(--font-size-md) !important;
+    font-size: font-size(md) !important;
   }
   
   .project-description h3,
   .project-description h4,
   .project-description h5 {
-    font-size: var(--font-size-sm) !important;
+    font-size: font-size(sm) !important;
   }
   
   .project-description p {
-    font-size: var(--font-size-sm) !important;
+    font-size: font-size(sm) !important;
     line-height: 1.3;
   }
 
   .content-block {
-    margin-top: var(--spacing-24);
+    margin-top: space(24);
     padding: .4rem .9rem;
   }
 
@@ -509,21 +483,3 @@ p {
   }
 }
 
-
-
-/*I think not in use*/
-
-.main-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: 4px solid rgb(23, 20, 21);
-  background: var(--color-white);
-  box-shadow: var(--solid-shadow-sm);
-  transition: all 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-  text-align: center;
-  margin: 20px auto;
-  text-transform: uppercase;
-}

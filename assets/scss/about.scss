@@ -1,12 +1,14 @@
+@use 'config/config' as *;
+
 /* About Section */
 .about-content {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: stretch;
-  background: var(--color-white);
-  border-radius: var(--rounded-md);
-  border: solid var(--color-black-dark) var(--border-md);
-  box-shadow: var(--solid-shadow-md);
+  background: $white;
+  border-radius: $radius-medium;
+  border: solid $black-dark $border-md;
+  box-shadow: $solid-shadow-md;
   overflow: hidden;
 }
 
@@ -21,7 +23,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-right: solid var(--color-black-dark) var(--border-md);
+  border-right: solid $black-dark $border-md;
 }
 
 .author-image {
@@ -55,7 +57,7 @@
 }
 
 /* Standard Desktop */
-@media (max-width: 1440px) {
+@media (max-width: $widescreen) {
   .about-image {
     width: 400px;
   }
@@ -89,7 +91,7 @@
 }
 
 /* Large Mobile / Small Tablet */
-@media (max-width: 768px) {
+@media (max-width: $tablet) {
   .about-content {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
@@ -103,7 +105,7 @@
   
   .about-image img {
     border-right: none;
-    border-bottom: solid var(--color-black-dark) var(--border-md);
+    border-bottom: solid $black-dark $border-md;
   }
   
   .about-text {
@@ -126,7 +128,7 @@
 /* Small Mobile */
 @media (max-width: 480px) {
   .about-text {
-    padding: 1rem;
+    padding: space(4);
   }
   
   .about-image {
@@ -143,8 +145,8 @@
 
 /* Skills Section */
 .skills {
-  margin-top: 2rem;
-  margin-bottom: 4rem;
+  margin-top: space(8);
+  margin-bottom: space(16);
 }
 
 .skills-content {
@@ -154,17 +156,17 @@
 }
 
 .skills-category {
-  padding: var(--spacing-5);
-  background-color: var(--color-white);
-  border-radius: var(--rounded-md);
-  border: var(--border-sm) solid var(--color-black-dark);
-  box-shadow: var(--solid-shadow);
+  padding: space(5);
+  background-color: $white;
+  border-radius: $radius-medium;
+  border: $border-sm solid $black-dark;
+  box-shadow: $solid-shadow;
 }
 
 .skills-category h3 {
   margin-bottom: 0.75rem;
-  font-size: var(--font-size-xl);
-  color: var(--color-black-dark);
+  font-size: font-size(xl);
+  color: $black-dark;
 }
 
 .skills-list {
@@ -175,30 +177,29 @@
 
 .skill-item {
   margin-bottom: 0.5rem;
-  font-size: var(--font-size-md);
-  color: var(--color-black-dark);
+  font-size: font-size(md);
+  color: $black-dark;
 }
 
 /* Responsive Skills Section */
 @media (max-width: 576px) {
-
   .skills {
-    margin-top: 1rem;
+    margin-top: space(4);
   }
   .skills-content {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: space(4);
   }
   
   .skills-category {
-    padding: var(--spacing-4);
+    padding: space(4);
   }
   
   .skills-category h3 {
-    font-size: var(--font-size-lg);
+    font-size: font-size(lg);
   }
 
   .skill-item {
-    font-size: var(--font-size-sm);
+    font-size: font-size(sm);
   }
 }

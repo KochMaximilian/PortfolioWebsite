@@ -1,68 +1,69 @@
-/* =====================================
-   Filter Navigation
-===================================== */
+@use 'config/config' as *;
+
+// Filter Navigation
+
 .filter {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    padding: var(--spacing-2) 0;
+    padding: space(2) 0;
     width: 100%;
     max-width: 100%;
 }
 
 .filter a {
-    transition: transform 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-        background 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-        box-shadow 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-        color 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+    transition: transform 0.3s $easing-bounce,
+        background 0.3s $easing-bounce,
+        box-shadow 0.3s $easing-bounce,
+        color 0.3s $easing-bounce;
     display: inline-block;
     text-decoration: none;
     text-transform: uppercase;
-    padding: 0 var(--spacing-4) 0 var(--spacing-4);
-    margin: var(--spacing-1);
-    color: var(--color-white);
-    font-weight: var(--font-bold);
-    font-size: var(--font-size-xl);
-    border-radius: var(--rounded-sm);
-    border: solid var(--color-black-dark);
-    background: var(--color-blue-medium);
-    box-shadow: var(--solid-shadow-sm);
+    padding: 0 space(4) 0 space(4);
+    margin: space(1);
+    color: $white;
+    font-weight: $weight-bold;
+    font-size: font-size(xl);
+    border-radius: $radius-small;
+    border: solid $black-dark;
+    background: $blue-medium;
+    box-shadow: $solid-shadow-sm;
     text-align: center;
     line-height: 2;
 }
 
 .filter a.activeFilter {
-    background: var(--color-yellow-dark);
-    color: var(--color-black-dark);
-    font-weight: var(--font-black);
-    box-shadow: var(--solid-shadow-xs);
+    background: $yellow-dark;
+    color: $black-dark;
+    font-weight: $weight-black;
+    box-shadow: $solid-shadow-xs;
 }
 
 .filter a:hover {
-    color: var(--color-black-dark);
-    font-weight: var(--font-black);
-    background: var(--color-yellow-dark);
+    color: $black-dark;
+    font-weight: $weight-black;
+    background: $yellow-dark;
     transform: scale(0.95);
-    box-shadow: var(--solid-shadow-xs);
+    box-shadow: $solid-shadow-xs;
 }
 
 .filter-block {
     display: flex;
     justify-content: center;
     text-align: center;
-    padding: 0 var(--spacing-7);
+    padding: 0 1.75rem;
     width: 100%;
 }
 
-/* =====================================
-   Projects Grid
-===================================== */
+
+// Projects Grid
+
 .projects {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem !important;
+    gap: space(5) !important;
 }
 
 .projects img {
@@ -81,36 +82,35 @@
 }
 
 .projects-figure {
-    background: var(--color-white);
-    margin: 0 var(--spacing-2) 0rem var(--spacing-2);
-    padding: 1rem;
-    border: var(--border-xsm) solid;
-    border-color: var(--color-black-dark);
-    box-shadow: var(--solid-shadow-md);
-    border-radius: var(--rounded-lg);
+    background: $white;
+    padding: space(4);
+    border: $border-md solid;
+    border-color: $black-dark;
+    box-shadow: $solid-shadow-md;
+    border-radius: $radius-large;
     height: 40vh;
     transition:
-        transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-        background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-        font-weight 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-        box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+        transform 0.2s $easing-bounce,
+        background-color 0.2s $easing-bounce,
+        font-weight 0.2s $easing-bounce,
+        box-shadow 0.2s $easing-bounce;
 }
 
 .projects-figure img {
-    border-radius: var(--rounded-sm);
-    border: solid var(--border-xsm);
+    border-radius: $radius-small;
+    border: solid $border-md;
 }
 
 .projects-figure figcaption {
     padding: 0.8rem 0 0 0;
-    font-family: var(--font-barlow);
+    font-family: $font-barlow;
 }
 
 .projects-link {
     text-decoration: none;
-    font-size: var(--font-size-xl);
-    color: var(--color-black-dark);
-    font-weight: var(--font-bold);
+    font-size: font-size(xl);
+    color: $black-dark;
+    font-weight: $weight-bold;
     position: relative;
     display: block;
 }
@@ -127,11 +127,11 @@
 }
 
 .projects-genre-tag {
-    background-color: var(--color-blue-medium);
-    color: var(--color-white);
+    background-color: $blue-medium;
+    color: $white;
     padding: 0.2rem 0.5rem;
-    border-radius: var(--rounded-sm);
-    font-size: var(--font-size-sm);
+    border-radius: $radius-small;
+    font-size: font-size(sm);
     display: inline-block;
     transition: background-color 0.2s ease-out, color 0.2s ease-out;
 }
@@ -148,66 +148,90 @@
     width: auto;
 }
 
+@keyframes shake-rotate {
+    0% { rotate: 0deg; }
+    25% { rotate: -1deg; }     
+    50% { rotate: 1deg; }        
+    75% { rotate: -0.5deg; }    
+    100% { rotate: 0deg; }
+}
+
 .projects-link:hover .projects-figure {
-    background-color: var(--color-yellow-dark);
-    transform: scale(0.97);
-    box-shadow: var(--solid-shadow-xs);
+    background-color: $yellow-dark;
+    transform: scale(1.05);
+    box-shadow: $solid-shadow-lg;
+    //  NEW: Shake animation (
+    animation: shake-rotate 0.3s $easing-bounce;
+    // OLD:
+    // animation: none;
 }
-
 .projects-link:hover .projects-genre-tag {
-    background-color: var(--color-black-dark);
-    color: var(--color-white);
-    font-weight: var(--font-black);
+    background-color: $black-dark;
+    color: $white;
+    font-weight: $weight-black;
 }
 
-/* =====================================
-   Pagination Section
-===================================== */
+
+.projects-figure {
+    // ... other styles ...
+    transition:
+        transform 0.2s $easing-bounce,  // Back to 0.2s + the original bouncy curve!
+        background-color 0.3s ease-out,
+        font-weight 0.3s ease-out,
+        box-shadow 0.2s $easing-bounce;
+}
+
+
+
+
+
+// Pagination Section
+
 .pagination-dead-link {
-    color: var(--color-black-dark);
-    background-color: var(--color-white);
+    color: $black-dark;
+    background-color: $white;
     opacity: 0.6;
-    font-size: var(--font-size-2xl);
-    padding: var(--spacing-2);
+    font-size: font-size(2xl);
+    padding: space(2);
     border: solid;
-    border-radius: var(--rounded-sm);
-    border-color: var(--color-black-dark);
-    border-width: var(--border-xs);
-    box-shadow: var(--solid-shadow-sm);
+    border-radius: $radius-small;
+    border-color: $black-dark;
+    border-width: $border-sm;
+    box-shadow: $solid-shadow-sm;
     cursor: no-drop;
 }
 
 .pagination-link {
-    padding: var(--spacing-2);
-    font-size: var(--font-size-2xl);
-    background-color: var(--color-white);
+    padding: space(2);
+    font-size: font-size(2xl);
+    background-color: $white;
     border: solid;
-    border-radius: var(--rounded-sm);
-    border-color: var(--color-black-dark);
-    border-width: var(--border-xs);
-    box-shadow: var(--solid-shadow-sm);
-    transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-        background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2),
-        box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+    border-radius: $radius-small;
+    border-color: $black-dark;
+    border-width: $border-sm;
+    box-shadow: $solid-shadow-sm;
+    transition: transform 0.2s $easing-bounce,
+        background-color 0.2s $easing-bounce,
+        box-shadow 0.2s $easing-bounce;
     cursor: pointer;
 }
 
 .pagination-link a {
-    color: var(--color-black-dark);
+    color: $black-dark;
     text-decoration: none;
 }
 
 .pagination-link:hover {
-    background-color: var(--color-yellow-dark);
+    background-color: $yellow-dark;
     transform: scale(0.95);
-    box-shadow: var(--solid-shadow-xs);
+    box-shadow: $solid-shadow-xs;
 }
 
 .indicate-page-text {
-    color: var(--color-white);
-    font-weight: var(--font-bold);
-    font-size: var(--font-size-xl);
-    margin: 0 var(--spacing-6) 0 var(--spacing-6);
+    color: $white;
+    font-weight: $weight-bold;
+    font-size: font-size(xl);
+    margin: 0 space(6) 0 space(6);
     text-transform: uppercase;
     outline: black;
     opacity: 1;
@@ -217,88 +241,75 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: var(--spacing-6) 0;
+    margin: space(6) 0;
 }
-
 
 .engine-icon-container {
-    margin-top: var(--spacing-3);
+    margin-top: space(3);
 }
-
 
 .engine-icon-container svg {
     width: 2rem;
     height: 2rem;
     display: inline-block;
-    margin-top: var(--spacing-1);
+    margin-top: space(1);
 }
 
 .projects-genre-tag {
-    font-family: var(--font-barlow);
-    font-weight: var(--font-bold);
-    font-size: var(--font-size-xs);
-    color: var(--color-white);
+    font-family: $font-barlow;
+    font-weight: $weight-bold;
+    font-size: font-size(xs);
+    color: $white;
     text-transform: uppercase;
-    padding: var(--spacing-1);
-    background: var(--color-blue-dark);
+    padding: space(1);
+    background: $blue-dark;
     border: solid;
-    border-color: var(--color-black-dark);
-    border-radius: var(--rounded-xs);
+    border-color: $black-dark;
+    border-width: $border-xs;
+    border-radius: $radius-xs;
 }
 
 .tag-container {
-    margin-top: var(--spacing-2);
-}
-
-.projects-block {
-    margin-bottom: 2rem;
+    margin-top: space(2);
 }
 
 
-/* =====================================
-   Responsive Styles
-===================================== */
+
+// Responsive Styles
 
 /* Large Screens */
 @media (min-width: 1441px) {
     .projects-figure {
-        height: 42vh;
+        height: 45vh;
     }
- 
 }
 
 /* Laptops and Small Desktops */
-@media (max-width: 1440px) {
+@media (max-width: $widescreen) {
 
     /* Filter */
     .filter a {
-        font-size: calc(var(--font-size-xl) * 0.9);
-        padding: 0 var(--spacing-3);
+        font-size: calc(#{font-size(xl)} * 0.9);
+        padding: 0 space(3);
     }
 
     /* Projects */
     .projects-figure {
-        height: 40vh;
+        height: 45vh;
     }
 
     /* Pagination */
     .pagination-link,
     .pagination-dead-link {
-        font-size: var(--font-size-xl);
-        padding: var(--spacing-2);
+        font-size: font-size(xl);
+        padding: space(2);
     }
 
     .indicate-page-text {
-        font-size: var(--font-size-lg);
-        margin: 0 var(--spacing-5) 0 var(--spacing-5);
+        font-size: font-size(lg);
+        margin: 0 space(5) 0 space(5);
     }
 
-    .page-zoom {
-        transform: scale(0.8);
-    
-    }
-
-    
 }
 
 /* Desktops and Laptops */
@@ -307,9 +318,6 @@ nav {
         height: auto !important;
         min-height: 35vh;
     }
-    
-
-
 }
 
 /* Tablets */
@@ -317,36 +325,34 @@ nav {
 
     .page-zoom {
         transform: scale(1);
-    
     }
 
     /* Filter */
     .filter a {
-        font-size: calc(var(--font-size-xl) * 1.1);
-        padding: 0 var(--spacing-4);
+        font-size: calc(#{font-size(xl)} * 1.1);
+        padding: 0 space(4);
         line-height: 2.2;
     }
 
     .filter-block {
-        padding: 0 var(--spacing-5);
+        padding: 0 space(5);
     }
 
     /* Projects */
     .projects {
         display: block !important;
-        /* Change from grid to block */
     }
 
     .projects-link {
         display: block !important;
-        margin-bottom: 2rem !important;
-        font-size: var(--font-size-lg);
+        margin-bottom: space(8) !important;
+        font-size: font-size(lg);
     }
 
     .projects-figure {
         height: auto !important;
         min-height: 35vh;
-        padding: 1rem;
+        padding: space(4);
         width: 90% !important;
         margin-left: auto !important;
         margin-right: auto !important;
@@ -357,21 +363,21 @@ nav {
     }
 
     .projects-caption h5 {
-        font-size: var(--font-size-xl);
+        font-size: font-size(xl);
         margin-bottom: 0.5rem;
     }
 
     .projects-caption h6 {
-        font-size: var(--font-size-md);
+        font-size: font-size(md);
     }
 
     .projects-genre-tag {
-        font-size: var(--font-size-sm);
+        font-size: font-size(sm);
         padding: 0.2rem 0.5rem;
     }
 
     .engine-icon-container h6 {
-        font-size: var(--font-size-md);
+        font-size: font-size(md);
     }
 
     .engine-icon-container svg {
@@ -381,64 +387,64 @@ nav {
     /* Pagination */
     .pagination-link,
     .pagination-dead-link {
-        font-size: var(--font-size-lg);
-        padding: var(--spacing-1) var(--spacing-2);
-        border-width: calc(var(--border-xs) * 0.9);
+        font-size: font-size(lg);
+        padding: space(1) space(2);
+        border-width: calc($border-sm * 0.9);
     }
 
     .indicate-page-text {
-        font-size: var(--font-size-md);
-        margin: 0 var(--spacing-4) 0 var(--spacing-4);
+        font-size: font-size(md);
+        margin: 0 space(4) 0 space(4);
     }
 
     nav {
-        margin: var(--spacing-5) 0;
+        margin: space(5) 0;
     }
 
     .projects-block {
-        margin-bottom: 2rem;
+        margin-bottom: space(8);
     }
 }
 
 /* Small Tablets */
-@media (max-width: 768px) {
+@media (max-width: $tablet) {
 
     /* Filter */
     .filter {
         justify-content: center;
-        padding: var(--spacing-2) 0;
+        padding: space(2) 0;
     }
 
     .filter a {
-        font-size: var(--font-size-md);
-        margin: var(--spacing-2);
-        padding: 0 var(--spacing-4);
+        font-size: font-size(md);
+        margin: space(2);
+        padding: 0 space(4);
         line-height: 2.4;
     }
 
     .filter-block {
-        padding: 0 var(--spacing-3);
+        padding: 0 space(3);
     }
 
     /* Pagination */
     .pagination-link,
     .pagination-dead-link {
-        font-size: var(--font-size-md);
-        padding: var(--spacing-1);
-        border-width: calc(var(--border-xs) * 0.8);
+        font-size: font-size(md);
+        padding: space(1);
+        border-width: calc($border-xs * 0.8);
     }
 
     .indicate-page-text {
-        font-size: var(--font-size-sm);
-        margin: 0 var(--spacing-3) 0 var(--spacing-3);
+        font-size: font-size(sm);
+        margin: 0 space(3) 0 space(3);
     }
 
     nav {
-        margin: var(--spacing-4) 0;
+        margin: space(4) 0;
     }
 
     .projects-block {
-        margin-bottom: 2rem;
+        margin-bottom: space(8);
     }
 }
 
@@ -451,14 +457,14 @@ nav {
     }
 
     .filter a {
-        font-size: calc(var(--font-size-xl) * 1.1);
-        margin: var(--spacing-2);
-        padding: 0 var(--spacing-3);
+        font-size: calc(#{font-size(xl)} * 1.1);
+        margin: space(2);
+        padding: 0 space(3);
         line-height: 2.4;
     }
 
     .filter-block {
-        padding: 0 var(--spacing-2);
+        padding: 0 space(2);
     }
 
     /* Projects */
@@ -468,21 +474,21 @@ nav {
     }
 
     .projects-caption h5 {
-        font-size: var(--font-size-lg);
+        font-size: font-size(lg);
         margin-bottom: 0.25rem;
     }
 
     .projects-caption h6 {
-        font-size: var(--font-size-sm);
+        font-size: font-size(sm);
     }
 
     .projects-genre-tag {
-        font-size: var(--font-size-xs);
+        font-size: font-size(xs);
         padding: 0.15rem 0.4rem;
     }
 
     .engine-icon-container h6 {
-        font-size: var(--font-size-sm);
+        font-size: font-size(sm);
     }
 
     .engine-icon-container svg {
@@ -490,7 +496,7 @@ nav {
     }
 
     .projects-block {
-        margin-bottom: 2rem;
+        margin-bottom: space(8);
     }
 }
 
@@ -499,35 +505,35 @@ nav {
 
     /* Filter */
     .filter {
-        gap: var(--spacing-2);
+        gap: space(2);
     }
 
     .filter a {
-        font-size: var(--font-size-md);
+        font-size: font-size(md);
         line-height: 2.5;
-        margin: calc(var(--spacing-1)* 0.2);
-        padding: 0 var(--spacing-2);
+        margin: calc(#{space(1)}* 0.2);
+        padding: 0 space(2);
     }
 
     /* Pagination */
     .pagination-link,
     .pagination-dead-link {
-        font-size: var(--font-size-md);
-        padding: calc(var(--spacing-1) * 0.75);
-        border-width: calc(var(--border-xs) * 0.7);
+        font-size: font-size(md);
+        padding: calc(#{space(1)} * 0.75);
+        border-width: calc($border-sm * 0.7);
     }
 
     .indicate-page-text {
-        font-size: var(--font-size-xs);
-        margin: 0 var(--spacing-2) 0 var(--spacing-2);
+        font-size: font-size(xs);
+        margin: 0 space(2) 0 space(2);
     }
 
     nav {
-        margin: var(--spacing-3) 0;
+        margin: space(3) 0;
     }
 
     .projects-block {
-        margin-bottom: 2rem;
+        margin-bottom: space(8);
     }
 }
 
@@ -550,6 +556,6 @@ nav {
     }
 
     .projects-block {
-        margin-bottom: 2rem;
+        margin-bottom: space(8);
     }
 }
