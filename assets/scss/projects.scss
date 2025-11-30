@@ -94,16 +94,41 @@
         background-color 0.2s $easing-bounce,
         font-weight 0.2s $easing-bounce,
         box-shadow 0.2s $easing-bounce;
+    
+    // 🎮 Balatro Effect Setup
+    --hovering: 0;
+    --mouse-x: 0;
+    --mouse-y: 0;
+    --rotation: 0deg;
+    --float-x: 0px;
+    --float-y: 0px;
+    --wobble: 0deg;
+    
+    // Enable 3D transforms
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    position: relative;
+    overflow: hidden;
+    
+    // Idle floating animation (when not hovering)
+    transform: 
+        translateX(var(--float-x))
+        translateY(var(--float-y))
+        rotateZ(var(--wobble));
 }
 
 .projects-figure img {
     border-radius: $radius-small;
     border: solid $border-md;
+    // Add depth to images
+    transform: translateZ(20px);
 }
 
 .projects-figure figcaption {
     padding: 0.8rem 0 0 0;
     font-family: $font-barlow;
+    // Add depth to caption
+    transform: translateZ(20px);
 }
 
 .projects-link {
@@ -148,41 +173,81 @@
     width: auto;
 }
 
+// 🤌 Shake animation - quicker and more subtle
 @keyframes shake-rotate {
     0% { rotate: 0deg; }
-    25% { rotate: -1deg; }     
-    50% { rotate: 1deg; }        
-    75% { rotate: -0.5deg; }    
+    25% { rotate: -1deg; }
+    50% { rotate: 1deg; }
+    75% { rotate: -0.5deg; }
     100% { rotate: 0deg; }
 }
 
+// 🎮 COMBINED EFFECT: Shake + Balatro 3D!
 .projects-link:hover .projects-figure {
     background-color: $yellow-dark;
-    transform: scale(1.05);
     box-shadow: $solid-shadow-lg;
-    //  NEW: Shake animation (
+    
+    // 🤌 Quick shake on hover start (plays once)
     animation: shake-rotate 0.3s $easing-bounce;
-    // OLD:
-    // animation: none;
+    
+    // 🎮 Balatro 3D tracking (continuous during hover)
+    transform: 
+        translateX(calc(var(--mouse-x) * 5px))
+        translateY(calc(var(--mouse-y) * 5px))
+        rotateY(calc(var(--mouse-x) * 8deg))
+        rotateX(calc(var(--mouse-y) * -8deg))
+        rotateZ(var(--rotation))
+        scale(1.05);
+    
+    // Enhanced shadow for depth
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 10px 20px rgba(0, 0, 0, 0.2),
+        $solid-shadow-lg;
 }
+
+// 🔄 Smooth return to idle state
+.projects-link:not(:hover) .projects-figure {
+    transition: 
+        transform 0.6s $easing-bounce,
+        background-color 0.3s ease-out,
+        box-shadow 0.3s ease-out;
+}
+
+// ✨ Optional: Shimmer effect (like Balatro's shine)
+.projects-figure::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.15) 50%,
+        transparent 70%
+    );
+    opacity: 0;
+    transform: translateX(-100%) translateY(-100%);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    z-index: 1;
+}
+
+.projects-link:hover .projects-figure::before {
+    opacity: 1;
+    transform: 
+        translateX(calc(var(--mouse-x) * 20px)) 
+        translateY(calc(var(--mouse-y) * 20px));
+}
+
 .projects-link:hover .projects-genre-tag {
     background-color: $black-dark;
     color: $white;
     font-weight: $weight-black;
 }
-
-
-.projects-figure {
-    // ... other styles ...
-    transition:
-        transform 0.2s $easing-bounce,  // Back to 0.2s + the original bouncy curve!
-        background-color 0.3s ease-out,
-        font-weight 0.3s ease-out,
-        box-shadow 0.2s $easing-bounce;
-}
-
-
-
 
 
 // Pagination Section
