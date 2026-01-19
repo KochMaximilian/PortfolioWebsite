@@ -54,6 +54,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem !important;
+  overflow: visible;
 }
 
 .projects img {
@@ -80,30 +81,54 @@
   border-radius: 0.75rem;
   height: 40vh;
   transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), font-weight 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-  --hovering: 0;
-  --mouse-x: 0;
-  --mouse-y: 0;
-  --rotation: 0deg;
-  --float-x: 0px;
-  --float-y: 0px;
-  --wobble: 0deg;
-  transform-style: preserve-3d;
-  perspective: 1000px;
   position: relative;
-  overflow: hidden;
-  transform: translateX(var(--float-x)) translateY(var(--float-y)) rotateZ(var(--wobble));
 }
 
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .projects-figure {
+    --hovering: 0;
+    --mouse-x: 0;
+    --mouse-y: 0;
+    --rotation: 0deg;
+    --float-x: 0px;
+    --float-y: 0px;
+    --wobble: 0deg;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    overflow: hidden;
+    transform: translateX(var(--float-x)) translateY(var(--float-y)) rotateZ(var(--wobble));
+  }
+  .projects-figure::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(0deg, transparent, transparent 30%, rgba(252, 187, 63, 0.3));
+    transform: rotate(-45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .projects-link:hover .projects-figure::before {
+    opacity: 1;
+    transform: rotate(-45deg) translateY(100%);
+  }
+}
 .projects-figure img {
   border-radius: 0.25rem;
   border: solid 5px;
-  transform: translateZ(20px);
+  position: relative;
+  z-index: 2;
 }
 
 .projects-figure figcaption {
   padding: 0.8rem 0 0 0;
   font-family: "Barlow", sans-serif;
-  transform: translateZ(20px);
+  position: relative;
+  z-index: 2;
 }
 
 .projects-link {
@@ -113,6 +138,7 @@
   font-weight: 700;
   position: relative;
   display: block;
+  overflow: visible;
 }
 
 .project-details {
@@ -166,38 +192,18 @@
   }
 }
 .projects-link:hover .projects-figure {
-  background-color: #FCBB3F;
-  box-shadow: #0A0A0A 2.2px 4.2px 0px 2.2px;
   animation: shake-rotate 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-  transform: translateX(calc(var(--mouse-x) * 5px)) translateY(calc(var(--mouse-y) * 5px)) rotateY(calc(var(--mouse-x) * 8deg)) rotateX(calc(var(--mouse-y) * -8deg)) rotateZ(var(--rotation)) scale(1.05);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2), #0A0A0A 2.2px 4.2px 0px 2.2px;
 }
 
-.projects-link:not(:hover) .projects-figure {
-  transition: transform 0.6s cubic-bezier(0.25, 1.75, 0.5, 1.2), background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .projects-link:hover .projects-figure {
+    transform: translateX(calc(var(--mouse-x) * 5px)) translateY(calc(var(--mouse-y) * 5px)) rotateY(calc(var(--mouse-x) * 8deg)) rotateX(calc(var(--mouse-y) * -8deg)) rotateZ(var(--rotation)) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2), #0A0A0A 2.2px 4.2px 0px 2.2px;
+  }
+  .projects-link:not(:hover) .projects-figure {
+    transition: transform 0.4s ease-out, background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+  }
 }
-
-.projects-figure::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%);
-  opacity: 0;
-  transform: translateX(-100%) translateY(-100%);
-  transition: opacity 0.3s, transform 0.3s;
-  pointer-events: none;
-  mix-blend-mode: overlay;
-  z-index: 1;
-}
-
-.projects-link:hover .projects-figure::before {
-  opacity: 1;
-  transform: translateX(calc(var(--mouse-x) * 20px)) translateY(calc(var(--mouse-y) * 20px));
-}
-
 .projects-link:hover .projects-genre-tag {
   background-color: #0A0A0A;
   color: #FEFEFE;
