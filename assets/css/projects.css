@@ -105,7 +105,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(0deg, transparent, transparent 30%, rgba(252, 187, 63, 0.3));
+    background: linear-gradient(0deg, transparent, transparent 30%, #FEFEFE 80%);
     transform: rotate(-45deg);
     transition: all 0.5s ease;
     opacity: 0;
@@ -143,35 +143,6 @@
 
 .project-details {
   margin-top: auto;
-}
-
-.tag-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.projects-genre-tag {
-  background-color: #3D69D9;
-  color: #FEFEFE;
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.25rem;
-  font-size: 0.875rem;
-  display: inline-block;
-  transition: background-color 0.2s ease-out, color 0.2s ease-out;
-}
-
-.engine-icon-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.engine-icon-container svg {
-  height: 1.5rem;
-  width: auto;
 }
 
 @keyframes shake-rotate {
@@ -266,6 +237,9 @@ nav {
 }
 
 .engine-icon-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-top: 0.75rem;
 }
 
@@ -288,9 +262,14 @@ nav {
   border-color: #0A0A0A;
   border-width: 3px;
   border-radius: 0.2rem;
+  display: inline-block;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
 }
 
 .tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   margin-top: 0.5rem;
 }
 

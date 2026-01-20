@@ -1,3 +1,27 @@
+:root {
+  --footer-height: 7.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --footer-height: 6.5rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  :root {
+    --footer-height: 12rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  :root {
+    --footer-height: 11rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  :root {
+    --footer-height: 10rem;
+  }
+}
 /* Base footer styling */
 footer {
   background: #0A0A0A;
@@ -10,7 +34,6 @@ footer {
   width: 80em;
   max-width: calc(100% - 4rem);
   margin: 0 auto;
-  margin-top: 8rem;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -191,7 +214,7 @@ footer {
     text-align: center;
   }
   .custom-icon-size {
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
   }
   .socials {
     display: none;
@@ -202,7 +225,7 @@ footer {
     justify-content: center;
   }
   .mobile-socials .custom-icon-size {
-    font-size: 1.3rem !important;
+    font-size: 1.3rem;
   }
 }
 /* Handle extremely small screens */
@@ -222,7 +245,7 @@ footer {
     opacity: 0.6;
   }
   .custom-icon-size {
-    font-size: 1.4rem !important;
+    font-size: 1.4rem;
   }
   .footer-logo {
     height: 1.8rem;
@@ -231,7 +254,7 @@ footer {
     gap: 0.2rem;
   }
   .mobile-socials .custom-icon-size {
-    font-size: 1.1rem !important;
+    font-size: 1.1rem;
   }
 }
 

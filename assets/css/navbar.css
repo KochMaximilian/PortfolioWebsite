@@ -156,7 +156,7 @@
   }
   .nav-link {
     font-size: 1rem;
-    padding: 0.25rem calc(1rem * 0.75);
+    padding: 0.25rem 0.75rem;
   }
   .navbar-mobile .navbar-nav {
     margin-left: 0;

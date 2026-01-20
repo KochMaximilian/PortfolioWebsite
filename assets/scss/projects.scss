@@ -99,7 +99,7 @@
 }
 
 // Desktop only: Balatro 3D effects
-@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+@media (min-width: $desktop) and (hover: hover) and (pointer: fine) {
     .projects-figure {
         --hovering: 0;
         --mouse-x: 0;
@@ -130,7 +130,7 @@
             0deg, 
             transparent, 
             transparent 30%, 
-            rgba(252, 187, 63, 0.3)
+            $white 80%,
         );
         transform: rotate(-45deg);
         transition: all 0.5s ease;
@@ -174,35 +174,6 @@
     margin-top: auto;
 }
 
-.tag-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.projects-genre-tag {
-    background-color: $blue-medium;
-    color: $white;
-    padding: 0.2rem 0.5rem;
-    border-radius: $radius-small;
-    font-size: font-size(sm);
-    display: inline-block;
-    transition: background-color 0.2s ease-out, color 0.2s ease-out;
-}
-
-.engine-icon-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.engine-icon-container svg {
-    height: 1.5rem;
-    width: auto;
-}
-
 // Shake animation
 @keyframes shake-rotate {
     0% { rotate: 0deg; }
@@ -217,7 +188,7 @@
 }
 
 // Desktop only: 3D tracking
-@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+@media (min-width: $desktop) and (hover: hover) and (pointer: fine) {
     .projects-link:hover .projects-figure {
         transform: 
             translateX(calc(var(--mouse-x) * 5px))
@@ -307,7 +278,11 @@ nav {
     margin: space(6) 0;
 }
 
+// Engine icon container (single definition - was duplicated before)
 .engine-icon-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     margin-top: space(3);
 }
 
@@ -318,6 +293,7 @@ nav {
     margin-top: space(1);
 }
 
+// Projects genre tag (single definition - was duplicated before)
 .projects-genre-tag {
     font-family: $font-barlow;
     font-weight: $weight-bold;
@@ -330,9 +306,15 @@ nav {
     border-color: $black-dark;
     border-width: $border-xs;
     border-radius: $radius-xs;
+    display: inline-block;
+    transition: background-color 0.2s ease-out, color 0.2s ease-out;
 }
 
+// Tag container (single definition - was duplicated before)
 .tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     margin-top: space(2);
 }
 
@@ -376,7 +358,7 @@ nav {
 }
 
 /* Desktops and Laptops */
-@media (max-width: 1200px) {
+@media (max-width: $desktop-lg) {
     .projects-figure {
         height: auto !important;
         min-height: 35vh;
@@ -384,7 +366,7 @@ nav {
 }
 
 /* Tablets */
-@media (max-width: 992px) {
+@media (max-width: $tablet-lg) {
 
     .page-zoom {
         transform: scale(1);
@@ -512,7 +494,7 @@ nav {
 }
 
 /* Mobile */
-@media (max-width: 576px) {
+@media (max-width: $mobile-lg) {
 
     /* Filter */
     .filter {
@@ -564,7 +546,7 @@ nav {
 }
 
 /* Small Mobile */
-@media (max-width: 480px) {
+@media (max-width: $mobile-sm) {
 
     /* Filter */
     .filter {
@@ -601,7 +583,7 @@ nav {
 }
 
 /* Extra Small Mobile */
-@media (max-width: 320px) {
+@media (max-width: $mobile-xs) {
 
     /* Projects */
     .projects-figure {

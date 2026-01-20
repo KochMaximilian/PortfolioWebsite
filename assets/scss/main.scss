@@ -14,22 +14,19 @@
   background: transparent;
 }
 
-html,
+html {
+  min-height: 100%;
+  font-size: 100% !important;
+}
+
 body {
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
   background-color: $blue-light;
   font-family: $font-poppins;
   color: $black-medium;
-}
-
-html {
-  font-size: 100% !important;
-}
-
-body {
   line-height: 1.6;
   letter-spacing: 0.03em;
   z-index: 0;
@@ -95,7 +92,13 @@ a {
   padding-left: space(4);
   padding-right: space(4);
   box-sizing: border-box;
-  min-height: 100vh;
+  
+  // ============================================
+  // FOOTER CLEARANCE
+  // ============================================
+  // This padding ensures content doesn't get hidden behind the fixed footer.
+  // The --footer-height variable is defined in footer.scss and changes at each breakpoint.
+  padding-bottom: calc(var(--footer-height) + 2rem);
 }
 
 .main-content {
@@ -108,7 +111,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: space(8);
-  margin-bottom: space(32);
+  // Removed margin-bottom: space(32) - now handled by .wrapper padding-bottom
 }
 
 .content-block {
@@ -286,8 +289,12 @@ p {
 }
 
 /*MEDIA QUERY TYPOGRAPHY*/
+/* 
+ * Using body as parent selector to increase specificity
+ * This allows media query styles to override base styles without !important
+ */
 
-@media (max-width: 600px) {
+@media (max-width: $mobile-lg) {
   html {
     font-size: 87.5%;
   }
@@ -305,66 +312,67 @@ p {
     font-size: 112.5%;
   }
 
-  h1 {
+  body h1 {
     font-size: font-size(6xl);
   }
 
-  h2 {
+  body h2 {
     font-size: font-size(5xl);
   }
 
-  h3 {
+  body h3 {
     font-size: font-size(4xl);
   }
 }
 
 
 /* General responsive heading styles */
-@media (max-width: 992px) {
-  h1 {
-    font-size: font-size(4xl) !important;
+/* Using body prefix for specificity over base h1-h6 styles */
+@media (max-width: $tablet-lg) {
+  body h1 {
+    font-size: font-size(4xl);
   }
   
-  h2 {
-    font-size: font-size(3xl) !important;
+  body h2 {
+    font-size: font-size(3xl);
   }
   
-  h3 {
-    font-size: font-size(2xl) !important;
+  body h3 {
+    font-size: font-size(2xl);
   }
   
-  h4 {
-    font-size: font-size(xl) !important;
+  body h4 {
+    font-size: font-size(xl);
   }
 }
 
 @media (max-width: $tablet) {
-  h1 {
-    font-size: font-size(3xl) !important;
+  body h1 {
+    font-size: font-size(3xl);
   }
   
-  h2 {
-    font-size: font-size(2xl) !important;
+  body h2 {
+    font-size: font-size(2xl);
   }
   
-  h3 {
-    font-size: font-size(xl) !important;
+  body h3 {
+    font-size: font-size(xl);
   }
   
-  h4 {
-    font-size: font-size(lg) !important;
+  body h4 {
+    font-size: font-size(lg);
   }
   
-  h5 {
-    font-size: font-size(md) !important;
+  body h5 {
+    font-size: font-size(md);
   }
   
-  .project-description h1,
-  .project-description h2,
-  .project-description h3,
-  .project-description h4,
-  .project-description h5,
-  .project-description h6 {
+  body .project-description h1,
+  body .project-description h2,
+  body .project-description h3,
+  body .project-description h4,
+  body .project-description h5,
+  body .project-description h6 {
     margin-top: space(2);
     margin-bottom: space(2);
   }
@@ -374,102 +382,103 @@ p {
   }
 }
 
-@media (max-width: 576px) {
-  h1 {
-    font-size: font-size(2xl) !important;
+@media (max-width: $mobile-lg) {
+  body h1 {
+    font-size: font-size(2xl);
   }
   
-  h2 {
-    font-size: font-size(xl) !important;
+  body h2 {
+    font-size: font-size(xl);
   }
   
-  h3 {
-    font-size: font-size(lg) !important;
+  body h3 {
+    font-size: font-size(lg);
   }
   
-  h4 {
-    font-size: font-size(md) !important;
+  body h4 {
+    font-size: font-size(md);
   }
   
-  h5 {
-    font-size: font-size(sm) !important;
+  body h5 {
+    font-size: font-size(sm);
   }
   
-  h6 {
-    font-size: font-size(xs) !important;
+  body h6 {
+    font-size: font-size(xs);
   }
   
-  p {
-    font-size: font-size(md) !important;
+  body p {
+    font-size: font-size(md);
   }
   
-  .project-description h1 {
-    font-size: font-size(xl) !important; 
+  body .project-description h1 {
+    font-size: font-size(xl); 
   }
   
-  .project-description h2 {
-    font-size: font-size(lg) !important;
+  body .project-description h2 {
+    font-size: font-size(lg);
   }
   
-  .project-description h3 {
-    font-size: font-size(md) !important;
+  body .project-description h3 {
+    font-size: font-size(md);
   }
   
-  .project-description h4 {
-    font-size: font-size(md) !important;
+  body .project-description h4 {
+    font-size: font-size(md);
   }
   
-  .project-description h5 {
-    font-size: font-size(sm) !important;
+  body .project-description h5 {
+    font-size: font-size(sm);
   }
   
-  .project-description h6 {
-    font-size: font-size(xs) !important;
+  body .project-description h6 {
+    font-size: font-size(xs);
   }
   
-  .project-description p {
-    font-size: font-size(md) !important;
+  body .project-description p {
+    font-size: font-size(md);
     line-height: 1.4;
   }
 }
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: font-size(xl) !important;
+@media (max-width: $mobile-sm) {
+  body h1 {
+    font-size: font-size(xl);
   }
   
-  h2 {
-    font-size: font-size(lg) !important;
+  body h2 {
+    font-size: font-size(lg);
   }
   
-  h3 {
-    font-size: font-size(md) !important;
+  body h3 {
+    font-size: font-size(md);
   }
   
-  h4, h5 {
-    font-size: font-size(sm) !important;
+  body h4,
+  body h5 {
+    font-size: font-size(sm);
   }
   
-  p {
-    font-size: font-size(sm) !important;
+  body p {
+    font-size: font-size(sm);
   }
   
-  .project-description h1 {
-    font-size: font-size(lg) !important; 
+  body .project-description h1 {
+    font-size: font-size(lg); 
   }
   
-  .project-description h2 {
-    font-size: font-size(md) !important;
+  body .project-description h2 {
+    font-size: font-size(md);
   }
   
-  .project-description h3,
-  .project-description h4,
-  .project-description h5 {
-    font-size: font-size(sm) !important;
+  body .project-description h3,
+  body .project-description h4,
+  body .project-description h5 {
+    font-size: font-size(sm);
   }
   
-  .project-description p {
-    font-size: font-size(sm) !important;
+  body .project-description p {
+    font-size: font-size(sm);
     line-height: 1.3;
   }
 
@@ -479,7 +488,7 @@ p {
   }
 
   .wrapper {
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
-

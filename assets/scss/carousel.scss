@@ -59,10 +59,9 @@
 /* fill-in selected dot */
 .flickity-page-dots .dot.is-selected {
   background: $yellow-dark;
-  transition: border 0.3s $easing-bounce;
-  transition: height 0.3s $easing-bounce;
   width: space(4);
   height: space(4);
+  transition: border 0.3s $easing-bounce, height 0.3s $easing-bounce;
 }
 
 .slider-figure {
@@ -224,7 +223,7 @@
   }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: $tablet-lg) {
   .slider-figure {
     margin: 0 1.5rem 1rem 1.5rem;
     padding: space(4);
@@ -272,7 +271,7 @@
   }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: $mobile-lg) {
   .slider-figure {
     margin: 0 1.5rem 0.6rem 1.5rem;
     padding: 0.6rem;
@@ -308,7 +307,7 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: $mobile-sm) {
   .slider-figure {
     margin: 0 1.5rem 0.4rem 1.5rem;
     padding: 0.4rem;
@@ -319,7 +318,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: $mobile-xs) {
   .slider-figure {
     margin: 0 1.5rem 0.3rem 1.5rem;
     padding: 0.3rem;

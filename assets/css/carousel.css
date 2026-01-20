@@ -56,10 +56,9 @@
 /* fill-in selected dot */
 .flickity-page-dots .dot.is-selected {
   background: #FCBB3F;
-  transition: border 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-  transition: height 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
   width: 1rem;
   height: 1rem;
+  transition: border 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2), height 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
 }
 
 .slider-figure {

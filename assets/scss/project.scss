@@ -8,7 +8,7 @@
     gap: space(8);
     background: $white;
     border-radius: $radius-medium;
-    border: solid $black-dark $border-md;
+    border: $border-md solid $black-dark;
     box-shadow: $solid-shadow-md;
   }
   
@@ -55,21 +55,20 @@
     display: block;
     width: 100%;
     height: 30vh;
-    border-right: solid $black-dark $border-md;
+    border-right: $border-md solid $black-dark;
   }
   
   .project-image {
     display: block;
     width: 100%;
     height: auto;
-    border-right: solid $black-dark $border-md;
+    border-right: $border-md solid $black-dark;
   }
   
   .project-description {
     background: $white;
-    border: solid $black-dark;
+    border: $border-md solid $black-dark;
     border-radius: $radius-medium;
-    border-width: $border-md;
     box-shadow: $solid-shadow-md;
   }
   
@@ -107,9 +106,7 @@
     height: 100%;
     object-fit: cover;
     border-radius: $radius-large;
-    border: solid;
-    border-color: $black-dark;
-    border-width: $border-md;
+    border: $border-md solid $black-dark;
     box-shadow: $solid-shadow-md;
     position: relative;
     z-index: 1;
@@ -129,7 +126,7 @@
     text-align: center;
     text-decoration: none;
     background: $white;
-    border: solid $border-sm $black-dark;
+    border: $border-sm solid $black-dark;
     border-radius: $radius-small;
     padding: space(1);
     width: 50%;
@@ -145,7 +142,7 @@
   
   /* Badge Hover Effect when Hovering the Entire Link */
   .project-image-container a:hover .image-caption-badge {
-    background: $yellow-dark;
+    background: $yellow-medium !important;
     transform: translateX(-50%) scale(0.95);
   }
   
@@ -231,7 +228,7 @@
 
   
   /* Laptops and Small Desktops */
-  @media (max-width: 1200px) {
+  @media (max-width: $desktop-lg) {
     .project-figure {
       gap: 1.5rem;
     }
@@ -279,7 +276,7 @@
   }
   
   /* Tablets */
-  @media (max-width: 992px) {
+  @media (max-width: $tablet-lg) {
     .project-figure {
       flex-direction: column;
       gap: 0;
@@ -299,12 +296,12 @@
     .project-gallery iframe {
       height: 40vh;
       border-right: none;
-      border-bottom: solid $black-dark $border-md;
+      border-bottom: $border-md solid $black-dark;
     }
     
     .project-image {
       border-right: none;
-      border-bottom: solid $black-dark $border-md;
+      border-bottom: $border-md solid $black-dark;
     }
     
     .project-info dl {
@@ -409,7 +406,7 @@
   }
   
   /* Mobile */
-  @media (max-width: 576px) {
+  @media (max-width: $mobile-lg) {
     .project-figure {
       border-width: $border-sm;
     }
@@ -485,7 +482,7 @@
   }
   
   /* Small Mobile */
-  @media (max-width: 480px) {
+  @media (max-width: $mobile-sm) {
     .project-gallery iframe {
       height: 25vh;
     }
