@@ -28,6 +28,28 @@
   flex-wrap: wrap;
 }
 
+// Logo bounce animation - more playful than nav links
+@keyframes logo-bounce {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  20% {
+    transform: scale(1.08) rotate(-1deg);
+  }
+  40% {
+    transform: scale(1.05) rotate(0.5deg);
+  }
+  60% {
+    transform: scale(1.07) rotate(-0.3deg);
+  }
+  80% {
+    transform: scale(1.06) rotate(0.1deg);
+  }
+  100% {
+    transform: scale(1.06) rotate(0deg);
+  }
+}
+
 .logo-container .logo {
   font-family: $font-barlow;
   font-size: font-size(2xl);
@@ -35,14 +57,13 @@
   text-transform: uppercase;
   color: $white;
   text-decoration: none;
-  transition: color 0.2s $easing-bounce, 
-              transform 0.2s $easing-bounce;
+  transition: color 0.2s $easing-bounce;
   display: inline-block;
 }
 
 .logo-container .logo:hover {
   color: $yellow-dark;
-  transform: scale(0.95);
+  animation: logo-bounce 0.4s $easing-bounce forwards;
 }
 
 .navbar-nav {
@@ -55,6 +76,22 @@
   padding-right: space(4);
 }
 
+// Bounce animation for nav links
+@keyframes nav-bounce {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    transform: translateY(-3px) scale(1.03);
+  }
+  70% {
+    transform: translateY(-1px) scale(1.02);
+  }
+  100% {
+    transform: translateY(-2px) scale(1.02);
+  }
+}
+
 .nav-link {
   text-decoration: none;
   color: $white;
@@ -62,28 +99,45 @@
   font-size: font-size(xl);
   text-transform: uppercase;
   padding: space(1) space(2);
-  transition: color 0.2s $easing-bounce, 
-              background 0.2s $easing-bounce, 
-              font-weight 0.2s $easing-bounce;
   position: relative;
+  display: inline-block;
+  transition: color 0.2s $easing-bounce;
+  
+  // Underline that grows from center
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: $yellow-dark;
+    transition: width 0.25s $easing-bounce, left 0.25s $easing-bounce;
+  }
 }
 
 .nav-link:hover {
   color: $yellow-dark;
+  animation: nav-bounce 0.3s $easing-bounce forwards;
+  
+  &::after {
+    width: 100%;
+    left: 0;
+  }
 }
 
 .nav-link.active {
-  border-bottom: solid;
-  border-color: $yellow-dark;
-  transition: font-weight 0.2s $easing-bounce, 
-              color 0.2s $easing-bounce, 
-              border-color 0.2s $easing-bounce;
+  color: $yellow-dark;
+  
+  &::after {
+    width: 100%;
+    left: 0;
+  }
 }
 
 .nav-link.active:hover {
-  border-bottom: solid;
-  border-color: $yellow-dark;
-  font-weight: $weight-bold;
+  animation: none;
+  transform: translateY(-2px) scale(1.02);
 }
 
 .navbar-mobile {
@@ -127,7 +181,8 @@
   .logo-container .logo {
     font-size: font-size(lg);
   }
-    .navbar-nav {
+  
+  .navbar-nav {
     gap: space(2);
     padding-right: space(2);
   }
@@ -135,6 +190,10 @@
   .nav-link {
     font-size: font-size(md);
     padding: space(1) space(1);
+    
+    &::after {
+      height: 2px;
+    }
   }
 }
 
@@ -178,6 +237,25 @@
     line-height: 1.2;
   }
   
+  // Smaller logo bounce on mobile
+  @keyframes logo-bounce {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    20% {
+      transform: scale(1.05) rotate(-0.5deg);
+    }
+    40% {
+      transform: scale(1.03) rotate(0.3deg);
+    }
+    60% {
+      transform: scale(1.04) rotate(-0.2deg);
+    }
+    100% {
+      transform: scale(1.04) rotate(0deg);
+    }
+  }
+  
   .navbar-desktop {
     display: none;
   }
@@ -185,6 +263,26 @@
   .nav-link {
     font-size: font-size(md);
     padding: space(1) space(3);
+    
+    &::after {
+      height: 2px;
+    }
+  }
+  
+  // Smaller bounce on mobile
+  @keyframes nav-bounce {
+    0% {
+      transform: translateY(0) scale(1);
+    }
+    40% {
+      transform: translateY(-2px) scale(1.02);
+    }
+    70% {
+      transform: translateY(-1px) scale(1.01);
+    }
+    100% {
+      transform: translateY(-1px) scale(1.01);
+    }
   }
 
   .navbar-mobile .navbar-nav {

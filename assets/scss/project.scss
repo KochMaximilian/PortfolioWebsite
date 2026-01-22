@@ -81,7 +81,7 @@
   .project-image-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: space(2);
+    gap: space(5);
     justify-items: center;
     justify-content: center;
     width: 100%;
@@ -111,8 +111,7 @@
     position: relative;
     z-index: 1;
     transition: transform 0.2s $easing-bounce,
-                box-shadow 0.2s $easing-bounce,
-                border-width 0.2s $easing-bounce;
+                box-shadow 0.2s $easing-bounce;
     will-change: transform;
   }
   
@@ -136,14 +135,14 @@
     transform: translateX(-50%);
     transition: transform 0.2s $easing-bounce,
                 background 0.2s $easing-bounce;
-    z-index: z(notification);
+    z-index: z(content);
     will-change: transform;
   }
   
   /* Badge Hover Effect when Hovering the Entire Link */
   .project-image-container a:hover .image-caption-badge {
-    background: $yellow-medium !important;
-    transform: translateX(-50%) scale(0.95);
+    background: $yellow-medium;
+    transform: translateX(-50%) scale(1.05);
   }
   
   /* Project Image Container Link */
@@ -157,9 +156,11 @@
   
   /* Hover Effect on Image Link */
   .project-image-container a:hover .project-gallary-image {
-    transform: scale(0.95);
-    box-shadow: $solid-shadow-sm;
-    border-width: $border-md;
+    transform: scale(1.05);
+    box-shadow: 
+      0 10px 20px rgba(0, 0, 0, 0.25),
+      0 5px 10px rgba(0, 0, 0, 0.15),
+      $solid-shadow-md;
   }
   
   /* Optimize performance by preventing layout shifts during transition */
@@ -204,7 +205,8 @@
   summary i {
     font-size: font-size(3xl);
     color: $black-dark;
-    transition: transform 0.3s $easing-bounce;
+    transition: transform 0.3s $easing-bounce,
+                color 0.2s $easing-bounce;
   }
   
   summary:hover i {
@@ -253,6 +255,7 @@
     
     .project-image-container {
       grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: space(5);
     }
     
     .image-caption-badge {
@@ -321,6 +324,7 @@
     
     .project-image-container {
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: space(4);
     }
     
     .project-gallary-image {
@@ -373,7 +377,7 @@
     
     .project-image-container {
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: space(3);
+      gap: space(4);
     }
     
     .project-gallary-image {
@@ -451,6 +455,7 @@
     
     .project-image-container {
       grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: space(3);
     }
     
     .project-gallary-image {
@@ -489,6 +494,7 @@
     
     .project-image-container {
       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: space(3);
     }
     
     .project-info dt {
