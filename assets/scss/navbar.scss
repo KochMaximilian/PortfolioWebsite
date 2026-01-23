@@ -28,7 +28,7 @@
   flex-wrap: wrap;
 }
 
-// Logo bounce animation - more playful than nav links
+// Logo bounce animation
 @keyframes logo-bounce {
   0% {
     transform: scale(1) rotate(0deg);
@@ -99,20 +99,25 @@
   font-size: font-size(xl);
   text-transform: uppercase;
   padding: space(1) space(2);
+  padding-bottom: space(2);
   position: relative;
   display: inline-block;
   transition: color 0.2s $easing-bounce;
   
-  // Underline that grows from center
   &::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 50%;
     width: 0;
-    height: 3px;
+    height: 4px;
     background: $yellow-dark;
-    transition: width 0.25s $easing-bounce, left 0.25s $easing-bounce;
+    border-radius: $radius-xs;
+    box-shadow: $solid-shadow-xs;
+    transition: width 0.25s $easing-bounce, 
+                left 0.25s $easing-bounce,
+                opacity 0.25s $easing-bounce;
+    opacity: 0;
   }
 }
 
@@ -123,6 +128,7 @@
   &::after {
     width: 100%;
     left: 0;
+    opacity: 1;
   }
 }
 
@@ -132,12 +138,12 @@
   &::after {
     width: 100%;
     left: 0;
+    opacity: 1;
   }
 }
 
 .nav-link.active:hover {
-  animation: none;
-  transform: translateY(-2px) scale(1.02);
+  animation: nav-bounce 0.3s $easing-bounce forwards;
 }
 
 .navbar-mobile {
@@ -167,6 +173,7 @@
   .nav-link {
     font-size: font-size(lg);
     padding: space(1);
+    padding-bottom: space(2);
   }
 }
 
@@ -190,9 +197,10 @@
   .nav-link {
     font-size: font-size(md);
     padding: space(1) space(1);
+    padding-bottom: space(2);
     
     &::after {
-      height: 2px;
+      height: 3px;
     }
   }
 }
@@ -217,6 +225,11 @@
   .nav-link {
     font-size: font-size(md);
     padding: space(1) space(1);
+    padding-bottom: space(1);
+    
+    &::after {
+      height: 3px;
+    }
   }
 }
 
@@ -237,7 +250,6 @@
     line-height: 1.2;
   }
   
-  // Smaller logo bounce on mobile
   @keyframes logo-bounce {
     0% {
       transform: scale(1) rotate(0deg);
@@ -263,13 +275,13 @@
   .nav-link {
     font-size: font-size(md);
     padding: space(1) space(3);
+    padding-bottom: space(1);
     
     &::after {
       height: 2px;
     }
   }
   
-  // Smaller bounce on mobile
   @keyframes nav-bounce {
     0% {
       transform: translateY(0) scale(1);

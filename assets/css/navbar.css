@@ -90,6 +90,7 @@
   font-size: 1.25rem;
   text-transform: uppercase;
   padding: 0.25rem 0.5rem;
+  padding-bottom: 0.5rem;
   position: relative;
   display: inline-block;
   transition: color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
@@ -100,9 +101,12 @@
   bottom: 0;
   left: 50%;
   width: 0;
-  height: 3px;
+  height: 4px;
   background: #FCBB3F;
-  transition: width 0.25s cubic-bezier(0.25, 1.75, 0.5, 1.2), left 0.25s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+  border-radius: 0.2rem;
+  box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
+  transition: width 0.25s cubic-bezier(0.25, 1.75, 0.5, 1.2), left 0.25s cubic-bezier(0.25, 1.75, 0.5, 1.2), opacity 0.25s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+  opacity: 0;
 }
 
 .nav-link:hover {
@@ -112,6 +116,7 @@
 .nav-link:hover::after {
   width: 100%;
   left: 0;
+  opacity: 1;
 }
 
 .nav-link.active {
@@ -120,11 +125,11 @@
 .nav-link.active::after {
   width: 100%;
   left: 0;
+  opacity: 1;
 }
 
 .nav-link.active:hover {
-  animation: none;
-  transform: translateY(-2px) scale(1.02);
+  animation: nav-bounce 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2) forwards;
 }
 
 .navbar-mobile {
@@ -147,6 +152,7 @@
   .nav-link {
     font-size: 1.125rem;
     padding: 0.25rem;
+    padding-bottom: 0.5rem;
   }
 }
 /* Tablets */
@@ -166,9 +172,10 @@
   .nav-link {
     font-size: 1rem;
     padding: 0.25rem 0.25rem;
+    padding-bottom: 0.5rem;
   }
   .nav-link::after {
-    height: 2px;
+    height: 3px;
   }
 }
 /* Small tablets and large phones */
@@ -188,6 +195,10 @@
   .nav-link {
     font-size: 1rem;
     padding: 0.25rem 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  .nav-link::after {
+    height: 3px;
   }
 }
 /* Mobile phones */
@@ -228,6 +239,7 @@
   .nav-link {
     font-size: 1rem;
     padding: 0.25rem 0.75rem;
+    padding-bottom: 0.25rem;
   }
   .nav-link::after {
     height: 2px;
