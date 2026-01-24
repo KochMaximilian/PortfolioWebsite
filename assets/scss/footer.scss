@@ -3,50 +3,47 @@
 // ============================================
 // FOOTER HEIGHT VARIABLES
 // ============================================
+// These CSS custom properties track footer height at each breakpoint
+// so content can have matching padding-bottom to prevent overlap.
+// 
+// IMPORTANT: The mobile nav appears inside footer at $mobile-lg (576px),
+// so --footer-height must increase at that same breakpoint!
+
 :root {
+  // Base footer height (desktop) - approximately 120px with content
   --footer-height: 7.5rem;
 }
 
 @media screen and (max-width: $tablet) {
   :root {
+    // Tablet - slightly smaller
     --footer-height: 6.5rem;
   }
 }
 
 @media screen and (max-width: $mobile-lg) {
   :root {
+    // Mobile - TALLER because mobile nav is now included in footer
+    // Mobile nav + socials + logo + copyright
+    // This breakpoint matches when .navbar-mobile becomes visible
     --footer-height: 12rem;
   }
 }
 
 @media screen and (max-width: $mobile-sm) {
   :root {
+    // Small mobile - footer gets more compact but still has mobile nav
     --footer-height: 11rem;
   }
 }
 
 @media screen and (max-width: $mobile-xs) {
   :root {
+    // Extra small mobile
     --footer-height: 10rem;
   }
 }
 
-
-// Bounce animation for social icons
-@keyframes icon-bounce {
-  0% {
-    transform: scale(1);
-  }
-  30% {
-    transform: scale(1.18);
-  }
-  60% {
-    transform: scale(1.12);
-  }
-  100% {
-    transform: scale(1.15);
-  }
-}
 
 /* Base footer styling */
 footer {
@@ -64,6 +61,7 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
+  overflow: visible;
 }
 
 
@@ -107,9 +105,42 @@ footer {
   user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  height: 3rem;
+  height: 7rem;
   width: auto;
- 
+  // Pop out of the footer top
+  margin-top: -10.5rem;
+  
+  // Juice it up
+  transition: transform 0.3s $easing-pop,
+              filter 0.3s $easing-bounce;
+  animation: logo-float 3s ease-in-out infinite;
+  cursor: pointer;
+}
+
+// Subtle idle floating animation
+@keyframes logo-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+// Juicy hover state
+.footer-logo:hover {
+  transform: scale(1.15) rotate(-3deg);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  animation: logo-wobble 0.5s $easing-pop;
+}
+
+// Wobble animation on hover
+@keyframes logo-wobble {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.2) rotate(-5deg); }
+  50% { transform: scale(1.1) rotate(3deg); }
+  75% { transform: scale(1.18) rotate(-2deg); }
+  100% { transform: scale(1.15) rotate(-3deg); }
 }
 
 /* Footer Social Links */
@@ -126,24 +157,24 @@ footer {
 .mail-link {
   color: $white;
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s $easing-bounce;
-}
-
-.social-link i,
-.mail-link i {
-  transform-origin: center center;
-  transition: transform 0.2s $easing-bounce;
+  display: inline-block;
+  transition: color 0.2s $easing-bounce, 
+              transform 0.2s $easing-bounce;
 }
 
 .social-link:hover {
   color: $yellow-dark;
+  transform: scale(1.2);
+  animation: icon-bounce 0.4s $easing-pop;
 }
 
-.social-link:hover i {
-  animation: icon-bounce 0.3s $easing-bounce forwards;
+// Bounce animation for social icons - ends at same scale as hover state
+@keyframes icon-bounce {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.35) rotate(-8deg); }
+  50% { transform: scale(1.15) rotate(5deg); }
+  70% { transform: scale(1.28) rotate(-3deg); }
+  100% { transform: scale(1.2) rotate(0deg); }
 }
 
 .custom-icon-size {
@@ -170,6 +201,11 @@ footer {
     column-gap: 0.3rem;
   }
   
+  .footer-logo {
+    height: 4.5rem;
+    margin-top: -4rem;
+  }
+  
   .custom-icon-size {
     font-size: 1.6rem;
   }
@@ -188,23 +224,25 @@ footer {
   }
 }
 
-/* Very small screens like mobile phones - side-by-side social icons */
-@media screen and (max-width: $mobile-sm) {
-  @keyframes icon-bounce {
-    0% {
-      transform: scale(1);
-    }
-    30% {
-      transform: scale(1.15);
-    }
-    60% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1.12);
-    }
+/* Mobile - hide logo, show slogan */
+@media screen and (max-width: $mobile-lg) {
+  .footer-logo {
+    display: none;
   }
+  
+  .slogan {
+    display: block;
+    font-size: 0.75rem;
+    margin: 0.15rem 0;
+  }
+  
+  .copyright {
+    font-size: 0.55rem;
+    opacity: 0.8;
+  }
+}
 
+@media screen and (max-width: $mobile-sm) {
   footer {
     padding: 0.8rem 0 0.6rem 0;
   }
@@ -250,14 +288,8 @@ footer {
     grid-column: 1;
     grid-row: 3;
   }
-  
-  /* Make content more compact */
-  .footer-logo {
-    height: 2rem;
-  }
 
   .mobile-socials.left,
-  .footer-logo,
   .mobile-socials.right {
     display: inline-flex;
     align-items: center;
@@ -268,23 +300,20 @@ footer {
   .mobile-socials.right {
     gap: 0.9rem;
   }
-
-  .footer-logo {
-    margin: 0 space(6) 0 space(6);
-  }
   
   .slogan {
-    display: none;
+    font-size: 0.65rem;
   }
   
   .copyright {
     width: 100%;
-    margin-top: 0.4rem;
+    margin-top: 0.3rem;
     display: block;
-    font-size: 0.65rem;
+    font-size: 0.5rem;
     opacity: 0.7;
     text-align: center;
   }
+  
   .custom-icon-size {
     font-size: 1.5rem; 
   }
@@ -302,29 +331,10 @@ footer {
   .mobile-socials .custom-icon-size {
     font-size: 1.3rem;
   }
-  
-  .mobile-socials .social-link:hover i {
-    animation: icon-bounce 0.3s $easing-bounce forwards;
-  }
 }
 
 /* Handle extremely small screens */
 @media screen and (max-width: $mobile-xs) {
-  @keyframes icon-bounce {
-    0% {
-      transform: scale(1);
-    }
-    30% {
-      transform: scale(1.12);
-    }
-    60% {
-      transform: scale(1.08);
-    }
-    100% {
-      transform: scale(1.1);
-    }
-  }
-
   footer {
     padding: 0.6rem 0 0.5rem 0;
   }
@@ -334,21 +344,17 @@ footer {
   }
   
   .slogan {
-    font-size: 0.9rem;
-    margin: 0.1rem 0 0.05rem 0;
+    font-size: 0.55rem;
+    margin: 0.1rem 0;
   }
   
   .copyright {
-    font-size: 0.45rem;
+    font-size: 0.4rem;
     opacity: 0.6;
   }
   
   .custom-icon-size {
     font-size: 1.4rem;
-  }
-  
-  .footer-logo {
-    height: 1.8rem;
   }
 
   .mobile-socials {
