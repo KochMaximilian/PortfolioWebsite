@@ -7,7 +7,7 @@
     <title><?= $page->title()->html() ?> | <?= $site->title()->html() ?></title>
     <?php snippet('favicon') ?>
 
-    <link rel="preload" href="/assets/img/pattern.png" as="image">
+    <link rel="preload" href="/assets/img/pattern.webp" as="image">
 
     <?= css('assets/css/config/config.css') ?>
     <?php if ($page->intendedTemplate()->name() === 'home'): ?>
@@ -39,11 +39,6 @@
     <?= css('assets/css/navbar.css') ?>
     <?= css('assets/css/main.css') ?>
 
-
-
-
-
-
     <?= $slots->head() ?>
 
     <link rel="preconnect" href="https://fonts.bunny.net/css">
@@ -52,8 +47,7 @@
 </head>
 
 <body>
-    <div class="scrolling-background" id="background1"></div>
-    <div class="scrolling-background" id="background2"></div>
+    <div class="scrolling-background"></div>
 
     <header class="site-header">
         <?php snippet('navbar') ?>
