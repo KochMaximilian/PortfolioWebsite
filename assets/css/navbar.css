@@ -23,6 +23,26 @@
   flex-wrap: wrap;
 }
 
+@keyframes logo-bounce {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  20% {
+    transform: scale(1.08) rotate(-1deg);
+  }
+  40% {
+    transform: scale(1.05) rotate(0.5deg);
+  }
+  60% {
+    transform: scale(1.07) rotate(-0.3deg);
+  }
+  80% {
+    transform: scale(1.06) rotate(0.1deg);
+  }
+  100% {
+    transform: scale(1.06) rotate(0deg);
+  }
+}
 .logo-container .logo {
   font-family: "Barlow", sans-serif;
   font-size: 1.5rem;
@@ -30,13 +50,13 @@
   text-transform: uppercase;
   color: #FEFEFE;
   text-decoration: none;
-  transition: color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+  transition: color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
   display: inline-block;
 }
 
 .logo-container .logo:hover {
   color: #FCBB3F;
-  transform: scale(0.95);
+  animation: logo-bounce 0.4s cubic-bezier(0.25, 1.75, 0.5, 1.2) forwards;
 }
 
 .navbar-nav {
@@ -49,6 +69,20 @@
   padding-right: 1rem;
 }
 
+@keyframes nav-bounce {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    transform: translateY(-3px) scale(1.03);
+  }
+  70% {
+    transform: translateY(-1px) scale(1.02);
+  }
+  100% {
+    transform: translateY(-2px) scale(1.02);
+  }
+}
 .nav-link {
   text-decoration: none;
   color: #FEFEFE;
@@ -56,24 +90,45 @@
   font-size: 1.25rem;
   text-transform: uppercase;
   padding: 0.25rem 0.5rem;
-  transition: color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), background 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), font-weight 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+  padding-bottom: 0.5rem;
+  transition: color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
   position: relative;
+  display: inline-block;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background: #FCBB3F;
+  border-radius: 0.2rem;
+  box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
+  transition: width 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), opacity 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+  opacity: 0;
 }
 
 .nav-link:hover {
   color: #FCBB3F;
+  animation: nav-bounce 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2) forwards;
+}
+.nav-link:hover::after {
+  width: 100%;
+  opacity: 1;
 }
 
 .nav-link.active {
-  border-bottom: solid;
-  border-color: #FCBB3F;
-  transition: font-weight 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), border-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+  color: #FCBB3F;
+}
+.nav-link.active::after {
+  width: 100%;
+  opacity: 1;
 }
 
 .nav-link.active:hover {
-  border-bottom: solid;
-  border-color: #FCBB3F;
-  font-weight: 700;
+  animation: nav-bounce 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2) forwards;
 }
 
 .navbar-mobile {
@@ -96,6 +151,7 @@
   .nav-link {
     font-size: 1.125rem;
     padding: 0.25rem;
+    padding-bottom: 0.5rem;
   }
 }
 /* Tablets */
@@ -115,6 +171,10 @@
   .nav-link {
     font-size: 1rem;
     padding: 0.25rem 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  .nav-link::after {
+    height: 3px;
   }
 }
 /* Small tablets and large phones */
@@ -134,6 +194,10 @@
   .nav-link {
     font-size: 1rem;
     padding: 0.25rem 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  .nav-link::after {
+    height: 3px;
   }
 }
 /* Mobile phones */
@@ -151,12 +215,47 @@
     overflow: visible;
     line-height: 1.2;
   }
+  @keyframes logo-bounce {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    20% {
+      transform: scale(1.05) rotate(-0.5deg);
+    }
+    40% {
+      transform: scale(1.03) rotate(0.3deg);
+    }
+    60% {
+      transform: scale(1.04) rotate(-0.2deg);
+    }
+    100% {
+      transform: scale(1.04) rotate(0deg);
+    }
+  }
   .navbar-desktop {
     display: none;
   }
   .nav-link {
     font-size: 1.125rem;
     padding: 0.25rem 0.75rem;
+    padding-bottom: 0.25rem;
+  }
+  .nav-link::after {
+    height: 2px;
+  }
+  @keyframes nav-bounce {
+    0% {
+      transform: translateY(0) scale(1);
+    }
+    40% {
+      transform: translateY(-2px) scale(1.02);
+    }
+    70% {
+      transform: translateY(-1px) scale(1.01);
+    }
+    100% {
+      transform: translateY(-1px) scale(1.01);
+    }
   }
   .navbar-mobile .navbar-nav {
     margin-left: 0;
