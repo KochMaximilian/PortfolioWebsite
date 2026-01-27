@@ -14,7 +14,7 @@ Description: This is a test project to share it and check it on different device
 
 ----
 
-Type: Personal Project
+Type: Professional
 
 ----
 

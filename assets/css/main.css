@@ -16,19 +16,61 @@ html {
   font-size: 100% !important;
 }
 
+/* ============================================
+   BACKGROUND SYSTEM
+   ============================================
+   Pattern on body, color overlay via ::before pseudo-element.
+   No extra HTML divs needed, no flash on load.
+
+   To change overlay color: modify background-color on body::before
+   To change pattern visibility: modify opacity on body::before
+   To animate pattern: add animation to body (not ::before)
+*/
 body {
-  min-height: 100%;
+  min-height: 100vh;
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-color: #2C56C3;
   font-family: "Poppins", sans-serif;
   color: #181818;
   line-height: 1.6;
   letter-spacing: 0.03em;
-  z-index: 0;
+  /* Pattern background */
+  background-color: #6487E1; /* Fallback */
+  background-image: url("/assets/img/pattern.png");
+  background-repeat: repeat;
+  background-size: 1280px 720px;
+  background-attachment: fixed;
+  background-position: 0 0;
 }
 
+/* Color overlay - controls pattern visibility */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #6487E1; /* overlay color */
+  opacity: 0.2;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Background Animation - Optional
+   ============================================
+   To enable animated scrolling pattern, add this to body:
+   animation: diagonalScroll 30s linear infinite;
+*/
+@keyframes diagonalScroll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -960px -540px;
+  }
+}
 a {
   text-decoration: none;
 }
@@ -51,21 +93,6 @@ a {
 
 .additional-link:visited {
   color: #FCBB3F;
-}
-
-/* Background Styling */
-.scrolling-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("/assets/img/pattern.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  opacity: 0.85;
-  z-index: -1;
 }
 
 .wrapper {

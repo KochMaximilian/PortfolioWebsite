@@ -19,17 +19,62 @@ html {
   font-size: 100% !important;
 }
 
+/* ============================================
+   BACKGROUND SYSTEM
+   ============================================
+   Pattern on body, color overlay via ::before pseudo-element.
+   No extra HTML divs needed, no flash on load.
+   
+   To change overlay color: modify background-color on body::before
+   To change pattern visibility: modify opacity on body::before
+   To animate pattern: add animation to body (not ::before)
+*/
+
 body {
-  min-height: 100%;
+  min-height: 100vh;
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-color: $blue-dark; // acts as overlay color for bg image
   font-family: $font-poppins;
   color: $black-medium;
   line-height: 1.6;
   letter-spacing: 0.03em;
-  z-index: 0;
+  
+  /* Pattern background */
+  background-color: $blue-light; /* Fallback */
+  background-image: url('/assets/img/pattern.png');
+  background-repeat: repeat;
+  background-size: 1280px 720px;
+  background-attachment: fixed;
+  background-position: 0 0;
+}
+
+/* Color overlay - controls pattern visibility */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $blue-light; /* overlay color */
+  opacity: 0.2; 
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Background Animation - Optional
+   ============================================
+   To enable animated scrolling pattern, add this to body:
+   animation: diagonalScroll 30s linear infinite;
+*/
+@keyframes diagonalScroll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -960px -540px;
+  }
 }
 
 a {
@@ -54,21 +99,6 @@ a {
 
 .additional-link:visited {
   color: $yellow-dark;
-}
-
-/* Background Styling */
-.scrolling-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/assets/img/pattern.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  opacity: 0.85; // reduced to make background colour work as "overlay" colour in body
-  z-index: -1;
 }
 
 .wrapper {
@@ -100,6 +130,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: space(8);
+  // Removed margin-bottom: space(32) - now handled by .wrapper padding-bottom
 }
 
 .content-block {
