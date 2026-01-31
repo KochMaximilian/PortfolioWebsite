@@ -12,7 +12,7 @@
                         </div>
                     </div>
                     
-                    <!-- Art Box -->
+                    <!-- Art Box with Platform Set Symbol -->
                     <div class="card-art">
                         <img 
                             src="<?= $project->images()->template('gallery-image')->first()->thumb([
@@ -70,6 +70,27 @@
                                    (max-width: 1920px) 420px,
                                    (min-width: 1921px) 450px"
                         >
+                        <!-- Platform Set Symbol -->
+                        <div class="card-set-symbol">
+                            <?php 
+                            $platforms = $project->platform()->split(',');
+                            $platformIcons = [
+                                'PC Windows' => 'fa-brands fa-windows',
+                                'Playstation 4' => 'fa-brands fa-playstation',
+                                'Playstation 5' => 'fa-brands fa-playstation',
+                                'Xbox One' => 'fa-brands fa-xbox',
+                                'Xbox Series S/X' => 'fa-brands fa-xbox',
+                                'Nintendo Switch' => 'fa-solid fa-gamepad',
+                                'Android' => 'fa-brands fa-android',
+                                'iOS' => 'fa-brands fa-apple',
+                                'Web' => 'fa-solid fa-globe'
+                            ];
+                            foreach ($platforms as $platform): 
+                                $iconClass = $platformIcons[trim($platform)] ?? 'fa-solid fa-gamepad';
+                            ?>
+                                <i class="<?= $iconClass ?>" title="<?= $platform ?>"></i>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                     
                     <!-- Type Line: Project Type + Genre Tags + Year -->
@@ -84,11 +105,37 @@
                         <span class="card-year"><?= $project->year() ?></span>
                     </div>
                     
+                    <!-- Focus Areas (Keyword Abilities) -->
+                    <?php if ($project->focus()->isNotEmpty()): ?>
+                    <div class="card-focus-bar">
+                        <?php foreach ($project->focus()->split(',') as $focus): ?>
+                            <span class="card-focus-keyword"><?= trim($focus) ?></span>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php endif; ?>
+                    
                     <!-- Text Box: Description -->
                     <div class="card-text-box">
                         <?php if ($project->description()->isNotEmpty()): ?>
                             <p class="card-description"><?= $project->description()->excerpt(100) ?></p>
                         <?php endif; ?>
+                    </div>
+                    
+                    <!-- Card Footer: Collector Info -->
+                    <div class="card-footer">
+                        <span class="card-footer-engine"><?= $project->engine() ?></span>
+                        <span class="card-footer-set">
+                            <?php 
+                            // Create set code from project type
+                            $typeMap = [
+                                'Professional' => 'PRO',
+                                'Personal' => 'PER',
+                                'Game Jam' => 'JAM',
+                            ];
+                            $setCode = $typeMap[$project->type()->value()] ?? 'PRJ';
+                            echo $setCode . '-' . $project->year();
+                            ?>
+                        </span>
                     </div>
                     
                 </div>

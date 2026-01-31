@@ -27,122 +27,110 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Balatro card hover effect
-    const ENABLE_BALATRO_EFFECT = true;
+    // ========================================
+    // 3D CARD TILT + GLARE - Desktop only
+    // ========================================
     const isDesktop = window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)').matches;
     
-    if (!ENABLE_BALATRO_EFFECT) {
-        console.log("Balatro effect is DISABLED");
-        return;
-    }
-    
     if (!isDesktop) {
-        console.log("Balatro effect DISABLED on mobile/tablet devices");
+        console.log("Tilt effect disabled on mobile/tablet");
         return;
     }
 
-    console.log("Initializing Balatro card hover effects...");
+    console.log("Initializing juicy 3D card tilt...");
 
-    class BaltroCardHover {
-        constructor(element) {
-            this.card = element;
-            this.isHovering = false;
-            this.time = 0;
-            this.mousePos = { x: 0, y: 0 };
-            this.cardPos = { x: 0, y: 0 };
-            this.velocity = { x: 0, y: 0 };
-            this.rotation = 0;
-            
-            this.init();
-        }
+    const cards = document.querySelectorAll('.projects-figure');
+    
+    cards.forEach(card => {
+        let isHovering = false;
+        let currentX = 0;
+        let currentY = 0;
+        let targetX = 0;
+        let targetY = 0;
+        let rafId = null;
         
-        init() {
-            this.updateCardPosition();
-            this.animate();
-            
-            this.card.addEventListener('mouseenter', () => this.onMouseEnter());
-            this.card.addEventListener('mouseleave', () => this.onMouseLeave());
-            this.card.addEventListener('mousemove', (e) => this.onMouseMove(e));
-            
-            window.addEventListener('resize', () => this.updateCardPosition());
-        }
+        // Smooth interpolation for buttery feel
+        const lerp = (start, end, factor) => start + (end - start) * factor;
         
-        updateCardPosition() {
-            const rect = this.card.getBoundingClientRect();
-            this.cardPos = {
-                x: rect.left + rect.width / 2,
-                y: rect.top + rect.height / 2
-            };
-        }
-        
-        onMouseEnter() {
-            this.isHovering = true;
-            this.card.style.setProperty('--hovering', '1');
-        }
-        
-        onMouseLeave() {
-            this.isHovering = false;
-            this.rotation = 0;
-            this.velocity = { x: 0, y: 0 };
-            
-            this.card.style.setProperty('--hovering', '0');
-            this.card.style.setProperty('--mouse-x', '0');
-            this.card.style.setProperty('--mouse-y', '0');
-            this.card.style.setProperty('--rotation', '0deg');
-        }
-        
-        onMouseMove(e) {
-            if (!this.isHovering) return;
-            
-            const offsetX = e.clientX - this.cardPos.x;
-            const offsetY = e.clientY - this.cardPos.y;
-            
-            const rect = this.card.getBoundingClientRect();
-            let normalizedX = (offsetX / rect.width) * 2;
-            let normalizedY = (offsetY / rect.height) * 2;
-            
-            // Clamp to prevent extreme values during fast movements
-            normalizedX = Math.max(-1.5, Math.min(1.5, normalizedX));
-            normalizedY = Math.max(-1.5, Math.min(1.5, normalizedY));
-            
-            this.velocity.x = (e.movementX || 0) * 0.5;
-            this.velocity.y = (e.movementY || 0) * 0.5;
-            
-            this.card.style.setProperty('--mouse-x', normalizedX);
-            this.card.style.setProperty('--mouse-y', normalizedY);
-            
-            this.rotation += this.velocity.x * 0.05;
-            this.rotation *= 0.8;
-            
-            // Clamp rotation to prevent extreme angles
-            this.rotation = Math.max(-15, Math.min(15, this.rotation));
-            
-            this.card.style.setProperty('--rotation', `${this.rotation}deg`);
-        }
-        
-        animate() {
-            this.time += 0.016;
-            
-            if (!this.isHovering) {
-                const floatX = Math.cos(this.time * 2 + 1.321) * 0.4;
-                const floatY = Math.sin(this.time * 2 + 1.231) * 0.4;
+        const updateTilt = () => {
+            if (!isHovering) {
+                // Ease back to center when not hovering
+                currentX = lerp(currentX, 0, 0.1);
+                currentY = lerp(currentY, 0, 0.1);
                 
-                this.card.style.setProperty('--float-x', `${floatX}px`);
-                this.card.style.setProperty('--float-y', `${floatY}px`);
-                this.card.style.setProperty('--wobble', '0deg');
+                if (Math.abs(currentX) < 0.01 && Math.abs(currentY) < 0.01) {
+                    currentX = 0;
+                    currentY = 0;
+                    card.style.setProperty('--tilt-x', '0deg');
+                    card.style.setProperty('--tilt-y', '0deg');
+                    card.style.setProperty('--shadow-x', '0px');
+                    card.style.setProperty('--shadow-y', '15px');
+                    card.style.setProperty('--glare-opacity', '0');
+                    rafId = null;
+                    return;
+                }
+            } else {
+                // Smooth follow with spring-like feel
+                currentX = lerp(currentX, targetX, 0.15);
+                currentY = lerp(currentY, targetY, 0.15);
             }
             
-            requestAnimationFrame(() => this.animate());
-        }
-    }
-
-    const projectFigures = document.querySelectorAll('.projects-figure');
+            // Apply tilt (max 12 degrees for more drama)
+            const tiltY = currentX * 12;
+            const tiltX = currentY * -12;
+            
+            // Dynamic shadow moves opposite
+            const shadowX = currentX * -20;
+            const shadowY = 15 + (currentY * -12);
+            
+            // Glare position follows mouse
+            const glareX = 50 + (currentX * 30);
+            const glareY = 50 + (currentY * 30);
+            
+            card.style.setProperty('--tilt-x', `${tiltX}deg`);
+            card.style.setProperty('--tilt-y', `${tiltY}deg`);
+            card.style.setProperty('--shadow-x', `${shadowX}px`);
+            card.style.setProperty('--shadow-y', `${shadowY}px`);
+            card.style.setProperty('--glare-x', `${glareX}%`);
+            card.style.setProperty('--glare-y', `${glareY}%`);
+            
+            rafId = requestAnimationFrame(updateTilt);
+        };
+        
+        card.addEventListener('mouseenter', () => {
+            isHovering = true;
+            card.style.setProperty('--glare-opacity', '1');
+            if (!rafId) {
+                rafId = requestAnimationFrame(updateTilt);
+            }
+        });
+        
+        card.addEventListener('mousemove', (e) => {
+            if (!isHovering) return;
+            
+            const rect = card.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            // Normalize to -1 to 1
+            targetX = (e.clientX - centerX) / (rect.width / 2);
+            targetY = (e.clientY - centerY) / (rect.height / 2);
+            
+            // Clamp
+            targetX = Math.max(-1, Math.min(1, targetX));
+            targetY = Math.max(-1, Math.min(1, targetY));
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            isHovering = false;
+            targetX = 0;
+            targetY = 0;
+            // Keep animation running to ease back
+            if (!rafId) {
+                rafId = requestAnimationFrame(updateTilt);
+            }
+        });
+    });
     
-    if (projectFigures.length > 0) {
-        console.log(`Found ${projectFigures.length} project cards. Applying Balatro hover...`);
-        projectFigures.forEach(card => new BaltroCardHover(card));
-        console.log("Balatro hover effects initialized successfully!");
-    } else {
-        console.log("No .projects-figure elements found. Balatro hover not initialized.");
-    }
+    console.log(`Juicy tilt applied to ${cards.length} cards!`);
 });

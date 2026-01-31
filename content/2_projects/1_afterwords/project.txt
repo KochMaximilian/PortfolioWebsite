@@ -38,7 +38,7 @@ Genre: Puzzle, Walking Simulator
 
 ----
 
-Platform: PC Windows, Playstation 4, Playstation 5, Xbox One, Xbox Series S/X, Nintendo Switch, Android
+Platform: PC Windows, Playstation 5, Xbox One, Nintendo Switch
 
 ----
 
@@ -54,7 +54,7 @@ Team: 8
 
 ----
 
-Awards: 
+Awards: Game Jam Score of 200
 
 ----
 
