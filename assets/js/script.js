@@ -47,43 +47,62 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentY = 0;
         let targetX = 0;
         let targetY = 0;
+        let currentScale = 1;
+        let targetScale = 1;
+        let currentGlare = 0;
+        let targetGlare = 0;
         let rafId = null;
         
-        // Smooth interpolation for buttery feel
+        // Lerp speeds - fast in, slow out
+        const lerpTiltIn = 0.15;
+        const lerpTiltOut = 0.045;
+        const lerpScaleIn = 0.12;
+        const lerpScaleOut = 0.04;
+        
         const lerp = (start, end, factor) => start + (end - start) * factor;
         
         const updateTilt = () => {
-            if (!isHovering) {
-                // Ease back to center when not hovering
-                currentX = lerp(currentX, 0, 0.1);
-                currentY = lerp(currentY, 0, 0.1);
-                
-                if (Math.abs(currentX) < 0.01 && Math.abs(currentY) < 0.01) {
-                    currentX = 0;
-                    currentY = 0;
-                    card.style.setProperty('--tilt-x', '0deg');
-                    card.style.setProperty('--tilt-y', '0deg');
-                    card.style.setProperty('--shadow-x', '0px');
-                    card.style.setProperty('--shadow-y', '15px');
-                    card.style.setProperty('--glare-opacity', '0');
-                    rafId = null;
-                    return;
-                }
-            } else {
-                // Smooth follow with spring-like feel
-                currentX = lerp(currentX, targetX, 0.15);
-                currentY = lerp(currentY, targetY, 0.15);
+            const tiltLerp = isHovering ? lerpTiltIn : lerpTiltOut;
+            const scaleLerp = isHovering ? lerpScaleIn : lerpScaleOut;
+            
+            // Smooth tilt
+            currentX = lerp(currentX, targetX, tiltLerp);
+            currentY = lerp(currentY, targetY, tiltLerp);
+            
+            // Smooth scale
+            currentScale = lerp(currentScale, targetScale, scaleLerp);
+            
+            // Smooth glare
+            currentGlare = lerp(currentGlare, targetGlare, scaleLerp);
+            
+            // Check if close enough to stop
+            const tiltDone = Math.abs(currentX - targetX) < 0.001 && Math.abs(currentY - targetY) < 0.001;
+            const scaleDone = Math.abs(currentScale - targetScale) < 0.001;
+            
+            if (!isHovering && tiltDone && scaleDone) {
+                currentX = 0;
+                currentY = 0;
+                currentScale = 1;
+                currentGlare = 0;
+                card.style.setProperty('--tilt-x', '0deg');
+                card.style.setProperty('--tilt-y', '0deg');
+                card.style.setProperty('--shadow-x', '0px');
+                card.style.setProperty('--shadow-y', '15px');
+                card.style.setProperty('--glare-opacity', '0');
+                card.style.setProperty('--card-scale', '1');
+                rafId = null;
+                return;
             }
             
-            // Apply tilt (max 12 degrees for more drama)
+            // Apply tilt (max 12 degrees)
             const tiltY = currentX * 12;
             const tiltX = currentY * -12;
             
-            // Dynamic shadow moves opposite
+            // Dynamic shadow
             const shadowX = currentX * -20;
             const shadowY = 15 + (currentY * -12);
             
-            // Glare position follows mouse
+            // Glare position
             const glareX = 50 + (currentX * 30);
             const glareY = 50 + (currentY * 30);
             
@@ -93,13 +112,17 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.setProperty('--shadow-y', `${shadowY}px`);
             card.style.setProperty('--glare-x', `${glareX}%`);
             card.style.setProperty('--glare-y', `${glareY}%`);
+            card.style.setProperty('--glare-opacity', currentGlare.toString());
+            card.style.setProperty('--card-scale', currentScale.toString());
             
             rafId = requestAnimationFrame(updateTilt);
         };
         
         card.addEventListener('mouseenter', () => {
             isHovering = true;
-            card.style.setProperty('--glare-opacity', '1');
+            targetScale = 1.08;
+            targetGlare = 1;
+            
             if (!rafId) {
                 rafId = requestAnimationFrame(updateTilt);
             }
@@ -125,7 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
             isHovering = false;
             targetX = 0;
             targetY = 0;
-            // Keep animation running to ease back
+            targetScale = 1;
+            targetGlare = 0;
+            
             if (!rafId) {
                 rafId = requestAnimationFrame(updateTilt);
             }

@@ -54,7 +54,7 @@
                             </div>
                             <div>
                                 <dt>Platforms:</dt>
-                                <dd><?php foreach ($page->platform() as $platform): ?><span class="project-platfrom"><?= $platform ?></span> <?php endforeach; ?></dd>
+                                <dd><?php foreach ($page->platform() as $platform): ?><span class="project-platform"><?= $platform ?></span> <?php endforeach; ?></dd>
                             </div>
                             <div>
                                 <dt>Release Year:</dt>
@@ -68,10 +68,10 @@
                                 <dt>Area of Focus:</dt>
                                 <dd><?php foreach ($page->focus() as $focus): ?> <span class="project-focus"><?= $focus ?></span> <?php endforeach; ?></dd>
                             </div>
-                            <?php if ($page->awards()->isNotEmpty()): ?>
-                                <div>
-                                    <dt>Awards:</dt>
-                                    <dd><?= $page->awards() ?></dd>
+                            <?php if ($page->has_award()->toBool()): ?>
+                                <div class="award-info">
+                                    <dt><i class="fa-solid fa-trophy"></i> Award:</dt>
+                                    <dd><?= $page->award_description()->or('Award Winner') ?></dd>
                                 </div>
                             <?php endif; ?>
                             <div>

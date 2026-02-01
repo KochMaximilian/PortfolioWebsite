@@ -12,7 +12,7 @@
                         </div>
                     </div>
                     
-                    <!-- Art Box with Platform Set Symbol -->
+                    <!-- Art Box with Platform Set Symbol + Award Badge -->
                     <div class="card-art">
                         <img 
                             src="<?= $project->images()->template('gallery-image')->first()->thumb([
@@ -70,6 +70,14 @@
                                    (max-width: 1920px) 420px,
                                    (min-width: 1921px) 450px"
                         >
+                        
+                        <?php if ($project->has_award()->toBool()): ?>
+                        <!-- TODO: Replace FontAwesome trophy with custom award icon before project completion -->
+                        <div class="card-award-badge" title="Award Winner">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <?php endif ?>
+                        
                         <!-- Platform Set Symbol -->
                         <div class="card-set-symbol">
                             <?php 
@@ -117,7 +125,7 @@
                     <!-- Text Box: Description -->
                     <div class="card-text-box">
                         <?php if ($project->description()->isNotEmpty()): ?>
-                            <p class="card-description"><?= $project->description()->excerpt(100) ?></p>
+                              <p class="card-description"><?= $project->flavortext()->or('Where others see chaos, I see opportunity.') ?></p>
                         <?php endif; ?>
                     </div>
                     
@@ -132,7 +140,7 @@
                                 'Personal' => 'PER',
                                 'Game Jam' => 'JAM',
                             ];
-                            $setCode = $typeMap[$project->type()->value()] ?? 'PRJ';
+                            $setCode = 'MK' . '-' . $typeMap[$project->type()->value()] ?? 'PRJ';
                             echo $setCode . '-' . $project->year();
                             ?>
                         </span>

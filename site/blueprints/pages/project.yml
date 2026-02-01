@@ -21,6 +21,13 @@ columns:
             default: no
             width: 1/6
             help: Display this project on the front page.
+          flavortext:
+            label: Card Flavor Text
+            type: text
+            maxlength: 80
+            width: 1/1
+            help: Short evocative text for the portfolio card (max 80 chars).
+            placeholder: "Where others see chaos, I see opportunity."
           description:
             label: Description of the Game
             required: true
@@ -34,9 +41,10 @@ columns:
             help: Choose one of the project types.
             type: select
             options:
-              - Personal
-              - Professional
+              - Personal Project
+              - Professional Project
               - Game Jam
+              - Student Project
             width: 1/2
           year:
             label: Release Year
@@ -48,16 +56,16 @@ columns:
             width: 1/2
           embedlink:
             width: 1/2
-            label: Embedet Link
+            label: Embedded Link
             type: link
             before: "Copy Url"
             help: Best to copy the "privacy-enhanced mode" link here.
           embedTitle:
             width: 1/2
-            label: Video Titel
+            label: Video Title
             type: text
             maxlength: 50
-            help: Copy title form YouTube Vido.
+            help: Copy title from YouTube video.
 
   - width: 1/2
     sections:
@@ -82,7 +90,7 @@ columns:
           platform:
             label: Release Platform
             required: true
-            help: Possible to pick more than one platfrom-tag or add a custom tag.
+            help: Possible to pick more than one platform-tag or add a custom tag.
             type: tags
             icon: blank
             options:
@@ -99,7 +107,7 @@ columns:
           focus:
             label: Area of Focus
             required: true
-            help: Skills & Disciplines to highilight. Possilbe to choose more than one tag.
+            help: Skills & Disciplines to highlight. Possible to choose more than one tag.
             icon: badge
             type: tags
             options:
@@ -119,14 +127,25 @@ columns:
             label: Team Size
             type: text
             icon: users
-            width: 1/5
-            help: Number of Teammembers.
-          awards:
-            label: Projcet Awards
+            width: 1/4
+            help: Number of team members.
+          has_award:
+            label: Has Award
+            type: toggle
+            text:
+              - "No"
+              - "Yes"
+            default: no
+            width: 1/4
+            help: Check if this project won an award.
+          award_description:
+            label: Award Description
             type: text
-            icon: sparkling
-            width: 4/5
-            help: Fill in any award this project has won.
+            maxlength: 100
+            width: 2/4
+            help: Describe the award (shown on project detail page).
+            when:
+              has_award: true
           engine:
             label: Game Engine
             type: tags
@@ -143,9 +162,8 @@ columns:
               - Godot
           engineicon:
             label: Game Engine Visual
-            type: select 
+            type: select
             options:
-              # <-- Hardcoded filenames from your assets folder. 
               godot-engine.svg: Godot Engine
               svg-sprite.svg: SVG Sprite
               unity.svg: Unity
