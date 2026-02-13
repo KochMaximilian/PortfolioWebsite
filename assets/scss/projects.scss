@@ -84,6 +84,18 @@
     border-radius: $radius-large;
     transition: transform 0.3s $easing-pop,
                 box-shadow 0.3s $easing-pop;
+
+    // Holo CSS custom property defaults (JS overrides on hover)
+    --pointer-x: 50%;
+    --pointer-y: 50%;
+    --card-opacity: 0;
+    --background-x: 50%;
+    --background-y: 50%;
+    --pointer-from-center: 0;
+    --pointer-from-top: 0.5;
+    --pointer-from-left: 0.5;
+
+    
 }
 
 // Card Frame
@@ -412,6 +424,191 @@
     transition: color 0.3s ease-out;
 }
 
+
+// ============================================
+// POKEMON V HOLOGRAPHIC EFFECT - Featured Cards
+// ============================================
+
+// Featured card frame - gold foil metallic treatment
+.is-featured .card-frame {
+    --sunpillar-1: hsl(2, 100%, 73%);
+    --sunpillar-2: hsl(53, 100%, 69%);
+    --sunpillar-3: hsl(93, 100%, 69%);
+    --sunpillar-4: hsl(176, 100%, 76%);
+    --sunpillar-5: hsl(228, 100%, 74%);
+    --sunpillar-6: hsl(283, 100%, 73%);
+
+    --sunpillar-clr-1: var(--sunpillar-1);
+    --sunpillar-clr-2: var(--sunpillar-2);
+    --sunpillar-clr-3: var(--sunpillar-3);
+    --sunpillar-clr-4: var(--sunpillar-4);
+    --sunpillar-clr-5: var(--sunpillar-5);
+    --sunpillar-clr-6: var(--sunpillar-6);
+
+    --grain: url('/assets/img/holo/grain.webp');
+
+    // Gold foil metallic frame
+    background:
+        url('/assets/img/holo/glitter.png'),
+        linear-gradient(
+            145deg,
+            #4a3520 0%,
+            $yellow-dark 25%,
+            #c8922a 40%,
+            $yellow-medium 55%,
+            $yellow-dark 70%,
+            #4a3520 100%
+        );
+    background-size: 300px auto, 100% 100%;
+    background-blend-mode: screen;
+    filter: contrast(1.05) brightness(1.02);
+}
+
+// Featured card footer text - brighter on gold frame
+.is-featured .card-footer-engine,
+.is-featured .card-footer-set {
+    color: rgba(0, 0, 0, 0.55);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.is-featured:hover .card-footer-engine,
+.is-featured:hover .card-footer-set {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+// Shared positioning for holo layers
+.card-shine,
+.card-glare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: $radius-large;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+// Shine layer - from base.css .card__shine + v-regular.css overrides
+.card-shine {
+    --space: 5%;
+    --angle: 133deg;
+    --imgsize: 500px;
+
+    z-index: 3;
+    transform: translateZ(1px);
+
+    background-image:
+        var(--grain),
+        repeating-linear-gradient( 0deg,
+            var(--sunpillar-clr-1) calc(var(--space)*1),
+            var(--sunpillar-clr-2) calc(var(--space)*2),
+            var(--sunpillar-clr-3) calc(var(--space)*3),
+            var(--sunpillar-clr-4) calc(var(--space)*4),
+            var(--sunpillar-clr-5) calc(var(--space)*5),
+            var(--sunpillar-clr-6) calc(var(--space)*6),
+            var(--sunpillar-clr-1) calc(var(--space)*7)
+        ),
+        repeating-linear-gradient(
+            var(--angle),
+            #0e152e 0%,
+            hsl(180, 10%, 60%) 3.8%,
+            hsl(180, 29%, 66%) 4.5%,
+            hsl(180, 10%, 60%) 5.2%,
+            #0e152e 10%,
+            #0e152e 12%
+        ),
+        radial-gradient(
+            farthest-corner circle
+            at var(--pointer-x) var(--pointer-y),
+            hsla(0, 0%, 0%, 0.1) 12%,
+            hsla(0, 0%, 0%, 0.15) 20%,
+            hsla(0, 0%, 0%, 0.25) 120%
+        );
+
+    background-blend-mode: screen, hue, hard-light;
+    background-size: var(--imgsize) 100%, 200% 700%, 300% 100%, 200% 100%;
+    background-position: center, 0% var(--background-y), var(--background-x) var(--background-y), var(--background-x) var(--background-y);
+
+    filter: brightness(.7) contrast(2) saturate(.5);
+    mix-blend-mode: color-dodge;
+
+    opacity: var(--card-opacity);
+}
+
+// Shine ::after layer - shifted sunpillar colors, reversed positions
+// from base.css .card__shine:after + v-regular.css overrides
+.card-shine::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: $radius-large;
+    transform: translateZ(1.2px);
+
+    --sunpillar-clr-1: var(--sunpillar-6);
+    --sunpillar-clr-2: var(--sunpillar-1);
+    --sunpillar-clr-3: var(--sunpillar-2);
+    --sunpillar-clr-4: var(--sunpillar-3);
+    --sunpillar-clr-5: var(--sunpillar-4);
+    --sunpillar-clr-6: var(--sunpillar-5);
+
+    background-image:
+        var(--grain),
+        repeating-linear-gradient( 0deg,
+            var(--sunpillar-clr-1) calc(var(--space)*1),
+            var(--sunpillar-clr-2) calc(var(--space)*2),
+            var(--sunpillar-clr-3) calc(var(--space)*3),
+            var(--sunpillar-clr-4) calc(var(--space)*4),
+            var(--sunpillar-clr-5) calc(var(--space)*5),
+            var(--sunpillar-clr-6) calc(var(--space)*6),
+            var(--sunpillar-clr-1) calc(var(--space)*7)
+        ),
+        repeating-linear-gradient(
+            var(--angle),
+            #0e152e 0%,
+            hsl(180, 10%, 60%) 3.8%,
+            hsl(180, 29%, 66%) 4.5%,
+            hsl(180, 10%, 60%) 5.2%,
+            #0e152e 10%,
+            #0e152e 12%
+        ),
+        radial-gradient(
+            farthest-corner circle
+            at var(--pointer-x) var(--pointer-y),
+            hsla(0, 0%, 0%, 0.1) 12%,
+            hsla(0, 0%, 0%, 0.15) 20%,
+            hsla(0, 0%, 0%, 0.25) 120%
+        );
+
+    background-blend-mode: screen, hue, hard-light;
+    background-position: center, 0% var(--background-y), calc( var(--background-x) * -1) calc( var(--background-y) * -1), var(--background-x) var(--background-y);
+    background-size: var(--imgsize) 100%, 200% 400%, 195% 100%, 200% 100%;
+
+    filter: brightness(1) contrast(2.5) saturate(1.75);
+    mix-blend-mode: soft-light;
+}
+
+// Glare layer - from base.css .card__glare + v-regular.css overrides
+.card-glare {
+    z-index: 4;
+    transform: translateZ(1.41px);
+
+    background-image:
+        radial-gradient(
+            farthest-corner circle at var(--pointer-x) var(--pointer-y),
+            hsl(0, 0%, 100%) 0%,
+            hsla(210, 3%, 54%, 0.33) 45%,
+            hsla(0, 0%, 20%, 0.9) 130%
+        );
+
+    opacity: calc(var(--card-opacity) * 0.5);
+    mix-blend-mode: hard-light;
+    filter: brightness(.9) contrast(1.75);
+}
+
 // ============================================
 // HOVER EFFECTS - All Devices
 // ============================================
@@ -513,7 +710,7 @@
             0 5px 15px rgba(0, 0, 0, 0.2);
     }
     
-    // Holographic glare overlay
+    // Holographic glare overlay (generic, for non-featured cards)
     .card-frame::before {
         content: '';
         position: absolute;
@@ -533,6 +730,11 @@
         border-radius: $radius-large;
         transition: opacity 0.3s ease-out;
         mix-blend-mode: overlay;
+    }
+
+    // Hide generic glare on featured cards (they have Pokemon V holo instead)
+    .is-featured .card-frame::before {
+        display: none;
     }
     
     // Shimmer sweep effect
@@ -556,6 +758,18 @@
         pointer-events: none;
         z-index: 16;
         transition: opacity 0.3s ease-out;
+    }
+
+    // Featured card - premium gold foil shimmer sweep
+    .is-featured .card-frame::after {
+        background: linear-gradient(
+            115deg, 
+            transparent 18%, 
+            rgba($yellow-dark, 0.45) 36%,
+            rgba($yellow-medium, 0.7) 50%,
+            rgba($yellow-dark, 0.45) 64%,
+            transparent 82%
+        );
     }
     
     .projects-link:hover .card-frame::after {
@@ -591,6 +805,15 @@
     
     .projects-link:hover .card-mana {
         transform: translateZ(30px) scale(1.2);
+    }
+
+    // Parallax for holo layers
+    .projects-link:hover .card-shine {
+        transform: translateZ(1px);
+    }
+
+    .projects-link:hover .card-glare {
+        transform: translateZ(1.41px);
     }
 }
 

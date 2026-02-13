@@ -1,6 +1,6 @@
 <div class="projects">
     <?php foreach ($projects as $project): ?>
-        <a class="projects-link" href="<?= $project->url() ?>">
+        <a class="projects-link <?= $project->featured()->toBool() ? 'is-featured' : '' ?>" href="<?= $project->url() ?>">
             <figure class="projects-figure">
                 <div class="card-frame">
                     
@@ -72,7 +72,6 @@
                         >
                         
                         <?php if ($project->has_award()->toBool()): ?>
-                        <!-- TODO: Replace FontAwesome trophy with custom award icon before project completion -->
                         <div class="card-award-badge" title="Award Winner">
                             <i class="fa-solid fa-trophy"></i>
                         </div>
@@ -134,17 +133,22 @@
                         <span class="card-footer-engine"><?= $project->engine() ?></span>
                         <span class="card-footer-set">
                             <?php 
-                            // Create set code from project type
                             $typeMap = [
                                 'Professional' => 'PRO',
                                 'Personal' => 'PER',
                                 'Game Jam' => 'JAM',
                             ];
-                            $setCode = 'MK' . '-' . $typeMap[$project->type()->value()] ?? 'PRJ';
+                            $setCode = $typeMap[$project->type()->value()] ?? 'PRJ';
                             echo $setCode . '-' . $project->year();
                             ?>
                         </span>
                     </div>
+                    
+                    <!-- Holographic shine + glare layers (cover entire card frame) -->
+                    <?php if ($project->featured()->toBool()): ?>
+                    <div class="card-shine"></div>
+                    <div class="card-glare"></div>
+                    <?php endif ?>
                     
                 </div>
             </figure>

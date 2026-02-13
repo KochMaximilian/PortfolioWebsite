@@ -10,11 +10,15 @@ Featured: false
 
 ----
 
+Flavortext: 
+
+----
+
 Description: This is a test project to share it and check it on different devices.
 
 ----
 
-Type: Personal
+Type: Professional
 
 ----
 
@@ -50,7 +54,11 @@ Team:
 
 ----
 
-Awards: 
+Has-award: false
+
+----
+
+Award-description: 
 
 ----
 
@@ -63,6 +71,10 @@ Engineicon: godot-engine.svg
 ----
 
 Links: 
+
+----
+
+Awards: 
 
 ----
 

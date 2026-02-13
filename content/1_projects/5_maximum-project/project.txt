@@ -1,0 +1,77 @@
+Title: Maximum Project
+
+----
+
+Name: Maximum Project
+
+----
+
+Featured: false
+
+----
+
+Flavortext: 
+
+----
+
+Description: this is a test
+
+----
+
+Type: Personal
+
+----
+
+Year: 2026
+
+----
+
+Embedlink: 
+
+----
+
+Embedtitle: 
+
+----
+
+Genre: RPG
+
+----
+
+Platform: PC Windows
+
+----
+
+Focus: Level Design
+
+----
+
+Duration: 8 Months
+
+----
+
+Team: 3
+
+----
+
+Has-award: false
+
+----
+
+Award-description: 
+
+----
+
+Engine: Godot
+
+----
+
+Engineicon: godot-engine.svg
+
+----
+
+Links: 
+
+----
+
+Uuid: HnBf5XLM3NsiNWpt

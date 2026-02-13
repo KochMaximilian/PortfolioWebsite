@@ -6,7 +6,11 @@ Name: Testing Project 1
 
 ----
 
-Featured: true
+Featured: false
+
+----
+
+Flavortext: 
 
 ----
 
@@ -14,7 +18,7 @@ Description: This is a test project to share it and check it on different device
 
 ----
 
-Type: Professional
+Type: Personal
 
 ----
 
@@ -50,7 +54,11 @@ Team:
 
 ----
 
-Awards: 
+Has-award: false
+
+----
+
+Award-description: 
 
 ----
 
@@ -63,6 +71,10 @@ Engineicon: unreal-engine.svg
 ----
 
 Links: 
+
+----
+
+Awards: 
 
 ----
 
