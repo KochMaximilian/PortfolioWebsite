@@ -1,8 +1,18 @@
 <div class="projects">
     <?php foreach ($projects as $project): ?>
+        <?php
+        // Map engine names to pattern texture slugs
+        $enginePatternMap = [
+            'Unity' => 'unity',
+            'Unreal Engine 5' => 'unreal',
+            'Unreal Engine 4' => 'unreal',
+            'Godot' => 'godot',
+        ];
+        $engineSlug = $enginePatternMap[$project->engine()->value()] ?? 'unity';
+        ?>
         <a class="projects-link <?= $project->featured()->toBool() ? 'is-featured' : '' ?>" href="<?= $project->url() ?>">
             <figure class="projects-figure">
-                <div class="card-frame">
+                <div class="card-frame engine-<?= $engineSlug ?>">
                     
                     <!-- Header: Name + Engine Icon -->
                     <div class="card-header">
@@ -139,7 +149,7 @@
                                 'Game Jam' => 'JAM',
                             ];
                             $setCode = $typeMap[$project->type()->value()] ?? 'PRJ';
-                            echo $setCode . '-' . $project->year();
+                            echo 'MK' . '-' . $setCode . '-' . $project->year(); // Write out the Collector Infor String
                             ?>
                         </span>
                     </div>
