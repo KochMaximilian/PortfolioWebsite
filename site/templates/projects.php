@@ -8,7 +8,7 @@
 <?php endsnippet() ?>
 
 <div class="wrapper">
-    <div class=page-zoom>
+    <div class="page-zoom">
         <main class="main-wrapper">
 
             <section class="content-block">

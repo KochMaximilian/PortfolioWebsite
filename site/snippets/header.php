@@ -15,7 +15,6 @@
 
     <link rel="preload" href="/assets/img/pattern_<?= $GLOBALS['siteVariant'] ?>.png" as="image">
 
-    <?= css('assets/css/config/config.css') ?>
     <?php if ($page->intendedTemplate()->name() === 'home'): ?>
         <?= css('assets/css/config/utility/flickity.css') ?>
         <?= css('assets/css/carousel.css') ?>

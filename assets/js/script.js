@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("Script loaded!");
 
     // Wobble easter egg
     let clickCount = 0;
@@ -27,17 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ========================================
+
     // 3D CARD TILT + GLARE + HOLO - Desktop only
-    // ========================================
+
     const isDesktop = window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)').matches;
     
     if (!isDesktop) {
-        console.log("Tilt effect disabled on mobile/tablet");
         return;
     }
-
-    console.log("Initializing juicy 3D card tilt...");
 
     // Math helpers from pokemon-cards-css Math.js
     const round = (value, precision = 3) => parseFloat(value.toFixed(precision));
@@ -200,6 +196,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    
-    console.log(`Juicy tilt applied to ${cards.length} cards!`);
 });
