@@ -17,7 +17,17 @@
                 <a class="social-link" target="_blank" href="<?= $site->youtube() ?>"><i class="fa-brands fa-square-youtube custom-icon-size"></i></a>
                 <a class="social-link" target="_blank" href="<?= $site->itchio() ?>"><i class="fa-brands fa-itch-io custom-icon-size"></i></a>
             </nav>
-            <img id="wobbleElement" class="wobble-hor-top footer-logo" src="<?= $site->url() ?>/assets/img/LogoPiece.svg" alt="Site Logo">
+            <?php
+            // Match footer logo to the site variant picked in header.php
+            $logoMap = [
+                'piece' => 'LogoPiece.svg',
+                'shaka' => 'LogoShaka.svg',
+                'ok'    => 'LogoOK.svg',
+            ];
+            $variant = $GLOBALS['siteVariant'] ?? 'piece';
+            $randomLogo = $logoMap[$variant];
+            ?>
+            <img id="wobbleElement" class="wobble-hor-top footer-logo" src="<?= $site->url() ?>/assets/img/<?= $randomLogo ?>" alt="Site Logo">
             <nav class="mobile-socials right">
                 <a class="social-link" target="_blank" href="<?= $site->twitter() ?>"><i class="fa-brands fa-square-x-twitter custom-icon-size"></i></a>
                 <a class="social-link" target="_blank" href="<?= $site->youtube() ?>"><i class="fa-brands fa-square-youtube custom-icon-size"></i></a>

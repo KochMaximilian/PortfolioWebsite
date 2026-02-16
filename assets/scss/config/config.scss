@@ -11,33 +11,13 @@ $gray-medium: #676767;
 $blue-dark: #2C56C3;
 $blue-medium: #3D69D9;
 $blue-light: #6487E1;
-$red-dark: #FA2718;
-$red-medium: #FB4235;
-$red-light: #FC5D52;
-$green-dark: #5DC246;
-$green-medium: #7ECE6B;
-$green-light: #A9DE9C;
 $yellow-dark: #FCBB3F;
 $yellow-medium: #FDCC6F;
 $yellow-light: #FEDD9F;
 $purple-dark: #2D2636;
 $purple-medium: #342D3D;
 $purple-light: #484250;
-$olive-dark: #313D31;
-$olive-medium: #485248;
-$olive-light: #969C96;
 $white: #FEFEFE;
-
-// Bulma color mappings (for framework compatibility)
-$primary: $blue-medium;
-$dark: $black-dark;
-$light: $white;
-$success: $green-medium;
-$warning: $yellow-medium;
-$danger: $red-medium;
-$grey: $gray-medium;
-$grey-dark: $gray-dark;
-$text: $black-dark;
 
 // Transparent
 $black-semi-transparent: rgba(0, 0, 0, 0.85);
@@ -47,10 +27,6 @@ $black-semi-transparent: rgba(0, 0, 0, 0.85);
 $font-barlow: 'Barlow', sans-serif;
 $font-poppins: 'Poppins', sans-serif;
 
-// Bulma font variables
-$family-sans-serif: $font-barlow;
-$family-primary: $font-barlow;
-$family-secondary: $font-poppins;
 
 // Font sizes (simplified map)
 $font-sizes: (

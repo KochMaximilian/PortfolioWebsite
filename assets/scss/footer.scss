@@ -110,7 +110,8 @@ footer {
   // Pop out of the footer top
   margin-top: -10.5rem;
   
-  // Juice it up
+  // Juice it up — subtle idle shadow gives depth
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
   transition: transform 0.3s $easing-pop,
               filter 0.3s $easing-bounce;
   animation: logo-float 3s ease-in-out infinite;

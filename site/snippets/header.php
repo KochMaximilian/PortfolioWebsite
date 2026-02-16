@@ -7,7 +7,13 @@
     <title><?= $page->title()->html() ?> | <?= $site->title()->html() ?></title>
     <?php snippet('favicon') ?>
 
-    <link rel="preload" href="/assets/img/pattern.webp" as="image">
+    <?php
+    // Pick a random site variant per page load — drives both background pattern + footer logo
+    $variants = ['piece', 'shaka', 'ok'];
+    $GLOBALS['siteVariant'] = $variants[array_rand($variants)];
+    ?>
+
+    <link rel="preload" href="/assets/img/pattern_<?= $GLOBALS['siteVariant'] ?>.png" as="image">
 
     <?= css('assets/css/config/config.css') ?>
     <?php if ($page->intendedTemplate()->name() === 'home'): ?>
@@ -39,14 +45,16 @@
     <?= css('assets/css/navbar.css') ?>
     <?= css('assets/css/main.css') ?>
 
-    <?= $slots->head() ?>
+    <?php if (isset($slots) && $slots->head()): ?>
+        <?= $slots->head() ?>
+    <?php endif ?>
 
     <link rel="preconnect" href="https://fonts.bunny.net/css">
-    <link href="https://fonts.bunny.net/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.bunny.net/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.bunny.net/css2?family=Barlow:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.bunny.net/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="variant-<?= $GLOBALS['siteVariant'] ?>">
     <div class="scrolling-background"></div>
 
     <header class="site-header">

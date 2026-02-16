@@ -125,9 +125,16 @@
     transition: box-shadow 0.3s $easing-pop;
 
     // Base background — engine texture applied via --engine-pattern set by engine classes below
-    background: var(--engine-pattern, none) repeat, $black-dark;
+    background: var(--engine-pattern, none) repeat, linear-gradient(
+        45deg,
+        $purple-light 0%,
+        $purple-light 20%,
+        mix($purple-light, $black-dark, 70%) 45%,
+        mix($purple-light, $black-dark, 30%) 75%,
+        $black-dark 100%
+    );
     background-size: 100%;
-    background-blend-mode: lighten;
+    background-blend-mode: difference;
     backface-visibility: hidden;
     
 
@@ -172,14 +179,19 @@
     padding-right: space(2);
 }
 
-// Engine icon
+// Engine icon — gem-like gradient for all cards
 .card-mana {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 2.1rem;
     height: 2.1rem;
-    background: $yellow-dark;
+    background: radial-gradient(
+        circle at 35% 35%,
+        $yellow-light 0%,
+        $yellow-dark 50%,
+        $yellow-medium 100%
+    );
     border: $border-xs solid $black-dark;
     border-radius: 50%;
     flex-shrink: 0;
@@ -597,8 +609,9 @@
     opacity: max(var(--card-opacity), 0.12);
 }
 
-// ---- ENHANCED MANA ORB (featured only) ----
-// Gold-to-amber radial gradient with gem-like inner glow
+// ---- ENHANCED MANA ORB (featured only — adds pulse) ----
+// All cards already get the gem gradient from base .card-mana
+// Featured adds the breathing glow animation on top
 .is-featured .card-mana {
     background: radial-gradient(
         circle at 35% 35%,
@@ -610,7 +623,7 @@
     animation: mana-glow 3s ease-in-out infinite;
 }
 
-// Mana orb hover — stop pulse, lock to bright state
+// Featured mana orb hover — stop pulse, lock to bright state
 .projects-link:hover .is-featured .card-mana {
     animation: none;
     background: radial-gradient(
@@ -644,7 +657,6 @@
 .card-shine {
     --space: 5%;
     --angle: 133deg;
-    --imgsize: 500px;
 
     z-index: 3;
     transform: translateZ(1px);
@@ -678,7 +690,8 @@
         );
 
     background-blend-mode: screen, hue, hard-light;
-    background-size: var(--imgsize) 100%, 200% 700%, 300% 100%, 200% 100%;
+    background-repeat: no-repeat, repeat, repeat, no-repeat;
+    background-size: 100% 100%, 200% 700%, 300% 100%, 200% 100%;
     background-position: center, 0% var(--background-y), var(--background-x) var(--background-y), var(--background-x) var(--background-y);
 
     filter: brightness(.7) contrast(2) saturate(.5);
@@ -735,8 +748,9 @@
         );
 
     background-blend-mode: screen, hue, hard-light;
+    background-repeat: no-repeat, repeat, repeat, no-repeat;
     background-position: center, 0% var(--background-y), calc( var(--background-x) * -1) calc( var(--background-y) * -1), var(--background-x) var(--background-y);
-    background-size: var(--imgsize) 100%, 200% 400%, 195% 100%, 200% 100%;
+    background-size: 100% 100%, 200% 400%, 195% 100%, 200% 100%;
 
     filter: brightness(1) contrast(2.5) saturate(1.75);
     mix-blend-mode: soft-light;
@@ -782,11 +796,13 @@
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-// Featured card hover - brighter purple glow + stop idle drift
+// Featured card hover — stop edge-glow animation, lock to peak glow + purple hover glow
 .projects-link:hover .is-featured .card-frame {
     animation: none;
     box-shadow:
         0 15px 40px rgba(0, 0, 0, 0.4),
+        0 0 18px rgba($yellow-light, 0.4),
+        0 0 40px rgba($yellow-light, 0.2),
         0 0 25px rgba($purple-light, 0.45),
         0 0 50px rgba($purple-light, 0.2);
 }
@@ -805,10 +821,12 @@
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
+// All cards — gem glow on mana orb hover
 .projects-link:hover .card-mana {
     transform: scale(1.2);
-    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4),
                 inset 0 -2px 4px rgba(0, 0, 0, 0.2),
+                0 0 10px rgba($yellow-dark, 0.3),
                 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 

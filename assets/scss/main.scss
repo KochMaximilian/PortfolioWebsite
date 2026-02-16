@@ -24,6 +24,10 @@ html {
    ============================================
    Solid color on body (loads instantly, no flash).
    Pattern on ::before with opacity (loads after, blends in).
+   
+   Background-size is scaled per breakpoint so the pattern
+   covers the viewport with minimal tiling (fewer seams).
+   Sizes: 4K = 3840×2160, 2K = 2560×1440, FHD = 1920×1080
 */
 
 body {
@@ -52,11 +56,38 @@ body::before {
   background-color: $blue-light;
   background-image: url('/assets/img/pattern.png');
   background-repeat: repeat;
-  background-size: 960px 540px;
+  background-size: 1920px 1080px;
   background-position: 0 0;
   opacity: 0.8;
   z-index: -1;
   pointer-events: none;
+}
+
+// 2K screens and up — one tile covers the viewport
+@media (min-width: 2000px) {
+  body::before {
+    background-size: 2560px 1440px;
+  }
+}
+
+// 4K screens — scale up again so it tiles at most 1.5×
+@media (min-width: 3200px) {
+  body::before {
+    background-size: 3840px 2160px;
+  }
+}
+
+// Variant-specific background patterns — matched to footer logo
+body.variant-piece::before {
+  background-image: url('/assets/img/pattern_piece.png');
+}
+
+body.variant-shaka::before {
+  background-image: url('/assets/img/pattern_shaka.png');
+}
+
+body.variant-ok::before {
+  background-image: url('/assets/img/pattern_ok.png');
 }
 
 a {
