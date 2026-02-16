@@ -690,8 +690,8 @@
         );
 
     background-blend-mode: screen, hue, hard-light;
-    background-repeat: no-repeat, repeat, no-repeat, no-repeat;
-    background-size: 100% 100%, 200% 700%, 400% 100%, 200% 100%;
+    background-repeat: no-repeat, repeat, repeat, no-repeat;
+    background-size: 100% 100%, 200% 700%, 300% 100%, 200% 100%;
     background-position: center, 0% var(--background-y), var(--background-x) var(--background-y), var(--background-x) var(--background-y);
 
     filter: brightness(.7) contrast(2) saturate(.5);
@@ -748,9 +748,9 @@
         );
 
     background-blend-mode: screen, hue, hard-light;
-    background-repeat: no-repeat, repeat, no-repeat, no-repeat;
+    background-repeat: no-repeat, repeat, repeat, no-repeat;
     background-position: center, 0% var(--background-y), calc( var(--background-x) * -1) calc( var(--background-y) * -1), var(--background-x) var(--background-y);
-    background-size: 100% 100%, 200% 400%, 400% 100%, 200% 100%;
+    background-size: 100% 100%, 200% 400%, 195% 100%, 200% 100%;
 
     filter: brightness(1) contrast(2.5) saturate(1.75);
     mix-blend-mode: soft-light;
