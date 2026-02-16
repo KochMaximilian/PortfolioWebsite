@@ -424,20 +424,20 @@
 }
 @keyframes idle-holo-drift {
   0%, 100% {
-    --background-x: 30%;
-    --background-y: 30%;
+    --background-x: 15%;
+    --background-y: 20%;
   }
   25% {
-    --background-x: 65%;
-    --background-y: 40%;
+    --background-x: 75%;
+    --background-y: 30%;
   }
   50% {
-    --background-x: 55%;
-    --background-y: 70%;
+    --background-x: 65%;
+    --background-y: 80%;
   }
   75% {
-    --background-x: 35%;
-    --background-y: 55%;
+    --background-x: 20%;
+    --background-y: 65%;
   }
 }
 @keyframes mana-glow {
@@ -499,7 +499,7 @@
 }
 
 .is-featured .card-shine {
-  opacity: max(var(--card-opacity), 0.12);
+  opacity: max(var(--card-opacity), 0.25);
 }
 
 .is-featured .card-mana {
@@ -536,7 +536,7 @@
   background-repeat: no-repeat, repeat, repeat, no-repeat;
   background-size: 100% 100%, 200% 700%, 300% 100%, 200% 100%;
   background-position: center, 0% var(--background-y), var(--background-x) var(--background-y), var(--background-x) var(--background-y);
-  filter: brightness(0.7) contrast(2) saturate(0.5);
+  filter: brightness(0.8) contrast(2) saturate(0.7);
   mix-blend-mode: color-dodge;
   opacity: var(--card-opacity);
 }
