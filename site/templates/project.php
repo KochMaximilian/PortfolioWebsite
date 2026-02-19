@@ -81,7 +81,7 @@
                             <?php if ($page->links()->isNotEmpty()): ?>
                                 <div>
                                     <dt>Additional Links:</dt>
-                                    <dd><a class="additional-link" href="<?= $page->links() ?>" title="<?= $page->links() ?>"><?= preg_replace('/.*\//', ' ', $page->links()->url()->short(22, '…')) ?></a></dd>
+                                    <dd><a class="additional-link" href="<?= $page->links() ?>" title="<?= $page->links() ?>"><?= Url::short($page->links(), 30) ?></a></dd>
                                 </div>
                             <?php endif; ?>
                         </dl>
@@ -106,23 +106,45 @@
 
             if ($showcaseImages->isNotEmpty()): ?>
                 <section class="lightbox">
+                    <div class="section-divider">
+                        <span class="section-divider-badge">
+                            <i class="fa-solid fa-images" aria-hidden="true"></i>
+                            <span class="section-divider-title">Gallery</span>
+                            <span class="section-divider-count"><?= $showcaseImages->count() ?></span>
+                        </span>
+                    </div>
                     <div id="gallery" class="project-image-container">
                         <?php foreach ($showcaseImages as $image): ?>
-                            <?php $thumb = $image->thumb([
-                                'autoOrient' => true,
-                                'width' => 250,
-                                'height' => 250,
-                                'crop' => true,
-                                'quality' => 50,
-                                'driver' => 'im',
-                                'format' => 'webp'
-                            ]); ?>
+                            <?php
+                            // Preserve GIF animation — skip webp conversion for .gif files
+                            $isGif = strtolower($image->extension()) === 'gif';
+                            if ($isGif) {
+                                $thumbUrl = $image->thumb([
+                                    'autoOrient' => true,
+                                    'width' => 400,
+                                    'height' => 400,
+                                    'crop' => true,
+                                    'quality' => 70,
+                                    'driver' => 'im',
+                                ])->url();
+                            } else {
+                                $thumbUrl = $image->thumb([
+                                    'autoOrient' => true,
+                                    'width' => 400,
+                                    'height' => 400,
+                                    'crop' => true,
+                                    'quality' => 70,
+                                    'driver' => 'im',
+                                    'format' => 'webp'
+                                ])->url();
+                            }
+                            ?>
                             <a class="project-image-link" href="<?= $image->url() ?>"
                                 data-pswp-width="<?= $image->width() ?>"
                                 data-pswp-height="<?= $image->height() ?>"
                                 target="_blank">
-                                <div class="image-wrapper">
-                                    <img loading="lazy" alt="<?= $image->alt() ?>" class="project-gallary-image" src="<?= $thumb->url() ?>" />
+                                <div class="image-slot">
+                                    <img loading="lazy" alt="<?= $image->alt() ?>" class="project-gallary-image" src="<?= $thumbUrl ?>" />
                                 </div>
                                 <?php if ($image->caption()->isNotEmpty()): ?>
                                     <div class="image-caption-badge"><?= $image->caption() ?></div>
@@ -132,6 +154,50 @@
                     </div>
                 </section>
             <?php endif; ?>
+
+            <?php
+            // Next/Previous project navigation
+            $prevProject = $page->prev();
+            $nextProject = $page->next();
+            ?>
+            <?php if ($prevProject || $nextProject): ?>
+                <nav class="project-nav">
+                    <?php if ($prevProject): ?>
+                        <a href="<?= $prevProject->url() ?>" class="project-nav-link project-nav-prev" aria-label="Previous project: <?= $prevProject->name() ?>">
+                            <span class="project-nav-button">
+                                <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
+                                <span class="project-nav-label">Previous</span>
+                            </span>
+                            <span class="project-nav-name"><?= $prevProject->name() ?></span>
+                        </a>
+                    <?php else: ?>
+                        <span class="project-nav-link project-nav-dead" aria-hidden="true">
+                            <span class="project-nav-button">
+                                <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
+                                <span class="project-nav-label">Previous</span>
+                            </span>
+                        </span>
+                    <?php endif; ?>
+
+                    <?php if ($nextProject): ?>
+                        <a href="<?= $nextProject->url() ?>" class="project-nav-link project-nav-next" aria-label="Next project: <?= $nextProject->name() ?>">
+                            <span class="project-nav-name"><?= $nextProject->name() ?></span>
+                            <span class="project-nav-button">
+                                <span class="project-nav-label">Next</span>
+                                <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                    <?php else: ?>
+                        <span class="project-nav-link project-nav-dead" aria-hidden="true">
+                            <span class="project-nav-button">
+                                <span class="project-nav-label">Next</span>
+                                <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
+                            </span>
+                        </span>
+                    <?php endif; ?>
+                </nav>
+            <?php endif; ?>
+
         </main>
     </div>
 </div>
