@@ -6,87 +6,139 @@
                 <h1><?= $page->name() ?></h1>
             </section>
 
-            <section class="project-main-container">
-                <figure class="project-figure">
-                    <div class="project-gallery">
-                        <?php if ($embed = $page->embedlink()->isNotEmpty()): ?>
-                            <div class="responsive-iframe-container">
-                                <?= Html::iframe($page->embedlink(), [
-                                    'title' => $page->embedTitle(),
-                                    'frameborder' => '0',
-                                    'allowfullscreen' => true,
-                                    'allow' => 'accelerometer; autoplay; encrypted-media; gyroscope;',
-                                    'loading' => 'lazy',
-                                    'sandbox' => 'allow-scripts allow-same-origin',
-                                    'referrerpolicy' => 'strict-origin-when-cross-origin'
-                                ]) ?>
-                            </div>
-                        <?php else: ?>
-                            <div>
-                                <?php $coverImage = $page->images()->template('gallery-image')->limit(1); ?>
-                                <?php foreach ($coverImage as $image): ?>
-                                    <img
-                                        loading="lazy"
-                                        alt="<?= $image->alt() ?>"
-                                        class="project-image"
-                                        src="<?= $image->resize(600, 600)->url() ?>">
-                                <?php endforeach ?>
-                            </div>
-                        <?php endif ?>
+            <?php
+            // Platform icon mapping (matches projects.php card set symbols)
+            $platformIconMap = [
+                'PC Windows'      => 'fa-brands fa-windows',
+                'Playstation 4'   => 'fa-brands fa-playstation',
+                'Playstation 5'   => 'fa-brands fa-playstation',
+                'Xbox One'        => 'fa-brands fa-xbox',
+                'Xbox Series S/X' => 'fa-brands fa-xbox',
+                'Nintendo Switch' => 'fa-solid fa-gamepad',
+                'Android'         => 'fa-brands fa-android',
+                'iOS'             => 'fa-brands fa-apple',
+                'Web'             => 'fa-solid fa-globe',
+            ];
+            ?>
 
+            <section class="project-main-container">
+
+                <!-- HERO — Full-width embed or cover image -->
+                <div class="project-hero">
+                    <?php if ($page->embedlink()->isNotEmpty()): ?>
+                        <div class="project-hero-embed">
+                            <?= Html::iframe($page->embedlink(), [
+                                'title' => $page->embedTitle(),
+                                'frameborder' => '0',
+                                'allowfullscreen' => true,
+                                'allow' => 'accelerometer; autoplay; encrypted-media; gyroscope;',
+                                'loading' => 'lazy',
+                                'sandbox' => 'allow-scripts allow-same-origin',
+                                'referrerpolicy' => 'strict-origin-when-cross-origin'
+                            ]) ?>
+                        </div>
+                    <?php else: ?>
+                        <?php $coverImage = $page->images()->template('gallery-image')->first(); ?>
+                        <?php if ($coverImage): ?>
+                            <img
+                                loading="lazy"
+                                alt="<?= $coverImage->alt() ?>"
+                                class="project-hero-image"
+                                src="<?= $coverImage->resize(1200)->url() ?>">
+                        <?php endif ?>
+                    <?php endif ?>
+                </div>
+
+                <!-- STAT BLOCK — PoE Item Tooltip Style -->
+                <div class="stat-block">
+
+                    <!-- Type Header: Project Type + Engine -->
+                    <div class="stat-header">
+                        <div class="stat-header-left">
+                            <span class="stat-type-label"><?= $page->type() ?></span>
+                            <?php if ($page->has_award()->toBool()): ?>
+                                <span class="stat-award-badge">
+                                    <i class="fa-solid fa-trophy" aria-hidden="true"></i>
+                                    <?= $page->award_description()->or('Award Winner') ?>
+                                </span>
+                            <?php endif; ?>
+                        </div>
+                        <div class="stat-engine-orb">
+                            <svg role="img" aria-label="<?= $page->engine() ?> logo."><?= svg('/assets/fontawesome/engine-icons/' . $page->engineicon()) ?></svg>
+                        </div>
                     </div>
 
-                    <figcaption class="project-info">
-                        <dl>
-                            <div>
-                                <dt>Project Type:</dt>
-                                <dd><?= $page->type() ?></dd>
+                    <div class="stat-separator"></div>
+
+                    <!-- Quick Stats Row: Year, Duration, Team -->
+                    <div class="stat-row stat-row-quick">
+                        <div class="stat-item">
+                            <dt>Year</dt>
+                            <dd><?= $page->year() ?></dd>
+                        </div>
+                        <div class="stat-item">
+                            <dt>Duration</dt>
+                            <dd><?= $page->duration() ?></dd>
+                        </div>
+                        <?php if ($page->team()->isNotEmpty()): ?>
+                            <div class="stat-item">
+                                <dt>Team</dt>
+                                <dd><?= $page->team() ?> <?= $page->team()->value() == 1 ? 'Member' : 'Members' ?></dd>
                             </div>
-                            <?php if ($page->team()->isNotEmpty()): ?>
-                                <div>
-                                    <dt>Team Size:</dt>
-                                    <dd><?= $page->team() ?></dd>
-                                </div>
-                            <?php endif; ?>
-                            <div>
-                                <dt>Genre:</dt>
-                                <dd><?php foreach ($page->genre() as $genre): ?><span class="project-genre"> <?= $genre ?></span> <?php endforeach; ?></dd>
-                            </div>
-                            <div>
-                                <dt>Platforms:</dt>
-                                <dd><?php foreach ($page->platform() as $platform): ?><span class="project-platform"><?= $platform ?></span> <?php endforeach; ?></dd>
-                            </div>
-                            <div>
-                                <dt>Release Year:</dt>
-                                <dd><?= $page->year() ?></dd>
-                            </div>
-                            <div>
-                                <dt>Project Duration:</dt>
-                                <dd><?= $page->duration() ?></dd>
-                            </div>
-                            <div>
-                                <dt>Area of Focus:</dt>
-                                <dd><?php foreach ($page->focus() as $focus): ?> <span class="project-focus"><?= $focus ?></span> <?php endforeach; ?></dd>
-                            </div>
-                            <?php if ($page->has_award()->toBool()): ?>
-                                <div class="award-info">
-                                    <dt><i class="fa-solid fa-trophy"></i> Award:</dt>
-                                    <dd><?= $page->award_description()->or('Award Winner') ?></dd>
-                                </div>
-                            <?php endif; ?>
-                            <div>
-                                <dt>Game Engine:</dt>
-                                <dd><?= $page->engine() ?></dd>
-                            </div>
-                            <?php if ($page->links()->isNotEmpty()): ?>
-                                <div>
-                                    <dt>Additional Links:</dt>
-                                    <dd><a class="additional-link" href="<?= $page->links() ?>" title="<?= $page->links() ?>"><?= Url::short($page->links(), 30) ?></a></dd>
-                                </div>
-                            <?php endif; ?>
-                        </dl>
-                    </figcaption>
-                </figure>
+                        <?php endif; ?>
+                        <div class="stat-item">
+                            <dt>Engine</dt>
+                            <dd><?= $page->engine() ?></dd>
+                        </div>
+                    </div>
+
+                    <div class="stat-separator"></div>
+
+                    <!-- Genre Tags -->
+                    <div class="stat-row stat-row-tags">
+                        <dt class="stat-row-label">Genre</dt>
+                        <dd class="stat-tag-group">
+                            <?php foreach ($page->genre()->split(',') as $genre): ?>
+                                <span class="stat-tag stat-tag-genre"><?= trim($genre) ?></span>
+                            <?php endforeach; ?>
+                        </dd>
+                    </div>
+
+                    <!-- Platform Icons -->
+                    <div class="stat-row stat-row-tags">
+                        <dt class="stat-row-label">Platforms</dt>
+                        <dd class="stat-tag-group">
+                            <?php foreach ($page->platform()->split(',') as $platform): ?>
+                                <?php $iconClass = $platformIconMap[trim($platform)] ?? 'fa-solid fa-gamepad'; ?>
+                                <span class="stat-tag stat-tag-platform" title="<?= trim($platform) ?>">
+                                    <i class="<?= $iconClass ?>" aria-hidden="true"></i>
+                                    <?= trim($platform) ?>
+                                </span>
+                            <?php endforeach; ?>
+                        </dd>
+                    </div>
+
+                    <div class="stat-separator"></div>
+
+                    <!-- Focus Areas — keyword ability bar -->
+                    <?php if ($page->focus()->isNotEmpty()): ?>
+                        <div class="stat-focus-bar">
+                            <?php foreach ($page->focus()->split(',') as $focus): ?>
+                                <span class="stat-focus-keyword"><?= trim($focus) ?></span>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Additional Links -->
+                    <?php if ($page->links()->isNotEmpty()): ?>
+                        <div class="stat-separator"></div>
+                        <div class="stat-row stat-row-link">
+                            <dt class="stat-row-label"><i class="fa-solid fa-link" aria-hidden="true"></i> Link</dt>
+                            <dd><a class="additional-link" href="<?= $page->links() ?>" title="<?= $page->links() ?>"><?= Url::short($page->links(), 40) ?></a></dd>
+                        </div>
+                    <?php endif; ?>
+
+                </div>
             </section>
 
 
@@ -116,7 +168,6 @@
                     <div id="gallery" class="project-image-container">
                         <?php foreach ($showcaseImages as $image): ?>
                             <?php
-                            // Preserve GIF animation — skip webp conversion for .gif files
                             $isGif = strtolower($image->extension()) === 'gif';
                             if ($isGif) {
                                 $thumbUrl = $image->thumb([
@@ -156,7 +207,6 @@
             <?php endif; ?>
 
             <?php
-            // Next/Previous project navigation
             $prevProject = $page->prev();
             $nextProject = $page->next();
             ?>
