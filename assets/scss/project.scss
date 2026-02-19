@@ -71,459 +71,748 @@
     border-radius: $radius-medium;
     box-shadow: $solid-shadow-md;
   }
-  
-  /* Lightbox Container */
-  .lightbox {
-    margin-bottom: 15rem;
+
+
+// ============================================
+// SECTION DIVIDER — PoE line + badge + icon
+// ============================================
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: space(4);
+  margin-bottom: space(5);
+
+  // Lines on either side of the badge
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 3px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      $yellow-dark 15%,
+      $yellow-dark 85%,
+      transparent
+    );
+    border-radius: 2px;
   }
-  
-  /* Project Image Container */
-  .project-image-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: space(5);
-    justify-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    contain: layout;
-  }
-  
-  /* Project Image Link (to maintain consistent container aspect ratio) */
-  .project-image-link {
-    position: relative;
-    overflow: visible;
-    display: block;
-    width: 100%;
-    aspect-ratio: 1;
-  }
-  
-  /* Project Gallery Image */
-  .project-gallary-image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: $radius-large;
-    border: $border-md solid $black-dark;
-    box-shadow: $solid-shadow-md;
-    position: relative;
-    z-index: 1;
-    transition: transform 0.2s $easing-bounce,
-                box-shadow 0.2s $easing-bounce;
-    will-change: transform;
-  }
-  
-  /* Image Caption Badge */
-  .image-caption-badge {
-    font-family: $font-barlow;
-    font-weight: $weight-black;
+}
+
+// The pill badge in the center
+.section-divider-badge {
+  display: flex;
+  align-items: center;
+  gap: space(2);
+  background: $black-medium;
+  border: $border-xsm solid $gray-dark;
+  border-radius: $radius-medium;
+  padding: space(1) space(4);
+  box-shadow: 
+    inset 0 1px 3px rgba(0, 0, 0, 0.3),
+    $solid-shadow-xs;
+  flex-shrink: 0;
+
+  i {
+    color: $yellow-dark;
     font-size: font-size(md);
-    color: $black-dark;
-    text-transform: uppercase;
-    text-align: center;
-    text-decoration: none;
-    background: $white;
-    border: $border-sm solid $black-dark;
-    border-radius: $radius-small;
-    padding: space(1);
-    width: 50%;
-    position: absolute;
-    bottom: space(4);
-    left: 50%;
-    transform: translateX(-50%);
-    transition: transform 0.2s $easing-bounce,
-                background 0.2s $easing-bounce;
-    z-index: z(content);
-    will-change: transform;
+  }
+}
+
+.section-divider-title {
+  font-family: $font-barlow;
+  font-weight: $weight-black;
+  font-size: font-size(lg);
+  text-transform: uppercase;
+  color: $white;
+  letter-spacing: 0.05em;
+}
+
+.section-divider-count {
+  font-family: $font-poppins;
+  font-weight: $weight-bold;
+  font-size: font-size(xs);
+  color: $black-dark;
+  background: $yellow-dark;
+  border-radius: $radius-small;
+  padding: 0.05rem space(2);
+  min-width: 1.4rem;
+  text-align: center;
+}
+
+
+// ============================================
+// GALLERY — Stash Tab Style
+// ============================================
+
+.lightbox {
+  margin-bottom: 0;
+}
+
+// Image Grid
+.project-image-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: space(5);
+  justify-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  contain: layout;
+}
+
+// Image Link
+.project-image-link {
+  position: relative;
+  overflow: visible;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+// Stash Slot
+.image-slot {
+  width: 100%;
+  height: 100%;
+  border-radius: $radius-large;
+  background: $black-medium;
+  padding: 0.35rem;
+  border: $border-sm solid $black-dark;
+  box-shadow: 
+    inset 0 2px 6px rgba(0, 0, 0, 0.4),
+    $solid-shadow-sm;
+  transition: transform 0.2s $easing-bounce,
+              box-shadow 0.2s $easing-bounce,
+              border-color 0.2s $easing-bounce;
+}
+
+// Image inside slot
+.project-gallary-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: $radius-medium;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.2s $easing-bounce;
+}
+
+// Hover — pick up from stash
+.project-image-container a:hover .image-slot {
+  transform: scale(1.05);
+  border-color: $yellow-dark;
+  box-shadow: 
+    inset 0 2px 6px rgba(0, 0, 0, 0.4),
+    0 8px 20px rgba(0, 0, 0, 0.3),
+    0 0 12px rgba($yellow-dark, 0.2),
+    $solid-shadow-md;
+}
+
+// Image Caption Badge
+.image-caption-badge {
+  font-family: $font-barlow;
+  font-weight: $weight-black;
+  font-size: font-size(md);
+  color: $black-dark;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  background: $white;
+  border: $border-sm solid $black-dark;
+  border-radius: $radius-small;
+  padding: space(1);
+  width: 50%;
+  position: absolute;
+  bottom: space(4);
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.2s $easing-bounce,
+              background 0.2s $easing-bounce;
+  z-index: z(content);
+  will-change: transform;
+}
+
+// Badge hover
+.project-image-container a:hover .image-caption-badge {
+  background: $yellow-dark;
+  transform: translateX(-50%) scale(1.05);
+}
+
+// Image Container Link
+.project-image-container a {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  transition: transform 0.2s $easing-bounce;
+  will-change: transform;
+}
+
+// Performance
+.project-image-container img {
+  will-change: transform;
+}
+
+// Lightbox transition
+.lightbox {
+  transition: margin-bottom 0.3s $easing-bounce;
+}
+
+// Active state
+.project-image-container a:active .image-slot {
+  transform: scale(0.98);
+  transition-duration: 0.1s;
+}
+
+
+// ============================================
+// DESCRIPTION
+// ============================================
+details summary {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: $font-barlow;
+  font-weight: $weight-black;
+  font-size: font-size(xl);
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: space(3);
+  transition: font-size 0.3s $easing-bounce;
+}
+
+.project-description details[open] {
+  padding: space(4);
+  line-height: 1.6;
+}
+
+.project-description :is(p, h1, h2, h3, h4, h5, h6) {
+  padding-bottom: space(3);
+}
+
+summary i {
+  font-size: font-size(3xl);
+  color: $black-dark;
+  transition: transform 0.3s $easing-bounce,
+              color 0.2s $easing-bounce;
+}
+
+summary:hover i {
+  color: $yellow-dark;
+  transform: scale(1.3);
+}
+
+details[open] summary {
+  font-size: font-size(2xl);
+}
+
+details[open] summary i {
+  transform: rotate(180deg);
+}
+
+details[open] summary:hover i {
+  color: $yellow-dark;
+}
+
+
+// ============================================
+// PROJECT NAVIGATION (Next/Previous)
+// ============================================
+.project-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: space(4);
+  margin: space(6) 0;
+  margin-bottom: space(8);
+}
+
+.project-nav-link {
+  display: flex;
+  align-items: center;
+  gap: space(3);
+  text-decoration: none;
+  color: $black-dark;
+  background-color: $white;
+  padding: space(3) space(4);
+  border: solid;
+  border-radius: $radius-small;
+  border-color: $black-dark;
+  border-width: $border-sm;
+  box-shadow: $solid-shadow-sm;
+  transition: transform 0.2s $easing-bounce,
+      background-color 0.2s $easing-bounce,
+      box-shadow 0.2s $easing-bounce;
+  cursor: pointer;
+  max-width: 48%;
+}
+
+.project-nav-link:hover {
+  background-color: $yellow-dark;
+  transform: scale(0.95);
+  box-shadow: $solid-shadow-xs;
+}
+
+// Dead link state
+.project-nav-dead {
+  opacity: 0.6;
+  cursor: no-drop;
+
+  &:hover {
+    background-color: $white;
+    transform: none;
+    box-shadow: $solid-shadow-sm;
+  }
+}
+
+// Align previous to left, next to right
+.project-nav-prev {
+  margin-right: auto;
+}
+
+.project-nav-next {
+  margin-left: auto;
+  text-align: right;
+}
+
+.project-nav-button {
+  display: flex;
+  align-items: center;
+  gap: space(2);
+  font-size: font-size(2xl);
+  flex-shrink: 0;
+}
+
+.project-nav-label {
+  font-family: $font-barlow;
+  font-weight: $weight-black;
+  font-size: font-size(lg);
+  text-transform: uppercase;
+}
+
+.project-nav-name {
+  font-family: $font-poppins;
+  font-weight: $weight-semibold;
+  font-size: font-size(md);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+// ============================================
+// RESPONSIVE STYLES
+// ============================================
+
+/* Laptops and Small Desktops */
+@media (max-width: $desktop-lg) {
+  .project-figure {
+    gap: 1.5rem;
   }
   
-  /* Badge Hover Effect when Hovering the Entire Link */
-  .project-image-container a:hover .image-caption-badge {
-    background: $yellow-medium;
-    transform: translateX(-50%) scale(1.05);
+  .project-gallery iframe {
+    height: 28vh;
   }
   
-  /* Project Image Container Link */
-  .project-image-container a {
-    position: relative;
-    display: block;
-    text-decoration: none;
-    transition: transform 0.2s $easing-bounce;
-    will-change: transform;
+  .project-info {
+    padding-top: 1.2rem;
+    overflow: hidden;
+    max-height: fit-content;
   }
   
-  /* Hover Effect on Image Link */
-  .project-image-container a:hover .project-gallary-image {
-    transform: scale(1.05);
-    box-shadow: 
-      0 10px 20px rgba(0, 0, 0, 0.25),
-      0 5px 10px rgba(0, 0, 0, 0.15),
-      $solid-shadow-md;
+  .project-info dt {
+    font-size: font-size(md);
   }
   
-  /* Optimize performance by preventing layout shifts during transition */
-  .project-image-container img {
-    will-change: transform;
+  .project-info dd {
+    font-size: font-size(md);
   }
   
-  /* Adjusting margin on lightbox based on gallery height */
-  .lightbox {
-    transition: margin-bottom 0.3s $easing-bounce;
+  .project-image-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: space(5);
   }
   
-  /* Disable margin transition during image scaling */
-  .project-image-container a:active {
-    transition: none;
+  .image-caption-badge {
+    font-size: font-size(sm);
+    width: 60%;
+    bottom: space(3);
   }
   
   details summary {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-family: $font-barlow;
-    font-weight: $weight-black;
-    font-size: font-size(xl);
-    text-transform: uppercase;
-    cursor: pointer;
-    padding: space(3);
-    transition: font-size 0.3s $easing-bounce;
-  }
-  
-  .project-description details[open] {
-    padding: space(4);
-    line-height: 1.6;
-  }
-  
-  .project-description :is(p, h1, h2, h3, h4, h5, h6) {
-    padding-bottom: space(3);
+    font-size: font-size(lg);
+    padding: space(2);
   }
   
   summary i {
-    font-size: font-size(3xl);
-    color: $black-dark;
-    transition: transform 0.3s $easing-bounce,
-                color 0.2s $easing-bounce;
+    font-size: font-size(2xl);
   }
   
-  summary:hover i {
-    color: $yellow-dark;
-    transform: scale(1.3);
+  details[open] summary {
+    font-size: font-size(xl);
+  }
+}
+
+/* Tablets */
+@media (max-width: $tablet-lg) {
+  .project-figure {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .project-gallery {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .project-info {
+    max-width: 100%;
+    width: 100%;
+    padding: 1.5rem;
+  }
+  
+  .project-gallery iframe {
+    height: 40vh;
+    border-right: none;
+    border-bottom: $border-md solid $black-dark;
+  }
+  
+  .project-image {
+    border-right: none;
+    border-bottom: $border-md solid $black-dark;
+  }
+  
+  .project-info dl {
+    gap: 0.5em;
+  }
+  
+  .project-info dt {
+    font-size: font-size(lg);
+    display: block;
+    margin-bottom: 0.2em;
+  }
+  
+  .project-info dd {
+    margin-left: 0;
+    font-size: font-size(md);
+  }
+  
+  .project-image-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: space(4);
+  }
+  
+  .image-slot {
+    padding: 0.3rem;
+  }
+  
+  .image-caption-badge {
+    width: 70%;
+  }
+
+  .section-divider-title {
+    font-size: font-size(md);
+  }
+
+  .section-divider-badge {
+    padding: space(1) space(3);
+  }
+
+  .project-nav-link {
+    padding: space(2) space(3);
+  }
+
+  .project-nav-label {
+    font-size: font-size(md);
+  }
+
+  .project-nav-name {
+    font-size: font-size(sm);
+  }
+}
+
+/* Small Tablets */
+@media (max-width: $tablet) {
+  .project-figure {
+    border-width: $border-md;
+  }
+  
+  .project-gallery iframe {
+    height: 35vh;
+    border-bottom-width: $border-md;
+  }
+  
+  .project-image {
+    border-bottom-width: $border-md;
+  }
+  
+  .project-info {
+    padding: 1.2rem;
+  }
+  
+  .project-info dt {
+    font-size: font-size(lg);
+  }
+  
+  .project-info dd {
+    font-size: font-size(md);
+  }
+  
+  .project-description {
+    border-width: $border-md;
+  }
+  
+  .project-description details[open] {
+    padding: 0.75rem;
+  }
+  
+  .project-image-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: space(4);
+  }
+  
+  .image-slot {
+    border-width: $border-xs;
+  }
+  
+  .image-caption-badge {
+    font-size: font-size(md);
+    padding: space(1) space(2);
+    border-width: $border-sm;
+    bottom: space(2);
+  }
+  
+  details summary {
+    font-size: font-size(xl);
+    padding: space(2);
+  }
+  
+  summary i {
+    font-size: font-size(2xl);
   }
   
   details[open] summary {
     font-size: font-size(2xl);
   }
-  
-  details[open] summary i {
-    transform: rotate(180deg);
+
+  .project-nav-button {
+    font-size: font-size(xl);
+  }
+}
+
+/* Mobile */
+@media (max-width: $mobile-lg) {
+  .project-figure {
+    border-width: $border-sm;
   }
   
-  details[open] summary:hover i {
-    color: $yellow-dark;
+  .project-gallery iframe {
+    height: 30vh;
+    border-bottom-width: $border-sm;
+  }
+  
+  .project-image {
+    border-bottom-width: $border-sm;
+  }
+  
+  .project-info {
+    padding: space(4);
+  }
+  
+  .project-info dl {
+    gap: 0.8em;
+  }
+  
+  .project-info dt {
+    font-size: font-size(lg);
+  }
+  
+  .project-info dd {
+    font-size: font-size(md);
+  }
+  
+  .project-description {
+    border-width: $border-sm;
+  }
+  
+  .project-description details[open] {
+    padding: 0.5rem;
+    line-height: 1.4;
+  }
+  
+  .project-description :is(p, h1, h2, h3, h4, h5, h6) {
+    padding-bottom: space(2);
+  }
+  
+  .project-image-container {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: space(3);
+  }
+  
+  .image-slot {
+    padding: 0.25rem;
+    border-width: $border-xsm;
+    border-radius: $radius-medium;
+  }
+  
+  .project-gallary-image {
+    border-radius: $radius-small;
+  }
+  
+  .image-caption-badge {
+    width: 80%;
+    bottom: space(1);
+    font-size: font-size(md);
+  }
+  
+  details summary {
+    font-size: font-size(lg);
+    padding: space(1);
+  }
+  
+  summary i {
+    font-size: font-size(xl);
+  }
+  
+  details[open] summary {
+    font-size: font-size(xl);
   }
 
- //Responsive Styles
+  .section-divider {
+    gap: space(2);
+    margin-bottom: space(3);
+  }
 
-  
-  /* Laptops and Small Desktops */
-  @media (max-width: $desktop-lg) {
-    .project-figure {
-      gap: 1.5rem;
-    }
-    
-    .project-gallery iframe {
-      height: 28vh;
-    }
-    
-    .project-info {
-      padding-top: 1.2rem;
-      overflow: hidden;
-      max-height: fit-content;
-    }
-    
-    .project-info dt {
-      font-size: font-size(md);
-    }
-    
-    .project-info dd {
-      font-size: font-size(md);
-    }
-    
-    .project-image-container {
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: space(5);
-    }
-    
-    .image-caption-badge {
-      font-size: font-size(sm);
-      width: 60%;
-      bottom: space(3);
-    }
-    
-    details summary {
-      font-size: font-size(lg);
-      padding: space(2);
-    }
-    
-    summary i {
-      font-size: font-size(2xl);
-    }
-    
-    details[open] summary {
-      font-size: font-size(xl);
-    }
+  .section-divider-badge {
+    padding: space(1) space(2);
+    gap: space(1);
+  }
+
+  .section-divider-title {
+    font-size: font-size(sm);
+    letter-spacing: 0.03em;
+  }
+
+  .section-divider-count {
+    font-size: 0.65rem;
+    padding: 0.05rem space(1);
+  }
+
+  .section-divider-badge i {
+    font-size: font-size(sm);
+  }
+
+  .section-divider::before,
+  .section-divider::after {
+    height: 2px;
+  }
+
+  // Stack nav buttons vertically on mobile
+  .project-nav {
+    flex-direction: column;
+    gap: space(3);
+  }
+
+  .project-nav-link {
+    max-width: 100%;
+    padding: space(2) space(3);
+    border-width: $border-xs;
+  }
+
+  .project-nav-prev {
+    margin-right: 0;
+  }
+
+  .project-nav-next {
+    margin-left: 0;
+    flex-direction: row-reverse;
+    text-align: left;
+  }
+
+  .project-nav-label {
+    font-size: font-size(sm);
+  }
+
+  .project-nav-name {
+    font-size: font-size(sm);
+  }
+
+  .project-nav-button {
+    font-size: font-size(xl);
+  }
+}
+
+/* Small Mobile */
+@media (max-width: $mobile-sm) {
+  .project-gallery iframe {
+    height: 25vh;
   }
   
-  /* Tablets */
-  @media (max-width: $tablet-lg) {
-    .project-figure {
-      flex-direction: column;
-      gap: 0;
-    }
-    
-    .project-gallery {
-      max-width: 100%;
-      width: 100%;
-    }
-    
-    .project-info {
-      max-width: 100%;
-      width: 100%;
-      padding: 1.5rem;
-    }
-    
-    .project-gallery iframe {
-      height: 40vh;
-      border-right: none;
-      border-bottom: $border-md solid $black-dark;
-    }
-    
-    .project-image {
-      border-right: none;
-      border-bottom: $border-md solid $black-dark;
-    }
-    
-    .project-info dl {
-      gap: 0.5em;
-    }
-    
-    .project-info dt {
-      font-size: font-size(lg);
-      display: block;
-      margin-bottom: 0.2em;
-    }
-    
-    .project-info dd {
-      margin-left: 0;
-      font-size: font-size(md);
-    }
-    
-    .project-image-container {
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: space(4);
-    }
-    
-    .project-gallary-image {
-      border-width: $border-md;
-    }
-    
-    .image-caption-badge {
-      width: 70%;
-    }
-    
-    .lightbox {
-      margin-bottom: 10rem;
-    }
+  .project-image-container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: space(3);
   }
   
-  /* Small Tablets */
-  @media (max-width: $tablet) {
-    .project-figure {
-      border-width: $border-md;
-    }
-    
-    .project-gallery iframe {
-      height: 35vh;
-      border-bottom-width: $border-md;
-    }
-    
-    .project-image {
-      border-bottom-width: $border-md;
-    }
-    
-    .project-info {
-      padding: 1.2rem;
-    }
-    
-    .project-info dt {
-      font-size: font-size(lg);
-    }
-    
-    .project-info dd {
-      font-size: font-size(md);
-    }
-    
-    .project-description {
-      border-width: $border-md;
-    }
-    
-    .project-description details[open] {
-      padding: 0.75rem;
-    }
-    
-    .project-image-container {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: space(4);
-    }
-    
-    .project-gallary-image {
-      border-width: $border-md;
-    }
-    
-    .image-caption-badge {
-      font-size: font-size(md);
-      padding: space(1) space(2);
-      border-width: $border-sm;
-      bottom: space(2);
-    }
-    
-    details summary {
-      font-size: font-size(xl);
-      padding: space(2);
-    }
-    
-    summary i {
-      font-size: font-size(2xl);
-    }
-    
-    details[open] summary {
-      font-size: font-size(2xl);
-    }
-    
-    .lightbox {
-      margin-bottom: space(32);
-    }
+  .project-info dt {
+    font-size: font-size(md);
   }
   
-  /* Mobile */
-  @media (max-width: $mobile-lg) {
-    .project-figure {
-      border-width: $border-sm;
-    }
-    
-    .project-gallery iframe {
-      height: 30vh;
-      border-bottom-width: $border-sm;
-    }
-    
-    .project-image {
-      border-bottom-width: $border-sm;
-    }
-    
-    .project-info {
-      padding: space(4);
-    }
-    
-    .project-info dl {
-      gap: 0.8em;
-    }
-    
-    .project-info dt {
-      font-size: font-size(lg);
-    }
-    
-    .project-info dd {
-      font-size: font-size(md);
-    }
-    
-    .project-description {
-      border-width: $border-sm;
-    }
-    
-    .project-description details[open] {
-      padding: 0.5rem;
-      line-height: 1.4;
-    }
-    
-    .project-description :is(p, h1, h2, h3, h4, h5, h6) {
-      padding-bottom: space(2);
-    }
-    
-    .project-image-container {
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: space(3);
-    }
-    
-    .project-gallary-image {
-      border-radius: $radius-medium;
-    }
-    
-    .image-caption-badge {
-      width: 80%;
-      bottom: space(1);
-      font-size: font-size(md);
-    }
-    
-    details summary {
-      font-size: font-size(lg);
-      padding: space(1);
-    }
-    
-    summary i {
-      font-size: font-size(xl);
-    }
-    
-    details[open] summary {
-      font-size: font-size(xl);
-    }
-    
-    .lightbox {
-      margin-bottom: space(24);
-    }
+  .project-info dd {
+    font-size: font-size(sm);
   }
   
-  /* Small Mobile */
-  @media (max-width: $mobile-sm) {
-    .project-gallery iframe {
-      height: 25vh;
-    }
-    
-    .project-image-container {
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      gap: space(3);
-    }
-    
-    .project-info dt {
-      font-size: font-size(md);
-    }
-    
-    .project-info dd {
-      font-size: font-size(sm);
-    }
-    
-    .image-caption-badge {
-      width: 90%;
-      font-size: font-size(sm);
-      padding: space(1);
-    }
-    
-    details summary {
-      font-size: font-size(md);
-    }
-    
-    summary i {
-      font-size: font-size(lg);
-    }
-    
-    details[open] summary {
-      font-size: font-size(lg);
-    }
-    
-    .lightbox {
-      margin-bottom: space(16);
-    }
+  .image-slot {
+    padding: 0.2rem;
   }
+  
+  .image-caption-badge {
+    width: 90%;
+    font-size: font-size(sm);
+    padding: space(1);
+  }
+  
+  details summary {
+    font-size: font-size(md);
+  }
+  
+  summary i {
+    font-size: font-size(lg);
+  }
+  
+  details[open] summary {
+    font-size: font-size(lg);
+  }
+
+  .section-divider {
+    gap: space(1);
+  }
+
+  .section-divider::before,
+  .section-divider::after {
+    height: 1px;
+  }
+
+  .project-nav {
+    gap: space(2);
+  }
+
+  .project-nav-link {
+    padding: space(2);
+  }
+
+  .project-nav-label {
+    font-size: font-size(xs);
+  }
+
+  .project-nav-name {
+    font-size: font-size(xs);
+  }
+
+  .project-nav-button {
+    font-size: font-size(lg);
+  }
+}
