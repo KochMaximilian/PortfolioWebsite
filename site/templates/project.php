@@ -49,29 +49,30 @@
                     <?php endif ?>
                 </div>
 
-                <!-- STAT BLOCK — PoE Item Tooltip Style -->
-                <div class="stat-block">
-
-                    <!-- Type Header: Project Type + Engine -->
-                    <div class="stat-header">
-                        <div class="stat-header-left">
-                            <span class="stat-type-label"><?= $page->type() ?></span>
-                            <?php if ($page->has_award()->toBool()): ?>
-                                <span class="stat-award-badge">
-                                    <i class="fa-solid fa-trophy" aria-hidden="true"></i>
-                                    <?= $page->award_description()->or('Award Winner') ?>
-                                </span>
-                            <?php endif; ?>
-                        </div>
-                        <div class="stat-engine-orb">
-                            <svg role="img" aria-label="<?= $page->engine() ?> logo."><?= svg('/assets/fontawesome/engine-icons/' . $page->engineicon()) ?></svg>
-                        </div>
+                <!-- NAME PLATE — Title + Type stacked, Engine Orb right -->
+                <div class="stat-name-plate">
+                    <div class="stat-name-plate-text">
+                        <span class="stat-project-title"><?= $page->name() ?></span>
+                        <span class="stat-type-label"><?= $page->type() ?></span>
                     </div>
+                    <div class="stat-engine-orb">
+                        <svg role="img" aria-label="<?= $page->engine() ?> logo."><?= svg('/assets/fontawesome/engine-icons/' . $page->engineicon()) ?></svg>
+                    </div>
+                </div>
 
-                    <div class="stat-separator"></div>
+                <!-- AWARD ROW -->
+                <?php if ($page->has_award()->toBool()): ?>
+                    <div class="stat-award-row">
+                        <i class="fa-solid fa-trophy" aria-hidden="true"></i>
+                        <span class="stat-award-text"><?= $page->award_description()->or('Award Winner') ?></span>
+                    </div>
+                <?php endif; ?>
 
-                    <!-- Quick Stats Row: Year, Duration, Team -->
-                    <div class="stat-row stat-row-quick">
+                <!-- STAT BODY — grouped by proximity, no dividers -->
+                <div class="stat-body">
+
+                    <!-- Quick Stats: Year, Duration, Team, Engine -->
+                    <div class="stat-group stat-row-quick">
                         <div class="stat-item">
                             <dt>Year</dt>
                             <dd><?= $page->year() ?></dd>
@@ -92,10 +93,8 @@
                         </div>
                     </div>
 
-                    <div class="stat-separator"></div>
-
                     <!-- Genre Tags -->
-                    <div class="stat-row stat-row-tags">
+                    <div class="stat-group stat-row-tags">
                         <dt class="stat-row-label">Genre</dt>
                         <dd class="stat-tag-group">
                             <?php foreach ($page->genre()->split(',') as $genre): ?>
@@ -104,8 +103,8 @@
                         </dd>
                     </div>
 
-                    <!-- Platform Icons -->
-                    <div class="stat-row stat-row-tags">
+                    <!-- Platform Tags -->
+                    <div class="stat-group stat-row-tags">
                         <dt class="stat-row-label">Platforms</dt>
                         <dd class="stat-tag-group">
                             <?php foreach ($page->platform()->split(',') as $platform): ?>
@@ -118,21 +117,21 @@
                         </dd>
                     </div>
 
-                    <div class="stat-separator"></div>
-
-                    <!-- Focus Areas — keyword ability bar -->
+                    <!-- Focus Areas -->
                     <?php if ($page->focus()->isNotEmpty()): ?>
-                        <div class="stat-focus-bar">
-                            <?php foreach ($page->focus()->split(',') as $focus): ?>
-                                <span class="stat-focus-keyword"><?= trim($focus) ?></span>
-                            <?php endforeach; ?>
+                        <div class="stat-group stat-row-tags">
+                            <dt class="stat-row-label">Focus</dt>
+                            <dd class="stat-tag-group">
+                                <?php foreach ($page->focus()->split(',') as $focus): ?>
+                                    <span class="stat-tag stat-focus-keyword"><?= trim($focus) ?></span>
+                                <?php endforeach; ?>
+                            </dd>
                         </div>
                     <?php endif; ?>
 
                     <!-- Additional Links -->
                     <?php if ($page->links()->isNotEmpty()): ?>
-                        <div class="stat-separator"></div>
-                        <div class="stat-row stat-row-link">
+                        <div class="stat-group stat-row-tags">
                             <dt class="stat-row-label"><i class="fa-solid fa-link" aria-hidden="true"></i> Link</dt>
                             <dd><a class="additional-link" href="<?= $page->links() ?>" title="<?= $page->links() ?>"><?= Url::short($page->links(), 40) ?></a></dd>
                         </div>
