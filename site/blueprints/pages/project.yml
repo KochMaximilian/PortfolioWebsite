@@ -4,6 +4,7 @@ columns:
   - width: 1/2
     sections:
       project_info:
+        label: Content & Media
         type: fields
         fields:
           name:
@@ -13,32 +14,32 @@ columns:
             maxlength: 50
             width: 5/6
           featured:
-            label: Feature Project
+            label: Featured
             type: toggle
             text:
               - "No"
               - "Yes"
             default: no
             width: 1/6
-            help: Display this project on the front page.
+            help: Foil card
           flavortext:
             label: Card Flavor Text
             type: text
             maxlength: 80
             width: 1/1
-            help: Short evocative text for the portfolio card (max 80 chars).
+            help: Short text for the portfolio card (max 80 chars).
             placeholder: "Where others see chaos, I see opportunity."
           description:
-            label: Description of the Game
+            label: Description
             required: true
             maxlength: 500
-            help: A short one line description of the game.
+            help: Project description shown in the info panel.
             type: textarea
             size: small
+            width: 1/1
           type:
             label: Project Type
             required: true
-            help: Choose one of the project types.
             type: select
             options:
               - Personal
@@ -49,33 +50,29 @@ columns:
             label: Release Year
             required: true
             min: 2023
-            before: "Released:"
-            help: Only the year, e.g. 2024
             type: number
             width: 1/2
           embedlink:
-            width: 1/2
-            label: Embedded Link
+            label: Embed Link
             type: link
-            before: "Copy Url"
-            help: Best to copy the "privacy-enhanced mode" link here.
-          embedTitle:
             width: 1/2
+            help: YouTube privacy-enhanced mode link.
+          embedTitle:
             label: Video Title
             type: text
             maxlength: 50
-            help: Copy title from YouTube video.
+            width: 1/2
 
   - width: 1/2
     sections:
       project_details:
+        label: Details & Metadata
         type: fields
         fields:
           genre:
-            label: Game Genre
+            label: Genre
             required: true
             min: 1
-            help: Possible to pick more than one genre-tag or add a custom tag.
             icon: heart-filled
             type: tags
             options:
@@ -85,11 +82,12 @@ columns:
               - Strategy
               - Turn-Based
               - Arcade
+              - Puzzle
+              - Narrative
             width: 1/2
           platform:
-            label: Release Platform
+            label: Platforms
             required: true
-            help: Possible to pick more than one platform-tag or add a custom tag.
             type: tags
             icon: blank
             options:
@@ -104,9 +102,8 @@ columns:
               - Web
             width: 1/2
           focus:
-            label: Area of Focus
+            label: Focus Areas
             required: true
-            help: Skills & Disciplines to highlight. Possible to choose more than one tag.
             icon: badge
             type: tags
             options:
@@ -114,12 +111,20 @@ columns:
               - System Design
               - Game Design
               - Narrative Design
+              - UI/UX Design
+              - Technical Design
+              - Game Art
+              - Sound Design
+              - Animation
+              - Gameplay Programming
+              - Tools Programming
+              - 3D Modeling
+              - 2D Art
             width: 1/2
           duration:
-            label: Project Duration
+            label: Duration
             required: true
             type: text
-            help: How long the project did take to complete.
             icon: clock
             width: 1/2
           team:
@@ -127,28 +132,25 @@ columns:
             type: text
             icon: users
             width: 1/4
-            help: Number of team members.
-          has_award:
-            label: Has Award
-            type: toggle
-            text:
-              - "No"
-              - "Yes"
-            default: no
+          projectstatus:
+            label: Status
+            type: select
+            default: released
             width: 1/4
-            help: Check if this project won an award.
-          award_description:
-            label: Award Description
+            options:
+              released: Released
+              prototype: Prototype
+              in-development: In Development
+              early-access: Early Access
+              cancelled: Cancelled
+          role:
+            label: Role
             type: text
-            maxlength: 100
             width: 2/4
-            help: Describe the award (shown on project detail page).
-            when:
-              has_award: true
+            placeholder: "Game Designer"
           engine:
-            label: Game Engine
+            label: Engine
             type: tags
-            help: Game Engine used in the production of the game.
             required: true
             min: 1
             max: 1
@@ -160,7 +162,7 @@ columns:
               - Unity
               - Godot
           engineicon:
-            label: Game Engine Visual
+            label: Engine Icon
             type: select
             options:
               godot-engine.svg: Godot Engine
@@ -168,12 +170,44 @@ columns:
               unity.svg: Unity
               unreal-engine.svg: Unreal Engine
             required: true
-            help: Pick the corresponding engine logo.
             width: 1/2
-          links:
-            label: Additional Links
-            help: Links to other websites or social media pages for the game.
-            type: link
+          has_award:
+            label: Award
+            type: toggle
+            text:
+              - "No"
+              - "Yes"
+            default: no
+            width: 1/4
+          award_description:
+            label: Award Description
+            type: text
+            maxlength: 100
+            width: 3/4
+            when:
+              has_award: true
+          externallinks:
+            label: External Links
+            type: structure
+            width: 1/1
+            help: Platform icon buttons shown in the info panel.
+            fields:
+              platform:
+                type: select
+                label: Platform
+                width: 1/3
+                options:
+                  steam: Steam
+                  itch: itch.io
+                  youtube: YouTube
+                  igdb: IGDB
+                  github: GitHub
+                  gamejolt: Game Jolt
+                  website: Website
+              url:
+                type: url
+                label: URL
+                width: 2/3
 
   - width: 1/4
     sections:

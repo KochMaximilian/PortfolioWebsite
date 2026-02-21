@@ -7,7 +7,7 @@
             </section>
 
             <?php
-            // Platform icon mapping (matches projects.php card set symbols)
+            // Platform icon mapping
             $platformIconMap = [
                 'PC Windows'      => 'fa-brands fa-windows',
                 'Playstation 4'   => 'fa-brands fa-playstation',
@@ -19,11 +19,32 @@
                 'iOS'             => 'fa-brands fa-apple',
                 'Web'             => 'fa-solid fa-globe',
             ];
+
+            // External link icon mapping — square FA variants where available (matches footer style)
+            $linkIconMap = [
+                'steam'    => 'fa-brands fa-square-steam',
+                'itch'     => 'fa-brands fa-itch-io',
+                'youtube'  => 'fa-brands fa-square-youtube',
+                'igdb'     => 'fa-solid fa-database',
+                'github'   => 'fa-brands fa-square-github',
+                'gamejolt' => 'fa-solid fa-bolt',
+                'website'  => 'fa-solid fa-arrow-up-right-from-square',
+            ];
+
+            // Status display labels
+            $statusLabels = [
+                'released'       => 'Released',
+                'prototype'      => 'Prototype',
+                'in-development' => 'In Development',
+                'early-access'   => 'Early Access',
+                'cancelled'      => 'Cancelled',
+                'game-jam'       => 'Game Jam Build',
+            ];
             ?>
 
             <section class="project-main-container">
 
-                <!-- HERO — Full-width embed or cover image -->
+                <!-- HERO -->
                 <div class="project-hero">
                     <?php if ($page->embedlink()->isNotEmpty()): ?>
                         <div class="project-hero-embed">
@@ -49,16 +70,29 @@
                     <?php endif ?>
                 </div>
 
-                <!-- NAME PLATE — Title + Type stacked, Engine Orb right -->
+                <!-- NAME PLATE -->
                 <div class="stat-name-plate">
                     <div class="stat-name-plate-text">
                         <span class="stat-project-title"><?= $page->name() ?></span>
-                        <span class="stat-type-label"><?= $page->type() ?></span>
+                        <div class="stat-type-line">
+                            <span class="stat-type-label"><?= $page->type() ?></span>
+                            <span class="stat-type-divider">·</span>
+                            <?php foreach ($page->genre()->split(',') as $genre): ?>
+                                <span class="stat-tag stat-tag-genre"><?= trim($genre) ?></span>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                     <div class="stat-engine-orb">
                         <svg role="img" aria-label="<?= $page->engine() ?> logo."><?= svg('/assets/fontawesome/engine-icons/' . $page->engineicon()) ?></svg>
                     </div>
                 </div>
+
+                <!-- FLAVOR TEXT -->
+                <?php if ($page->flavortext()->isNotEmpty()): ?>
+                    <div class="stat-flavor">
+                        <?= $page->flavortext()->kti() ?>
+                    </div>
+                <?php endif; ?>
 
                 <!-- AWARD ROW -->
                 <?php if ($page->has_award()->toBool()): ?>
@@ -68,86 +102,105 @@
                     </div>
                 <?php endif; ?>
 
-                <!-- STAT BODY — grouped by proximity, no dividers -->
+                <!-- STAT BODY — 2 column: left = stats/tags, right = description/links -->
                 <div class="stat-body">
 
-                    <!-- Quick Stats: Year, Duration, Team, Engine -->
-                    <div class="stat-group stat-row-quick">
-                        <div class="stat-item">
-                            <dt>Year</dt>
-                            <dd><?= $page->year() ?></dd>
+                    <!-- LEFT COLUMN -->
+                    <div class="stat-col-left">
+
+                        <!-- Stats table -->
+                        <dl class="stat-table">
+                            <div class="stat-row">
+                                <dt>Year</dt>
+                                <dd><?= $page->year() ?></dd>
+                            </div>
+                            <div class="stat-row">
+                                <dt>Duration</dt>
+                                <dd><?= $page->duration() ?></dd>
+                            </div>
+                            <?php if ($page->team()->isNotEmpty()): ?>
+                                <div class="stat-row">
+                                    <dt>Team</dt>
+                                    <dd><?= $page->team() ?> <?= $page->team()->value() == 1 ? 'Member' : 'Members' ?></dd>
+                                </div>
+                            <?php endif; ?>
+                            <div class="stat-row">
+                                <dt>Engine</dt>
+                                <dd><?= $page->engine() ?></dd>
+                            </div>
+                            <?php if ($page->projectstatus()->isNotEmpty()): ?>
+                                <div class="stat-row">
+                                    <dt>Status</dt>
+                                    <dd><?= $statusLabels[$page->projectstatus()->value()] ?? $page->projectstatus() ?></dd>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($page->role()->isNotEmpty()): ?>
+                                <div class="stat-row">
+                                    <dt>Role</dt>
+                                    <dd><?= $page->role() ?></dd>
+                                </div>
+                            <?php endif; ?>
+                        </dl>
+
+                        <!-- Platforms -->
+                        <div class="stat-tag-block">
+                            <span class="stat-label">Platforms</span>
+                            <div class="stat-tag-group">
+                                <?php foreach ($page->platform()->split(',') as $platform): ?>
+                                    <?php $iconClass = $platformIconMap[trim($platform)] ?? 'fa-solid fa-gamepad'; ?>
+                                    <span class="stat-tag stat-tag-platform" title="<?= trim($platform) ?>">
+                                        <i class="<?= $iconClass ?>" aria-hidden="true"></i>
+                                        <?= trim($platform) ?>
+                                    </span>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <dt>Duration</dt>
-                            <dd><?= $page->duration() ?></dd>
-                        </div>
-                        <?php if ($page->team()->isNotEmpty()): ?>
-                            <div class="stat-item">
-                                <dt>Team</dt>
-                                <dd><?= $page->team() ?> <?= $page->team()->value() == 1 ? 'Member' : 'Members' ?></dd>
+
+                        <!-- Focus Areas -->
+                        <?php if ($page->focus()->isNotEmpty()): ?>
+                            <div class="stat-tag-block">
+                                <span class="stat-label">Focus</span>
+                                <div class="stat-tag-group">
+                                    <?php foreach ($page->focus()->split(',') as $focus): ?>
+                                        <span class="stat-tag stat-tag-focus"><?= trim($focus) ?></span>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
                         <?php endif; ?>
-                        <div class="stat-item">
-                            <dt>Engine</dt>
-                            <dd><?= $page->engine() ?></dd>
-                        </div>
+
                     </div>
 
-                    <!-- Genre Tags -->
-                    <div class="stat-group stat-row-tags">
-                        <dt class="stat-row-label">Genre</dt>
-                        <dd class="stat-tag-group">
-                            <?php foreach ($page->genre()->split(',') as $genre): ?>
-                                <span class="stat-tag stat-tag-genre"><?= trim($genre) ?></span>
-                            <?php endforeach; ?>
-                        </dd>
+                    <!-- RIGHT COLUMN -->
+                    <div class="stat-col-right">
+
+                        <!-- Description -->
+                        <?php if ($page->description()->isNotEmpty()): ?>
+                            <div class="stat-description">
+                                <span class="stat-label">Description</span>
+                                <div class="stat-description-text">
+                                    <?= $page->description()->kirbytext() ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
+                        <!-- External Links -->
+                        <?php if ($page->externallinks()->isNotEmpty()): ?>
+                            <div class="stat-links-block">
+                                <span class="stat-label">Links</span>
+                                <div class="stat-links-group">
+                                    <?php foreach ($page->externallinks()->toStructure() as $link): ?>
+                                        <?php $iconClass = $linkIconMap[$link->platform()->value()] ?? 'fa-solid fa-link'; ?>
+                                        <a class="stat-link-icon" href="<?= $link->url() ?>" target="_blank" rel="noopener" title="<?= ucfirst($link->platform()) ?>">
+                                            <i class="<?= $iconClass ?>" aria-hidden="true"></i>
+                                        </a>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
                     </div>
-
-                    <!-- Platform Tags -->
-                    <div class="stat-group stat-row-tags">
-                        <dt class="stat-row-label">Platforms</dt>
-                        <dd class="stat-tag-group">
-                            <?php foreach ($page->platform()->split(',') as $platform): ?>
-                                <?php $iconClass = $platformIconMap[trim($platform)] ?? 'fa-solid fa-gamepad'; ?>
-                                <span class="stat-tag stat-tag-platform" title="<?= trim($platform) ?>">
-                                    <i class="<?= $iconClass ?>" aria-hidden="true"></i>
-                                    <?= trim($platform) ?>
-                                </span>
-                            <?php endforeach; ?>
-                        </dd>
-                    </div>
-
-                    <!-- Focus Areas -->
-                    <?php if ($page->focus()->isNotEmpty()): ?>
-                        <div class="stat-group stat-row-tags">
-                            <dt class="stat-row-label">Focus</dt>
-                            <dd class="stat-tag-group">
-                                <?php foreach ($page->focus()->split(',') as $focus): ?>
-                                    <span class="stat-tag stat-focus-keyword"><?= trim($focus) ?></span>
-                                <?php endforeach; ?>
-                            </dd>
-                        </div>
-                    <?php endif; ?>
-
-                    <!-- Additional Links -->
-                    <?php if ($page->links()->isNotEmpty()): ?>
-                        <div class="stat-group stat-row-tags">
-                            <dt class="stat-row-label"><i class="fa-solid fa-link" aria-hidden="true"></i> Link</dt>
-                            <dd><a class="additional-link" href="<?= $page->links() ?>" title="<?= $page->links() ?>"><?= Url::short($page->links(), 40) ?></a></dd>
-                        </div>
-                    <?php endif; ?>
 
                 </div>
-            </section>
-
-
-            <section class="project-description">
-                <details>
-                    <summary aria-expanded="false">Project Description<br>
-                        <i aria-hidden="true" class="fa-solid fa-caret-down"></i>
-                    </summary>
-                    <?= $page->description()->kirbytext() ?>
-                </details>
             </section>
 
 

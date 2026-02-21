@@ -6,7 +6,7 @@
 
 
 // ============================================
-// HERO + STAT BLOCK — PoE Item Tooltip Layout
+// OUTER CONTAINER
 // ============================================
 
 .project-main-container {
@@ -16,6 +16,11 @@
   overflow: hidden;
   background: $white;
 }
+
+
+// ============================================
+// HERO
+// ============================================
 
 .project-hero {
   width: 100%;
@@ -49,16 +54,15 @@
 
 
 // ============================================
-// NAME PLATE — Title + Type stacked, Orb right
+// NAME PLATE
 // ============================================
 
 .stat-name-plate {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: space(3) space(6);
+  padding: space(3) space(5);
   background: $black-dark;
-  border-bottom: $border-xsm solid $gray-dark;
 }
 
 .stat-name-plate-text {
@@ -77,6 +81,14 @@
   line-height: 1.1;
 }
 
+// Type line: "Game Jam · Puzzle Action RPG"
+.stat-type-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: space(1);
+}
+
 .stat-type-label {
   font-family: $font-barlow;
   font-weight: $weight-bold;
@@ -86,7 +98,18 @@
   letter-spacing: 0.08em;
 }
 
-// Engine mana orb — matches card-mana
+.stat-type-divider {
+  font-size: font-size(sm);
+  color: $gray-medium;
+  margin: 0 space(1);
+}
+
+// Genre tags in name plate — small, on dark bg
+.stat-type-line .stat-tag-genre {
+  font-size: font-size(xs);
+  padding: 0.05rem space(2);
+}
+
 .stat-engine-orb {
   display: flex;
   align-items: center;
@@ -117,16 +140,36 @@
 
 
 // ============================================
-// AWARD ROW — prominent, full-width yellow bar
+// FLAVOR TEXT
+// ============================================
+
+.stat-flavor {
+  padding: space(2) space(5);
+  background: $black-dark;
+  border-top: 1px solid $gray-dark;
+
+  p {
+    font-family: $font-poppins;
+    font-style: italic;
+    font-size: font-size(sm);
+    color: $gray-medium;
+    line-height: 1.4;
+    margin: 0;
+  }
+}
+
+
+// ============================================
+// AWARD ROW
 // ============================================
 
 .stat-award-row {
   display: flex;
   align-items: center;
   gap: space(2);
-  padding: space(2) space(6);
+  padding: space(2) space(5);
   background: $yellow-dark;
-  border-bottom: $border-xsm solid $black-dark;
+  border-top: $border-xsm solid $black-dark;
 
   i {
     font-size: font-size(lg);
@@ -145,27 +188,49 @@
 
 
 // ============================================
-// STAT BODY — white area, proximity grouping
+// STAT BODY — 2 column grid
+// Left: stats + platforms + focus
+// Right: description + links
 // ============================================
 
 .stat-body {
-  padding: space(5) space(6);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: space(4);
+  padding: space(4) space(5);
 }
 
-// Quick stats flex row
-.stat-row-quick {
-  display: flex;
-  flex-wrap: wrap;
-  gap: space(4) space(8);
-}
 
-.stat-item {
+// ============================================
+// LEFT COLUMN
+// ============================================
+
+.stat-col-left {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  gap: space(3);
+}
+
+
+// ============================================
+// STAT TABLE — tight key:value rows
+// ============================================
+
+.stat-table {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.stat-row {
+  display: flex;
+  align-items: baseline;
+  padding: space(1) 0;
+  border-bottom: 1px solid rgba($black-dark, 0.08);
+
+  &:last-child {
+    border-bottom: none;
+  }
 
   dt {
     font-family: $font-barlow;
@@ -174,157 +239,162 @@
     text-transform: uppercase;
     color: $gray-medium;
     letter-spacing: 0.05em;
+    width: 5.5rem;
+    flex-shrink: 0;
   }
 
   dd {
     font-family: $font-poppins;
     font-weight: $weight-semibold;
-    font-size: font-size(md);
+    font-size: font-size(sm);
     color: $black-dark;
     margin: 0;
+    flex: 1;
+    min-width: 0;
   }
 }
 
 
-// Tag rows (Genre, Platform, Focus)
-.stat-row-tags {
-  display: flex;
-  align-items: center;
-  gap: space(3);
-  flex-wrap: wrap;
-}
+// ============================================
+// SHARED LABEL + TAG BLOCK
+// ============================================
 
-.stat-row-label {
+.stat-label {
   font-family: $font-barlow;
   font-weight: $weight-black;
-  font-size: font-size(sm);
+  font-size: font-size(xs);
   text-transform: uppercase;
   color: $gray-medium;
   letter-spacing: 0.05em;
-  flex-shrink: 0;
+}
+
+.stat-tag-block {
+  display: flex;
+  flex-direction: column;
+  gap: space(1);
 }
 
 .stat-tag-group {
   display: flex;
   flex-wrap: wrap;
-  gap: space(2);
+  gap: space(1);
   margin: 0;
 }
 
-// Genre pills — purple bg
-.stat-tag-genre {
-  font-family: $font-barlow;
-  font-weight: $weight-bold;
-  font-size: font-size(sm);
-  color: $white;
-  text-transform: uppercase;
-  padding: 0.2rem space(3);
-  background: $purple-light;
-  border: 1px solid $black-dark;
-  border-radius: $radius-xs;
-}
 
-// Platform pills — dark bg with icon
-.stat-tag-platform {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: space(1);
+// ============================================
+// TAGS
+// ============================================
+
+.stat-tag {
   font-family: $font-barlow;
   font-weight: $weight-bold;
   font-size: font-size(xs);
-  color: $white;
   text-transform: uppercase;
-  padding: 0.25rem space(2);
-  background: $black-dark;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.1rem space(2);
+  border: 1px solid $black-dark;
   border-radius: $radius-xs;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  display: inline-flex;
+  align-items: center;
+  gap: space(1);
+}
+
+.stat-tag-genre {
+  background: $purple-light;
+  color: $white;
+}
+
+.stat-tag-platform {
+  background: $black-dark;
+  color: $white;
 
   i {
-    font-size: font-size(sm);
-    color: $white;
+    font-size: font-size(xs);
   }
 }
 
-// Focus keywords — yellow on dark, individual pills
-.stat-focus-keyword {
-  font-family: $font-barlow;
+.stat-tag-focus {
+  background: $yellow-dark;
+  color: $black-dark;
   font-weight: $weight-black;
-  font-size: font-size(sm);
-  color: $yellow-dark;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.2rem space(3);
-  background: $black-dark;
-  border: 1px solid $yellow-dark;
-  border-radius: $radius-xs;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 
 // ============================================
-// DESCRIPTION
+// RIGHT COLUMN
 // ============================================
 
-.project-description {
-  background: $white;
-  border: $border-md solid $black-dark;
-  border-radius: $radius-medium;
-  box-shadow: $solid-shadow-md;
-}
-
-details summary {
-  list-style: none;
+.stat-col-right {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  font-family: $font-barlow;
-  font-weight: $weight-black;
-  font-size: font-size(xl);
-  text-transform: uppercase;
-  cursor: pointer;
-  padding: space(3);
-  transition: font-size 0.3s $easing-bounce;
-}
-
-.project-description details[open] {
-  padding: space(4);
-  line-height: 1.6;
-}
-
-.project-description :is(p, h1, h2, h3, h4, h5, h6) {
-  padding-bottom: space(3);
-}
-
-summary i {
-  font-size: font-size(3xl);
-  color: $black-dark;
-  transition: transform 0.3s $easing-bounce,
-              color 0.2s $easing-bounce;
-}
-
-summary:hover i {
-  color: $yellow-dark;
-  transform: scale(1.3);
-}
-
-details[open] summary {
-  font-size: font-size(2xl);
-}
-
-details[open] summary i {
-  transform: rotate(180deg);
-}
-
-details[open] summary:hover i {
-  color: $yellow-dark;
+  gap: space(3);
 }
 
 
 // ============================================
-// SECTION DIVIDER — PoE line + badge + icon
+// DESCRIPTION (visible in right column)
+// ============================================
+
+.stat-description {
+  display: flex;
+  flex-direction: column;
+  gap: space(1);
+  flex: 1;
+}
+
+.stat-description-text {
+  font-family: $font-poppins;
+  font-size: font-size(sm);
+  font-weight: $weight-normal;
+  color: $black-dark;
+  line-height: 1.6;
+
+  p {
+    margin: 0 0 space(2) 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+// ============================================
+// EXTERNAL LINKS — matches footer .social-link
+// Bare icons, no box. Color + scale on hover.
+// ============================================
+
+
+.stat-links-block {
+  display: flex;
+  flex-direction: column;
+  gap: space(1);
+}
+
+.stat-links-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(3);
+}
+
+.stat-link-icon {
+  color: $black-dark;
+  font-size: font-size(3xl);
+  text-decoration: none;
+  cursor: pointer;
+   transition: color 0.2s $easing-bounce, 
+              transform 0.2s $easing-bounce;
+
+  &:hover {
+    color: $yellow-dark;
+    transform: scale(1.2);
+    animation: icon-bounce 0.4s $easing-pop;
+  }
+}
+
+
+// ============================================
+// SECTION DIVIDER
 // ============================================
 
 .section-divider {
@@ -337,9 +407,9 @@ details[open] summary:hover i {
   &::after {
     content: '';
     flex: 1;
-    height: 3px;
+    height: $border-sm;
     background: $yellow-dark;
-    border-radius: 2px;
+    border-radius: $radius-medium;
   }
 }
 
@@ -347,10 +417,9 @@ details[open] summary:hover i {
   display: flex;
   align-items: center;
   gap: space(2);
-  background: $black-medium;
-  border: $border-xsm solid $gray-dark;
+  background: $black-dark;
   border-radius: $radius-medium;
-  padding: space(1) space(4);
+  padding: space(2) space(4);
   box-shadow:
     inset 0 1px 3px rgba(0, 0, 0, 0.3),
     $solid-shadow-xs;
@@ -385,7 +454,7 @@ details[open] summary:hover i {
 
 
 // ============================================
-// GALLERY — Stash Tab Style
+// GALLERY
 // ============================================
 
 .lightbox {
@@ -499,7 +568,7 @@ details[open] summary:hover i {
 
 
 // ============================================
-// PROJECT NAVIGATION (Next/Previous)
+// PROJECT NAVIGATION
 // ============================================
 
 .project-nav {
@@ -583,13 +652,12 @@ details[open] summary:hover i {
 
 
 // ============================================
-// RESPONSIVE STYLES
+// RESPONSIVE
 // ============================================
 
-/* Laptops and Small Desktops */
 @media (max-width: $desktop-lg) {
   .stat-name-plate {
-    padding: space(2) space(5);
+    padding: space(2) space(4);
   }
 
   .stat-project-title {
@@ -606,16 +674,21 @@ details[open] summary:hover i {
     }
   }
 
-  .stat-body {
-    padding: space(4) space(5);
+  .stat-flavor {
+    padding: space(2) space(4);
   }
 
-  .stat-row-quick {
-    gap: space(3) space(6);
+  .stat-body {
+    padding: space(3) space(4);
+    gap: space(3);
   }
 
   .stat-award-row {
-    padding: space(2) space(5);
+    padding: space(2) space(4);
+  }
+
+  .stat-row dt {
+    width: 5rem;
   }
 
   .project-image-container {
@@ -628,49 +701,44 @@ details[open] summary:hover i {
     width: 60%;
     bottom: space(3);
   }
-
-  details summary {
-    font-size: font-size(lg);
-    padding: space(2);
-  }
-
-  summary i {
-    font-size: font-size(2xl);
-  }
-
-  details[open] summary {
-    font-size: font-size(xl);
-  }
 }
 
-/* Tablets */
 @media (max-width: $tablet-lg) {
   .project-main-container {
     border-width: $border-md;
   }
 
   .stat-name-plate {
-    padding: space(2) space(4);
+    padding: space(2) space(3);
   }
 
   .stat-project-title {
     font-size: font-size(xl);
   }
 
+  .stat-flavor {
+    padding: space(2) space(3);
+  }
+
   .stat-body {
-    padding: space(4);
-  }
-
-  .stat-row-quick {
-    gap: space(3) space(5);
-  }
-
-  .stat-item dd {
-    font-size: font-size(sm);
+    padding: space(3);
+    gap: space(3);
   }
 
   .stat-award-row {
-    padding: space(2) space(4);
+    padding: space(2) space(3);
+  }
+
+  .stat-row dd {
+    font-size: font-size(xs);
+  }
+
+  .stat-description-text {
+    font-size: font-size(xs);
+  }
+
+  .stat-link-icon {
+    font-size: font-size(2xl);
   }
 
   .project-image-container {
@@ -707,24 +775,7 @@ details[open] summary:hover i {
   }
 }
 
-/* Small Tablets */
 @media (max-width: $tablet) {
-  .project-main-container {
-    border-width: $border-md;
-  }
-
-  .stat-name-plate {
-    padding: space(2) space(3);
-  }
-
-  .stat-project-title {
-    font-size: font-size(xl);
-  }
-
-  .stat-type-label {
-    font-size: font-size(xs);
-  }
-
   .stat-engine-orb {
     width: 2rem;
     height: 2rem;
@@ -735,52 +786,38 @@ details[open] summary:hover i {
     }
   }
 
+  .stat-type-label {
+    font-size: font-size(xs);
+  }
+
+  .stat-type-divider {
+    font-size: font-size(xs);
+  }
+
+  .stat-type-line .stat-tag-genre {
+    font-size: 0.6rem;
+  }
+
   .stat-body {
-    padding: space(3) space(4);
-    gap: space(3);
+    gap: space(2);
   }
 
-  .stat-row-quick {
-    gap: space(2) space(4);
-  }
-
-  .stat-item dt {
+  .stat-row dt {
+    width: 4.5rem;
     font-size: 0.65rem;
   }
 
-  .stat-item dd {
-    font-size: font-size(sm);
-  }
-
-  .stat-tag-genre {
-    font-size: font-size(xs);
-    padding: 0.15rem space(2);
-  }
-
-  .stat-tag-platform {
+  .stat-label {
     font-size: 0.65rem;
-    padding: 0.2rem space(2);
   }
 
-  .stat-focus-keyword {
-    font-size: font-size(xs);
-    padding: 0.15rem space(2);
-  }
-
-  .stat-award-row {
-    padding: space(2) space(3);
+  .stat-tag {
+    font-size: 0.6rem;
+    padding: 0.1rem space(1);
   }
 
   .stat-award-text {
     font-size: font-size(sm);
-  }
-
-  .project-description {
-    border-width: $border-md;
-  }
-
-  .project-description details[open] {
-    padding: 0.75rem;
   }
 
   .project-image-container {
@@ -799,25 +836,11 @@ details[open] summary:hover i {
     bottom: space(2);
   }
 
-  details summary {
-    font-size: font-size(xl);
-    padding: space(2);
-  }
-
-  summary i {
-    font-size: font-size(2xl);
-  }
-
-  details[open] summary {
-    font-size: font-size(2xl);
-  }
-
   .project-nav-button {
     font-size: font-size(xl);
   }
 }
 
-/* Mobile */
 @media (max-width: $mobile-lg) {
   .project-main-container {
     border-width: $border-sm;
@@ -828,7 +851,7 @@ details[open] summary:hover i {
   }
 
   .stat-name-plate {
-    padding: space(2) space(3);
+    padding: space(2);
   }
 
   .stat-project-title {
@@ -837,6 +860,11 @@ details[open] summary:hover i {
 
   .stat-type-label {
     font-size: font-size(xs);
+  }
+
+  .stat-type-line .stat-tag-genre {
+    font-size: 0.55rem;
+    padding: 0.05rem space(1);
   }
 
   .stat-engine-orb {
@@ -850,36 +878,40 @@ details[open] summary:hover i {
     }
   }
 
+  .stat-flavor {
+    padding: space(1) space(2);
+
+    p {
+      font-size: font-size(xs);
+    }
+  }
+
+  // Collapse to single column on mobile
   .stat-body {
-    padding: space(3);
+    grid-template-columns: 1fr;
+    padding: space(2);
     gap: space(3);
   }
 
-  .stat-row-quick {
-    gap: space(2) space(4);
+  .stat-row {
+    padding: space(1) 0;
+
+    dt {
+      width: 5rem;
+    }
   }
 
-  .stat-row-label {
+  .stat-tag {
     font-size: font-size(xs);
+    padding: 0.1rem space(1);
   }
 
-  .stat-tag-genre {
-    font-size: font-size(xs);
-    padding: 0.1rem space(2);
-  }
-
-  .stat-tag-platform {
-    font-size: 0.6rem;
-    padding: 0.15rem space(1);
-  }
-
-  .stat-focus-keyword {
-    font-size: font-size(xs);
-    padding: 0.1rem space(2);
+  .stat-link-icon {
+    font-size: font-size(2xl);
   }
 
   .stat-award-row {
-    padding: space(1) space(3);
+    padding: space(1) space(2);
   }
 
   .stat-award-text {
@@ -890,17 +922,9 @@ details[open] summary:hover i {
     font-size: font-size(md);
   }
 
-  .project-description {
-    border-width: $border-sm;
-  }
-
-  .project-description details[open] {
-    padding: 0.5rem;
-    line-height: 1.4;
-  }
-
-  .project-description :is(p, h1, h2, h3, h4, h5, h6) {
-    padding-bottom: space(2);
+  .stat-description-text {
+    font-size: font-size(xs);
+    line-height: 1.5;
   }
 
   .project-image-container {
@@ -922,19 +946,6 @@ details[open] summary:hover i {
     width: 80%;
     bottom: space(1);
     font-size: font-size(md);
-  }
-
-  details summary {
-    font-size: font-size(lg);
-    padding: space(1);
-  }
-
-  summary i {
-    font-size: font-size(xl);
-  }
-
-  details[open] summary {
-    font-size: font-size(xl);
   }
 
   .section-divider {
@@ -1000,7 +1011,6 @@ details[open] summary:hover i {
   }
 }
 
-/* Small Mobile */
 @media (max-width: $mobile-sm) {
   .project-hero-image {
     max-height: 28vh;
@@ -1018,6 +1028,14 @@ details[open] summary:hover i {
     font-size: 0.6rem;
   }
 
+  .stat-type-divider {
+    font-size: 0.6rem;
+  }
+
+  .stat-type-line .stat-tag-genre {
+    font-size: 0.5rem;
+  }
+
   .stat-engine-orb {
     width: 1.6rem;
     height: 1.6rem;
@@ -1028,38 +1046,42 @@ details[open] summary:hover i {
     }
   }
 
+  .stat-flavor {
+    padding: space(1) space(2);
+  }
+
   .stat-body {
-    padding: space(2);
+    padding: space(1) space(2);
     gap: space(2);
   }
 
-  .stat-row-quick {
-    gap: space(2) space(3);
+  .stat-row {
+    dt {
+      width: 4rem;
+      font-size: 0.6rem;
+    }
+
+    dd {
+      font-size: font-size(xs);
+    }
   }
 
-  .stat-item dt {
+  .stat-label {
     font-size: 0.6rem;
   }
 
-  .stat-item dd {
-    font-size: font-size(xs);
-  }
-
-  .stat-row-label {
-    font-size: 0.6rem;
-  }
-
-  .stat-tag-genre {
-    font-size: 0.6rem;
-  }
-
-  .stat-tag-platform {
+  .stat-tag {
     font-size: 0.55rem;
-    padding: 0.15rem space(1);
+    padding: 0.05rem space(1);
   }
 
-  .stat-focus-keyword {
-    font-size: 0.6rem;
+  .stat-link-icon {
+    font-size: font-size(xl);
+  }
+
+  .stat-description-text {
+    font-size: font-size(xs);
+    line-height: 1.4;
   }
 
   .stat-award-row {
@@ -1087,18 +1109,6 @@ details[open] summary:hover i {
     width: 90%;
     font-size: font-size(sm);
     padding: space(1);
-  }
-
-  details summary {
-    font-size: font-size(md);
-  }
-
-  summary i {
-    font-size: font-size(lg);
-  }
-
-  details[open] summary {
-    font-size: font-size(lg);
   }
 
   .section-divider {
