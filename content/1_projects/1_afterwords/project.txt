@@ -58,11 +58,11 @@ Team: 8
 
 ----
 
-Has-award: true
+Projectstatus: released
 
 ----
 
-Award-description: 200/300 Points in the game jam
+Role: Game Desinger
 
 ----
 
@@ -74,7 +74,32 @@ Engineicon: unity.svg
 
 ----
 
-Links: https://adistantdreamer.itch.io/afterwords
+Has-award: true
+
+----
+
+Award-description: 200/300 Points in the game jam
+
+----
+
+Externallinks:
+
+- 
+  platform: itch
+  url: >
+    https://adistantdreamer.itch.io/afterwords
+- 
+  platform: github
+  url: >
+    https://github.com/KochMaximilian/AfterwardsGameoff2024_Handin
+
+----
+
+Links: 
+
+----
+
+Shortdescription: 
 
 ----
 
