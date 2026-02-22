@@ -364,7 +364,6 @@
 // Bare icons, no box. Color + scale on hover.
 // ============================================
 
-
 .stat-links-block {
   display: flex;
   flex-direction: column;
@@ -382,7 +381,7 @@
   font-size: font-size(3xl);
   text-decoration: none;
   cursor: pointer;
-   transition: color 0.2s $easing-bounce, 
+  transition: color 0.2s $easing-bounce,
               transform 0.2s $easing-bounce;
 
   &:hover {
@@ -400,17 +399,9 @@
 .section-divider {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: space(4);
   margin-bottom: space(5);
-
-  &::before,
-  &::after {
-    content: '';
-    flex: 1;
-    height: $border-sm;
-    background: $yellow-dark;
-    border-radius: $radius-medium;
-  }
 }
 
 .section-divider-badge {
@@ -418,11 +409,12 @@
   align-items: center;
   gap: space(2);
   background: $black-dark;
+  border: $border-sm solid $black-dark;
   border-radius: $radius-medium;
   padding: space(2) space(4);
   box-shadow:
     inset 0 1px 3px rgba(0, 0, 0, 0.3),
-    $solid-shadow-xs;
+    $solid-shadow-sm;
   flex-shrink: 0;
 
   i {
@@ -463,14 +455,13 @@
 
 .project-image-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: space(5);
   justify-items: center;
   justify-content: center;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  contain: layout;
 }
 
 .project-image-link {
@@ -478,16 +469,17 @@
   overflow: visible;
   display: block;
   width: 100%;
-  aspect-ratio: 1;
 }
 
 .image-slot {
   width: 100%;
-  height: 100%;
-  border-radius: $radius-large;
-  background: $black-medium;
-  padding: 0.35rem;
-  border: $border-sm solid $black-dark;
+  aspect-ratio: 16 / 9;
+  border-radius: $radius-medium;
+  background: $black-dark;
+  padding: 0.15rem;
+  border: $border-xs solid $black-dark;
+  overflow: hidden;
+  position: relative;
   box-shadow:
     inset 0 2px 6px rgba(0, 0, 0, 0.4),
     $solid-shadow-sm;
@@ -501,48 +493,55 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: $radius-medium;
+  border-radius: $radius-small;
   position: relative;
   z-index: 1;
-  transition: transform 0.2s $easing-bounce;
+  transition: transform 0.3s $easing-pop;
 }
 
 .project-image-container a:hover .image-slot {
-  transform: scale(1.05);
+  transform: scale(1.03);
   border-color: $yellow-dark;
   box-shadow:
     inset 0 2px 6px rgba(0, 0, 0, 0.4),
-    0 8px 20px rgba(0, 0, 0, 0.3),
-    0 0 12px rgba($yellow-dark, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    0 0 18px rgba($yellow-dark, 0.5),
+    0 0 40px rgba($yellow-dark, 0.2),
     $solid-shadow-md;
+}
+
+// Inner image zooms independently — parallax-within-frame feel
+.project-image-container a:hover .project-gallary-image {
+  transform: scale(1.08);
 }
 
 .image-caption-badge {
   font-family: $font-barlow;
   font-weight: $weight-black;
-  font-size: font-size(md);
+  font-size: font-size(xs);
   color: $black-dark;
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
-  background: $white;
-  border: $border-sm solid $black-dark;
-  border-radius: $radius-small;
-  padding: space(1);
-  width: 50%;
+  background: $yellow-dark;
+  border: $border-xs solid $black-dark;
+  border-radius: $radius-xs;
+  padding: 0.1rem space(2);
   position: absolute;
-  bottom: space(4);
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  transition: transform 0.2s $easing-bounce,
-              background 0.2s $easing-bounce;
+  transform: translate(-50%, -50%);
   z-index: z(content);
-  will-change: transform;
+  white-space: nowrap;
+  opacity: 0;
+  box-shadow: $solid-shadow-sm;
+  transition: opacity 0.2s $easing-bounce;
+  will-change: opacity;
+  pointer-events: none;
 }
 
 .project-image-container a:hover .image-caption-badge {
-  background: $yellow-dark;
-  transform: translateX(-50%) scale(1.05);
+  opacity: 1;
 }
 
 .project-image-container a {
@@ -692,7 +691,7 @@
   }
 
   .project-image-container {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: space(5);
   }
 
@@ -742,7 +741,7 @@
   }
 
   .project-image-container {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: space(4);
   }
 
@@ -821,7 +820,7 @@
   }
 
   .project-image-container {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: space(4);
   }
 
@@ -928,14 +927,13 @@
   }
 
   .project-image-container {
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: space(3);
   }
 
   .image-slot {
     padding: 0.25rem;
     border-width: $border-xsm;
-    border-radius: $radius-medium;
   }
 
   .project-gallary-image {
@@ -970,11 +968,6 @@
 
   .section-divider-badge i {
     font-size: font-size(sm);
-  }
-
-  .section-divider::before,
-  .section-divider::after {
-    height: 2px;
   }
 
   .project-nav {
@@ -1097,7 +1090,7 @@
   }
 
   .project-image-container {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: space(3);
   }
 
@@ -1113,11 +1106,6 @@
 
   .section-divider {
     gap: space(1);
-  }
-
-  .section-divider::before,
-  .section-divider::after {
-    height: 1px;
   }
 
   .project-nav {
@@ -1139,4 +1127,120 @@
   .project-nav-button {
     font-size: font-size(lg);
   }
+}
+
+
+// ============================================
+// PHOTOSWIPE SKIN — game feel
+// ============================================
+
+// Fix scrollbar layout shift — when lightbox opens the scrollbar disappears
+// causing the fixed header to jump. This compensates with the padding
+// PhotoSwipe already calculates and exposes as a CSS variable.
+.pswp-open .site-header {
+  padding-right: var(--pswp-scrollbar-padding, 0px);
+}
+
+.pswp {
+  --pswp-bg: #{rgba($black-dark, 0.96)};
+}
+
+.pswp__top-bar {
+  background: transparent;
+  padding: space(3) space(3) 0;
+}
+
+.pswp__ui {
+  padding: space(3);
+}
+
+// Shared button base
+.pswp__button--close,
+.pswp__button--zoom,
+.pswp__button--arrow--prev,
+.pswp__button--arrow--next {
+  width: 2.25rem;
+  height: 2.25rem;
+  background: $white;
+  border: $border-xs solid $black-dark;
+  border-radius: $radius-xs;
+  box-shadow: $solid-shadow-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: space(2);
+  transition: transform 0.2s $easing-pop,
+              background 0.15s ease,
+              box-shadow 0.15s ease;
+
+  svg {
+    display: none;
+  }
+
+  &::after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: font-size(sm);
+    color: $black-dark;
+    line-height: 1;
+    display: block;
+  }
+
+  &:hover {
+    background: $yellow-dark;
+    transform: scale(1.05);
+    box-shadow: $solid-shadow-xs;
+  }
+}
+
+.pswp__button--close {
+  &::after { content: '\f00d'; }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.pswp__button--zoom {
+  &::after { content: '\f00e'; }
+}
+
+.pswp--zoomed-in .pswp__button--zoom {
+  &::after { content: '\f010'; }
+}
+
+.pswp__button--arrow--prev {
+  &::after { content: '\f053'; }
+
+  &:hover {
+    transform: scale(1.05) translateX(-2px);
+  }
+}
+
+.pswp__button--arrow--next {
+  &::after { content: '\f054'; }
+
+  &:hover {
+    transform: scale(1.05) translateX(2px);
+  }
+}
+
+.pswp__counter {
+  font-family: $font-barlow;
+  font-weight: $weight-black;
+  font-size: font-size(xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $black-dark;
+  background: $white;
+  border: $border-xs solid $black-dark;
+  border-radius: $radius-xs;
+  box-shadow: $solid-shadow-sm;
+  padding: 0.1rem space(2);
+  margin: space(2);
+  opacity: 1;
+  // Force GPU compositing onto whole pixels — fixes sub-pixel blur
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
