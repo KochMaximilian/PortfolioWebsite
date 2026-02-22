@@ -134,27 +134,23 @@
                                     <dd><?= $statusLabels[$page->projectstatus()->value()] ?? $page->projectstatus() ?></dd>
                                 </div>
                             <?php endif; ?>
-                            <?php if ($page->role()->isNotEmpty()): ?>
-                                <div class="stat-row">
-                                    <dt>Role</dt>
-                                    <dd><?= $page->role() ?></dd>
-                                </div>
-                            <?php endif; ?>
                         </dl>
 
                         <!-- Platforms -->
-                        <div class="stat-tag-block">
-                            <span class="stat-label">Platforms</span>
-                            <div class="stat-tag-group">
-                                <?php foreach ($page->platform()->split(',') as $platform): ?>
-                                    <?php $iconClass = $platformIconMap[trim($platform)] ?? 'fa-solid fa-gamepad'; ?>
-                                    <span class="stat-tag stat-tag-platform" title="<?= trim($platform) ?>">
-                                        <i class="<?= $iconClass ?>" aria-hidden="true"></i>
-                                        <?= trim($platform) ?>
-                                    </span>
-                                <?php endforeach; ?>
+                        <?php if ($page->platforms()->isNotEmpty()): ?>
+                            <div class="stat-tag-block">
+                                <span class="stat-label">Platforms</span>
+                                <div class="stat-tag-group">
+                                    <?php foreach ($page->platforms()->split(',') as $platform): ?>
+                                        <?php $iconClass = $platformIconMap[trim($platform)] ?? 'fa-solid fa-gamepad'; ?>
+                                        <span class="stat-tag stat-tag-platform" title="<?= trim($platform) ?>">
+                                            <i class="<?= $iconClass ?>" aria-hidden="true"></i>
+                                            <?= trim($platform) ?>
+                                        </span>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
-                        </div>
+                        <?php endif; ?>
 
                         <!-- Focus Areas -->
                         <?php if ($page->focus()->isNotEmpty()): ?>
@@ -222,19 +218,13 @@
                             <?php
                             $isGif = strtolower($image->extension()) === 'gif';
                             if ($isGif) {
-                                $thumbUrl = $image->thumb([
-                                    'autoOrient' => true,
-                                    'width' => 400,
-                                    'height' => 400,
-                                    'crop' => true,
-                                    'quality' => 70,
-                                    'driver' => 'im',
-                                ])->url();
+                                // Never thumb GIFs — ImageMagick processes every frame and exhausts memory
+                                $thumbUrl = $image->url();
                             } else {
                                 $thumbUrl = $image->thumb([
                                     'autoOrient' => true,
-                                    'width' => 400,
-                                    'height' => 400,
+                                    'width' => 640,
+                                    'height' => 360,
                                     'crop' => true,
                                     'quality' => 70,
                                     'driver' => 'im',
