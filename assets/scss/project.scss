@@ -332,7 +332,7 @@
 
 
 // ============================================
-// DESCRIPTION (visible in right column)
+// DESCRIPTION
 // ============================================
 
 .stat-description {
@@ -360,8 +360,8 @@
 
 
 // ============================================
-// EXTERNAL LINKS — matches footer .social-link
-// Bare icons, no box. Color + scale on hover.
+// EXTERNAL LINKS
+// Color + scale on hover.
 // ============================================
 
 .stat-links-block {
@@ -563,6 +563,26 @@
 .project-image-container a:active .image-slot {
   transform: scale(0.98);
   transition-duration: 0.1s;
+}
+
+// Video thumbnail play icon overlay
+.video-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: z(content);
+  color: $white;
+  font-size: 2.5rem;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
+  transition: transform 0.2s $easing-pop,
+              color 0.2s ease;
+}
+
+.project-image-container a:hover .video-play-icon {
+  color: $yellow-dark;
+  transform: translate(-50%, -50%) scale(1.15);
 }
 
 
@@ -1131,52 +1151,42 @@
 
 
 // ============================================
-// PHOTOSWIPE SKIN — game feel
+// GLIGHTBOX SKIN — game feel
 // ============================================
 
-// Fix scrollbar layout shift — when lightbox opens the scrollbar disappears
-// causing the fixed header to jump. This compensates with the padding
-// PhotoSwipe already calculates and exposes as a CSS variable.
-.pswp-open .site-header {
-  padding-right: var(--pswp-scrollbar-padding, 0px);
+// Fix scrollbar layout shift — when GLightbox opens the scrollbar disappears
+// causing the fixed header to jump. GLightbox adds .glightbox-open to body.
+body.glightbox-open .site-header {
+  padding-right: var(--scrollbar-compensation, 0px);
 }
 
-.pswp {
-  --pswp-bg: #{rgba($black-dark, 0.96)};
+// Dark overlay
+.goverlay {
+  background: rgba($black-dark, 0.96);
 }
 
-.pswp__top-bar {
-  background: transparent;
-  padding: space(3) space(3) 0;
-}
-
-.pswp__ui {
-  padding: space(3);
-}
-
-// Shared button base
-.pswp__button--close,
-.pswp__button--zoom,
-.pswp__button--arrow--prev,
-.pswp__button--arrow--next {
-  width: 2.25rem;
-  height: 2.25rem;
-  background: $white;
-  border: $border-xs solid $black-dark;
-  border-radius: $radius-xs;
-  box-shadow: $solid-shadow-sm;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: space(2);
+// Shared button base — close, prev, next
+.gbtn {
+  width: 2.25rem !important;
+  height: 2.25rem !important;
+  background: $white !important;
+  border: $border-xs solid $black-dark !important;
+  border-radius: $radius-xs !important;
+  box-shadow: $solid-shadow-sm !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   transition: transform 0.2s $easing-pop,
               background 0.15s ease,
-              box-shadow 0.15s ease;
+              box-shadow 0.15s ease !important;
+  opacity: 1 !important;
 
+  // Hide default GLightbox SVG icons
   svg {
-    display: none;
+    display: none !important;
   }
 
+  // Replace with Font Awesome via ::after
   &::after {
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
@@ -1187,60 +1197,614 @@
   }
 
   &:hover {
-    background: $yellow-dark;
-    transform: scale(1.05);
-    box-shadow: $solid-shadow-xs;
+    background: $yellow-dark !important;
+    transform: scale(1.08) !important;
+    box-shadow: $solid-shadow-xs !important;
   }
 }
 
-.pswp__button--close {
-  &::after { content: '\f00d'; }
+// Close button
+.gclose {
+  &::after {
+    content: '\f00d';
+  }
+}
+
+// Prev arrow
+.gprev {
+  &::after {
+    content: '\f053';
+  }
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.08) translateX(-2px) !important;
   }
 }
 
-.pswp__button--zoom {
-  &::after { content: '\f00e'; }
-}
-
-.pswp--zoomed-in .pswp__button--zoom {
-  &::after { content: '\f010'; }
-}
-
-.pswp__button--arrow--prev {
-  &::after { content: '\f053'; }
+// Next arrow
+.gnext {
+  &::after {
+    content: '\f054';
+  }
 
   &:hover {
-    transform: scale(1.05) translateX(-2px);
+    transform: scale(1.08) translateX(2px) !important;
   }
 }
 
-.pswp__button--arrow--next {
-  &::after { content: '\f054'; }
-
-  &:hover {
-    transform: scale(1.05) translateX(2px);
-  }
-}
-
-.pswp__counter {
-  font-family: $font-barlow;
-  font-weight: $weight-black;
-  font-size: font-size(xs);
+// Slide counter / infobar
+.infobar {
+  font-family: $font-barlow !important;
+  font-weight: $weight-black !important;
+  font-size: font-size(xs) !important;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: $black-dark;
-  background: $white;
-  border: $border-xs solid $black-dark;
-  border-radius: $radius-xs;
+  color: $black-dark !important;
+  background: $white !important;
+  border: $border-xs solid $black-dark !important;
+  border-radius: $radius-xs !important;
+  box-shadow: $solid-shadow-sm !important;
+  padding: 0.1rem space(3) !important;
+  opacity: 1 !important;
+}
+
+// Description panel
+.gslide-description {
+  background: $white !important;
+  border-top: $border-xs solid $black-dark;
+
+  // When positioned left or right it gets a side border instead
+  .gslider[data-desc-position="left"] &,
+  .gslider[data-desc-position="right"] & {
+    border-top: none;
+    border-left: $border-xs solid $black-dark;
+  }
+}
+
+.gdesc-inner {
+  padding: space(4) space(5) !important;
+}
+
+// Title in description (if set via data-title)
+.gslide-title {
+  font-family: $font-barlow !important;
+  font-weight: $weight-black !important;
+  font-size: font-size(md) !important;
+  text-transform: uppercase;
+  color: $black-dark !important;
+  letter-spacing: 0.03em;
+  margin-bottom: space(2) !important;
+}
+
+// Description body text — kirbytext outputs p, ul, ol, strong, em
+.gslide-desc {
+  font-family: $font-poppins !important;
+  font-size: font-size(sm) !important;
+  font-weight: $weight-normal !important;
+  color: $black-dark !important;
+  line-height: 1.6 !important;
+
+  p {
+    margin: 0 0 space(2) 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  strong {
+    font-weight: $weight-black;
+    color: $black-dark;
+  }
+
+  em {
+    font-style: italic;
+    color: $gray-dark;
+  }
+
+  a {
+    color: $blue-dark;
+    font-weight: $weight-bold;
+    text-decoration: none;
+    border-bottom: 2px solid $yellow-dark;
+    transition: color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      color: $yellow-dark;
+      border-color: $blue-dark;
+    }
+  }
+
+  ul, ol {
+    padding-left: space(5);
+    margin: 0 0 space(2) 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    li {
+      margin-bottom: space(1);
+    }
+  }
+
+  blockquote {
+    margin: space(2) 0;
+    padding: space(2) space(4);
+    background: rgba($yellow-dark, 0.12);
+    border-left: $border-sm solid $yellow-dark;
+    border-radius: 0 $radius-xs $radius-xs 0;
+    font-style: italic;
+    color: $gray-dark;
+  }
+}
+
+
+// ============================================
+// DEVLOG — dev process writeup section
+// ============================================
+
+.devlog {
+  margin-top: space(8);
+}
+
+// Prose container — full page width matching the rest of the page
+.devlog-content {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: space(6);
+}
+
+// ============================================
+// BLOCK: HEADING
+// ============================================
+
+.devlog-heading--h2 {
+  font-family: $font-barlow;
+  font-weight: $weight-black;
+  font-size: font-size(2xl);
+  text-transform: uppercase;
+  color: $white;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  padding-bottom: space(2);
+  border-bottom: $border-xs solid $yellow-dark;
+  margin: 0;
+}
+
+.devlog-heading--h3 {
+  font-family: $font-barlow;
+  font-weight: $weight-black;
+  font-size: font-size(xl);
+  text-transform: uppercase;
+  color: $yellow-dark;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.devlog-heading--h4 {
+  font-family: $font-barlow;
+  font-weight: $weight-black;
+  font-size: font-size(lg);
+  text-transform: uppercase;
+  color: $white;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+  margin: 0;
+  padding-left: space(3);
+  border-left: $border-xs solid $yellow-dark;
+}
+
+.devlog-heading--h5 {
+  font-family: $font-poppins;
+  font-weight: $weight-bold;
+  font-size: font-size(md);
+  color: $gray-medium;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.devlog-heading--h6 {
+  font-family: $font-poppins;
+  font-weight: $weight-semibold;
+  font-size: font-size(sm);
+  color: $gray-medium;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  margin: 0;
+}
+
+// Lightbox link wrapper on devlog images
+.devlog-image-link {
+  display: block;
+  cursor: zoom-in;
+  border-radius: $radius-medium;
+  overflow: hidden;
+  transition: box-shadow 0.2s $easing-pop;
+
+  &:hover .devlog-image {
+    opacity: 0.9;
+  }
+}
+
+// ============================================
+// BLOCK: TEXT
+// ============================================
+
+.devlog-text {
+  font-family: $font-poppins;
+  font-size: font-size(md);
+  font-weight: $weight-normal;
+  color: $white;
+  line-height: 1.75;
+
+  p {
+    margin: 0 0 space(3) 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  strong {
+    font-weight: $weight-black;
+    color: $yellow-dark;
+  }
+
+  em {
+    font-style: italic;
+    color: $yellow-light;
+  }
+
+  a {
+    color: $blue-light;
+    font-weight: $weight-bold;
+    text-decoration: none;
+    border-bottom: 2px solid rgba($yellow-dark, 0.5);
+    transition: color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      color: $yellow-dark;
+      border-color: $yellow-dark;
+    }
+  }
+
+  ul, ol {
+    padding-left: space(6);
+    margin: 0 0 space(3) 0;
+
+    &:last-child { margin-bottom: 0; }
+
+    li {
+      margin-bottom: space(2);
+      color: $white;
+    }
+  }
+
+  ul li::marker { color: $yellow-dark; }
+
+  ol li::marker {
+    color: $yellow-dark;
+    font-weight: $weight-black;
+    font-family: $font-barlow;
+  }
+
+  code {
+    font-family: 'Courier New', monospace;
+    font-size: font-size(sm);
+    background: $black-medium;
+    color: $yellow-light;
+    padding: 0.1rem space(2);
+    border-radius: $radius-xs;
+    border: 1px solid $black-light;
+  }
+}
+
+// ============================================
+// BLOCK: QUOTE
+// ============================================
+
+.devlog-quote {
+  margin: 0;
+  padding: space(4) space(6);
+  background: $black-medium;
+  border-left: $border-md solid $yellow-dark;
+  border-radius: 0 $radius-medium $radius-medium 0;
   box-shadow: $solid-shadow-sm;
-  padding: 0.1rem space(2);
-  margin: space(2);
-  opacity: 1;
-  // Force GPU compositing onto whole pixels — fixes sub-pixel blur
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  max-width: 100%;
+
+  p {
+    font-family: $font-poppins;
+    font-size: font-size(lg);
+    font-style: italic;
+    font-weight: $weight-semibold;
+    color: $white;
+    line-height: 1.6;
+    margin: 0 0 space(2) 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  cite {
+    display: block;
+    font-family: $font-barlow;
+    font-weight: $weight-black;
+    font-size: font-size(xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $yellow-dark;
+    margin-top: space(3);
+  }
+}
+
+// ============================================
+// BLOCK: IMAGE
+// ============================================
+
+.devlog-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: space(2);
+}
+
+.devlog-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: $radius-medium;
+  border: $border-xs solid $black-dark;
+  box-shadow: $solid-shadow-md;
+}
+
+.devlog-figcaption {
+  font-family: $font-barlow;
+  font-weight: $weight-bold;
+  font-size: font-size(xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $gray-medium;
+  text-align: center;
+}
+
+// ============================================
+// BLOCK: VIDEO
+// ============================================
+
+.devlog-video {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: space(2);
+}
+
+.devlog-video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  border-radius: $radius-medium;
+  overflow: hidden;
+  border: $border-xs solid $black-dark;
+  box-shadow: $solid-shadow-md;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+}
+
+// ============================================
+// BLOCK: LIST
+// ============================================
+
+.devlog-list {
+  ul, ol {
+    padding-left: space(6);
+    margin: 0;
+
+    li {
+      font-family: $font-poppins;
+      font-size: font-size(md);
+      color: $white;
+      line-height: 1.6;
+      margin-bottom: space(2);
+
+      &:last-child { margin-bottom: 0; }
+    }
+  }
+
+  ul li::marker { color: $yellow-dark; }
+
+  ol li::marker {
+    color: $yellow-dark;
+    font-weight: $weight-black;
+    font-family: $font-barlow;
+  }
+}
+
+// ============================================
+// BLOCK: LINE
+// Matches the section-divider design — badge + rules
+// ============================================
+
+.devlog-line {
+  display: flex;
+  align-items: center;
+  gap: space(4);
+}
+
+.devlog-line-rule {
+  flex: 1;
+  height: $border-xs;
+  background: $yellow-dark;
+  border-radius: 2px;
+  display: block;
+}
+
+.devlog-line-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: $black-dark;
+  border: $border-sm solid $black-dark;
+  border-radius: $radius-medium;
+  padding: space(2) space(3);
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.3),
+    $solid-shadow-sm;
+}
+
+.devlog-line-logo {
+  height: 2.5rem;
+  width: auto;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+  transition: transform 0.3s $easing-pop, filter 0.3s $easing-bounce;
+
+  &:hover {
+    transform: scale(1.15) rotate(-3deg);
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  }
+}
+
+// ============================================
+// BLOCK: SIDE BY SIDE (custom)
+// ============================================
+
+.devlog-sidebyside {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: space(6);
+  align-items: start;
+}
+
+.devlog-sidebyside--right {
+  .devlog-sidebyside-text  { order: 1; }
+  .devlog-sidebyside-media { order: 2; }
+}
+
+.devlog-sidebyside--left {
+  .devlog-sidebyside-text  { order: 2; }
+  .devlog-sidebyside-media { order: 1; }
+}
+
+// Video inside sidebyside inherits the embed styles
+.devlog-sidebyside-media .devlog-video {
+  margin: 0;
+}
+
+.devlog-sidebyside-text {
+  font-family: $font-poppins;
+  font-size: font-size(md);
+  font-weight: $weight-normal;
+  color: $white;
+  line-height: 1.75;
+
+  p {
+    margin: 0 0 space(3) 0;
+
+    &:last-child { margin-bottom: 0; }
+  }
+
+  strong {
+    font-weight: $weight-black;
+    color: $yellow-dark;
+  }
+
+  em {
+    font-style: italic;
+    color: $yellow-light;
+  }
+
+  a {
+    color: $blue-light;
+    font-weight: $weight-bold;
+    text-decoration: none;
+    border-bottom: 2px solid rgba($yellow-dark, 0.5);
+    transition: color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      color: $yellow-dark;
+      border-color: $yellow-dark;
+    }
+  }
+
+  ul, ol {
+    padding-left: space(6);
+    margin: 0 0 space(3) 0;
+
+    li { margin-bottom: space(2); }
+  }
+
+  ul li::marker { color: $yellow-dark; }
+
+  ol li::marker {
+    color: $yellow-dark;
+    font-weight: $weight-black;
+    font-family: $font-barlow;
+  }
+}
+
+
+// ============================================
+// DEVLOG RESPONSIVE
+// ============================================
+
+@media (max-width: $tablet) {
+  .devlog-content {
+    gap: space(5);
+  }
+
+  .devlog-heading--h2 { font-size: font-size(xl); }
+  .devlog-heading--h3 { font-size: font-size(lg); }
+
+  .devlog-text {
+    font-size: font-size(sm);
+  }
+
+  .devlog-quote {
+    padding: space(3) space(4);
+
+    p { font-size: font-size(md); }
+  }
+
+  .devlog-list ul li, .devlog-list ol li { font-size: font-size(sm); }
+
+  .devlog-sidebyside {
+    grid-template-columns: 1fr;
+    gap: space(4);
+  }
+
+  // Image always goes below text on mobile
+  .devlog-sidebyside--right,
+  .devlog-sidebyside--left {
+    .devlog-sidebyside-text  { order: 1; }
+    .devlog-sidebyside-media { order: 2; }
+  }
+}
+
+@media (max-width: $mobile-lg) {
+  .devlog-content {
+    gap: space(4);
+  }
+
+  .devlog-text,
+  .devlog-sidebyside-text {
+    font-size: font-size(sm);
+    line-height: 1.65;
+  }
 }

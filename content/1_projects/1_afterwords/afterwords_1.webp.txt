@@ -2,11 +2,34 @@ Alt: Screenshot 1 Afterwords Game
 
 ----
 
-Intention: Schowcase
+Intention: Showcase
 
 ----
 
-Caption: This is a test caption
+Caption: 
+
+----
+
+Description:
+
+**Level Design — Puzzle Sequence**
+
+This section shows the *progression of difficulty* across the first act.
+
+Key decisions:
+- Player always has sight of the goal
+- No dead ends, only loops
+- Tutorial beat hidden in normal play
+
+> Designed for zero-frustration onboarding
+
+----
+
+Desc-position: left
+
+----
+
+Video-url: 
 
 ----
 

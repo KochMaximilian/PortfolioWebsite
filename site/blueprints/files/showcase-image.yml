@@ -1,26 +1,56 @@
-title: Showcase
-
-fields: 
+title: Showcase Image / Video
+accept:
+  extension: jpg, jpeg, png, webp, gif, mp4, webm
+fields:
   alt:
     type: text
-    label: Alternative Text
+    label: Alt Text
     width: 1/4
   intention:
     type: select
-    options: 
+    options:
       - Cover
-      - Schowcase
-    label: Intention for this image
+      - Showcase
+    label: Intention
     width: 1/4
   caption:
     type: text
-    label: Image Caption
-    width: 1/4
+    label: Thumbnail Badge
+    help: Short label shown on the thumbnail on hover
+    width: 1/2
+
+  description:
+    type: textarea
+    label: Slide Description
+    help: Text shown alongside the image/video inside the lightbox. Supports markdown formatting.
+    buttons:
+      - bold
+      - italic
+      - link
+      - ul
+      - ol
+    width: 2/3
+
+  desc_position:
+    type: select
+    label: Description Position
+    width: 1/3
+    default: bottom
+    options:
+      - value: bottom
+        text: Bottom
+      - value: left
+        text: Left
+      - value: right
+        text: Right
+
+  video_url:
+    type: url
+    label: Video URL
+    help: "YouTube or Vimeo link. If filled, this file is used as the thumbnail and the video plays in the lightbox. Leave empty for a regular image."
+    width: 1/1
+
   class:
-    type: text  
-    label: CSS-Class
+    type: text
+    label: CSS Class
     width: 1/4
-    
-  
-
-

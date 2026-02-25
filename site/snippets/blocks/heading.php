@@ -1,1 +1,2 @@
-<div class="headings"><<?= $level = $block->level()->or('h2') ?>><?= $block->text() ?></<?= $level ?>></div>
+<?php $level = $block->level()->or('h2') ?>
+<<?= $level ?> class="devlog-heading devlog-heading--<?= $level ?>"><?= $block->text() ?></<?= $level ?>>

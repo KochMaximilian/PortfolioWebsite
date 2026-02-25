@@ -20,7 +20,7 @@
                 'Web'             => 'fa-solid fa-globe',
             ];
 
-            // External link icon mapping — square FA variants where available (matches footer style)
+            // External link icon mapping
             $linkIconMap = [
                 'steam'    => 'fa-brands fa-square-steam',
                 'itch'     => 'fa-brands fa-itch-io',
@@ -49,12 +49,12 @@
                     <?php if ($page->embedlink()->isNotEmpty()): ?>
                         <div class="project-hero-embed">
                             <?= Html::iframe($page->embedlink(), [
-                                'title' => $page->embedTitle(),
-                                'frameborder' => '0',
-                                'allowfullscreen' => true,
-                                'allow' => 'accelerometer; autoplay; encrypted-media; gyroscope;',
-                                'loading' => 'lazy',
-                                'sandbox' => 'allow-scripts allow-same-origin',
+                                'title'          => $page->embedTitle(),
+                                'frameborder'    => '0',
+                                'allowfullscreen'=> true,
+                                'allow'          => 'accelerometer; autoplay; encrypted-media; gyroscope;',
+                                'loading'        => 'lazy',
+                                'sandbox'        => 'allow-scripts allow-same-origin',
                                 'referrerpolicy' => 'strict-origin-when-cross-origin'
                             ]) ?>
                         </div>
@@ -102,13 +102,10 @@
                     </div>
                 <?php endif; ?>
 
-                <!-- STAT BODY — 2 column: left = stats/tags, right = description/links -->
+                <!-- STAT BODY -->
                 <div class="stat-body">
 
-                    <!-- LEFT COLUMN -->
                     <div class="stat-col-left">
-
-                        <!-- Stats table -->
                         <dl class="stat-table">
                             <div class="stat-row">
                                 <dt>Year</dt>
@@ -136,12 +133,11 @@
                             <?php endif; ?>
                         </dl>
 
-                        <!-- Platforms -->
-                        <?php if ($page->platforms()->isNotEmpty()): ?>
+                        <?php if ($page->platform()->isNotEmpty()): ?>
                             <div class="stat-tag-block">
                                 <span class="stat-label">Platforms</span>
                                 <div class="stat-tag-group">
-                                    <?php foreach ($page->platforms()->split(',') as $platform): ?>
+                                    <?php foreach ($page->platform()->split(',') as $platform): ?>
                                         <?php $iconClass = $platformIconMap[trim($platform)] ?? 'fa-solid fa-gamepad'; ?>
                                         <span class="stat-tag stat-tag-platform" title="<?= trim($platform) ?>">
                                             <i class="<?= $iconClass ?>" aria-hidden="true"></i>
@@ -152,7 +148,6 @@
                             </div>
                         <?php endif; ?>
 
-                        <!-- Focus Areas -->
                         <?php if ($page->focus()->isNotEmpty()): ?>
                             <div class="stat-tag-block">
                                 <span class="stat-label">Focus</span>
@@ -163,13 +158,9 @@
                                 </div>
                             </div>
                         <?php endif; ?>
-
                     </div>
 
-                    <!-- RIGHT COLUMN -->
                     <div class="stat-col-right">
-
-                        <!-- Description -->
                         <?php if ($page->description()->isNotEmpty()): ?>
                             <div class="stat-description">
                                 <span class="stat-label">Description</span>
@@ -179,7 +170,6 @@
                             </div>
                         <?php endif; ?>
 
-                        <!-- External Links -->
                         <?php if ($page->externallinks()->isNotEmpty()): ?>
                             <div class="stat-links-block">
                                 <span class="stat-label">Links</span>
@@ -193,12 +183,11 @@
                                 </div>
                             </div>
                         <?php endif; ?>
-
                     </div>
 
                 </div>
-            </section>
 
+            </section>
 
 
             <?php
@@ -213,37 +202,73 @@
                             <span class="section-divider-count"><?= $showcaseImages->count() ?></span>
                         </span>
                     </div>
-                    <div id="gallery" class="project-image-container">
+                    <div class="project-image-container">
                         <?php foreach ($showcaseImages as $image): ?>
                             <?php
+                            // Determine media type
+                            $videoUrl     = $image->video_url()->isNotEmpty() ? $image->video_url()->value() : null;
+                            $videoExts    = ['mp4', 'webm'];
+                            $isLocalVideo = in_array(strtolower($image->extension()), $videoExts);
+                            $isVideo      = $videoUrl !== null || $isLocalVideo;
+
+                            // Href for lightbox — external video URL takes priority, then file URL
+                            $lightboxHref = $videoUrl ?? $image->url();
+
+                            // Thumbnail
                             $isGif = strtolower($image->extension()) === 'gif';
-                            if ($isGif) {
-                                // Never thumb GIFs — ImageMagick processes every frame and exhausts memory
+                            if ($isGif || $isLocalVideo) {
                                 $thumbUrl = $image->url();
                             } else {
                                 $thumbUrl = $image->thumb([
                                     'autoOrient' => true,
-                                    'width' => 640,
-                                    'height' => 360,
-                                    'crop' => true,
-                                    'quality' => 70,
-                                    'driver' => 'im',
-                                    'format' => 'webp'
+                                    'width'      => 640,
+                                    'height'     => 360,
+                                    'crop'       => true,
+                                    'quality'    => 70,
+                                    'driver'     => 'im',
+                                    'format'     => 'webp'
                                 ])->url();
                             }
+
+                            // Slide description — convert markdown to HTML, only escape quotes for the attribute
+                            $slideDesc    = $image->description()->isNotEmpty() ? (string)$image->description()->kirbytext() : null;
+                            $descPosition = $image->desc_position()->isNotEmpty() ? $image->desc_position()->value() : 'bottom';
                             ?>
-                            <a class="project-image-link" href="<?= $image->url() ?>"
-                                data-pswp-width="<?= $image->width() ?>"
-                                data-pswp-height="<?= $image->height() ?>"
-                                target="_blank">
+                            <a class="project-image-link<?= $isVideo ? ' is-video' : '' ?>"
+                                href="<?= $lightboxHref ?>"
+                                data-gallery="project-gallery"
+                                <?= $isLocalVideo ? 'data-type="video"' : '' ?>
+                                <?= $slideDesc ? 'data-description="' . str_replace('"', '&quot;', $slideDesc) . '"' : '' ?>
+                                data-desc-position="<?= $descPosition ?>">
                                 <div class="image-slot">
                                     <img loading="lazy" alt="<?= $image->alt() ?>" class="project-gallary-image" src="<?= $thumbUrl ?>" />
+                                    <?php if ($isVideo): ?>
+                                        <div class="video-play-icon" aria-hidden="true">
+                                            <i class="fa-solid fa-circle-play"></i>
+                                        </div>
+                                    <?php endif ?>
                                 </div>
                                 <?php if ($image->caption()->isNotEmpty()): ?>
                                     <div class="image-caption-badge"><?= $image->caption() ?></div>
                                 <?php endif ?>
                             </a>
                         <?php endforeach; ?>
+                    </div>
+                </section>
+            <?php endif; ?>
+
+            <?php if ($page->devlog()->isNotEmpty()): ?>
+                <section class="devlog">
+                    <div class="section-divider">
+                        <span class="section-divider-badge">
+                            <i class="fa-solid fa-pencil" aria-hidden="true"></i>
+                            <span class="section-divider-title">Dev Notes</span>
+                        </span>
+                    </div>
+                    <div class="devlog-content">
+                        <?php foreach ($page->devlog()->toBlocks() as $block): ?>
+                            <?= $block ?>
+                        <?php endforeach ?>
                     </div>
                 </section>
             <?php endif; ?>
