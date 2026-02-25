@@ -242,3 +242,128 @@ columns:
         image:
           ratio: 1/1
           cover: true
+
+  - width: 1/1
+    sections:
+      devlog_section:
+        label: Dev Notes
+        type: fields
+        fields:
+          devlog:
+            label: Dev Notes
+            help: Write your dev process writeup here. Drag blocks to reorder.
+            type: blocks
+            pretty: true
+            fieldsets:
+              - heading
+              - text
+              - type: image
+                name: Image
+                icon: image
+                preview: image
+                fields:
+                  image:
+                    type: files
+                    label: Image
+                    width: 1/2
+                    multiple: false
+                  alt:
+                    type: text
+                    label: Alt Text
+                    width: 1/2
+                    help: Describe the image for accessibility.
+                  caption:
+                    type: text
+                    label: Caption
+                    help: Small text shown under the image on the page.
+                    width: 1/2
+                  description:
+                    type: textarea
+                    label: Lightbox Description
+                    help: Text shown in the lightbox. Supports markdown.
+                    buttons:
+                      - bold
+                      - italic
+                      - link
+                      - ul
+                      - ol
+                    width: 2/3
+                  desc_position:
+                    type: select
+                    label: Description Position
+                    width: 1/3
+                    default: bottom
+                    options:
+                      - value: bottom
+                        text: Bottom
+                      - value: left
+                        text: Left
+                      - value: right
+                        text: Right
+              - video
+              - quote
+              - list
+              - line
+              - type: sidebyside
+                name: Side by Side
+                icon: columns
+                preview: fields
+                fields:
+                  text:
+                    type: textarea
+                    label: Text
+                    buttons:
+                      - bold
+                      - italic
+                      - link
+                      - ul
+                      - ol
+                    width: 1/1
+                  image:
+                    type: files
+                    label: Image / Video Thumbnail
+                    width: 1/2
+                    multiple: false
+                  alt:
+                    type: text
+                    label: Alt Text
+                    width: 1/2
+                    help: Describe the image for accessibility.
+                  video_url:
+                    type: url
+                    label: Video URL
+                    help: YouTube or Vimeo — leave empty for image only.
+                    width: 1/2
+                  position:
+                    type: select
+                    label: Media Position
+                    default: right
+                    width: 1/3
+                    options:
+                      - value: left
+                        text: Media Left
+                      - value: right
+                        text: Media Right
+                  description:
+                    type: textarea
+                    label: Lightbox Description
+                    help: Text shown in the lightbox. Supports markdown.
+                    buttons:
+                      - bold
+                      - italic
+                      - link
+                      - ul
+                      - ol
+                    width: 2/3
+                  desc_position:
+                    type: select
+                    label: Description Position
+                    width: 1/3
+                    default: bottom
+                    options:
+                      - value: bottom
+                        text: Bottom
+                      - value: left
+                        text: Left
+                      - value: right
+                        text: Right

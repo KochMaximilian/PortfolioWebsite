@@ -21,7 +21,7 @@
     <?php endif; ?>
 
     <?php if ($page->intendedTemplate()->name() === 'project'): ?>
-        <?= css('assets/photoswipe/photoswipe.css') ?>
+        <?= css('assets/glightbox/glightbox.min.css') ?>
     <?php endif ?>
 
     <?= css('assets/fontawesome/css/fontawesome.min.css') ?>

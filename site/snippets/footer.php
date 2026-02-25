@@ -1,42 +1,32 @@
 <?php snippet('footer-content') ?>
 
 
-<!-- Load JS for pages -->
+<!-- Load JS for all pages -->
+<?= js('assets/js/script.js') ?>
+
+<!-- Load JS for project pages -->
 <?php if ($page->intendedTemplate()->name() === 'project'): ?>
 
-
-    <?= js('assets/photoswipe/photoswipe.umd.min.js') ?>
-    <?= js('assets/photoswipe/photoswipe-lightbox.umd.min.js') ?>
-    <script type="text/javascript">
-        const quickEasing = {
-            in: 'cubic-bezier(0.8, -0.15, 0.3, 1)',
-            out: 'cubic-bezier(0.8, 0, 0.2, 1)',
-            inOut: 'cubic-bezier(0.75, -0.2, 0.25, 1.25)',
-        };
-
-        var lightbox = new PhotoSwipeLightbox({
-            gallery: '#gallery',
-            children: 'a',
-            pswpModule: PhotoSwipe,
-            preload: [1, 1],
-            showAnimationDuration: 300,
-            hideAnimationDuration: 300,
-            showHideAnimationType: 'zoom',
+    <?= js('assets/glightbox/glightbox.min.js') ?>
+    <script>
+        const lightbox = GLightbox({
+            selector: '[data-gallery="project-gallery"]',
+            touchNavigation: true,
+            loop: true,
+            autoplayVideos: true,
+            openEffect: 'zoom',
+            closeEffect: 'zoom',
+            slideEffect: 'slide',
         });
 
-        lightbox.on('firstUpdate', () => {
-            lightbox.pswp.options.easing = quickEasing.out;
+        const devlogLightbox = GLightbox({
+            selector: '[data-gallery="devlog-gallery"]',
+            touchNavigation: true,
+            loop: true,
+            openEffect: 'zoom',
+            closeEffect: 'zoom',
+            slideEffect: 'slide',
         });
-
-        lightbox.on('initialZoomInEnd', () => {
-            lightbox.pswp.options.easing = quickEasing.inOut;
-        });
-
-        lightbox.on('close', () => {
-            lightbox.pswp.options.easing = quickEasing.in;
-        });
-
-        lightbox.init();
     </script>
 
 <?php endif ?>
