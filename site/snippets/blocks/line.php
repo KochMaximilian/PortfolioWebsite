@@ -9,8 +9,6 @@ $logo = $logoMap[$variant];
 ?>
 <div class="devlog-line" aria-hidden="true">
   <span class="devlog-line-rule"></span>
-  <span class="devlog-line-badge">
-    <img src="<?= $site->url() ?>/assets/img/<?= $logo ?>" alt="" class="devlog-line-logo">
-  </span>
+  <img src="<?= $site->url() ?>/assets/img/<?= $logo ?>" alt="" class="devlog-line-logo">
   <span class="devlog-line-rule"></span>
 </div>

@@ -913,7 +913,7 @@ body.glightbox-open .site-header {
 }
 
 .goverlay {
-  background: rgba(10, 10, 10, 0.96);
+  background: rgba(10, 10, 10, 0.8);
 }
 
 .gbtn {
@@ -980,12 +980,10 @@ body.glightbox-open .site-header {
 }
 
 .gslide-description {
-  background: #FEFEFE !important;
-  border-top: 3px solid #0A0A0A;
+  background: #0A0A0A !important;
 }
 .gslider[data-desc-position=left] .gslide-description, .gslider[data-desc-position=right] .gslide-description {
-  border-top: none;
-  border-left: 3px solid #0A0A0A;
+  border-left: 3px solid #292929;
 }
 
 .gdesc-inner {
@@ -997,7 +995,7 @@ body.glightbox-open .site-header {
   font-weight: 800 !important;
   font-size: 1rem !important;
   text-transform: uppercase;
-  color: #0A0A0A !important;
+  color: #FEFEFE !important;
   letter-spacing: 0.03em;
   margin-bottom: 0.5rem !important;
 }
@@ -1006,7 +1004,7 @@ body.glightbox-open .site-header {
   font-family: "Poppins", sans-serif !important;
   font-size: 0.875rem !important;
   font-weight: 400 !important;
-  color: #0A0A0A !important;
+  color: #FEFEFE !important;
   line-height: 1.6 !important;
 }
 .gslide-desc p {
@@ -1017,22 +1015,20 @@ body.glightbox-open .site-header {
 }
 .gslide-desc strong {
   font-weight: 800;
-  color: #0A0A0A;
+  color: #FEFEFE;
 }
 .gslide-desc em {
   font-style: italic;
-  color: #484848;
+  color: #FEDD9F;
 }
 .gslide-desc a {
-  color: #2C56C3;
+  color: #FCBB3F;
   font-weight: 700;
   text-decoration: none;
-  border-bottom: 2px solid #FCBB3F;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: opacity 0.15s ease;
 }
 .gslide-desc a:hover {
-  color: #FCBB3F;
-  border-color: #2C56C3;
+  opacity: 0.75;
 }
 .gslide-desc ul, .gslide-desc ol {
   padding-left: 1.25rem;
@@ -1043,15 +1039,25 @@ body.glightbox-open .site-header {
 }
 .gslide-desc ul li, .gslide-desc ol li {
   margin-bottom: 0.25rem;
+  color: #FEFEFE;
+}
+.gslide-desc ul li::marker {
+  color: #FCBB3F;
+}
+.gslide-desc ol li::marker {
+  color: #FCBB3F;
+  font-weight: 800;
+  font-family: "Barlow", sans-serif;
 }
 .gslide-desc blockquote {
   margin: 0.5rem 0;
   padding: 0.5rem 1rem;
-  background: rgba(252, 187, 63, 0.12);
-  border-left: 4px solid #FCBB3F;
-  border-radius: 0 0.2rem 0.2rem 0;
+  background: #181818;
+  border: 3px solid #292929;
+  border-top: 4px solid #FCBB3F;
+  border-radius: 0.6rem;
   font-style: italic;
-  color: #484848;
+  color: #676767;
 }
 
 .devlog {
@@ -1066,46 +1072,58 @@ body.glightbox-open .site-header {
 }
 
 .devlog-heading--h2 {
+  align-self: flex-start;
+  display: inline-block;
   font-family: "Barlow", sans-serif;
   font-weight: 800;
   font-size: 1.5rem;
   text-transform: uppercase;
-  color: #FEFEFE;
+  color: #0A0A0A;
   letter-spacing: 0.03em;
   line-height: 1.2;
-  padding-bottom: 0.5rem;
-  border-bottom: 3px solid #FCBB3F;
   margin: 0;
+  margin-bottom: 0.25rem;
+  margin-top: 1rem;
+  background-color: #FEFEFE;
+  border-radius: 0.6rem;
+  border: 5px solid #0A0A0A;
+  box-shadow: #0A0A0A 3px 5px 0px 3px;
+  padding: 0.25rem 1.25rem;
 }
 
 .devlog-heading--h3 {
+  align-self: flex-start;
+  display: inline-block;
   font-family: "Barlow", sans-serif;
   font-weight: 800;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   text-transform: uppercase;
-  color: #FCBB3F;
+  color: #0A0A0A;
   letter-spacing: 0.03em;
   line-height: 1.2;
   margin: 0;
+  background-color: #FCBB3F;
+  border-radius: 0.6rem;
+  border: 5px solid #0A0A0A;
+  box-shadow: #0A0A0A 1px 3px 0px 1px;
+  padding: 0.25rem 0.75rem;
 }
 
 .devlog-heading--h4 {
   font-family: "Barlow", sans-serif;
   font-weight: 800;
-  font-size: 1.125rem;
+  font-size: 1rem;
   text-transform: uppercase;
   color: #FEFEFE;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   line-height: 1.3;
   margin: 0;
-  padding-left: 0.75rem;
-  border-left: 3px solid #FCBB3F;
 }
 
 .devlog-heading--h5 {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: #676767;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -1116,30 +1134,22 @@ body.glightbox-open .site-header {
 .devlog-heading--h6 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: #676767;
   letter-spacing: 0.05em;
   line-height: 1.4;
   margin: 0;
 }
 
-.devlog-image-link {
-  display: block;
-  cursor: zoom-in;
-  border-radius: 0.6rem;
-  overflow: hidden;
-  transition: box-shadow 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.devlog-image-link:hover .devlog-image {
-  opacity: 0.9;
-}
-
 .devlog-text {
   font-family: "Poppins", sans-serif;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 400;
   color: #FEFEFE;
   line-height: 1.75;
+  letter-spacing: 0.03em;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .devlog-text p {
   margin: 0 0 0.75rem 0;
@@ -1149,22 +1159,20 @@ body.glightbox-open .site-header {
 }
 .devlog-text strong {
   font-weight: 800;
-  color: #FCBB3F;
+  color: #FEFEFE;
 }
 .devlog-text em {
   font-style: italic;
   color: #FEDD9F;
 }
 .devlog-text a {
-  color: #6487E1;
+  color: #FCBB3F;
   font-weight: 700;
   text-decoration: none;
-  border-bottom: 2px solid rgba(252, 187, 63, 0.5);
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, opacity 0.15s ease;
 }
 .devlog-text a:hover {
-  color: #FCBB3F;
-  border-color: #FCBB3F;
+  opacity: 0.75;
 }
 .devlog-text ul, .devlog-text ol {
   padding-left: 1.5rem;
@@ -1197,13 +1205,17 @@ body.glightbox-open .site-header {
 
 .devlog-quote {
   margin: 0;
-  padding: 1rem 1.5rem;
   background: #181818;
-  border-left: 5px solid #FCBB3F;
-  border-radius: 0 0.6rem 0.6rem 0;
+  border: 3px solid #0A0A0A;
+  border-radius: 0.6rem;
   box-shadow: #0A0A0A 1px 3px 0px 1px;
-  display: inline-block;
-  max-width: 100%;
+  overflow: hidden;
+}
+.devlog-quote::before {
+  content: "";
+  display: block;
+  height: 4px;
+  background: #FCBB3F;
 }
 .devlog-quote p {
   font-family: "Poppins", sans-serif;
@@ -1212,12 +1224,15 @@ body.glightbox-open .site-header {
   font-weight: 600;
   color: #FEFEFE;
   line-height: 1.6;
-  margin: 0 0 0.5rem 0;
-  white-space: pre-wrap;
+  margin: 0;
+  padding: 1rem 1.5rem 0;
   word-break: break-word;
 }
+.devlog-quote p + p {
+  padding-top: 0.5rem;
+}
 .devlog-quote p:last-of-type {
-  margin-bottom: 0;
+  padding-bottom: 1rem;
 }
 .devlog-quote cite {
   display: block;
@@ -1227,7 +1242,9 @@ body.glightbox-open .site-header {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #FCBB3F;
-  margin-top: 0.75rem;
+  padding: 0.5rem 1.5rem 1rem;
+  border-top: 1px solid rgba(254, 254, 254, 0.08);
+  margin-top: 0.5rem;
 }
 
 .devlog-figure {
@@ -1235,25 +1252,58 @@ body.glightbox-open .site-header {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  scroll-margin-top: 6rem;
+}
+
+.devlog-image-link {
+  display: block;
+  cursor: zoom-in;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  border: 3px solid #0A0A0A;
+  box-shadow: #0A0A0A 1.4px 3.5px 0px 1.4px;
+  transition: box-shadow 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.devlog-image-link:hover .devlog-image {
+  opacity: 0.9;
 }
 
 .devlog-image {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 0.6rem;
-  border: 3px solid #0A0A0A;
-  box-shadow: #0A0A0A 1.4px 3.5px 0px 1.4px;
 }
 
 .devlog-figcaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
   font-family: "Barlow", sans-serif;
   font-weight: 700;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #676767;
-  text-align: center;
+  color: #FEFEFE;
+  background: #0A0A0A;
+  border: 3px solid #0A0A0A;
+  border-radius: 0.2rem;
+  padding: 0.25rem 0.75rem;
+  box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
+  align-self: center;
+}
+
+.devlog-fig-id {
+  font-family: "Barlow", sans-serif;
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #0A0A0A;
+  background: #FCBB3F;
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.5rem;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .devlog-video {
@@ -1280,6 +1330,94 @@ body.glightbox-open .site-header {
   height: 100%;
   border: none;
   display: block;
+}
+
+.devlog-figure--large,
+.devlog-video--large,
+.devlog-table-wrap--large {
+  width: 80%;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
+}
+
+.devlog-figure--medium,
+.devlog-video--medium,
+.devlog-table-wrap--medium {
+  width: 60%;
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
+}
+
+.devlog-figure--small,
+.devlog-video--small,
+.devlog-table-wrap--small {
+  width: 40%;
+  max-width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
+}
+
+.devlog-table-wrap {
+  overflow-x: auto;
+  border-radius: 0.6rem;
+  border: 3px solid #0A0A0A;
+  box-shadow: #0A0A0A 1.4px 3.5px 0px 1.4px;
+  display: block;
+}
+
+.devlog-table {
+  width: 100%;
+  border-collapse: collapse;
+  display: table;
+}
+.devlog-table thead tr {
+  background: #0A0A0A;
+}
+.devlog-table thead th {
+  font-family: "Barlow", sans-serif;
+  font-weight: 800;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: #FCBB3F;
+  letter-spacing: 0.06em;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  white-space: nowrap;
+  border-right: 1px solid rgba(254, 254, 254, 0.1);
+}
+.devlog-table thead th:last-child {
+  border-right: none;
+}
+.devlog-table tbody tr {
+  background: #181818;
+  border-bottom: 1px solid rgba(254, 254, 254, 0.06);
+  transition: background 0.15s ease;
+}
+.devlog-table tbody tr:last-child {
+  border-bottom: none;
+}
+.devlog-table tbody tr:nth-child(even) {
+  background: #292929;
+}
+.devlog-table tbody tr:hover {
+  background: rgba(252, 187, 63, 0.08);
+}
+.devlog-table tbody td {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #FEFEFE;
+  padding: 0.5rem 1rem;
+  border-right: 1px solid rgba(254, 254, 254, 0.06);
+  vertical-align: middle;
+}
+.devlog-table tbody td:last-child {
+  border-right: none;
 }
 
 .devlog-list ul, .devlog-list ol {
@@ -1313,33 +1451,18 @@ body.glightbox-open .site-header {
 
 .devlog-line-rule {
   flex: 1;
-  height: 3px;
-  background: #FCBB3F;
+  height: 6px;
+  background: #0A0A0A;
   border-radius: 2px;
   display: block;
 }
 
-.devlog-line-badge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  background: #0A0A0A;
-  border: 4px solid #0A0A0A;
-  border-radius: 0.6rem;
-  padding: 0.5rem 0.75rem;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), #0A0A0A 1px 3px 0px 1px;
-}
-
 .devlog-line-logo {
-  height: 2.5rem;
+  height: 2rem;
   width: auto;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-}
-.devlog-line-logo:hover {
-  transform: scale(1.15) rotate(-3deg);
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  flex-shrink: 0;
+  filter: brightness(0);
+  opacity: 0.8;
 }
 
 .devlog-sidebyside {
@@ -1382,22 +1505,20 @@ body.glightbox-open .site-header {
 }
 .devlog-sidebyside-text strong {
   font-weight: 800;
-  color: #FCBB3F;
+  color: #FEFEFE;
 }
 .devlog-sidebyside-text em {
   font-style: italic;
   color: #FEDD9F;
 }
 .devlog-sidebyside-text a {
-  color: #6487E1;
+  color: #FCBB3F;
   font-weight: 700;
   text-decoration: none;
-  border-bottom: 2px solid rgba(252, 187, 63, 0.5);
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, opacity 0.15s ease;
 }
 .devlog-sidebyside-text a:hover {
-  color: #FCBB3F;
-  border-color: #FCBB3F;
+  opacity: 0.75;
 }
 .devlog-sidebyside-text ul, .devlog-sidebyside-text ol {
   padding-left: 1.5rem;
@@ -1423,16 +1544,20 @@ body.glightbox-open .site-header {
     font-size: 1.25rem;
   }
   .devlog-heading--h3 {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
   .devlog-text {
     font-size: 0.875rem;
   }
-  .devlog-quote {
-    padding: 0.75rem 1rem;
-  }
   .devlog-quote p {
     font-size: 1rem;
+    padding: 0.75rem 1rem 0;
+  }
+  .devlog-quote p:last-of-type {
+    padding-bottom: 0.75rem;
+  }
+  .devlog-quote cite {
+    padding: 0.5rem 1rem 0.75rem;
   }
   .devlog-list ul li, .devlog-list ol li {
     font-size: 0.875rem;
@@ -1458,6 +1583,17 @@ body.glightbox-open .site-header {
   .devlog-sidebyside-text {
     font-size: 0.875rem;
     line-height: 1.65;
+  }
+  .devlog-figure--large,
+  .devlog-figure--medium,
+  .devlog-figure--small,
+  .devlog-video--large,
+  .devlog-video--medium,
+  .devlog-video--small,
+  .devlog-table-wrap--large,
+  .devlog-table-wrap--medium,
+  .devlog-table-wrap--small {
+    max-width: 100%;
   }
 }
 

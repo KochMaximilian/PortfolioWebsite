@@ -155,12 +155,12 @@ columns:
             min: 1
             max: 1
             empty: No engine selected yet.
-            width: 1/2
             options:
               - Unreal Engine 5
               - Unreal Engine 4
               - Unity
               - Godot
+            width: 1/2
           engineicon:
             label: Engine Icon
             type: select
@@ -277,6 +277,26 @@ columns:
                     label: Caption
                     help: Small text shown under the image on the page.
                     width: 1/2
+                  figid:
+                    type: text
+                    label: Figure ID (optional)
+                    help: "e.g. '1' → sets anchor #fig-1 on this image. In any text block, link to it with: (link: #fig-1 text: See Fig. 1) — clicking it scrolls here."
+                    placeholder: "1"
+                    width: 1/2
+                  size:
+                    type: select
+                    label: Size
+                    width: 1/2
+                    default: full
+                    options:
+                      - value: full
+                        text: Full Width
+                      - value: large
+                        text: Large (80%)
+                      - value: medium
+                        text: Medium (60%)
+                      - value: small
+                        text: Small (40%)
                   description:
                     type: textarea
                     label: Lightbox Description
@@ -300,7 +320,90 @@ columns:
                         text: Left
                       - value: right
                         text: Right
-              - video
+              - type: video
+                name: Video
+                icon: video
+                preview: fields
+                fields:
+                  url:
+                    type: url
+                    label: Video URL
+                    help: YouTube or Vimeo link.
+                    width: 1/1
+                  caption:
+                    type: text
+                    label: Caption
+                    help: Small text shown under the video on the page.
+                    width: 1/2
+                  size:
+                    type: select
+                    label: Size
+                    width: 1/2
+                    default: full
+                    options:
+                      - value: full
+                        text: Full Width
+                      - value: large
+                        text: Large (80%)
+                      - value: medium
+                        text: Medium (60%)
+                      - value: small
+                        text: Small (40%)
+              - type: table
+                name: Table
+                icon: table
+                preview: fields
+                fields:
+                  headers:
+                    type: text
+                    label: Column Headers
+                    help: "Pipe-separated column names. e.g: Name | Type | Description"
+                    placeholder: "Name | Type | Description"
+                    width: 1/1
+                  rows:
+                    type: structure
+                    label: Table Rows
+                    help: "Click '+ Add' to add a row. Fill in each column individually."
+                    width: 1/1
+                    fields:
+                      col1:
+                        type: text
+                        label: Col 1
+                        width: 1/3
+                      col2:
+                        type: text
+                        label: Col 2
+                        width: 1/3
+                      col3:
+                        type: text
+                        label: Col 3
+                        width: 1/3
+                      col4:
+                        type: text
+                        label: Col 4
+                        width: 1/3
+                      col5:
+                        type: text
+                        label: Col 5
+                        width: 1/3
+                      col6:
+                        type: text
+                        label: Col 6
+                        width: 1/3
+                  size:
+                    type: select
+                    label: Size
+                    width: 1/2
+                    default: full
+                    options:
+                      - value: full
+                        text: Full Width
+                      - value: large
+                        text: Large (80%)
+                      - value: medium
+                        text: Medium (60%)
+                      - value: small
+                        text: Small (40%)
               - quote
               - list
               - line
