@@ -38,11 +38,11 @@ Embedtitle:
 
 ----
 
-Genre: Puzzle, Walking Simulator, FPS
+Genre: Puzzle, Walking Simulator
 
 ----
 
-Platform: PC Windows, Playstation 5, Xbox One, Nintendo Switch
+Platform: PC Windows
 
 ----
 
@@ -66,11 +66,11 @@ Role: Game Desinger
 
 ----
 
-Engine: Unreal Engine 5
+Engine: Unity
 
 ----
 
-Engineicon: unreal-engine.svg
+Engineicon: unity.svg
 
 ----
 
@@ -92,10 +92,6 @@ Externallinks:
   platform: github
   url: >
     https://github.com/KochMaximilian/AfterwardsGameoff2024_Handin
-- 
-  platform: youtube
-  url: >
-    https://www.youtube.com/watch?v=QPQ7JFrr62k
 
 ----
 
@@ -104,8 +100,8 @@ Devlog:
 [
     {
         "content": {
-            "level": "h4",
-            "text": "TERst"
+            "level": "h2",
+            "text": "Part of the Game Off 2024 Game Jam"
         },
         "id": "64583ebe-a66d-468b-b535-27ea9a3330d2",
         "isHidden": false,
@@ -113,11 +109,20 @@ Devlog:
     },
     {
         "content": {
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a lacus sed ante tincidunt feugiat. Nam ultrices sagittis tincidunt. Vestibulum nulla dolor, rutrum et enim mattis, pretium molestie tortor. Donec condimentum nisi sed semper mollis. Vivamus eu accumsan arcu. Nullam et molestie risus, ac bibendum massa. Curabitur ultrices consectetur elit, eu blandit dui sollicitudin at. Pellentesque a varius erat.</p><p>Morbi scelerisque neque at commodo porta. Ut imperdiet dui risus, et cursus nibh pellentesque ac. Maecenas fermentum nibh id purus auctor, eu tristique diam posuere. Nullam id auctor lacus. Nam sed elit ipsum. Pellentesque ut sagittis arcu. Nam a dapibus ipsum. Quisque in augue in enim dignissim luctus. Maecenas sit amet mauris erat.</p><p>Quisque sed rhoncus libero. Aenean sed odio neque. Aenean erat eros, eleifend ac magna eu, sollicitudin eleifend metus. Donec ipsum arcu, suscipit eget aliquet eu, posuere accumsan tortor. Sed fermentum euismod sodales. Donec sed ex sed purus vulputate cursus ut sed felis. Aenean fringilla, tortor eu consectetur tincidunt, erat quam efficitur leo, vulputate consequat quam nibh vel purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec sit amet elementum quam. Nam eleifend ex sit amet felis euismod, sit amet pharetra neque eleifend. Vivamus ut mollis massa, nec semper sapien.</p><p>Proin tristique augue a magna placerat vehicula. Nunc in lorem eu lorem efficitur aliquam imperdiet sed ipsum. Cras sapien lorem, cursus nec felis nec, condimentum iaculis nibh. Quisque finibus dui leo, non fermentum ligula consectetur sit amet. Praesent fringilla erat et arcu mollis finibus. Cras eget molestie tortor. Praesent ut dignissim leo. Fusce neque dolor, finibus et urna eu, tristique semper enim. Nulla vitae neque euismod, blandit ligula sit amet, vehicula justo. Vivamus euismod auctor est. Mauris laoreet sem tristique diam cursus laoreet. Maecenas imperdiet, elit in vehicula bibendum, dolor tortor viverra justo, nec auctor elit orci eu velit.</p><p>Quisque dui urna, vestibulum ut finibus quis, placerat sit amet odio. Suspendisse tempus justo velit, vitae auctor quam rhoncus commodo. Vestibulum tempor mi a sem scelerisque, eu euismod justo tincidunt. In nunc lectus, pellentesque quis nunc id, scelerisque lobortis dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam accumsan commodo tortor. Etiam aliquet augue id laoreet gravida. Quisque suscipit eros urna, vitae molestie urna dapibus eget. Maecenas vel lorem leo. Pellentesque convallis lectus neque, quis egestas enim mattis vel. Sed semper, quam sit amet porta rutrum, massa leo dignissim augue, id sagittis lorem justo et turpis. Ut sagittis tortor quis ultrices tincidunt. Vestibulum elementum dapibus nunc ut congue. In hac habitasse platea dictumst.</p>"
+            "text": "<p>Lorem ipsum (link: #fig-1 text: See Fig. 1) sit amet, consectetur adipiscing elit. Aliquam a lacus sed ante tincidunt feugiat. Nam ultrices sagittis tincidunt. Vestibulum nulla dolor, rutrum et enim mattis, pretium molestie tortor. Donec condimentum nisi sed semper mollis. Vivamus eu accumsan arcu. Nullam et molestie risus, ac bibendum massa. Curabitur ultrices consectetur elit, eu blandit dui sollicitudin at. Pellentesque a varius erat.</p><p>Morbi scelerisque neque at commodo porta. Ut imperdiet dui risus, et cursus nibh pellentesque ac. Maecenas fermentum nibh id purus auctor, eu tristique diam posuere. Nullam id auctor lacus. Nam sed elit ipsum. Pellentesque ut sagittis arcu. Nam a dapibus ipsum. Quisque in augue in enim dignissim luctus. Maecenas sit amet mauris erat.</p><p>Quisque sed rhoncus libero. Aenean sed odio neque. <a href=\"#fig-1\">Aenean</a> erat eros, eleifend ac magna eu, sollicitudin eleifend metus. Donec ipsum arcu, suscipit eget aliquet eu, posuere accumsan tortor. Sed fermentum euismod sodales. Donec sed ex sed purus vulputate cursus ut sed felis. Aenean fringilla, tortor eu consectetur tincidunt, erat quam efficitur leo, vulputate consequat quam nibh vel purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec sit amet elementum quam. Nam eleifend ex sit amet felis euismod, sit amet pharetra neque eleifend. Vivamus ut mollis massa, nec semper sapien.</p><p>Proin tristique augue a magna placerat vehicula. Nunc in lorem eu lorem efficitur aliquam imperdiet sed ipsum. Cras sapien lorem, cursus nec felis nec, condimentum iaculis nibh. Quisque finibus dui leo, non fermentum ligula consectetur sit amet. Praesent fringilla erat et arcu mollis finibus. Cras eget molestie tortor. Praesent ut dignissim leo. Fusce neque dolor, finibus et urna eu, tristique semper enim. Nulla vitae neque euismod, blandit ligula sit amet, vehicula justo. Vivamus euismod auctor est. Mauris laoreet sem tristique diam cursus laoreet. Maecenas imperdiet, elit in vehicula bibendum, dolor tortor viverra justo, nec auctor elit orci eu velit.</p><p>Quisque dui urna, vestibulum ut finibus quis, placerat sit amet odio. Suspendisse tempus justo velit, vitae auctor quam rhoncus commodo. Vestibulum tempor mi a sem scelerisque, eu euismod justo tincidunt. In nunc lectus, pellentesque quis nunc id, scelerisque lobortis dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam accumsan commodo tortor. Etiam aliquet augue id laoreet gravida. Quisque suscipit eros urna, vitae molestie urna dapibus eget. Maecenas vel lorem leo. Pellentesque convallis lectus neque, quis egestas enim mattis vel. Sed semper, quam sit amet porta rutrum, massa leo dignissim augue, id sagittis lorem justo et turpis. Ut sagittis tortor quis ultrices tincidunt. Vestibulum elementum dapibus nunc ut congue. In hac habitasse platea dictumst.</p>"
         },
         "id": "de43d4a9-a6aa-4c1c-92be-93cb18cbe127",
         "isHidden": false,
         "type": "text"
+    },
+    {
+        "content": {
+            "level": "h3",
+            "text": "This is a second heading for testing, HELLO WORLD"
+        },
+        "id": "8f42e6c9-2680-41b8-8935-207405d23407",
+        "isHidden": false,
+        "type": "heading"
     },
     {
         "content": [],
@@ -127,14 +132,14 @@ Devlog:
     },
     {
         "content": {
-            "text": "**Lorem ipsum dolor**  sit amet, consectetur adipiscing elit. Praesent dignissim, quam quis elementum aliquam, elit sem sodales urna, vel tincidunt nulla leo eu risus. Etiam in iaculis ipsum, non ullamcorper mauris. Aliquam vestibulum est vitae porttitor varius. Vivamus sit amet posuere erat. Cras porttitor massa at quam tincidunt mollis. Fusce vulputate lectus in felis elementum auctor. Pellentesque eu pulvinar ligula. In hac habitasse platea dictumst. Aliquam at sollicitudin eros. Aliquam elit orci, ornare quis ex id, ullamcorper sollicitudin diam. Sed rhoncus erat at placerat semper. Nulla justo elit, tempor ac ligula eget, venenatis hendrerit dui.",
+            "text": "**Lorem ipsum dolor**  sit amet, consectetur adipiscing elit. Praesent dignissim, quam quis elementum aliquam, elit sem sodales urna, vel tincidunt nulla leo eu risus. Etiam in iaculis ipsum, non ullamcorper mauris. Aliquam vestibulum est vitae porttitor varius. Vivamus sit amet posuere erat. Crasmassa at quam tincidunt mollis. Fusce vulputate lectus in felis elementum auctor. Pellentesque eu pulvinar ligula. In hac habitasse platea dictumst. Aliquam at sollicitudin eros. Aliquam elit orci, ornare quis ex id, ullamcorper sollicitudin diam. Sed rhoncus erat at placerat semper. Nulla justo elit, tempor ac ligula eget, venenatis hendrerit dui.",
             "image": [
                 "file://4o3tMVpHHeQk1Wt1"
             ],
             "alt": "",
             "video_url": "",
             "position": "left",
-            "description": "I am in the light box",
+            "description": "**Level Design — Puzzle Sequence**\n\nThis section shows the *progression of difficulty* across the first act.\n\nKey decisions:\n- Player always has sight of the goal\n- No dead ends, only loops\n- Tutorial beat hidden in normal play\n\n> Designed for zero-frustration onboarding",
             "desc_position": "right"
         },
         "id": "020446e5-b4bd-42cb-a065-bd727ab6fe59",
@@ -154,14 +159,54 @@ Devlog:
             "image": [
                 "file://6cubNMqnU50byPfV"
             ],
-            "alt": "",
-            "caption": "",
-            "description": "",
+            "alt": "Test Figure Caption",
+            "caption": "Test Figure Caption",
+            "figid": "1",
+            "size": "large",
+            "description": "**Level Design — Puzzle Sequence**\n\nThis section shows the *progression of difficulty* across the first act.\n\nKey decisions:\n- Player always has sight of the goal\n- No dead ends, only loops\n- Tutorial beat hidden in normal play\n\n> Designed for zero-frustration onboarding",
             "desc_position": "bottom"
         },
         "id": "48004d94-56e1-4351-be0b-07793e10e4a0",
         "isHidden": false,
         "type": "image"
+    },
+    {
+        "content": {
+            "url": "https://www.youtube.com/watch?v=gcgwTBmsKkc",
+            "caption": "Caption Test Video",
+            "size": "medium"
+        },
+        "id": "58de9a41-ebf8-408c-8a54-2f439693a96d",
+        "isHidden": false,
+        "type": "video"
+    },
+    {
+        "content": {
+            "headers": "First | Secod | Third",
+            "rows": [
+                {
+                    "col1": "",
+                    "col2": "",
+                    "col3": "",
+                    "col4": "",
+                    "col5": "",
+                    "col6": ""
+                }
+            ],
+            "size": "large"
+        },
+        "id": "67d04052-b739-4667-911a-e827464843fc",
+        "isHidden": false,
+        "type": "table"
+    },
+    {
+        "content": {
+            "text": "deep",
+            "citation": "me"
+        },
+        "id": "15d518c8-ff40-4ca1-a49a-f66b04fe89c0",
+        "isHidden": false,
+        "type": "quote"
     }
 ]
 
