@@ -1364,17 +1364,14 @@ body.glightbox-open .site-header {
 
 // ============================================
 // BLOCK: HEADING
-// H2 = smaller .content-block: white bg, black border-md, radius-medium,
-//      solid-shadow, black text. align-self:flex-start = hugs content width.
-// H3 = same badge treatment but yellow bg + black text
-// H4 = plain white text, no badge
-// H5/H6 = gray, smaller
+// H2 = solid white badge (full weight, section opener)
+// H3 = hollow outline badge (same shape, no fill — clearly subordinate)
+// H4+ = plain text, cascading down
 // ============================================
 
 .devlog-heading--h2 {
   align-self: flex-start;
   display: inline-block;
-  
   font-family: $font-barlow;
   font-weight: $weight-black;
   font-size: font-size(2xl);
@@ -1382,14 +1379,13 @@ body.glightbox-open .site-header {
   color: $black-dark;
   letter-spacing: 0.03em;
   line-height: 1.2;
-  margin: 0;
-  margin-bottom: space(1);
-  margin-top: space(4);
+  // Big gap above = section break. Zero below = text belongs here.
+  margin: space(8) 0 0 0;
   background-color: $white;
   border-radius: $radius-medium;
   border: $border-md solid $black-dark;
   box-shadow: $solid-shadow;
-  padding: space(1) space(5);
+  padding: space(1) space(4);
 }
 
 .devlog-heading--h3 {
@@ -1448,13 +1444,11 @@ body.glightbox-open .site-header {
 
 .devlog-text {
   font-family: $font-poppins;
-  font-size: font-size(sm);
+  font-size: font-size(md);
   font-weight: $weight-normal;
   color: $white;
-  line-height: 1.75;
-  letter-spacing: 0.03em;
-  padding-left: space(4);
-  padding-right: space(4);
+  line-height: 1.8;
+  padding: 0 space(4);
 
   p {
     margin: 0 0 space(3) 0;
@@ -1518,46 +1512,31 @@ body.glightbox-open .site-header {
 
 // ============================================
 // BLOCK: QUOTE
-// Neobrutalist callout — matches card design language:
-// sharp rect, solid border, solid shadow, yellow top strip
+// Clean dark callout. No yellow — yellow is for actions/highlights, not decoration.
+// Weight comes from background contrast and italic type, nothing else.
 // ============================================
 
 .devlog-quote {
   margin: 0;
   background: $black-medium;
-  border: $border-xs solid $black-dark;
+  border: $border-sm solid $black-dark;
   border-radius: $radius-medium;
   box-shadow: $solid-shadow-sm;
-  overflow: hidden;
-
-  // Yellow accent strip along the top — same language as H2 left bar
-  &::before {
-    content: '';
-    display: block;
-    height: $border-sm;
-    background: $yellow-dark;
-  }
+  padding: space(3) space(5);
 
   p {
     font-family: $font-poppins;
-    font-size: font-size(lg);
+    font-size: font-size(md);
     font-style: italic;
     font-weight: $weight-semibold;
     color: $white;
-    line-height: 1.6;
-    margin: 0;
-    padding: space(4) space(6) 0;
+    line-height: 1.65;
+    margin: 0 0 space(2) 0;
     word-break: break-word;
-  }
 
-  // Space between multiple paragraphs inside the quote
-  p + p {
-    padding-top: space(2);
-  }
-
-  // Last paragraph carries the bottom padding
-  p:last-of-type {
-    padding-bottom: space(4);
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 
   cite {
@@ -1567,10 +1546,10 @@ body.glightbox-open .site-header {
     font-size: font-size(xs);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: $yellow-dark;
-    padding: space(2) space(6) space(4);
+    color: $gray-medium;
+    margin-top: space(3);
+    padding-top: space(2);
     border-top: 1px solid rgba($white, 0.08);
-    margin-top: space(2);
   }
 }
 
@@ -1593,7 +1572,7 @@ body.glightbox-open .site-header {
   cursor: zoom-in;
   border-radius: $radius-medium;
   overflow: hidden;
-  border: $border-xs solid $black-dark;
+  border: $border-md solid $black-dark;
   box-shadow: $solid-shadow-md;
   transition: box-shadow 0.2s $easing-pop;
 
@@ -1611,25 +1590,18 @@ body.glightbox-open .site-header {
 }
 
 .devlog-figcaption {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: space(2);
-  font-family: $font-barlow;
-  font-weight: $weight-bold;
-  font-size: font-size(xs);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: $white;
-  background: $black-dark;
+  // Two-tone badge: overflow:hidden clips the child sections into one pill
+  display: inline-flex;
+  align-items: stretch;
+  overflow: hidden;
   border: $border-xs solid $black-dark;
   border-radius: $radius-xs;
-  padding: space(1) space(3);
   box-shadow: $solid-shadow-xs;
+  // Default center
   align-self: center;
 }
 
-// Yellow badge inside caption when figid is set — "Fig. 1"
+// Yellow left section — only shown when figid is set
 .devlog-fig-id {
   font-family: $font-barlow;
   font-weight: $weight-black;
@@ -1637,11 +1609,32 @@ body.glightbox-open .site-header {
   text-transform: uppercase;
   color: $black-dark;
   background: $yellow-dark;
-  border-radius: $radius-xs;
-  padding: 0.1rem space(2);
+  padding: space(1) space(2);
+  border-right: $border-xs solid $black-dark;
   white-space: nowrap;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
+
+// Dark right section — the caption text
+.devlog-caption-text {
+  font-family: $font-barlow;
+  font-weight: $weight-bold;
+  font-size: font-size(xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $white;
+  background: $black-dark;
+  padding: space(1) space(3);
+  display: flex;
+  align-items: center;
+}
+
+// Caption alignment modifiers — applied to .devlog-figcaption
+.devlog-figcaption--left   { align-self: flex-start; }
+.devlog-figcaption--center { align-self: center; }
+.devlog-figcaption--right  { align-self: flex-end; }
 
 // ============================================
 // BLOCK: VIDEO
@@ -1660,7 +1653,7 @@ body.glightbox-open .site-header {
   padding-bottom: 56.25%;
   border-radius: $radius-medium;
   overflow: hidden;
-  border: $border-xs solid $black-dark;
+  border: $border-md solid $black-dark;
   box-shadow: $solid-shadow-md;
 
   iframe {
@@ -1719,9 +1712,8 @@ body.glightbox-open .site-header {
 .devlog-table-wrap {
   overflow-x: auto;
   border-radius: $radius-medium;
-  border: $border-xs solid $black-dark;
+  border: $border-md solid $black-dark;
   box-shadow: $solid-shadow-md;
-  // Ensure the wrapper itself respects its own width when sized
   display: block;
 }
 
@@ -1783,6 +1775,8 @@ body.glightbox-open .site-header {
 // ============================================
 
 .devlog-list {
+  padding: 0 space(4);
+
   ul, ol {
     padding-left: space(6);
     margin: 0;
@@ -1809,29 +1803,41 @@ body.glightbox-open .site-header {
 
 // ============================================
 // BLOCK: LINE
-// Full black — rules and logo both $black-dark
 // ============================================
 
 .devlog-line {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: space(4);
 }
 
 .devlog-line-rule {
-  flex: 1;
-  height: 6px;
+  width: 60px;
+  flex: none;
+  height: $border-sm; // matches badge shadow thickness
   background: $black-dark;
   border-radius: 2px;
   display: block;
 }
 
-.devlog-line-logo {
-  height: 2rem;
-  width: auto;
+.devlog-line-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $white;
+  border: $border-sm solid $black-dark;
+  border-radius: $radius-small;
+  box-shadow: $solid-shadow-xs;
+  padding: space(2) space(3);
   flex-shrink: 0;
-  filter: brightness(0); // pure black
-  opacity: 0.8;
+}
+
+.devlog-line-logo {
+  height: 1.5rem;
+  width: auto;
+  display: block;
+  filter: brightness(0);
 }
 
 // ============================================
@@ -1843,6 +1849,7 @@ body.glightbox-open .site-header {
   grid-template-columns: 1fr 1fr;
   gap: space(6);
   align-items: start;
+  padding: 0 space(4);
 }
 
 .devlog-sidebyside--right {
@@ -1928,17 +1935,10 @@ body.glightbox-open .site-header {
   }
 
   .devlog-quote {
+    padding: space(3) space(4);
+
     p {
-      font-size: font-size(md);
-      padding: space(3) space(4) 0;
-    }
-
-    p:last-of-type {
-      padding-bottom: space(3);
-    }
-
-    cite {
-      padding: space(2) space(4) space(3);
+      font-size: font-size(sm);
     }
   }
 

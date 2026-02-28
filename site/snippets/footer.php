@@ -8,6 +8,7 @@
 <?php if ($page->intendedTemplate()->name() === 'project'): ?>
 
     <?= js('assets/glightbox/glightbox.min.js') ?>
+    <?= js('assets/js/smooth-scroll.js', ['defer' => true]) ?>
     <script>
         const lightbox = GLightbox({
             selector: '[data-gallery="project-gallery"]',

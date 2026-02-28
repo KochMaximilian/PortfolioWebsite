@@ -5,12 +5,17 @@ $position     = $block->position()->value() ?: 'right';
 $slideDesc    = $block->description()->isNotEmpty() ? (string)$block->description()->kirbytext() : null;
 $descPosition = $block->desc_position()->isNotEmpty() ? $block->desc_position()->value() : 'bottom';
 $altText      = $block->alt()->isNotEmpty() ? $block->alt()->value() : ($image ? $image->alt()->value() : '');
+$caption      = $block->caption()->isNotEmpty() ? $block->caption()->value() : null;
+$figid        = $block->figid()->isNotEmpty() ? trim($block->figid()->value()) : null;
+$anchorId     = $figid ? 'fig-' . htmlspecialchars($figid) : null;
+$captionAlign = $block->caption_align()->isNotEmpty() ? $block->caption_align()->value() : 'center';
 $hasMedia     = $image || $videoUrl;
+$hasCaption   = $caption || $figid;
 ?>
 <div class="devlog-sidebyside devlog-sidebyside--<?= $position ?>">
 
   <div class="devlog-sidebyside-text">
-    <?= $block->text()->kirbytext() ?>
+    <?= $block->text() ?>
   </div>
 
   <?php if ($hasMedia): ?>
@@ -21,6 +26,16 @@ $hasMedia     = $image || $videoUrl;
           <div class="devlog-video-embed">
             <?= video($videoUrl, [], ['loading' => 'lazy', 'allowfullscreen' => true]) ?>
           </div>
+          <?php if ($hasCaption): ?>
+            <figcaption class="devlog-figcaption devlog-figcaption--<?= htmlspecialchars($captionAlign) ?>">
+              <?php if ($figid): ?>
+                <span class="devlog-fig-id">Fig.&nbsp;<?= htmlspecialchars($figid) ?></span>
+              <?php endif ?>
+              <?php if ($caption): ?>
+                <span class="devlog-caption-text"><?= htmlspecialchars($caption) ?></span>
+              <?php endif ?>
+            </figcaption>
+          <?php endif ?>
         </figure>
 
       <?php elseif ($image): ?>
@@ -34,7 +49,7 @@ $hasMedia     = $image || $videoUrl;
             'driver'     => 'im',
         ])->url();
         ?>
-        <figure class="devlog-figure">
+        <figure class="devlog-figure"<?= $anchorId ? ' id="' . $anchorId . '"' : '' ?>>
           <a href="<?= $image->url() ?>"
             data-gallery="devlog-gallery"
             <?= $slideDesc ? 'data-description="' . str_replace('"', '&quot;', $slideDesc) . '"' : '' ?>
@@ -46,8 +61,15 @@ $hasMedia     = $image || $videoUrl;
               loading="lazy"
               class="devlog-image">
           </a>
-          <?php if ($image->caption()->isNotEmpty()): ?>
-            <figcaption class="devlog-figcaption"><?= $image->caption() ?></figcaption>
+          <?php if ($hasCaption): ?>
+            <figcaption class="devlog-figcaption devlog-figcaption--<?= htmlspecialchars($captionAlign) ?>">
+              <?php if ($figid): ?>
+                <span class="devlog-fig-id">Fig.&nbsp;<?= htmlspecialchars($figid) ?></span>
+              <?php endif ?>
+              <?php if ($caption): ?>
+                <span class="devlog-caption-text"><?= htmlspecialchars($caption) ?></span>
+              <?php endif ?>
+            </figcaption>
           <?php endif ?>
         </figure>
       <?php endif ?>
