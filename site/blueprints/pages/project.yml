@@ -277,6 +277,18 @@ columns:
                     label: Caption
                     help: Small text shown under the image on the page.
                     width: 1/2
+                  caption_align:
+                    type: select
+                    label: Caption Align
+                    width: 1/2
+                    default: center
+                    options:
+                      - value: left
+                        text: Left
+                      - value: center
+                        text: Center
+                      - value: right
+                        text: Right
                   figid:
                     type: text
                     label: Figure ID (optional)
@@ -335,6 +347,18 @@ columns:
                     label: Caption
                     help: Small text shown under the video on the page.
                     width: 1/2
+                  caption_align:
+                    type: select
+                    label: Caption Align
+                    width: 1/2
+                    default: center
+                    options:
+                      - value: left
+                        text: Left
+                      - value: center
+                        text: Center
+                      - value: right
+                        text: Right
                   size:
                     type: select
                     label: Size
@@ -413,14 +437,15 @@ columns:
                 preview: fields
                 fields:
                   text:
-                    type: textarea
+                    type: writer
                     label: Text
-                    buttons:
+                    marks:
                       - bold
                       - italic
                       - link
-                      - ul
-                      - ol
+                    nodes:
+                      - bulletList
+                      - orderedList
                     width: 1/1
                   image:
                     type: files
@@ -441,12 +466,35 @@ columns:
                     type: select
                     label: Media Position
                     default: right
-                    width: 1/3
+                    width: 1/2
                     options:
                       - value: left
                         text: Media Left
                       - value: right
                         text: Media Right
+                  caption:
+                    type: text
+                    label: Caption
+                    help: Small text shown under the image/video.
+                    width: 1/2
+                  caption_align:
+                    type: select
+                    label: Caption Align
+                    width: 1/2
+                    default: center
+                    options:
+                      - value: left
+                        text: Left
+                      - value: center
+                        text: Center
+                      - value: right
+                        text: Right
+                  figid:
+                    type: text
+                    label: Figure ID (optional)
+                    help: "e.g. '1' → anchor #fig-1. Link from text with: (link: #fig-1 text: See Fig. 1)"
+                    placeholder: "1"
+                    width: 1/2
                   description:
                     type: textarea
                     label: Lightbox Description

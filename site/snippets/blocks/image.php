@@ -15,6 +15,8 @@ $altText      = $block->alt()->isNotEmpty() ? $block->alt()->value() : $image->a
 $size         = $block->size()->isNotEmpty() ? $block->size()->value() : 'full';
 $figid        = $block->figid()->isNotEmpty() ? trim($block->figid()->value()) : null;
 $anchorId     = $figid ? 'fig-' . htmlspecialchars($figid) : null;
+$captionAlign = $block->caption_align()->isNotEmpty() ? $block->caption_align()->value() : 'center';
+$hasCaption   = $block->caption()->isNotEmpty() || $figid;
 ?>
 <figure class="devlog-figure devlog-figure--<?= $size ?>"<?= $anchorId ? ' id="' . $anchorId . '"' : '' ?>>
   <a href="<?= $image->url() ?>"
@@ -28,13 +30,13 @@ $anchorId     = $figid ? 'fig-' . htmlspecialchars($figid) : null;
       loading="lazy"
       class="devlog-image">
   </a>
-  <?php if ($block->caption()->isNotEmpty() || $figid): ?>
-    <figcaption class="devlog-figcaption">
+  <?php if ($hasCaption): ?>
+    <figcaption class="devlog-figcaption devlog-figcaption--<?= htmlspecialchars($captionAlign) ?>">
       <?php if ($figid): ?>
         <span class="devlog-fig-id">Fig.&nbsp;<?= htmlspecialchars($figid) ?></span>
       <?php endif ?>
       <?php if ($block->caption()->isNotEmpty()): ?>
-        <?= $block->caption() ?>
+        <span class="devlog-caption-text"><?= $block->caption() ?></span>
       <?php endif ?>
     </figcaption>
   <?php endif ?>

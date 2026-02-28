@@ -1081,14 +1081,12 @@ body.glightbox-open .site-header {
   color: #0A0A0A;
   letter-spacing: 0.03em;
   line-height: 1.2;
-  margin: 0;
-  margin-bottom: 0.25rem;
-  margin-top: 1rem;
+  margin: 2rem 0 0 0;
   background-color: #FEFEFE;
   border-radius: 0.6rem;
   border: 5px solid #0A0A0A;
   box-shadow: #0A0A0A 3px 5px 0px 3px;
-  padding: 0.25rem 1.25rem;
+  padding: 0.25rem 1rem;
 }
 
 .devlog-heading--h3 {
@@ -1143,13 +1141,11 @@ body.glightbox-open .site-header {
 
 .devlog-text {
   font-family: "Poppins", sans-serif;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #FEFEFE;
-  line-height: 1.75;
-  letter-spacing: 0.03em;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  line-height: 1.8;
+  padding: 0 1rem;
 }
 .devlog-text p {
   margin: 0 0 0.75rem 0;
@@ -1206,33 +1202,23 @@ body.glightbox-open .site-header {
 .devlog-quote {
   margin: 0;
   background: #181818;
-  border: 3px solid #0A0A0A;
+  border: 4px solid #0A0A0A;
   border-radius: 0.6rem;
   box-shadow: #0A0A0A 1px 3px 0px 1px;
-  overflow: hidden;
-}
-.devlog-quote::before {
-  content: "";
-  display: block;
-  height: 4px;
-  background: #FCBB3F;
+  padding: 0.75rem 1.25rem;
 }
 .devlog-quote p {
   font-family: "Poppins", sans-serif;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-style: italic;
   font-weight: 600;
   color: #FEFEFE;
-  line-height: 1.6;
-  margin: 0;
-  padding: 1rem 1.5rem 0;
+  line-height: 1.65;
+  margin: 0 0 0.5rem 0;
   word-break: break-word;
 }
-.devlog-quote p + p {
-  padding-top: 0.5rem;
-}
 .devlog-quote p:last-of-type {
-  padding-bottom: 1rem;
+  margin-bottom: 0;
 }
 .devlog-quote cite {
   display: block;
@@ -1241,10 +1227,10 @@ body.glightbox-open .site-header {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #FCBB3F;
-  padding: 0.5rem 1.5rem 1rem;
+  color: #676767;
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
   border-top: 1px solid rgba(254, 254, 254, 0.08);
-  margin-top: 0.5rem;
 }
 
 .devlog-figure {
@@ -1260,7 +1246,7 @@ body.glightbox-open .site-header {
   cursor: zoom-in;
   border-radius: 0.6rem;
   overflow: hidden;
-  border: 3px solid #0A0A0A;
+  border: 5px solid #0A0A0A;
   box-shadow: #0A0A0A 1.4px 3.5px 0px 1.4px;
   transition: box-shadow 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -1275,20 +1261,11 @@ body.glightbox-open .site-header {
 }
 
 .devlog-figcaption {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 0.5rem;
-  font-family: "Barlow", sans-serif;
-  font-weight: 700;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #FEFEFE;
-  background: #0A0A0A;
+  display: inline-flex;
+  align-items: stretch;
+  overflow: hidden;
   border: 3px solid #0A0A0A;
   border-radius: 0.2rem;
-  padding: 0.25rem 0.75rem;
   box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
   align-self: center;
 }
@@ -1300,10 +1277,37 @@ body.glightbox-open .site-header {
   text-transform: uppercase;
   color: #0A0A0A;
   background: #FCBB3F;
-  border-radius: 0.2rem;
-  padding: 0.1rem 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-right: 3px solid #0A0A0A;
   white-space: nowrap;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.devlog-caption-text {
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #FEFEFE;
+  background: #0A0A0A;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.devlog-figcaption--left {
+  align-self: flex-start;
+}
+
+.devlog-figcaption--center {
+  align-self: center;
+}
+
+.devlog-figcaption--right {
+  align-self: flex-end;
 }
 
 .devlog-video {
@@ -1319,7 +1323,7 @@ body.glightbox-open .site-header {
   padding-bottom: 56.25%;
   border-radius: 0.6rem;
   overflow: hidden;
-  border: 3px solid #0A0A0A;
+  border: 5px solid #0A0A0A;
   box-shadow: #0A0A0A 1.4px 3.5px 0px 1.4px;
 }
 .devlog-video-embed iframe {
@@ -1365,7 +1369,7 @@ body.glightbox-open .site-header {
 .devlog-table-wrap {
   overflow-x: auto;
   border-radius: 0.6rem;
-  border: 3px solid #0A0A0A;
+  border: 5px solid #0A0A0A;
   box-shadow: #0A0A0A 1.4px 3.5px 0px 1.4px;
   display: block;
 }
@@ -1420,6 +1424,9 @@ body.glightbox-open .site-header {
   border-right: none;
 }
 
+.devlog-list {
+  padding: 0 1rem;
+}
 .devlog-list ul, .devlog-list ol {
   padding-left: 1.5rem;
   margin: 0;
@@ -1446,23 +1453,36 @@ body.glightbox-open .site-header {
 .devlog-line {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
 }
 
 .devlog-line-rule {
-  flex: 1;
-  height: 6px;
+  width: 60px;
+  flex: none;
+  height: 4px;
   background: #0A0A0A;
   border-radius: 2px;
   display: block;
 }
 
-.devlog-line-logo {
-  height: 2rem;
-  width: auto;
+.devlog-line-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FEFEFE;
+  border: 4px solid #0A0A0A;
+  border-radius: 0.25rem;
+  box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
+  padding: 0.5rem 0.75rem;
   flex-shrink: 0;
+}
+
+.devlog-line-logo {
+  height: 1.5rem;
+  width: auto;
+  display: block;
   filter: brightness(0);
-  opacity: 0.8;
 }
 
 .devlog-sidebyside {
@@ -1470,6 +1490,7 @@ body.glightbox-open .site-header {
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
   align-items: start;
+  padding: 0 1rem;
 }
 
 .devlog-sidebyside--right .devlog-sidebyside-text {
@@ -1549,15 +1570,11 @@ body.glightbox-open .site-header {
   .devlog-text {
     font-size: 0.875rem;
   }
+  .devlog-quote {
+    padding: 0.75rem 1rem;
+  }
   .devlog-quote p {
-    font-size: 1rem;
-    padding: 0.75rem 1rem 0;
-  }
-  .devlog-quote p:last-of-type {
-    padding-bottom: 0.75rem;
-  }
-  .devlog-quote cite {
-    padding: 0.5rem 1rem 0.75rem;
+    font-size: 0.875rem;
   }
   .devlog-list ul li, .devlog-list ol li {
     font-size: 0.875rem;
