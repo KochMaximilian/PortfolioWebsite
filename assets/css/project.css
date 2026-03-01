@@ -269,6 +269,18 @@
 .stat-description-text p:last-child {
   margin-bottom: 0;
 }
+.stat-description-text a {
+  color: #FCBB3F;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(252, 187, 63, 0.4);
+  text-underline-offset: 0.15em;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+.stat-description-text a:hover {
+  color: #0A0A0A;
+  text-decoration-color: #0A0A0A;
+}
 
 .stat-links-block {
   display: flex;
@@ -355,13 +367,6 @@
   margin: 0 auto;
 }
 
-.project-image-link {
-  position: relative;
-  overflow: visible;
-  display: block;
-  width: 100%;
-}
-
 .image-slot {
   width: 100%;
   aspect-ratio: 16/9;
@@ -371,29 +376,49 @@
   border: 3px solid #0A0A0A;
   overflow: hidden;
   position: relative;
+  display: block;
+  text-decoration: none;
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4), #0A0A0A 1px 3px 0px 1px;
   transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), border-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
+  will-change: transform;
 }
-
-.project-gallary-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0.25rem;
-  position: relative;
-  z-index: 1;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.project-image-container a:hover .image-slot {
+.image-slot:hover {
   transform: scale(1.03);
   border-color: #FCBB3F;
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 18px rgba(252, 187, 63, 0.5), 0 0 40px rgba(252, 187, 63, 0.2), #0A0A0A 1.4px 3.5px 0px 1.4px;
 }
-
-.project-image-container a:hover .project-gallary-image {
+.image-slot:hover .project-gallery-image {
   transform: scale(1.08);
+}
+.image-slot:hover .image-caption-badge {
+  opacity: 1;
+}
+.image-slot:hover .video-play-icon {
+  color: #FCBB3F;
+  transform: translate(-50%, -50%) scale(1.15);
+}
+.image-slot:active {
+  transform: scale(0.98);
+  transition-duration: 0.1s;
+}
+
+.image-slot-inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  position: relative;
+}
+
+.project-gallery-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
 }
 
 .image-caption-badge {
@@ -421,29 +446,8 @@
   pointer-events: none;
 }
 
-.project-image-container a:hover .image-caption-badge {
-  opacity: 1;
-}
-
-.project-image-container a {
-  position: relative;
-  display: block;
-  text-decoration: none;
-  transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-  will-change: transform;
-}
-
-.project-image-container img {
-  will-change: transform;
-}
-
 .lightbox {
   transition: margin-bottom 0.3s cubic-bezier(0.25, 1.75, 0.5, 1.2);
-}
-
-.project-image-container a:active .image-slot {
-  transform: scale(0.98);
-  transition-duration: 0.1s;
 }
 
 .video-play-icon {
@@ -457,11 +461,6 @@
   pointer-events: none;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
   transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
-}
-
-.project-image-container a:hover .video-play-icon {
-  color: #FCBB3F;
-  transform: translate(-50%, -50%) scale(1.15);
 }
 
 .project-nav {
@@ -788,7 +787,7 @@
     padding: 0.25rem;
     border-width: 2px;
   }
-  .project-gallary-image {
+  .project-gallery-image {
     border-radius: 0.25rem;
   }
   .image-caption-badge {
@@ -1193,11 +1192,14 @@ body.glightbox-open .site-header {
 .devlog-text a {
   color: #FCBB3F;
   font-weight: 700;
-  text-decoration: none;
-  transition: color 0.15s ease, opacity 0.15s ease;
+  text-decoration: underline;
+  text-decoration-color: rgba(252, 187, 63, 0.4);
+  text-underline-offset: 0.15em;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 .devlog-text a:hover {
-  opacity: 0.75;
+  color: #FEDD9F;
+  text-decoration-color: #FEDD9F;
 }
 .devlog-text ul, .devlog-text ol {
   padding-left: 1.5rem;
@@ -1567,11 +1569,14 @@ body.glightbox-open .site-header {
 .devlog-sidebyside-text a {
   color: #FCBB3F;
   font-weight: 700;
-  text-decoration: none;
-  transition: color 0.15s ease, opacity 0.15s ease;
+  text-decoration: underline;
+  text-decoration-color: rgba(252, 187, 63, 0.4);
+  text-underline-offset: 0.15em;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 .devlog-sidebyside-text a:hover {
-  opacity: 0.75;
+  color: #FEDD9F;
+  text-decoration-color: #FEDD9F;
 }
 .devlog-sidebyside-text ul, .devlog-sidebyside-text ol {
   padding-left: 1.5rem;
