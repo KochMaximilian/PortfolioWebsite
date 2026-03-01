@@ -118,46 +118,43 @@
                             <?php if ($page->team()->isNotEmpty()): ?>
                                 <div class="stat-row">
                                     <dt>Team</dt>
-                                    <dd><?= $page->team() ?> <?= $page->team()->value() == 1 ? 'Member' : 'Members' ?></dd>
+                                    <dd><?= $page->team() ?> <?= $page->team()->value() == 1 ? 'person' : 'people' ?></dd>
                                 </div>
                             <?php endif; ?>
-                            <div class="stat-row">
-                                <dt>Engine</dt>
-                                <dd><?= $page->engine() ?></dd>
-                            </div>
-                            <?php if ($page->projectstatus()->isNotEmpty()): ?>
+                            <?php if ($page->content()->get('status')->isNotEmpty()): ?>
                                 <div class="stat-row">
                                     <dt>Status</dt>
-                                    <dd><?= $statusLabels[$page->projectstatus()->value()] ?? $page->projectstatus() ?></dd>
+                                    <dd><?= $statusLabels[$page->content()->get('status')->value()] ?? $page->content()->get('status') ?></dd>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($page->platforms()->isNotEmpty()): ?>
+                                <div class="stat-row">
+                                    <dt>Platform</dt>
+                                    <dd>
+                                        <div class="stat-tag-group">
+                                            <?php foreach ($page->platforms()->split(',') as $platform): ?>
+                                                <?php $iconClass = $platformIconMap[trim($platform)] ?? 'fa-solid fa-gamepad'; ?>
+                                                <span class="stat-tag stat-tag-platform" title="<?= trim($platform) ?>">
+                                                    <i class="<?= $iconClass ?>" aria-hidden="true"></i>
+                                                    <?= trim($platform) ?>
+                                                </span>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    </dd>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if ($page->focus()->isNotEmpty()): ?>
+                                <div class="stat-tag-block">
+                                    <span class="stat-label">Focus</span>
+                                    <div class="stat-tag-group">
+                                        <?php foreach ($page->focus()->split(',') as $focus): ?>
+                                            <span class="stat-tag stat-tag-focus"><?= trim($focus) ?></span>
+                                        <?php endforeach; ?>
+                                    </div>
                                 </div>
                             <?php endif; ?>
                         </dl>
-
-                        <?php if ($page->platform()->isNotEmpty()): ?>
-                            <div class="stat-tag-block">
-                                <span class="stat-label">Platforms</span>
-                                <div class="stat-tag-group">
-                                    <?php foreach ($page->platform()->split(',') as $platform): ?>
-                                        <?php $iconClass = $platformIconMap[trim($platform)] ?? 'fa-solid fa-gamepad'; ?>
-                                        <span class="stat-tag stat-tag-platform" title="<?= trim($platform) ?>">
-                                            <i class="<?= $iconClass ?>" aria-hidden="true"></i>
-                                            <?= trim($platform) ?>
-                                        </span>
-                                    <?php endforeach; ?>
-                                </div>
-                            </div>
-                        <?php endif; ?>
-
-                        <?php if ($page->focus()->isNotEmpty()): ?>
-                            <div class="stat-tag-block">
-                                <span class="stat-label">Focus</span>
-                                <div class="stat-tag-group">
-                                    <?php foreach ($page->focus()->split(',') as $focus): ?>
-                                        <span class="stat-tag stat-tag-focus"><?= trim($focus) ?></span>
-                                    <?php endforeach; ?>
-                                </div>
-                            </div>
-                        <?php endif; ?>
                     </div>
 
                     <div class="stat-col-right">
@@ -205,17 +202,13 @@
                     <div class="project-image-container">
                         <?php foreach ($showcaseImages as $image): ?>
                             <?php
-                            // Determine media type
                             $videoUrl     = $image->video_url()->isNotEmpty() ? $image->video_url()->value() : null;
                             $videoExts    = ['mp4', 'webm'];
                             $isLocalVideo = in_array(strtolower($image->extension()), $videoExts);
                             $isVideo      = $videoUrl !== null || $isLocalVideo;
-
-                            // Href for lightbox — external video URL takes priority, then file URL
                             $lightboxHref = $videoUrl ?? $image->url();
+                            $isGif        = strtolower($image->extension()) === 'gif';
 
-                            // Thumbnail
-                            $isGif = strtolower($image->extension()) === 'gif';
                             if ($isGif || $isLocalVideo) {
                                 $thumbUrl = $image->url();
                             } else {
@@ -230,26 +223,23 @@
                                 ])->url();
                             }
 
-                            // Slide description — convert markdown to HTML, only escape quotes for the attribute
-                            $slideDesc    = $image->description()->isNotEmpty() ? (string)$image->description()->kirbytext() : null;
-                            $descPosition = $image->desc_position()->isNotEmpty() ? $image->desc_position()->value() : 'bottom';
+                            $slideDesc = $image->description()->isNotEmpty()
+                                ? str_replace('"', '&quot;', $image->description()->kirbytext())
+                                : '';
                             ?>
-                            <a class="project-image-link<?= $isVideo ? ' is-video' : '' ?>"
-                                href="<?= $lightboxHref ?>"
-                                data-gallery="project-gallery"
-                                <?= $isLocalVideo ? 'data-type="video"' : '' ?>
-                                <?= $slideDesc ? 'data-description="' . str_replace('"', '&quot;', $slideDesc) . '"' : '' ?>
-                                data-desc-position="<?= $descPosition ?>">
-                                <div class="image-slot">
-                                    <img loading="lazy" alt="<?= $image->alt() ?>" class="project-gallary-image" src="<?= $thumbUrl ?>" />
+                            <a href="<?= $lightboxHref ?>"
+                               class="image-slot"
+                               data-gallery="project-gallery"
+                               <?php if ($isVideo): ?>data-type="video"<?php endif ?>
+                               data-description="<?= $slideDesc ?>">
+                                <div class="image-slot-inner">
+                                    <img src="<?= $thumbUrl ?>" alt="<?= $image->alt()->or($page->name()) ?>" loading="lazy">
                                     <?php if ($isVideo): ?>
-                                        <div class="video-play-icon" aria-hidden="true">
-                                            <i class="fa-solid fa-circle-play"></i>
-                                        </div>
+                                        <span class="video-play-icon"><i class="fa-solid fa-circle-play" aria-hidden="true"></i></span>
                                     <?php endif ?>
                                 </div>
                                 <?php if ($image->caption()->isNotEmpty()): ?>
-                                    <div class="image-caption-badge"><?= $image->caption() ?></div>
+                                    <span class="image-caption-badge"><?= $image->caption() ?></span>
                                 <?php endif ?>
                             </a>
                         <?php endforeach; ?>
@@ -257,11 +247,12 @@
                 </section>
             <?php endif; ?>
 
+
             <?php if ($page->devlog()->isNotEmpty()): ?>
                 <section class="devlog">
                     <div class="section-divider">
                         <span class="section-divider-badge">
-                            <i class="fa-solid fa-pencil" aria-hidden="true"></i>
+                            <i class="fa-solid fa-book-open" aria-hidden="true"></i>
                             <span class="section-divider-title">Dev Notes</span>
                         </span>
                     </div>
@@ -278,7 +269,7 @@
             $nextProject = $page->next();
             ?>
             <?php if ($prevProject || $nextProject): ?>
-                <nav class="project-nav">
+                <nav class="project-nav" id="project-nav-bottom">
                     <?php if ($prevProject): ?>
                         <a href="<?= $prevProject->url() ?>" class="project-nav-link project-nav-prev" aria-label="Previous project: <?= $prevProject->name() ?>">
                             <span class="project-nav-button">
@@ -318,4 +309,44 @@
         </main>
     </div>
 </div>
+
+<?php if ($prevProject || $nextProject): ?>
+    <!-- STICKY NAV — slides up after 300px scroll -->
+    <nav class="project-nav-sticky" aria-label="Project navigation">
+        <?php if ($prevProject): ?>
+            <a href="<?= $prevProject->url() ?>" class="project-nav-link project-nav-prev" aria-label="Previous project: <?= $prevProject->name() ?>">
+                <span class="project-nav-button">
+                    <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
+                    <span class="project-nav-label">Previous</span>
+                </span>
+                <span class="project-nav-name"><?= $prevProject->name() ?></span>
+            </a>
+        <?php else: ?>
+            <span class="project-nav-link project-nav-dead" aria-hidden="true">
+                <span class="project-nav-button">
+                    <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
+                    <span class="project-nav-label">Previous</span>
+                </span>
+            </span>
+        <?php endif; ?>
+
+        <?php if ($nextProject): ?>
+            <a href="<?= $nextProject->url() ?>" class="project-nav-link project-nav-next" aria-label="Next project: <?= $nextProject->name() ?>">
+                <span class="project-nav-name"><?= $nextProject->name() ?></span>
+                <span class="project-nav-button">
+                    <span class="project-nav-label">Next</span>
+                    <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
+                </span>
+            </a>
+        <?php else: ?>
+            <span class="project-nav-link project-nav-dead" aria-hidden="true">
+                <span class="project-nav-button">
+                    <span class="project-nav-label">Next</span>
+                    <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
+                </span>
+            </span>
+        <?php endif; ?>
+    </nav>
+<?php endif; ?>
+
 <?php snippet('footer') ?>
