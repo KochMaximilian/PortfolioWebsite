@@ -118,43 +118,52 @@
                             <?php if ($page->team()->isNotEmpty()): ?>
                                 <div class="stat-row">
                                     <dt>Team</dt>
-                                    <dd><?= $page->team() ?> <?= $page->team()->value() == 1 ? 'person' : 'people' ?></dd>
+                                    <dd><?= $page->team() ?> <?= $page->team()->value() == 1 ? 'Member' : 'Members' ?></dd>
                                 </div>
                             <?php endif; ?>
-                            <?php if ($page->content()->get('status')->isNotEmpty()): ?>
+                            <?php if ($page->role()->isNotEmpty()): ?>
+                                <div class="stat-row">
+                                    <dt>Role</dt>
+                                    <dd><?= $page->role() ?></dd>
+                                </div>
+                            <?php endif; ?>
+                            <div class="stat-row">
+                                <dt>Engine</dt>
+                                <dd><?= $page->engine() ?></dd>
+                            </div>
+                            <?php if ($page->projectstatus()->isNotEmpty()): ?>
                                 <div class="stat-row">
                                     <dt>Status</dt>
-                                    <dd><?= $statusLabels[$page->content()->get('status')->value()] ?? $page->content()->get('status') ?></dd>
-                                </div>
-                            <?php endif; ?>
-                            <?php if ($page->platforms()->isNotEmpty()): ?>
-                                <div class="stat-row">
-                                    <dt>Platform</dt>
-                                    <dd>
-                                        <div class="stat-tag-group">
-                                            <?php foreach ($page->platforms()->split(',') as $platform): ?>
-                                                <?php $iconClass = $platformIconMap[trim($platform)] ?? 'fa-solid fa-gamepad'; ?>
-                                                <span class="stat-tag stat-tag-platform" title="<?= trim($platform) ?>">
-                                                    <i class="<?= $iconClass ?>" aria-hidden="true"></i>
-                                                    <?= trim($platform) ?>
-                                                </span>
-                                            <?php endforeach; ?>
-                                        </div>
-                                    </dd>
-                                </div>
-                            <?php endif; ?>
-
-                            <?php if ($page->focus()->isNotEmpty()): ?>
-                                <div class="stat-tag-block">
-                                    <span class="stat-label">Focus</span>
-                                    <div class="stat-tag-group">
-                                        <?php foreach ($page->focus()->split(',') as $focus): ?>
-                                            <span class="stat-tag stat-tag-focus"><?= trim($focus) ?></span>
-                                        <?php endforeach; ?>
-                                    </div>
+                                    <dd><?= $statusLabels[$page->projectstatus()->value()] ?? $page->projectstatus() ?></dd>
                                 </div>
                             <?php endif; ?>
                         </dl>
+
+                        <?php if ($page->platform()->isNotEmpty()): ?>
+                            <div class="stat-tag-block">
+                                <span class="stat-label">Platforms</span>
+                                <div class="stat-tag-group">
+                                    <?php foreach ($page->platform()->split(',') as $platform): ?>
+                                        <?php $iconClass = $platformIconMap[trim($platform)] ?? 'fa-solid fa-gamepad'; ?>
+                                        <span class="stat-tag stat-tag-platform" title="<?= trim($platform) ?>">
+                                            <i class="<?= $iconClass ?>" aria-hidden="true"></i>
+                                            <?= trim($platform) ?>
+                                        </span>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ($page->focus()->isNotEmpty()): ?>
+                            <div class="stat-tag-block">
+                                <span class="stat-label">Focus</span>
+                                <div class="stat-tag-group">
+                                    <?php foreach ($page->focus()->split(',') as $focus): ?>
+                                        <span class="stat-tag stat-tag-focus"><?= trim($focus) ?></span>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
 
                     <div class="stat-col-right">
@@ -233,7 +242,7 @@
                                <?php if ($isVideo): ?>data-type="video"<?php endif ?>
                                data-description="<?= $slideDesc ?>">
                                 <div class="image-slot-inner">
-                                    <img src="<?= $thumbUrl ?>" alt="<?= $image->alt()->or($page->name()) ?>" loading="lazy">
+                                    <img class="project-gallery-image" src="<?= $thumbUrl ?>" alt="<?= $image->alt()->or($page->name()) ?>" loading="lazy">
                                     <?php if ($isVideo): ?>
                                         <span class="video-play-icon"><i class="fa-solid fa-circle-play" aria-hidden="true"></i></span>
                                     <?php endif ?>
