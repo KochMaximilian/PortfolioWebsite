@@ -670,6 +670,53 @@
 }
 
 
+
+// ============================================
+// STICKY NAV — floats in after scroll
+// Compact version: arrow + label only, no project name.
+// Sits fixed above the footer, slides up from below.
+// Uses --footer-height CSS var so it clears the fixed footer.
+// ============================================
+
+.project-nav-sticky {
+  position: fixed;
+  bottom: calc(var(--footer-height) + 2rem);
+  left: 50%;
+  // Matches .wrapper exactly so buttons sit at the same x position as bottom nav
+  width: 80em;
+  max-width: calc(100% - 2em);
+  padding: 0 space(4);
+  // Matches .project-nav exactly
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: space(4);
+  z-index: z(toolbar);
+  pointer-events: none;
+
+  transform: translateX(-50%) translateY(calc(100% + var(--footer-height) + 4rem));
+  opacity: 0;
+  transition: transform 0.4s $easing-pop,
+              opacity 0.3s ease;
+
+  &.is-visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+
+// Mobile — icon only, save space
+@media (max-width: $mobile-lg) {
+  .project-nav-sticky {
+    bottom: calc(var(--footer-height) + 0.5rem);
+    gap: space(2);
+  }
+
+
+}
+
 // ============================================
 // RESPONSIVE
 // ============================================
@@ -1517,6 +1564,11 @@ body.glightbox-open .site-header {
 // ============================================
 
 .devlog-quote {
+  // Flex column children stretch full width by default —
+  // need both width + max-width to actually constrain it.
+  width: 80%;
+  max-width: 80%;
+  align-self: center;
   margin: 0;
   background: $black-medium;
   border: $border-sm solid $black-dark;
@@ -1935,6 +1987,8 @@ body.glightbox-open .site-header {
   }
 
   .devlog-quote {
+    width: 100%;
+    max-width: 100%;
     padding: space(3) space(4);
 
     p {

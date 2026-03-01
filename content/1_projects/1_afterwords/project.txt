@@ -164,7 +164,7 @@ Devlog:
             ],
             "alt": "Test Figure Caption",
             "caption": "Test Figure Caption",
-            "caption_align": "",
+            "caption_align": "left",
             "figid": "1",
             "size": "large",
             "description": "**Level Design — Puzzle Sequence**\n\nThis section shows the *progression of difficulty* across the first act.\n\nKey decisions:\n- Player always has sight of the goal\n- No dead ends, only loops\n- Tutorial beat hidden in normal play\n\n> Designed for zero-frustration onboarding",
@@ -178,6 +178,7 @@ Devlog:
         "content": {
             "url": "https://www.youtube.com/watch?v=gcgwTBmsKkc",
             "caption": "Caption ",
+            "caption_align": "center",
             "size": "medium"
         },
         "id": "58de9a41-ebf8-408c-8a54-2f439693a96d",
