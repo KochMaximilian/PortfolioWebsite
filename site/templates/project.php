@@ -65,7 +65,13 @@
                                 loading="lazy"
                                 alt="<?= $coverImage->alt() ?>"
                                 class="project-hero-image"
-                                src="<?= $coverImage->resize(1200)->url() ?>">
+                                src="<?= $coverImage->thumb([
+                                    'autoOrient' => true,
+                                    'width'      => 1200,
+                                    'quality'    => 80,
+                                    'format'     => 'webp',
+                                    'driver'     => 'im'
+                                ])->url() ?>">
                         <?php endif ?>
                     <?php endif ?>
                 </div>
@@ -90,7 +96,7 @@
                 <!-- FLAVOR TEXT -->
                 <?php if ($page->flavortext()->isNotEmpty()): ?>
                     <div class="stat-flavor">
-                        <?= $page->flavortext()->kti() ?>
+                        <?= $page->flavortext()->kt() ?>
                     </div>
                 <?php endif; ?>
 
