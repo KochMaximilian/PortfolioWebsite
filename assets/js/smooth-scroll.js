@@ -2,7 +2,7 @@
  * smooth-scroll.js
  * Spring physics scroll + sticky project nav.
  * Project pages only. Never fires scroll on load/reload.
- * Respects prefers-reduced-motion.
+ * Respects prefers-reduced-motion (reactive).
  */
 
 (function () {
@@ -16,7 +16,13 @@
     window.scrollTo(0, 0);
   }
 
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // ─── Reactive reduced-motion preference ───────────────────────────────────────
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let prefersReduced = reducedMotionQuery.matches;
+
+  reducedMotionQuery.addEventListener('change', function (e) {
+    prefersReduced = e.matches;
+  });
 
   // ─── Navbar height ────────────────────────────────────────────────────────────
   function getNavbarHeight() {
@@ -25,7 +31,16 @@
   }
 
   // ─── Spring physics scroll ────────────────────────────────────────────────────
+  // Track the current animation frame so rapid clicks cancel the previous scroll
+  let activeRafId = null;
+
   function springScrollTo(targetY) {
+    // Cancel any in-flight spring animation
+    if (activeRafId) {
+      cancelAnimationFrame(activeRafId);
+      activeRafId = null;
+    }
+
     let pos      = window.scrollY;
     let velocity = 0;
 
@@ -42,14 +57,32 @@
       window.scrollTo(0, pos);
 
       if (Math.abs(displacement) > 0.5 || Math.abs(velocity) > 0.5) {
-        requestAnimationFrame(step);
+        activeRafId = requestAnimationFrame(step);
       } else {
         window.scrollTo(0, targetY);
         document.documentElement.style.scrollBehavior = '';
+        activeRafId = null;
       }
     }
 
-    requestAnimationFrame(step);
+    activeRafId = requestAnimationFrame(step);
+  }
+
+  // ─── Shared scroll-to-hash helper ─────────────────────────────────────────────
+  function scrollToHash(hash) {
+    if (!hash || hash === '#') return;
+
+    const target = document.querySelector(hash);
+    if (!target) return;
+
+    const navHeight = getNavbarHeight();
+    const targetY   = target.getBoundingClientRect().top + window.scrollY - navHeight;
+
+    if (prefersReduced) {
+      window.scrollTo(0, targetY);
+    } else {
+      springScrollTo(targetY);
+    }
   }
 
   // ─── Anchor click handler ─────────────────────────────────────────────────────
@@ -66,13 +99,21 @@
     e.preventDefault();
     history.pushState(null, '', hash);
 
-    const navHeight = getNavbarHeight();
-    const targetY   = target.getBoundingClientRect().top + window.scrollY - navHeight;
+    scrollToHash(hash);
+  });
 
-    if (prefersReduced) {
-      window.scrollTo(0, targetY);
+  // ─── Popstate handler — browser back/forward with spring scroll ───────────────
+  window.addEventListener('popstate', function () {
+    const hash = window.location.hash;
+    if (hash) {
+      scrollToHash(hash);
     } else {
-      springScrollTo(targetY);
+      // No hash — scroll back to top
+      if (prefersReduced) {
+        window.scrollTo(0, 0);
+      } else {
+        springScrollTo(0);
+      }
     }
   });
 

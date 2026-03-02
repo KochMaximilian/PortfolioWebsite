@@ -143,6 +143,7 @@ columns:
               in-development: In Development
               early-access: Early Access
               cancelled: Cancelled
+              game-jam: Game Jam Build
           role:
             label: Role
             type: text
