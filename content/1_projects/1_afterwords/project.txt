@@ -100,118 +100,54 @@ Devlog:
 [
     {
         "content": {
+            "text": "This is a test heading h2 size",
             "level": "h2",
-            "text": "Part of the Game Off 2024 Game Jam"
+            "anchorid": "Part 1"
         },
-        "id": "64583ebe-a66d-468b-b535-27ea9a3330d2",
+        "id": "aa877051-a637-49d6-bb22-3ad78e58bc6a",
         "isHidden": false,
         "type": "heading"
     },
     {
         "content": {
-            "text": "<p>Lorem ipsum (link: #fig-1 text: See Fig. 1) sit amet, consectetur adipiscing elit. Aliquam a lacus sed ante tincidunt feugiat. Nam ultrices sagittis tincidunt. Vestibulum nulla dolor, rutrum et enim mattis, pretium molestie tortor. Donec condimentum nisi sed semper mollis. Vivamus eu accumsan arcu. Nullam et molestie risus, ac bibendum massa. Curabitur ultrices consectetur elit, eu blandit dui sollicitudin at. Pellentesque a varius erat.</p><p>Morbi scelerisque neque at commodo porta. Ut imperdiet dui risus, et cursus nibh pellentesque ac. Maecenas fermentum nibh id purus auctor, eu tristique diam posuere. Nullam id auctor lacus. Nam sed elit ipsum. Pellentesque ut sagittis arcu. Nam a dapibus ipsum. Quisque in augue in enim dignissim luctus. Maecenas sit amet mauris erat.</p><p>Quisque sed rhoncus libero. Aenean sed odio neque. <a href=\"#fig-1\">Aenean</a> erat eros, eleifend ac magna eu, sollicitudin eleifend metus. Donec ipsum arcu, suscipit eget aliquet eu, posuere accumsan tortor. Sed fermentum euismod sodales. Donec sed ex sed purus vulputate cursus ut sed felis. Aenean fringilla, tortor eu consectetur tincidunt, erat quam efficitur leo, vulputate consequat quam nibh vel purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec sit amet elementum quam. Nam eleifend ex sit amet felis euismod, sit amet pharetra neque eleifend. Vivamus ut mollis massa, nec semper sapien.</p><p>Proin tristique augue a magna placerat vehicula. Nunc in lorem eu lorem efficitur aliquam imperdiet sed ipsum. Cras sapien lorem, cursus nec felis nec, condimentum iaculis nibh. Quisque finibus dui leo, non fermentum ligula consectetur sit amet. Praesent fringilla erat et arcu mollis finibus. Cras eget molestie tortor. Praesent ut dignissim leo. Fusce neque dolor, finibus et urna eu, tristique semper enim. Nulla vitae neque euismod, blandit ligula sit amet, vehicula justo. Vivamus euismod auctor est. Mauris laoreet sem tristique diam cursus laoreet. Maecenas imperdiet, elit in vehicula bibendum, dolor tortor viverra justo, nec auctor elit orci eu velit.</p><p>Quisque dui urna, vestibulum ut finibus quis, placerat sit amet odio. Suspendisse tempus justo velit, vitae auctor quam rhoncus commodo. Vestibulum tempor mi a sem scelerisque, eu euismod justo tincidunt. In nunc lectus, pellentesque quis nunc id, scelerisque lobortis dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam accumsan commodo tortor. Etiam aliquet augue id laoreet gravida. Quisque suscipit eros urna, vitae molestie urna dapibus eget. Maecenas vel lorem leo. Pellentesque convallis lectus neque, quis egestas enim mattis vel. Sed semper, quam sit amet porta rutrum, massa leo dignissim augue, id sagittis lorem justo et turpis. Ut sagittis tortor quis ultrices tincidunt. Vestibulum elementum dapibus nunc ut congue. In hac habitasse platea dictumst.</p>"
+            "text": "<p>Lorem <a href=\"#part-1\" title=\"Part 1 \">ipsum</a> dolor sit amet, consectetur adipiscing elit. Maecenas posuere velit sit amet ligula bibendum, quis ultricies enim luctus. Integer sit amet ipsum ut sapien malesuada tincidunt. Suspendisse potenti. Sed vulputate, erat at pellentesque rhoncus, massa metus interdum mi, et iaculis nisl dui eget risus. Fusce malesuada iaculis bibendum. Donec gravida ligula quis ex tempor congue eu sit amet orci. Nam rhoncus nisi dictum feugiat dignissim. Nunc quis consequat massa, tincidunt tristique magna. Phasellus venenatis nunc id leo ultrices, nec dignissim ex euismod. Aenean sagittis blandit tempor. Aliquam at interdum mi. Nunc dignissim dolor vel ex eleifend, et tristique eros fermentum. Sed interdum felis ex, id vulputate ipsum posuere ut. Sed ac lectus ac ex ultricies lacinia. Vivamus pellentesque sapien sollicitudin nulla venenatis feugiat. Sed eleifend tempor mi, ullamcorper commodo lorem fermentum non.</p><p>In feugiat massa at risus tristique, ac mattis diam interdum. In suscipit, ante at accumsan pharetra, libero diam mollis ex, id sollicitudin ipsum nisi vitae purus. Sed libero est, ultricies quis maximus in, lacinia vel dolor. Sed efficitur sapien vitae quam iaculis efficitur. In eu libero eu sapien consequat tincidunt id vel dui. Aenean auctor est a elementum pulvinar. Morbi fringilla, magna ac sollicitudin tristique, nisl eros posuere est, eget rutrum libero justo at nulla.</p>"
         },
-        "id": "de43d4a9-a6aa-4c1c-92be-93cb18cbe127",
+        "id": "78f21426-46c8-4b4f-9f43-31160a4ec5a6",
         "isHidden": false,
         "type": "text"
     },
     {
         "content": {
+            "text": "This is another test heading this time its a h3",
             "level": "h3",
-            "text": "This is a second heading for testing, HELLO WORLD"
+            "anchorid": ""
         },
-        "id": "8f42e6c9-2680-41b8-8935-207405d23407",
+        "id": "784fac5e-3edf-432f-982a-4232b6ea64f7",
         "isHidden": false,
         "type": "heading"
     },
     {
-        "content": [],
-        "id": "53c9665f-ca7f-48c4-aab9-8c66bba76de9",
-        "isHidden": false,
-        "type": "line"
-    },
-    {
         "content": {
-            "text": "<p><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit. Praesent dignissim, quam quis elementum aliquam, elit sem sodales urna, vel tincidunt nulla leo eu risus. Etiam in iaculis ipsum, non ullamcorper mauris. Aliquam vestibulum est vitae porttitor varius. Vivamus sit amet posuere erat. Crasmassa at quam tincidunt mollis. Fusce vulputate lectus in felis elementum auctor. Pellentesque eu pulvinar ligula. In hac habitasse platea dictumst. Aliquam at sollicitudin eros. Aliquam elit orci, ornare quis ex id, ullamcorper sollicitudin diam. Sed rhoncus erat at placerat semper. Nulla justo elit, tempor ac ligula eget, venenatis hendrerit dui.</p>",
             "image": [
-                "file://4o3tMVpHHeQk1Wt1"
+                "file://PDh9o1zH83sOhXtE"
             ],
             "alt": "",
-            "video_url": "",
-            "position": "left",
-            "caption": "",
-            "caption_align": "",
-            "figid": "",
-            "description": "**Level Design — Puzzle Sequence**\n\nThis section shows the *progression of difficulty* across the first act.\n\nKey decisions:\n- Player always has sight of the goal\n- No dead ends, only loops\n- Tutorial beat hidden in normal play\n\n> Designed for zero-frustration onboarding",
-            "desc_position": "right"
-        },
-        "id": "020446e5-b4bd-42cb-a065-bd727ab6fe59",
-        "isHidden": false,
-        "type": "sidebyside"
-    },
-    {
-        "content": {
-            "text": "<ul><li>asdsa</li><li>asdsad</li><li>asdsad</li><li>asda</li></ul>"
-        },
-        "id": "80581d22-088c-404b-abae-ef45deb260d7",
-        "isHidden": false,
-        "type": "list"
-    },
-    {
-        "content": {
-            "image": [
-                "file://6cubNMqnU50byPfV"
-            ],
-            "alt": "Test Figure Caption",
-            "caption": "Test Figure Caption",
-            "caption_align": "left",
+            "caption": "This is a test caption ",
+            "caption_align": "center",
             "figid": "1",
-            "size": "large",
-            "description": "**Level Design — Puzzle Sequence**\n\nThis section shows the *progression of difficulty* across the first act.\n\nKey decisions:\n- Player always has sight of the goal\n- No dead ends, only loops\n- Tutorial beat hidden in normal play\n\n> Designed for zero-frustration onboarding",
+            "size": "full",
+            "description": "",
             "desc_position": "bottom"
         },
-        "id": "48004d94-56e1-4351-be0b-07793e10e4a0",
+        "id": "62742650-668d-4d81-92a2-257bec805d4f",
         "isHidden": false,
         "type": "image"
     },
     {
-        "content": {
-            "url": "https://www.youtube.com/watch?v=gcgwTBmsKkc",
-            "caption": "Caption ",
-            "caption_align": "center",
-            "size": "medium"
-        },
-        "id": "58de9a41-ebf8-408c-8a54-2f439693a96d",
+        "content": [],
+        "id": "28a0fb36-fbb1-4aea-948f-075c28f89224",
         "isHidden": false,
-        "type": "video"
-    },
-    {
-        "content": {
-            "headers": "First | Secod | Third",
-            "rows": [
-                {
-                    "col1": "",
-                    "col2": "",
-                    "col3": "",
-                    "col4": "",
-                    "col5": "",
-                    "col6": ""
-                }
-            ],
-            "size": "large"
-        },
-        "id": "67d04052-b739-4667-911a-e827464843fc",
-        "isHidden": false,
-        "type": "table"
-    },
-    {
-        "content": {
-            "text": "deep",
-            "citation": "me"
-        },
-        "id": "15d518c8-ff40-4ca1-a49a-f66b04fe89c0",
-        "isHidden": false,
-        "type": "quote"
+        "type": "line"
     }
 ]
 
