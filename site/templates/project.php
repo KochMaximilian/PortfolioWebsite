@@ -211,7 +211,6 @@
                         <span class="section-divider-badge">
                             <i class="fa-solid fa-images" aria-hidden="true"></i>
                             <span class="section-divider-title">Gallery</span>
-                            <span class="section-divider-count"><?= $showcaseImages->count() ?></span>
                         </span>
                     </div>
                     <div class="project-image-container">

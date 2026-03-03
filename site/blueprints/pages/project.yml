@@ -256,7 +256,39 @@ columns:
             type: blocks
             pretty: true
             fieldsets:
-              - heading
+              - type: heading
+                preview: fields
+                wysiwyg: true
+                fields:
+                  text:
+                    type: writer
+                    label: Heading Text
+                    inline: true
+                    width: 1/1
+                  level:
+                    type: select
+                    label: Heading Level
+                    default: h2
+                    width: 1/2
+                    options:
+                      - value: h1
+                        text: H1
+                      - value: h2
+                        text: H2
+                      - value: h3
+                        text: H3
+                      - value: h4
+                        text: H4
+                      - value: h5
+                        text: H5
+                      - value: h6
+                        text: H6
+                  anchorid:
+                    type: text
+                    label: Anchor ID (optional)
+                    help: "Custom anchor — auto-generated from heading text if left empty. Link with: (link: #your-id text: Jump here)"
+                    placeholder: "my-section"
+                    width: 1/2
               - text
               - type: image
                 name: Image

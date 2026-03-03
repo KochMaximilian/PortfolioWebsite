@@ -98,9 +98,12 @@
 
     e.preventDefault();
 
-    // Figure anchors (#fig-*) scroll without touching the URL —
-    // keeps the share URL clean so visitors land on the project, not a figure
-    if (!hash.startsWith('#fig-')) {
+    // Figure anchors (#fig-*) and heading anchors (.devlog-heading-anchor)
+    // scroll without touching the URL — keeps the share URL clean
+    // so visitors land on the project, not a specific section
+    const isInternalAnchor = hash.startsWith('#fig-') || link.classList.contains('devlog-heading-anchor');
+
+    if (!isInternalAnchor) {
       history.pushState(null, '', hash);
     }
 
