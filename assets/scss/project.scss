@@ -291,8 +291,8 @@
   font-weight: $weight-bold;
   font-size: font-size(xs);
   text-transform: uppercase;
-  padding: 0.1rem space(2);
-  border: 1px solid $black-dark;
+  padding: 0.15rem space(2);
+  border: $border-xs solid $black-dark;
   border-radius: $radius-xs;
   display: inline-flex;
   align-items: center;
@@ -342,6 +342,7 @@
   flex: 1;
 }
 
+// [UPDATED] Links now have game-feel hover — yellow highlight bg + bounce
 .stat-description-text {
   font-family: $font-poppins;
   font-size: font-size(sm);
@@ -359,16 +360,11 @@
 
   a {
     color: $yellow-dark;
-    font-weight: $weight-bold;
-    text-decoration: underline;
-    text-decoration-color: rgba($yellow-dark, 0.4);
-    text-underline-offset: 0.15em;
-    transition: color 0.15s ease,
-                text-decoration-color 0.15s ease;
+    text-decoration: none;
+    transition: text-decoration 0.15s ease;
 
     &:hover {
-      color: $black-dark;
-      text-decoration-color: $black-dark;
+      text-decoration: underline;
     }
   }
 }
@@ -466,8 +462,10 @@
 // effects use & (self), not descendant selectors.
 // ============================================
 
+// [BUG FIX #3] Merged duplicate .lightbox rules into one
 .lightbox {
   margin-bottom: 0;
+  transition: margin-bottom 0.3s $easing-bounce;
 }
 
 .project-image-container {
@@ -481,6 +479,7 @@
   margin: 0 auto;
 }
 
+// [IMPROVEMENT #5] will-change on hover only
 .image-slot {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -495,19 +494,14 @@
   box-shadow:
     inset 0 2px 6px rgba(0, 0, 0, 0.4),
     $solid-shadow-sm;
-  transition: transform 0.2s $easing-bounce,
-              box-shadow 0.2s $easing-bounce,
+  transition: box-shadow 0.2s $easing-bounce,
               border-color 0.2s $easing-bounce;
-  will-change: transform;
 
   &:hover {
-    transform: scale(1.03);
     border-color: $yellow-dark;
     box-shadow:
       inset 0 2px 6px rgba(0, 0, 0, 0.4),
       0 8px 24px rgba(0, 0, 0, 0.35),
-      0 0 18px rgba($yellow-dark, 0.5),
-      0 0 40px rgba($yellow-dark, 0.2),
       $solid-shadow-md;
 
     .project-gallery-image {
@@ -522,11 +516,6 @@
       color: $yellow-dark;
       transform: translate(-50%, -50%) scale(1.15);
     }
-  }
-
-  &:active {
-    transform: scale(0.98);
-    transition-duration: 0.1s;
   }
 }
 
@@ -547,7 +536,6 @@
   position: relative;
   z-index: 1;
   transition: transform 0.3s $easing-pop;
-  will-change: transform;
 }
 
 .image-caption-badge {
@@ -573,10 +561,6 @@
   transition: opacity 0.2s $easing-bounce;
   will-change: opacity;
   pointer-events: none;
-}
-
-.lightbox {
-  transition: margin-bottom 0.3s $easing-bounce;
 }
 
 // Video thumbnail play icon overlay
@@ -769,10 +753,9 @@
     gap: space(5);
   }
 
+  // [BUG FIX #1] Removed conflicting bottom/width — badge stays centered via top/left/transform
   .image-caption-badge {
     font-size: font-size(sm);
-    width: 60%;
-    bottom: space(3);
   }
 }
 
@@ -823,10 +806,6 @@
     padding: 0.3rem;
   }
 
-  .image-caption-badge {
-    width: 70%;
-  }
-
   .section-divider-title {
     font-size: font-size(md);
   }
@@ -867,25 +846,29 @@
     font-size: font-size(xs);
   }
 
+  // [IMPROVEMENT #4] Was 0.6rem → now font-size(2xs)
   .stat-type-line .stat-tag-genre {
-    font-size: 0.6rem;
+    font-size: font-size(2xs);
   }
 
   .stat-body {
     gap: space(2);
   }
 
+  // [IMPROVEMENT #4] Was 0.65rem → now font-size(2xs)
   .stat-row dt {
     width: 4.5rem;
-    font-size: 0.65rem;
+    font-size: font-size(2xs);
   }
 
+  // [IMPROVEMENT #4] Was 0.65rem → now font-size(2xs)
   .stat-label {
-    font-size: 0.65rem;
+    font-size: font-size(2xs);
   }
 
+  // [IMPROVEMENT #4] Was 0.6rem → now font-size(2xs)
   .stat-tag {
-    font-size: 0.6rem;
+    font-size: font-size(2xs);
     padding: 0.1rem space(1);
   }
 
@@ -902,11 +885,11 @@
     border-width: $border-xs;
   }
 
+  // [BUG FIX #1] Removed conflicting bottom — badge stays centered via top/left/transform
   .image-caption-badge {
     font-size: font-size(md);
     padding: space(1) space(2);
     border-width: $border-sm;
-    bottom: space(2);
   }
 
   .project-nav-button {
@@ -935,8 +918,9 @@
     font-size: font-size(xs);
   }
 
+  // [IMPROVEMENT #4] Was 0.55rem → now font-size(3xs)
   .stat-type-line .stat-tag-genre {
-    font-size: 0.55rem;
+    font-size: font-size(3xs);
     padding: 0.05rem space(1);
   }
 
@@ -1014,9 +998,8 @@
     border-radius: $radius-small;
   }
 
+  // [BUG FIX #1] Removed conflicting bottom — badge stays centered via top/left/transform
   .image-caption-badge {
-    width: 80%;
-    bottom: space(1);
     font-size: font-size(md);
   }
 
@@ -1035,8 +1018,9 @@
     letter-spacing: 0.03em;
   }
 
+  // [IMPROVEMENT #4] Was 0.65rem → now font-size(2xs)
   .section-divider-count {
-    font-size: 0.65rem;
+    font-size: font-size(2xs);
     padding: 0.05rem space(1);
   }
 
@@ -1091,16 +1075,19 @@
     font-size: font-size(md);
   }
 
+  // [IMPROVEMENT #4] Was 0.6rem → now font-size(2xs)
   .stat-type-label {
-    font-size: 0.6rem;
+    font-size: font-size(2xs);
   }
 
+  // [IMPROVEMENT #4] Was 0.6rem → now font-size(2xs)
   .stat-type-divider {
-    font-size: 0.6rem;
+    font-size: font-size(2xs);
   }
 
+  // [IMPROVEMENT #4] Was 0.5rem → now font-size(3xs)
   .stat-type-line .stat-tag-genre {
-    font-size: 0.5rem;
+    font-size: font-size(3xs);
   }
 
   .stat-engine-orb {
@@ -1125,7 +1112,8 @@
   .stat-row {
     dt {
       width: 4rem;
-      font-size: 0.6rem;
+      // [IMPROVEMENT #4] Was 0.6rem → now font-size(2xs)
+      font-size: font-size(2xs);
     }
 
     dd {
@@ -1133,12 +1121,14 @@
     }
   }
 
+  // [IMPROVEMENT #4] Was 0.6rem → now font-size(2xs)
   .stat-label {
-    font-size: 0.6rem;
+    font-size: font-size(2xs);
   }
 
+  // [IMPROVEMENT #4] Was 0.55rem → now font-size(3xs)
   .stat-tag {
-    font-size: 0.55rem;
+    font-size: font-size(3xs);
     padding: 0.05rem space(1);
   }
 
@@ -1172,8 +1162,8 @@
     padding: 0.2rem;
   }
 
+  // [BUG FIX #1] Removed conflicting bottom/width — badge stays centered via top/left/transform
   .image-caption-badge {
-    width: 90%;
     font-size: font-size(sm);
     padding: space(1);
   }
@@ -1438,6 +1428,11 @@ body.glightbox-open .site-header {
   border: $border-md solid $black-dark;
   box-shadow: $solid-shadow;
   padding: space(1) space(4);
+
+  // [IMPROVEMENT #6] No top margin when it's the first element in devlog-content
+  .devlog-content > &:first-child {
+    margin-top: 0;
+  }
 }
 
 .devlog-heading--h3 {
@@ -1491,16 +1486,15 @@ body.glightbox-open .site-header {
 }
 
 // ============================================
-// BLOCK: TEXT
+// SHARED DEVLOG PROSE — DRY base for text blocks
+// [IMPROVEMENT #7] Shared between .devlog-text and .devlog-sidebyside-text
 // ============================================
 
-.devlog-text {
+%devlog-prose {
   font-family: $font-poppins;
   font-size: font-size(md);
   font-weight: $weight-normal;
   color: $white;
-  line-height: 1.8;
-  padding: 0 space(4);
 
   p {
     margin: 0 0 space(3) 0;
@@ -1522,16 +1516,11 @@ body.glightbox-open .site-header {
 
   a {
     color: $yellow-dark;
-    font-weight: $weight-bold;
-    text-decoration: underline;
-    text-decoration-color: rgba($yellow-dark, 0.4);
-    text-underline-offset: 0.15em;
-    transition: color 0.15s ease,
-                text-decoration-color 0.15s ease;
+    text-decoration: none;
+    transition: text-decoration 0.15s ease;
 
     &:hover {
-      color: $yellow-light;
-      text-decoration-color: $yellow-light;
+      text-decoration: underline;
     }
   }
 
@@ -1554,6 +1543,16 @@ body.glightbox-open .site-header {
     font-weight: $weight-black;
     font-family: $font-barlow;
   }
+}
+
+// ============================================
+// BLOCK: TEXT
+// ============================================
+
+.devlog-text {
+  @extend %devlog-prose;
+  line-height: 1.8;
+  padding: 0 space(4);
 
   code {
     font-family: 'Courier New', monospace;
@@ -1568,6 +1567,7 @@ body.glightbox-open .site-header {
 
 // ============================================
 // BLOCK: QUOTE
+// [UPDATED] White background, dark text — clean contrast against dark page
 // ============================================
 
 .devlog-quote {
@@ -1575,7 +1575,7 @@ body.glightbox-open .site-header {
   max-width: 80%;
   align-self: center;
   margin: 0;
-  background: $black-medium;
+  background: $white;
   border: $border-sm solid $black-dark;
   border-radius: $radius-medium;
   box-shadow: $solid-shadow-sm;
@@ -1586,7 +1586,7 @@ body.glightbox-open .site-header {
     font-size: font-size(md);
     font-style: italic;
     font-weight: $weight-semibold;
-    color: $white;
+    color: $black-dark;
     line-height: 1.65;
     margin: 0 0 space(2) 0;
     word-break: break-word;
@@ -1606,12 +1606,13 @@ body.glightbox-open .site-header {
     color: $gray-medium;
     margin-top: space(3);
     padding-top: space(2);
-    border-top: 1px solid rgba($white, 0.08);
+    border-top: 1px solid rgba($black-dark, 0.12);
   }
 }
 
 // ============================================
 // BLOCK: IMAGE
+// [UPDATED] Same scale + glow hover as gallery image-slot
 // ============================================
 
 .devlog-figure {
@@ -1620,9 +1621,10 @@ body.glightbox-open .site-header {
   flex-direction: column;
   gap: space(2);
   scroll-margin-top: 6rem;
+  position: relative;
 }
 
-// Lightbox link wrapper
+// Lightbox link wrapper — card-style inner zoom, no container scale
 .devlog-image-link {
   display: block;
   cursor: zoom-in;
@@ -1630,10 +1632,14 @@ body.glightbox-open .site-header {
   overflow: hidden;
   border: $border-md solid $black-dark;
   box-shadow: $solid-shadow-md;
-  transition: box-shadow 0.2s $easing-pop;
+  transition: box-shadow 0.2s $easing-bounce,
+              border-color 0.2s $easing-bounce;
 
-  &:hover .devlog-image {
-    opacity: 0.9;
+  &:hover {
+    border-color: $yellow-dark;
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.35),
+      $solid-shadow-md;
   }
 }
 
@@ -1643,14 +1649,25 @@ body.glightbox-open .site-header {
   height: auto;
 }
 
+// Caption badge — normal flow by default (below video, etc.)
 .devlog-figcaption {
   display: inline-flex;
   align-items: stretch;
   overflow: hidden;
   border: $border-xs solid $black-dark;
   border-radius: $radius-xs;
-  box-shadow: $solid-shadow-xs;
+  box-shadow: $solid-shadow-sm;
   align-self: center;
+}
+
+// Overlay mode — only inside image figures
+.devlog-figure .devlog-figcaption {
+  position: absolute;
+  bottom: space(4);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: z(content);
+  pointer-events: none;
 }
 
 // Yellow left section — only shown when figid is set
@@ -1683,10 +1700,25 @@ body.glightbox-open .site-header {
   align-items: center;
 }
 
-// Caption alignment modifiers
+// Caption alignment — flow mode (videos)
 .devlog-figcaption--left   { align-self: flex-start; }
 .devlog-figcaption--center { align-self: center; }
 .devlog-figcaption--right  { align-self: flex-end; }
+
+// Caption alignment — overlay mode (images)
+.devlog-figure .devlog-figcaption--left {
+  left: space(4);
+  transform: none;
+}
+.devlog-figure .devlog-figcaption--center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.devlog-figure .devlog-figcaption--right {
+  left: auto;
+  right: space(4);
+  transform: none;
+}
 
 // ============================================
 // BLOCK: VIDEO
@@ -1890,6 +1922,7 @@ body.glightbox-open .site-header {
 
 // ============================================
 // BLOCK: SIDE BY SIDE (custom)
+// [UPDATED] Removed padding so it sits flush with images/videos
 // ============================================
 
 .devlog-sidebyside {
@@ -1897,7 +1930,6 @@ body.glightbox-open .site-header {
   grid-template-columns: 1fr 1fr;
   gap: space(6);
   align-items: start;
-  padding: 0 space(4);
 }
 
 .devlog-sidebyside--right {
@@ -1915,58 +1947,15 @@ body.glightbox-open .site-header {
   margin: 0;
 }
 
+// Images inside sidebyside get the same hover as standalone devlog images
+.devlog-sidebyside-media .devlog-image-link {
+  border-width: $border-sm;
+}
+
+// [IMPROVEMENT #7] Now extends %devlog-prose — only unique overrides remain
 .devlog-sidebyside-text {
-  font-family: $font-poppins;
-  font-size: font-size(md);
-  font-weight: $weight-normal;
-  color: $white;
+  @extend %devlog-prose;
   line-height: 1.75;
-
-  p {
-    margin: 0 0 space(3) 0;
-
-    &:last-child { margin-bottom: 0; }
-  }
-
-  strong {
-    font-weight: $weight-black;
-    color: $white;
-  }
-
-  em {
-    font-style: italic;
-    color: $yellow-light;
-  }
-
-  a {
-    color: $yellow-dark;
-    font-weight: $weight-bold;
-    text-decoration: underline;
-    text-decoration-color: rgba($yellow-dark, 0.4);
-    text-underline-offset: 0.15em;
-    transition: color 0.15s ease,
-                text-decoration-color 0.15s ease;
-
-    &:hover {
-      color: $yellow-light;
-      text-decoration-color: $yellow-light;
-    }
-  }
-
-  ul, ol {
-    padding-left: space(6);
-    margin: 0 0 space(3) 0;
-
-    li { margin-bottom: space(2); }
-  }
-
-  ul li::marker { color: $yellow-dark; }
-
-  ol li::marker {
-    color: $yellow-dark;
-    font-weight: $weight-black;
-    font-family: $font-barlow;
-  }
 }
 
 
@@ -2022,7 +2011,8 @@ body.glightbox-open .site-header {
     line-height: 1.65;
   }
 
-  // All sized elements collapse to full width on mobile
+  // [BUG FIX #2] Added width: 100% so elements actually collapse to full width on mobile
+  // max-width alone has no effect when a hard width (80%/60%/40%) is set in base styles
   .devlog-figure--large,
   .devlog-figure--medium,
   .devlog-figure--small,
@@ -2032,6 +2022,7 @@ body.glightbox-open .site-header {
   .devlog-table-wrap--large,
   .devlog-table-wrap--medium,
   .devlog-table-wrap--small {
+    width: 100%;
     max-width: 100%;
   }
 }

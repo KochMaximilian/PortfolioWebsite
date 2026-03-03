@@ -97,7 +97,12 @@
     if (!target) return;
 
     e.preventDefault();
-    history.pushState(null, '', hash);
+
+    // Figure anchors (#fig-*) scroll without touching the URL —
+    // keeps the share URL clean so visitors land on the project, not a figure
+    if (!hash.startsWith('#fig-')) {
+      history.pushState(null, '', hash);
+    }
 
     scrollToHash(hash);
   });

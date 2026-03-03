@@ -29,7 +29,11 @@ $font-poppins: 'Poppins', sans-serif;
 
 
 // Font sizes (simplified map)
+// [IMPROVEMENT #4] Added 3xs (8px) and 2xs (10px) for responsive scaling
+// These replace hardcoded 0.5rem–0.65rem values scattered across breakpoints
 $font-sizes: (
+  3xs: 0.5rem,    // 8px  — smallest mobile genre tags, labels
+  2xs: 0.625rem,  // 10px — small mobile stat labels, type lines
   xs: 0.75rem,    // 12px
   sm: 0.875rem,   // 14px
   md: 1rem,       // 16px
