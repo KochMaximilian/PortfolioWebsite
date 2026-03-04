@@ -363,4 +363,9 @@
     </nav>
 <?php endif; ?>
 
+<!-- Scroll to top button -->
+<button class="scroll-to-top" aria-label="Scroll to top" type="button">
+    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+</button>
+
 <?php snippet('footer') ?>
