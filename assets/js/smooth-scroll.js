@@ -1,6 +1,6 @@
 /**
  * smooth-scroll.js
- * Spring physics scroll + sticky project nav.
+ * Spring physics scroll + sticky project nav + scroll-to-top button.
  * Project pages only. Never fires scroll on load/reload.
  * Respects prefers-reduced-motion (reactive).
  */
@@ -31,11 +31,9 @@
   }
 
   // ─── Spring physics scroll ────────────────────────────────────────────────────
-  // Track the current animation frame so rapid clicks cancel the previous scroll
   let activeRafId = null;
 
   function springScrollTo(targetY) {
-    // Cancel any in-flight spring animation
     if (activeRafId) {
       cancelAnimationFrame(activeRafId);
       activeRafId = null;
@@ -98,14 +96,9 @@
 
     e.preventDefault();
 
-    // Figure anchors (#fig-*) and heading anchors (.devlog-heading-anchor)
-    // scroll without touching the URL — keeps the share URL clean
-    // so visitors land on the project, not a specific section
-    const isInternalAnchor = hash.startsWith('#fig-') || link.classList.contains('devlog-heading-anchor');
-
-    if (!isInternalAnchor) {
-      history.pushState(null, '', hash);
-    }
+    // Never push on-page anchor hashes to the URL on project pages.
+    // All # links here are internal (figures, headings, text anchors).
+    // Keeps the share URL clean so visitors land on the project itself.
 
     scrollToHash(hash);
   });
@@ -116,7 +109,6 @@
     if (hash) {
       scrollToHash(hash);
     } else {
-      // No hash — scroll back to top
       if (prefersReduced) {
         window.scrollTo(0, 0);
       } else {
@@ -125,42 +117,63 @@
     }
   });
 
-  // ─── Sticky project nav ───────────────────────────────────────────────────────
-  // Appears after scrolling 300px.
-  // Disappears again when the static bottom nav scrolls into view —
-  // so they never overlap and the bottom nav acts as the natural endpoint.
-  const stickyNav  = document.querySelector('.project-nav-sticky');
-  const bottomNav  = document.getElementById('project-nav-bottom');
+  // ─── Scroll-to-top button ─────────────────────────────────────────────────────
+  var scrollTopBtn = document.querySelector('.scroll-to-top');
 
-  if (stickyNav) {
-    const SCROLL_THRESHOLD = 300;
-    let ticking = false;
-
-    function updateStickyNav() {
-      const pastTop = window.scrollY > SCROLL_THRESHOLD;
-
-      // Hide when bottom nav is within viewport
-      let nearBottom = false;
-      if (bottomNav) {
-        const rect = bottomNav.getBoundingClientRect();
-        nearBottom = rect.top < window.innerHeight;
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (prefersReduced) {
+        window.scrollTo(0, 0);
+      } else {
+        springScrollTo(0);
       }
+    });
+  }
 
+  // ─── Sticky nav + scroll-to-top — unified scroll listener ────────────────────
+  var stickyNav  = document.querySelector('.project-nav-sticky');
+  var bottomNav  = document.getElementById('project-nav-bottom');
+
+  var SCROLL_THRESHOLD = 300;
+  var ticking = false;
+
+  function updateScrollUI() {
+    var pastTop = window.scrollY > SCROLL_THRESHOLD;
+
+    // Hide sticky nav when bottom nav is within viewport
+    var nearBottom = false;
+    if (bottomNav) {
+      var rect = bottomNav.getBoundingClientRect();
+      nearBottom = rect.top < window.innerHeight;
+    }
+
+    // Sticky prev/next nav — hides near bottom nav to avoid overlap
+    if (stickyNav) {
       if (pastTop && !nearBottom) {
         stickyNav.classList.add('is-visible');
       } else {
         stickyNav.classList.remove('is-visible');
       }
-
-      ticking = false;
     }
 
-    window.addEventListener('scroll', function () {
-      if (!ticking) {
-        requestAnimationFrame(updateStickyNav);
-        ticking = true;
+    // Scroll-to-top button — stays visible regardless of bottom nav
+    if (scrollTopBtn) {
+      if (pastTop) {
+        scrollTopBtn.classList.add('is-visible');
+      } else {
+        scrollTopBtn.classList.remove('is-visible');
       }
-    }, { passive: true });
+    }
+
+    ticking = false;
   }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(updateScrollUI);
+      ticking = true;
+    }
+  }, { passive: true });
 
 })();

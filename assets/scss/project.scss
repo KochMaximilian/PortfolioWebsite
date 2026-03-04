@@ -504,6 +504,7 @@
     .video-play-icon {
       color: $yellow-dark;
       transform: translate(-50%, -50%) scale(1.15);
+      animation: icon-bounce-centered 0.4s $easing-pop;
     }
   }
 }
@@ -565,6 +566,15 @@
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
   transition: transform 0.2s $easing-pop,
               color 0.2s ease;
+}
+
+// Bounce animation for centered play icon — keeps translate(-50%,-50%) offset
+@keyframes icon-bounce-centered {
+  0%   { transform: translate(-50%, -50%) scale(1); }
+  30%  { transform: translate(-50%, -50%) scale(1.35) rotate(-8deg); }
+  50%  { transform: translate(-50%, -50%) scale(1.15) rotate(5deg); }
+  70%  { transform: translate(-50%, -50%) scale(1.28) rotate(-3deg); }
+  100% { transform: translate(-50%, -50%) scale(1.15) rotate(0deg); }
 }
 
 
@@ -696,6 +706,101 @@
     gap: space(2);
   }
 }
+
+
+// ============================================
+// SCROLL TO TOP BUTTON
+// Neobrutalist pill, fixed at the right edge of the .wrapper.
+// Always visible after 300px scroll — does NOT hide at bottom.
+// ============================================
+
+.scroll-to-top {
+  position: fixed;
+  bottom: calc(var(--footer-height) + 2rem);
+  // Align to the wrapper's right edge on wide screens
+  // .wrapper = 80em centered, so right gutter = (100vw - 80em) / 2
+  // Fallback for narrow screens handled by responsive overrides below
+  right: calc((100vw - 80em) / 2);
+  z-index: z(toolbar);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+
+  background: $white;
+  border: $border-sm solid $black-dark;
+  border-radius: $radius-small;
+  box-shadow: $solid-shadow-sm;
+  color: $black-dark;
+  font-size: font-size(lg);
+  cursor: pointer;
+
+  // Hidden by default, slides up when .is-visible
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(calc(100% + var(--footer-height) + 4rem));
+  transition: transform 0.4s $easing-pop,
+              opacity 0.3s ease,
+              background-color 0.2s $easing-bounce,
+              box-shadow 0.2s $easing-bounce;
+
+  &.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    background: $yellow-dark;
+    box-shadow: $solid-shadow-xs;
+  }
+
+  &.is-visible:hover {
+    transform: translateY(0) scale(0.92);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.85);
+  }
+}
+
+// When viewport is narrower than the wrapper, hug the right edge
+@media (max-width: 80em) {
+  .scroll-to-top {
+    right: 1rem;
+  }
+}
+
+@media (max-width: $tablet) {
+  .scroll-to-top {
+    right: 0.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: font-size(md);
+  }
+}
+
+@media (max-width: $mobile-lg) {
+  .scroll-to-top {
+    bottom: calc(var(--footer-height) + 0.5rem);
+    right: 0.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: font-size(sm);
+    border-width: $border-xs;
+  }
+}
+
+@media (max-width: $mobile-sm) {
+  .scroll-to-top {
+    width: 2rem;
+    height: 2rem;
+    font-size: font-size(xs);
+  }
+}
+
 
 // ============================================
 // RESPONSIVE
@@ -1394,8 +1499,6 @@ body.glightbox-open .site-header {
 // H3 = yellow badge, subordinate
 // H4+ = plain text, cascading down
 // [UPDATED] Two-part figcaption-style badge when anchor ID is set
-// Left piece = anchor indicator (like Fig. X)
-// Right piece = heading text (existing style)
 // ============================================
 
 // Shared — scroll target offset
@@ -1404,9 +1507,8 @@ body.glightbox-open .site-header {
 }
 
 // ————————————————————————————————
-// ANCHOR BADGE (left piece — like .devlog-fig-id)
-// Only rendered when anchorid is explicitly set in panel
-// Font-size inherits from parent heading for consistency
+// ANCHOR BADGE (left piece)
+// Font-size inherits from parent heading
 // ————————————————————————————————
 
 .devlog-heading-anchor {
@@ -1427,7 +1529,7 @@ body.glightbox-open .site-header {
 }
 
 // ————————————————————————————————
-// HEADING TEXT (right piece — carries the heading's background)
+// HEADING TEXT (right piece)
 // ————————————————————————————————
 
 .devlog-heading-text {
@@ -1460,13 +1562,11 @@ body.glightbox-open .site-header {
     margin-top: 0;
   }
 
-  // Right piece — white background (existing h2 look)
   .devlog-heading-text {
     background-color: $white;
     padding: space(1) space(4);
   }
 
-  // Left piece — yellow accent (like fig-id), divider matches outer border
   &.has-anchor-badge .devlog-heading-anchor {
     background: $yellow-dark;
     color: $black-dark;
@@ -1496,13 +1596,11 @@ body.glightbox-open .site-header {
   border: $border-md solid $black-dark;
   box-shadow: $solid-shadow-sm;
 
-  // Right piece — yellow background (existing h3 look)
   .devlog-heading-text {
     background-color: $yellow-dark;
     padding: space(1) space(3);
   }
 
-  // Left piece — dark accent (contrasts against yellow heading), divider matches outer border
   &.has-anchor-badge .devlog-heading-anchor {
     background: $black-dark;
     color: $yellow-dark;
@@ -1771,8 +1869,7 @@ body.glightbox-open .site-header {
 }
 
 // Caption badge — normal flow by default (below video, etc.)
-// [UPDATED] Added background: $black-dark as fallback to prevent
-// subpixel see-through gaps between child spans
+// [UPDATED] background: $black-dark prevents subpixel see-through between child spans
 .devlog-figcaption {
   display: inline-flex;
   align-items: stretch;
@@ -2007,7 +2104,7 @@ body.glightbox-open .site-header {
 
 // ============================================
 // BLOCK: LINE
-// [UPDATED] Logo wrap is now a perfect square via aspect-ratio: 1
+// [UPDATED] Logo wrap is a perfect square via aspect-ratio: 1
 // ============================================
 
 .devlog-line {
@@ -2142,7 +2239,6 @@ body.glightbox-open .site-header {
   }
 
   // [BUG FIX #2] Added width: 100% so elements actually collapse to full width on mobile
-  // max-width alone has no effect when a hard width (80%/60%/40%) is set in base styles
   .devlog-figure--large,
   .devlog-figure--medium,
   .devlog-figure--small,
