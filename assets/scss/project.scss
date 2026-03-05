@@ -81,7 +81,6 @@
   line-height: 1.1;
 }
 
-// Type line: "Game Jam · Puzzle Action RPG"
 .stat-type-line {
   display: flex;
   align-items: center;
@@ -104,7 +103,6 @@
   margin: 0 space(1);
 }
 
-// Genre tags in name plate — small, on dark bg
 .stat-type-line .stat-tag-genre {
   font-size: font-size(xs);
   padding: 0.05rem space(2);
@@ -188,9 +186,7 @@
 
 
 // ============================================
-// STAT BODY — 2 column grid
-// Left: stats + platforms + focus
-// Right: description + links
+// STAT BODY
 // ============================================
 
 .stat-body {
@@ -213,7 +209,7 @@
 
 
 // ============================================
-// STAT TABLE — tight key:value rows
+// STAT TABLE
 // ============================================
 
 .stat-table {
@@ -342,7 +338,6 @@
   flex: 1;
 }
 
-// [UPDATED] Links now have game-feel hover — yellow highlight bg + bounce
 .stat-description-text {
   font-family: $font-poppins;
   font-size: font-size(sm);
@@ -405,7 +400,6 @@
 
 // ============================================
 // SECTION DIVIDER
-// [UPDATED] Removed .section-divider-count — no more number badge
 // ============================================
 
 .section-divider {
@@ -447,11 +441,8 @@
 
 // ============================================
 // GALLERY
-// The <a> IS the .image-slot directly — all hover
-// effects use & (self), not descendant selectors.
 // ============================================
 
-// [BUG FIX #3] Merged duplicate .lightbox rules into one
 .lightbox {
   margin-bottom: 0;
   transition: margin-bottom 0.3s $easing-bounce;
@@ -468,7 +459,6 @@
   margin: 0 auto;
 }
 
-// [IMPROVEMENT #5] will-change on hover only
 .image-slot {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -501,15 +491,18 @@
       opacity: 1;
     }
 
+    // Icon scales to EXACTLY 1.08 — same as the image.
+    // Same duration (0.3s), same easing ($easing-pop). They move as one.
+    // Yellow glow adds juice without any bounce or wiggle.
     .video-play-icon {
       color: $yellow-dark;
-      transform: translate(-50%, -50%) scale(1.15);
-      animation: icon-bounce-centered 0.4s $easing-pop;
+      transform: translate(-50%, -50%) scale(1.08);
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5))
+              drop-shadow(0 0 20px rgba($yellow-dark, 0.4));
     }
   }
 }
 
-// Inner wrapper — clips the zooming image
 .image-slot-inner {
   width: 100%;
   height: 100%;
@@ -553,7 +546,8 @@
   pointer-events: none;
 }
 
-// Video thumbnail play icon overlay
+// Video play icon — transition matches image exactly (0.3s $easing-pop).
+// filter transition for the yellow glow on hover.
 .video-play-icon {
   position: absolute;
   top: 50%;
@@ -564,17 +558,9 @@
   font-size: 2.5rem;
   pointer-events: none;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
-  transition: transform 0.2s $easing-pop,
-              color 0.2s ease;
-}
-
-// Bounce animation for centered play icon — keeps translate(-50%,-50%) offset
-@keyframes icon-bounce-centered {
-  0%   { transform: translate(-50%, -50%) scale(1); }
-  30%  { transform: translate(-50%, -50%) scale(1.35) rotate(-8deg); }
-  50%  { transform: translate(-50%, -50%) scale(1.15) rotate(5deg); }
-  70%  { transform: translate(-50%, -50%) scale(1.28) rotate(-3deg); }
-  100% { transform: translate(-50%, -50%) scale(1.15) rotate(0deg); }
+  transition: transform 0.3s $easing-pop,
+              color 0.2s ease,
+              filter 0.3s ease;
 }
 
 
@@ -664,21 +650,17 @@
 
 
 // ============================================
-// STICKY NAV — floats in after scroll
-// Compact version: arrow + label only, no project name.
-// Sits fixed above the footer, slides up from below.
-// Uses --footer-height CSS var so it clears the fixed footer.
+// STICKY NAV
+// Simple slide-up + fade. No scale, no wiggle, no overshoot.
 // ============================================
 
 .project-nav-sticky {
   position: fixed;
   bottom: calc(var(--footer-height) + 2rem);
   left: 50%;
-  // Matches .wrapper exactly so buttons sit at the same x position as bottom nav
   width: 80em;
   max-width: calc(100% - 2em);
   padding: 0 space(4);
-  // Matches .project-nav exactly
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -686,10 +668,11 @@
   z-index: z(toolbar);
   pointer-events: none;
 
-  transform: translateX(-50%) translateY(calc(100% + var(--footer-height) + 4rem));
+  // Hidden: nudged down, faded out. No scale.
+  transform: translateX(-50%) translateY(1.5rem);
   opacity: 0;
-  transition: transform 0.4s $easing-pop,
-              opacity 0.3s ease;
+  transition: transform 0.35s ease-out,
+              opacity 0.25s ease;
 
   &.is-visible {
     transform: translateX(-50%) translateY(0);
@@ -698,8 +681,6 @@
   }
 }
 
-
-// Mobile — icon only, save space
 @media (max-width: $mobile-lg) {
   .project-nav-sticky {
     bottom: calc(var(--footer-height) + 0.5rem);
@@ -710,17 +691,15 @@
 
 // ============================================
 // SCROLL TO TOP BUTTON
-// Neobrutalist pill, fixed at the right edge of the .wrapper.
-// Always visible after 300px scroll — does NOT hide at bottom.
+// Simple slide-up + fade. No scale, no wiggle, no overshoot.
+// Sits well above the sticky nav at every breakpoint.
 // ============================================
 
 .scroll-to-top {
   position: fixed;
-  bottom: calc(var(--footer-height) + 2rem);
-  // Align to the wrapper's right edge on wide screens
-  // .wrapper = 80em centered, so right gutter = (100vw - 80em) / 2
-  // Fallback for narrow screens handled by responsive overrides below
-  right: calc((100vw - 80em) / 2);
+  // Desktop: nav is at footer+2rem, nav buttons ~3.5rem tall, +1.5rem gap
+  bottom: calc(var(--footer-height) + 7rem);
+  right: 1.5rem;
   z-index: z(toolbar);
 
   display: flex;
@@ -737,12 +716,12 @@
   font-size: font-size(lg);
   cursor: pointer;
 
-  // Hidden by default, slides up when .is-visible
+  // Hidden: nudged down, faded out. No scale.
   opacity: 0;
   pointer-events: none;
-  transform: translateY(calc(100% + var(--footer-height) + 4rem));
-  transition: transform 0.4s $easing-pop,
-              opacity 0.3s ease,
+  transform: translateY(1.5rem);
+  transition: transform 0.35s ease-out,
+              opacity 0.25s ease,
               background-color 0.2s $easing-bounce,
               box-shadow 0.2s $easing-bounce;
 
@@ -766,26 +745,22 @@
   }
 }
 
-// When viewport is narrower than the wrapper, hug the right edge
-@media (max-width: 80em) {
-  .scroll-to-top {
-    right: 1rem;
-  }
-}
-
 @media (max-width: $tablet) {
   .scroll-to-top {
-    right: 0.75rem;
+    right: 1rem;
     width: 2.5rem;
     height: 2.5rem;
     font-size: font-size(md);
+    // Nav is at footer+2rem, buttons ~3rem on tablet, +3rem gap
+    bottom: calc(var(--footer-height) + 8rem);
   }
 }
 
 @media (max-width: $mobile-lg) {
   .scroll-to-top {
-    bottom: calc(var(--footer-height) + 0.5rem);
-    right: 0.5rem;
+    // Nav is at footer+0.5rem, buttons ~2.5rem on mobile, +3rem gap
+    bottom: calc(var(--footer-height) + 6rem);
+    right: 0.75rem;
     width: 2.25rem;
     height: 2.25rem;
     font-size: font-size(sm);
@@ -798,6 +773,9 @@
     width: 2rem;
     height: 2rem;
     font-size: font-size(xs);
+    right: 0.5rem;
+    // Same offset — plenty of room
+    bottom: calc(var(--footer-height) + 6rem);
   }
 }
 
@@ -847,7 +825,6 @@
     gap: space(5);
   }
 
-  // [BUG FIX #1] Removed conflicting bottom/width — badge stays centered via top/left/transform
   .image-caption-badge {
     font-size: font-size(sm);
   }
@@ -940,7 +917,6 @@
     font-size: font-size(xs);
   }
 
-  // [IMPROVEMENT #4] Was 0.6rem → now font-size(2xs)
   .stat-type-line .stat-tag-genre {
     font-size: font-size(2xs);
   }
@@ -949,18 +925,15 @@
     gap: space(2);
   }
 
-  // [IMPROVEMENT #4] Was 0.65rem → now font-size(2xs)
   .stat-row dt {
     width: 4.5rem;
     font-size: font-size(2xs);
   }
 
-  // [IMPROVEMENT #4] Was 0.65rem → now font-size(2xs)
   .stat-label {
     font-size: font-size(2xs);
   }
 
-  // [IMPROVEMENT #4] Was 0.6rem → now font-size(2xs)
   .stat-tag {
     font-size: font-size(2xs);
     padding: 0.1rem space(1);
@@ -979,7 +952,6 @@
     border-width: $border-xs;
   }
 
-  // [BUG FIX #1] Removed conflicting bottom — badge stays centered via top/left/transform
   .image-caption-badge {
     font-size: font-size(md);
     padding: space(1) space(2);
@@ -1012,7 +984,6 @@
     font-size: font-size(xs);
   }
 
-  // [IMPROVEMENT #4] Was 0.55rem → now font-size(3xs)
   .stat-type-line .stat-tag-genre {
     font-size: font-size(3xs);
     padding: 0.05rem space(1);
@@ -1037,7 +1008,6 @@
     }
   }
 
-  // Collapse to single column on mobile
   .stat-body {
     grid-template-columns: 1fr;
     padding: space(2);
@@ -1092,7 +1062,6 @@
     border-radius: $radius-small;
   }
 
-  // [BUG FIX #1] Removed conflicting bottom — badge stays centered via top/left/transform
   .image-caption-badge {
     font-size: font-size(md);
   }
@@ -1163,17 +1132,14 @@
     font-size: font-size(md);
   }
 
-  // [IMPROVEMENT #4] Was 0.6rem → now font-size(2xs)
   .stat-type-label {
     font-size: font-size(2xs);
   }
 
-  // [IMPROVEMENT #4] Was 0.6rem → now font-size(2xs)
   .stat-type-divider {
     font-size: font-size(2xs);
   }
 
-  // [IMPROVEMENT #4] Was 0.5rem → now font-size(3xs)
   .stat-type-line .stat-tag-genre {
     font-size: font-size(3xs);
   }
@@ -1200,7 +1166,6 @@
   .stat-row {
     dt {
       width: 4rem;
-      // [IMPROVEMENT #4] Was 0.6rem → now font-size(2xs)
       font-size: font-size(2xs);
     }
 
@@ -1209,12 +1174,10 @@
     }
   }
 
-  // [IMPROVEMENT #4] Was 0.6rem → now font-size(2xs)
   .stat-label {
     font-size: font-size(2xs);
   }
 
-  // [IMPROVEMENT #4] Was 0.55rem → now font-size(3xs)
   .stat-tag {
     font-size: font-size(3xs);
     padding: 0.05rem space(1);
@@ -1250,7 +1213,6 @@
     padding: 0.2rem;
   }
 
-  // [BUG FIX #1] Removed conflicting bottom/width — badge stays centered via top/left/transform
   .image-caption-badge {
     font-size: font-size(sm);
     padding: space(1);
@@ -1283,21 +1245,17 @@
 
 
 // ============================================
-// GLIGHTBOX SKIN — game feel
+// GLIGHTBOX SKIN
 // ============================================
 
-// Fix scrollbar layout shift — when GLightbox opens the scrollbar disappears
-// causing the fixed header to jump. GLightbox adds .glightbox-open to body.
 body.glightbox-open .site-header {
   padding-right: var(--scrollbar-compensation, 0px);
 }
 
-// Dark overlay
 .goverlay {
   background: rgba($black-dark, 0.80);
 }
 
-// Shared button base — close, prev, next
 .gbtn {
   width: 2.25rem !important;
   height: 2.25rem !important;
@@ -1313,12 +1271,10 @@ body.glightbox-open .site-header {
               box-shadow 0.15s ease !important;
   opacity: 1 !important;
 
-  // Hide default GLightbox SVG icons
   svg {
     display: none !important;
   }
 
-  // Replace with Font Awesome via ::after
   &::after {
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
@@ -1335,14 +1291,12 @@ body.glightbox-open .site-header {
   }
 }
 
-// Close button
 .gclose {
   &::after {
     content: '\f00d';
   }
 }
 
-// Prev arrow
 .gprev {
   &::after {
     content: '\f053';
@@ -1353,7 +1307,6 @@ body.glightbox-open .site-header {
   }
 }
 
-// Next arrow
 .gnext {
   &::after {
     content: '\f054';
@@ -1364,7 +1317,6 @@ body.glightbox-open .site-header {
   }
 }
 
-// Slide counter / infobar
 .infobar {
   font-family: $font-barlow !important;
   font-weight: $weight-black !important;
@@ -1380,7 +1332,6 @@ body.glightbox-open .site-header {
   opacity: 1 !important;
 }
 
-// Description panel — dark theme, seamless with the overlay
 .gslide-description {
   background: $black-dark !important;
 
@@ -1394,7 +1345,6 @@ body.glightbox-open .site-header {
   padding: space(4) space(5) !important;
 }
 
-// Title in description (if set via data-title)
 .gslide-title {
   font-family: $font-barlow !important;
   font-weight: $weight-black !important;
@@ -1405,7 +1355,6 @@ body.glightbox-open .site-header {
   margin-bottom: space(2) !important;
 }
 
-// Description body text — kirbytext outputs p, ul, ol, strong, em
 .gslide-desc {
   font-family: $font-poppins !important;
   font-size: font-size(sm) !important;
@@ -1478,14 +1427,13 @@ body.glightbox-open .site-header {
 
 
 // ============================================
-// DEVLOG — dev process writeup section
+// DEVLOG
 // ============================================
 
 .devlog {
   margin-top: space(8);
 }
 
-// Prose container — full page width matching the rest of the page
 .devlog-content {
   margin: 0 auto;
   display: flex;
@@ -1495,21 +1443,11 @@ body.glightbox-open .site-header {
 
 // ============================================
 // BLOCK: HEADING
-// H2 = white badge, section opener
-// H3 = yellow badge, subordinate
-// H4+ = plain text, cascading down
-// [UPDATED] Two-part figcaption-style badge when anchor ID is set
 // ============================================
 
-// Shared — scroll target offset
 [class^="devlog-heading--"] {
   scroll-margin-top: 6rem;
 }
-
-// ————————————————————————————————
-// ANCHOR BADGE (left piece)
-// Font-size inherits from parent heading
-// ————————————————————————————————
 
 .devlog-heading-anchor {
   display: flex;
@@ -1528,18 +1466,10 @@ body.glightbox-open .site-header {
   }
 }
 
-// ————————————————————————————————
-// HEADING TEXT (right piece)
-// ————————————————————————————————
-
 .devlog-heading-text {
   display: flex;
   align-items: center;
 }
-
-// ————————————————————————————————
-// H2 — white badge
-// ————————————————————————————————
 
 .devlog-heading--h2 {
   align-self: flex-start;
@@ -1575,10 +1505,6 @@ body.glightbox-open .site-header {
   }
 }
 
-// ————————————————————————————————
-// H3 — yellow badge
-// ————————————————————————————————
-
 .devlog-heading--h3 {
   align-self: flex-start;
   display: inline-flex;
@@ -1609,10 +1535,6 @@ body.glightbox-open .site-header {
   }
 }
 
-// ————————————————————————————————
-// H4 — plain uppercase white text
-// ————————————————————————————————
-
 .devlog-heading--h4 {
   display: inline-flex;
   align-items: center;
@@ -1640,10 +1562,6 @@ body.glightbox-open .site-header {
     pointer-events: auto;
   }
 }
-
-// ————————————————————————————————
-// H5 — smaller, muted
-// ————————————————————————————————
 
 .devlog-heading--h5 {
   display: inline-flex;
@@ -1673,10 +1591,6 @@ body.glightbox-open .site-header {
   }
 }
 
-// ————————————————————————————————
-// H6 — smallest, muted
-// ————————————————————————————————
-
 .devlog-heading--h6 {
   display: inline-flex;
   align-items: center;
@@ -1705,8 +1619,7 @@ body.glightbox-open .site-header {
 }
 
 // ============================================
-// SHARED DEVLOG PROSE — DRY base for text blocks
-// [IMPROVEMENT #7] Shared between .devlog-text and .devlog-sidebyside-text
+// SHARED DEVLOG PROSE
 // ============================================
 
 %devlog-prose {
@@ -1717,51 +1630,28 @@ body.glightbox-open .site-header {
 
   p {
     margin: 0 0 space(3) 0;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    &:last-child { margin-bottom: 0; }
   }
 
-  strong {
-    font-weight: $weight-black;
-    color: $white;
-  }
-
-  em {
-    font-style: italic;
-    color: $yellow-light;
-  }
+  strong { font-weight: $weight-black; color: $white; }
+  em { font-style: italic; color: $yellow-light; }
 
   a {
     color: $yellow-dark;
     text-decoration: none;
     transition: text-decoration 0.15s ease;
-
-    &:hover {
-      text-decoration: underline;
-    }
+    &:hover { text-decoration: underline; }
   }
 
   ul, ol {
     padding-left: space(6);
     margin: 0 0 space(3) 0;
-
     &:last-child { margin-bottom: 0; }
-
-    li {
-      margin-bottom: space(2);
-      color: $white;
-    }
+    li { margin-bottom: space(2); color: $white; }
   }
 
   ul li::marker { color: $yellow-dark; }
-
-  ol li::marker {
-    color: $yellow-dark;
-    font-weight: $weight-black;
-    font-family: $font-barlow;
-  }
+  ol li::marker { color: $yellow-dark; font-weight: $weight-black; font-family: $font-barlow; }
 }
 
 // ============================================
@@ -1786,7 +1676,6 @@ body.glightbox-open .site-header {
 
 // ============================================
 // BLOCK: QUOTE
-// [UPDATED] White background, dark text — clean contrast against dark page
 // ============================================
 
 .devlog-quote {
@@ -1809,10 +1698,7 @@ body.glightbox-open .site-header {
     line-height: 1.65;
     margin: 0 0 space(2) 0;
     word-break: break-word;
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
+    &:last-of-type { margin-bottom: 0; }
   }
 
   cite {
@@ -1831,7 +1717,6 @@ body.glightbox-open .site-header {
 
 // ============================================
 // BLOCK: IMAGE
-// [UPDATED] Same scale + glow hover as gallery image-slot
 // ============================================
 
 .devlog-figure {
@@ -1843,7 +1728,6 @@ body.glightbox-open .site-header {
   position: relative;
 }
 
-// Lightbox link wrapper — card-style inner zoom, no container scale
 .devlog-image-link {
   display: block;
   cursor: zoom-in;
@@ -1856,9 +1740,7 @@ body.glightbox-open .site-header {
 
   &:hover {
     border-color: $yellow-dark;
-    box-shadow:
-      0 8px 24px rgba(0, 0, 0, 0.35),
-      $solid-shadow-md;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), $solid-shadow-md;
   }
 }
 
@@ -1868,8 +1750,6 @@ body.glightbox-open .site-header {
   height: auto;
 }
 
-// Caption badge — normal flow by default (below video, etc.)
-// [UPDATED] background: $black-dark prevents subpixel see-through between child spans
 .devlog-figcaption {
   display: inline-flex;
   align-items: stretch;
@@ -1881,7 +1761,6 @@ body.glightbox-open .site-header {
   background: $black-dark;
 }
 
-// Overlay mode — only inside image figures
 .devlog-figure .devlog-figcaption {
   position: absolute;
   bottom: space(4);
@@ -1891,7 +1770,6 @@ body.glightbox-open .site-header {
   pointer-events: none;
 }
 
-// Yellow left section — only shown when figid is set
 .devlog-fig-id {
   font-family: $font-barlow;
   font-weight: $weight-black;
@@ -1907,7 +1785,6 @@ body.glightbox-open .site-header {
   align-items: center;
 }
 
-// Dark right section — the caption text
 .devlog-caption-text {
   font-family: $font-barlow;
   font-weight: $weight-bold;
@@ -1921,25 +1798,13 @@ body.glightbox-open .site-header {
   align-items: center;
 }
 
-// Caption alignment — flow mode (videos)
 .devlog-figcaption--left   { align-self: flex-start; }
 .devlog-figcaption--center { align-self: center; }
 .devlog-figcaption--right  { align-self: flex-end; }
 
-// Caption alignment — overlay mode (images)
-.devlog-figure .devlog-figcaption--left {
-  left: space(4);
-  transform: none;
-}
-.devlog-figure .devlog-figcaption--center {
-  left: 50%;
-  transform: translateX(-50%);
-}
-.devlog-figure .devlog-figcaption--right {
-  left: auto;
-  right: space(4);
-  transform: none;
-}
+.devlog-figure .devlog-figcaption--left   { left: space(4); transform: none; }
+.devlog-figure .devlog-figcaption--center { left: 50%; transform: translateX(-50%); }
+.devlog-figure .devlog-figcaption--right  { left: auto; right: space(4); transform: none; }
 
 // ============================================
 // BLOCK: VIDEO
@@ -1963,47 +1828,25 @@ body.glightbox-open .site-header {
 
   iframe {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     border: none;
     display: block;
   }
 }
 
 // ============================================
-// SIZE MODIFIERS — image, video, table
+// SIZE MODIFIERS
 // ============================================
 
-.devlog-figure--large,
-.devlog-video--large,
-.devlog-table-wrap--large {
-  width: 80%;
-  max-width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  align-self: center;
+.devlog-figure--large, .devlog-video--large, .devlog-table-wrap--large {
+  width: 80%; max-width: 80%; margin-left: auto; margin-right: auto; align-self: center;
 }
-
-.devlog-figure--medium,
-.devlog-video--medium,
-.devlog-table-wrap--medium {
-  width: 60%;
-  max-width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-  align-self: center;
+.devlog-figure--medium, .devlog-video--medium, .devlog-table-wrap--medium {
+  width: 60%; max-width: 60%; margin-left: auto; margin-right: auto; align-self: center;
 }
-
-.devlog-figure--small,
-.devlog-video--small,
-.devlog-table-wrap--small {
-  width: 40%;
-  max-width: 40%;
-  margin-left: auto;
-  margin-right: auto;
-  align-self: center;
+.devlog-figure--small, .devlog-video--small, .devlog-table-wrap--small {
+  width: 40%; max-width: 40%; margin-left: auto; margin-right: auto; align-self: center;
 }
 
 // ============================================
@@ -2023,9 +1866,7 @@ body.glightbox-open .site-header {
   border-collapse: collapse;
   display: table;
 
-  thead tr {
-    background: $black-dark;
-  }
+  thead tr { background: $black-dark; }
 
   thead th {
     font-family: $font-barlow;
@@ -2038,7 +1879,6 @@ body.glightbox-open .site-header {
     text-align: left;
     white-space: nowrap;
     border-right: 1px solid rgba($white, 0.1);
-
     &:last-child { border-right: none; }
   }
 
@@ -2046,16 +1886,9 @@ body.glightbox-open .site-header {
     background: $black-medium;
     border-bottom: 1px solid rgba($white, 0.06);
     transition: background 0.15s ease;
-
     &:last-child { border-bottom: none; }
-
-    &:nth-child(even) {
-      background: $black-light;
-    }
-
-    &:hover {
-      background: rgba($yellow-dark, 0.08);
-    }
+    &:nth-child(even) { background: $black-light; }
+    &:hover { background: rgba($yellow-dark, 0.08); }
   }
 
   tbody td {
@@ -2066,7 +1899,6 @@ body.glightbox-open .site-header {
     padding: space(2) space(4);
     border-right: 1px solid rgba($white, 0.06);
     vertical-align: middle;
-
     &:last-child { border-right: none; }
   }
 }
@@ -2081,30 +1913,22 @@ body.glightbox-open .site-header {
   ul, ol {
     padding-left: space(6);
     margin: 0;
-
     li {
       font-family: $font-poppins;
       font-size: font-size(md);
       color: $white;
       line-height: 1.6;
       margin-bottom: space(2);
-
       &:last-child { margin-bottom: 0; }
     }
   }
 
   ul li::marker { color: $yellow-dark; }
-
-  ol li::marker {
-    color: $yellow-dark;
-    font-weight: $weight-black;
-    font-family: $font-barlow;
-  }
+  ol li::marker { color: $yellow-dark; font-weight: $weight-black; font-family: $font-barlow; }
 }
 
 // ============================================
 // BLOCK: LINE
-// [UPDATED] Logo wrap is a perfect square via aspect-ratio: 1
 // ============================================
 
 .devlog-line {
@@ -2148,8 +1972,7 @@ body.glightbox-open .site-header {
 }
 
 // ============================================
-// BLOCK: SIDE BY SIDE (custom)
-// [UPDATED] Removed padding so it sits flush with images/videos
+// BLOCK: SIDE BY SIDE
 // ============================================
 
 .devlog-sidebyside {
@@ -2169,17 +1992,9 @@ body.glightbox-open .site-header {
   .devlog-sidebyside-media { order: 1; }
 }
 
-// Video inside sidebyside inherits the embed styles
-.devlog-sidebyside-media .devlog-video {
-  margin: 0;
-}
+.devlog-sidebyside-media .devlog-video { margin: 0; }
+.devlog-sidebyside-media .devlog-image-link { border-width: $border-sm; }
 
-// Images inside sidebyside get the same hover as standalone devlog images
-.devlog-sidebyside-media .devlog-image-link {
-  border-width: $border-sm;
-}
-
-// [IMPROVEMENT #7] Now extends %devlog-prose — only unique overrides remain
 .devlog-sidebyside-text {
   @extend %devlog-prose;
   line-height: 1.75;
@@ -2191,35 +2006,20 @@ body.glightbox-open .site-header {
 // ============================================
 
 @media (max-width: $tablet) {
-  .devlog-content {
-    gap: space(5);
-  }
-
+  .devlog-content { gap: space(5); }
   .devlog-heading--h2 { font-size: font-size(xl); }
   .devlog-heading--h3 { font-size: font-size(md); }
-
-  .devlog-text {
-    font-size: font-size(sm);
-  }
+  .devlog-text { font-size: font-size(sm); }
 
   .devlog-quote {
-    width: 100%;
-    max-width: 100%;
+    width: 100%; max-width: 100%;
     padding: space(3) space(4);
-
-    p {
-      font-size: font-size(sm);
-    }
+    p { font-size: font-size(sm); }
   }
 
   .devlog-list ul li, .devlog-list ol li { font-size: font-size(sm); }
 
-  .devlog-sidebyside {
-    grid-template-columns: 1fr;
-    gap: space(4);
-  }
-
-  // Image always goes below text on mobile
+  .devlog-sidebyside { grid-template-columns: 1fr; gap: space(4); }
   .devlog-sidebyside--right,
   .devlog-sidebyside--left {
     .devlog-sidebyside-text  { order: 1; }
@@ -2228,9 +2028,7 @@ body.glightbox-open .site-header {
 }
 
 @media (max-width: $mobile-lg) {
-  .devlog-content {
-    gap: space(4);
-  }
+  .devlog-content { gap: space(4); }
 
   .devlog-text,
   .devlog-sidebyside-text {
@@ -2238,16 +2036,9 @@ body.glightbox-open .site-header {
     line-height: 1.65;
   }
 
-  // [BUG FIX #2] Added width: 100% so elements actually collapse to full width on mobile
-  .devlog-figure--large,
-  .devlog-figure--medium,
-  .devlog-figure--small,
-  .devlog-video--large,
-  .devlog-video--medium,
-  .devlog-video--small,
-  .devlog-table-wrap--large,
-  .devlog-table-wrap--medium,
-  .devlog-table-wrap--small {
+  .devlog-figure--large, .devlog-figure--medium, .devlog-figure--small,
+  .devlog-video--large, .devlog-video--medium, .devlog-video--small,
+  .devlog-table-wrap--large, .devlog-table-wrap--medium, .devlog-table-wrap--small {
     width: 100%;
     max-width: 100%;
   }
