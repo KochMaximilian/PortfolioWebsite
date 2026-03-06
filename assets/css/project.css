@@ -1837,8 +1837,14 @@ body.glightbox-open .site-header {
   .devlog-content {
     gap: 1rem;
   }
-  .devlog-text, .devlog-sidebyside-text {
+  .devlog-heading--h2 {
     font-size: 0.875rem;
+  }
+  .devlog-heading--h3 {
+    font-size: 0.75rem;
+  }
+  .devlog-text, .devlog-sidebyside-text {
+    font-size: 0.75rem;
     line-height: 1.65;
   }
   .devlog-figure--large, .devlog-figure--medium, .devlog-figure--small,
