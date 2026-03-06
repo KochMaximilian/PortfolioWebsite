@@ -1008,10 +1008,13 @@ body.glightbox-open .site-header {
 
 @media (max-width: $mobile-lg) {
   .devlog-content { gap: space(4); }
-  .devlog-text, .devlog-sidebyside-text { font-size: font-size(sm); line-height: 1.65; }
+  .devlog-heading--h2 { font-size: font-size(sm); }
+  .devlog-heading--h3 { font-size: font-size(xs); }
+  .devlog-text, .devlog-sidebyside-text { font-size: font-size(xs); line-height: 1.65; }
   .devlog-figure--large, .devlog-figure--medium, .devlog-figure--small,
   .devlog-video--large, .devlog-video--medium, .devlog-video--small,
   .devlog-table-wrap--large, .devlog-table-wrap--medium, .devlog-table-wrap--small {
     width: 100%; max-width: 100%;
   }
+
 }
