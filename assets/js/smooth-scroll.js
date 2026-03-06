@@ -17,8 +17,8 @@
   }
 
   // ─── Reactive reduced-motion preference ───────────────────────────────────────
-  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let prefersReduced = reducedMotionQuery.matches;
+  var reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var prefersReduced = reducedMotionQuery.matches;
 
   reducedMotionQuery.addEventListener('change', function (e) {
     prefersReduced = e.matches;
@@ -26,12 +26,12 @@
 
   // ─── Navbar height ────────────────────────────────────────────────────────────
   function getNavbarHeight() {
-    const navbar = document.querySelector('.navbar');
+    var navbar = document.querySelector('.navbar');
     return navbar ? navbar.offsetHeight + 16 : 96;
   }
 
   // ─── Spring physics scroll ────────────────────────────────────────────────────
-  let activeRafId = null;
+  var activeRafId = null;
 
   function springScrollTo(targetY) {
     if (activeRafId) {
@@ -39,16 +39,16 @@
       activeRafId = null;
     }
 
-    let pos      = window.scrollY;
-    let velocity = 0;
+    var pos      = window.scrollY;
+    var velocity = 0;
 
-    const stiffness = 0.18;
-    const damping   = 0.74;
+    var stiffness = 0.18;
+    var damping   = 0.74;
 
     document.documentElement.style.scrollBehavior = 'auto';
 
     function step() {
-      const displacement = targetY - pos;
+      var displacement = targetY - pos;
       velocity = (velocity + displacement * stiffness) * damping;
       pos += velocity;
 
@@ -70,11 +70,11 @@
   function scrollToHash(hash) {
     if (!hash || hash === '#') return;
 
-    const target = document.querySelector(hash);
+    var target = document.querySelector(hash);
     if (!target) return;
 
-    const navHeight = getNavbarHeight();
-    const targetY   = target.getBoundingClientRect().top + window.scrollY - navHeight;
+    var navHeight = getNavbarHeight();
+    var targetY   = target.getBoundingClientRect().top + window.scrollY - navHeight;
 
     if (prefersReduced) {
       window.scrollTo(0, targetY);
@@ -85,27 +85,24 @@
 
   // ─── Anchor click handler ─────────────────────────────────────────────────────
   document.addEventListener('click', function (e) {
-    const link = e.target.closest('a[href^="#"]');
+    var link = e.target.closest('a[href^="#"]');
     if (!link) return;
 
-    const hash = link.getAttribute('href');
+    var hash = link.getAttribute('href');
     if (hash === '#') return;
 
-    const target = document.querySelector(hash);
+    var target = document.querySelector(hash);
     if (!target) return;
 
     e.preventDefault();
 
     // Never push on-page anchor hashes to the URL on project pages.
-    // All # links here are internal (figures, headings, text anchors).
-    // Keeps the share URL clean so visitors land on the project itself.
-
     scrollToHash(hash);
   });
 
   // ─── Popstate handler — browser back/forward with spring scroll ───────────────
   window.addEventListener('popstate', function () {
-    const hash = window.location.hash;
+    var hash = window.location.hash;
     if (hash) {
       scrollToHash(hash);
     } else {
@@ -117,7 +114,7 @@
     }
   });
 
-  // ─── Scroll-to-top button ─────────────────────────────────────────────────────
+  // ─── Scroll-to-top button (lives inside sticky nav) ──────────────────────────
   var scrollTopBtn = document.querySelector('.scroll-to-top');
 
   if (scrollTopBtn) {
@@ -131,38 +128,46 @@
     });
   }
 
-  // ─── Sticky nav + scroll-to-top — unified scroll listener ────────────────────
+  // ─── Sticky nav — unified scroll listener ────────────────────────────────────
+  // Animation replays every time the bar appears (scroll down → up → down).
+  // When near bottom nav: prev/next slide down away, scroll-to-top stays.
   var stickyNav  = document.querySelector('.project-nav-sticky');
   var bottomNav  = document.getElementById('project-nav-bottom');
 
   var SCROLL_THRESHOLD = 300;
   var ticking = false;
+  var wasVisible = false;
 
   function updateScrollUI() {
     var pastTop = window.scrollY > SCROLL_THRESHOLD;
 
-    // Hide sticky nav when bottom nav is within viewport
     var nearBottom = false;
     if (bottomNav) {
       var rect = bottomNav.getBoundingClientRect();
       nearBottom = rect.top < window.innerHeight;
     }
 
-    // Sticky prev/next nav — hides near bottom nav to avoid overlap
     if (stickyNav) {
-      if (pastTop && !nearBottom) {
-        stickyNav.classList.add('is-visible');
+      if (pastTop) {
+        if (!wasVisible) {
+          // Force animation restart: strip animation, reflow, re-add class
+          stickyNav.classList.remove('is-visible');
+          stickyNav.style.animation = 'none';
+          void stickyNav.offsetHeight;
+          stickyNav.style.animation = '';
+          stickyNav.classList.add('is-visible');
+          wasVisible = true;
+        }
       } else {
         stickyNav.classList.remove('is-visible');
+        stickyNav.classList.remove('is-near-bottom');
+        wasVisible = false;
       }
-    }
 
-    // Scroll-to-top button — stays visible regardless of bottom nav
-    if (scrollTopBtn) {
-      if (pastTop) {
-        scrollTopBtn.classList.add('is-visible');
+      if (pastTop && nearBottom) {
+        stickyNav.classList.add('is-near-bottom');
       } else {
-        scrollTopBtn.classList.remove('is-visible');
+        stickyNav.classList.remove('is-near-bottom');
       }
     }
 

@@ -286,35 +286,23 @@
                 <nav class="project-nav" id="project-nav-bottom">
                     <?php if ($prevProject): ?>
                         <a href="<?= $prevProject->url() ?>" class="project-nav-link project-nav-prev" aria-label="Previous project: <?= $prevProject->name() ?>">
-                            <span class="project-nav-button">
-                                <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
-                                <span class="project-nav-label">Previous</span>
-                            </span>
+                            <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
                             <span class="project-nav-name"><?= $prevProject->name() ?></span>
                         </a>
                     <?php else: ?>
                         <span class="project-nav-link project-nav-dead" aria-hidden="true">
-                            <span class="project-nav-button">
-                                <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
-                                <span class="project-nav-label">Previous</span>
-                            </span>
+                            <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
                         </span>
                     <?php endif; ?>
 
                     <?php if ($nextProject): ?>
                         <a href="<?= $nextProject->url() ?>" class="project-nav-link project-nav-next" aria-label="Next project: <?= $nextProject->name() ?>">
                             <span class="project-nav-name"><?= $nextProject->name() ?></span>
-                            <span class="project-nav-button">
-                                <span class="project-nav-label">Next</span>
-                                <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
-                            </span>
+                            <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
                         </a>
                     <?php else: ?>
                         <span class="project-nav-link project-nav-dead" aria-hidden="true">
-                            <span class="project-nav-button">
-                                <span class="project-nav-label">Next</span>
-                                <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
-                            </span>
+                            <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
                         </span>
                     <?php endif; ?>
                 </nav>
@@ -325,47 +313,35 @@
 </div>
 
 <?php if ($prevProject || $nextProject): ?>
-    <!-- STICKY NAV — slides up after 300px scroll -->
+    <!-- STICKY NAV — bouncy pop-in after 300px scroll, hides near bottom nav -->
     <nav class="project-nav-sticky" aria-label="Project navigation">
         <?php if ($prevProject): ?>
-            <a href="<?= $prevProject->url() ?>" class="project-nav-link project-nav-prev" aria-label="Previous project: <?= $prevProject->name() ?>">
-                <span class="project-nav-button">
-                    <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
-                    <span class="project-nav-label">Previous</span>
-                </span>
-                <span class="project-nav-name"><?= $prevProject->name() ?></span>
+            <a href="<?= $prevProject->url() ?>" class="project-nav-sticky-link project-nav-sticky-prev" aria-label="Previous project: <?= $prevProject->name() ?>">
+                <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
+                <span class="project-nav-sticky-name"><?= $prevProject->name() ?></span>
             </a>
         <?php else: ?>
-            <span class="project-nav-link project-nav-dead" aria-hidden="true">
-                <span class="project-nav-button">
-                    <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
-                    <span class="project-nav-label">Previous</span>
-                </span>
+            <span class="project-nav-sticky-link project-nav-sticky-dead" aria-hidden="true">
+                <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
             </span>
         <?php endif; ?>
 
-        <?php if ($nextProject): ?>
-            <a href="<?= $nextProject->url() ?>" class="project-nav-link project-nav-next" aria-label="Next project: <?= $nextProject->name() ?>">
-                <span class="project-nav-name"><?= $nextProject->name() ?></span>
-                <span class="project-nav-button">
-                    <span class="project-nav-label">Next</span>
+        <div class="project-nav-sticky-group">
+            <button class="scroll-to-top" aria-label="Scroll to top" type="button">
+                <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+            </button>
+            <?php if ($nextProject): ?>
+                <a href="<?= $nextProject->url() ?>" class="project-nav-sticky-link project-nav-sticky-next" aria-label="Next project: <?= $nextProject->name() ?>">
+                    <span class="project-nav-sticky-name"><?= $nextProject->name() ?></span>
+                    <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
+                </a>
+            <?php else: ?>
+                <span class="project-nav-sticky-link project-nav-sticky-dead" aria-hidden="true">
                     <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
                 </span>
-            </a>
-        <?php else: ?>
-            <span class="project-nav-link project-nav-dead" aria-hidden="true">
-                <span class="project-nav-button">
-                    <span class="project-nav-label">Next</span>
-                    <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
-                </span>
-            </span>
-        <?php endif; ?>
+            <?php endif; ?>
+        </div>
     </nav>
 <?php endif; ?>
-
-<!-- Scroll to top button -->
-<button class="scroll-to-top" aria-label="Scroll to top" type="button">
-    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
-</button>
 
 <?php snippet('footer') ?>
