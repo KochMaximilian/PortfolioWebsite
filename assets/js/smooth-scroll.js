@@ -204,4 +204,99 @@
     }
   }, { passive: true });
 
+  // ─── TOC panel ────────────────────────────────────────────────────────────
+  var tocBtn   = document.querySelector('.toc-toggle');
+  var tocPanel = document.getElementById('toc-panel');
+  var tocInner = tocPanel ? tocPanel.querySelector('.toc-inner') : null;
+  var tocLinks = tocPanel
+    ? Array.prototype.slice.call(tocPanel.querySelectorAll('.toc-item'))
+    : [];
+
+  function closeToc() {
+    if (!tocPanel) return;
+    tocPanel.classList.remove('is-open');
+    tocPanel.setAttribute('aria-hidden', 'true');
+    if (tocBtn) {
+      tocBtn.classList.remove('is-active');
+      tocBtn.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  function updateTocMask() {
+    if (!tocInner) return;
+    tocInner.classList.toggle('is-scrollable', tocInner.scrollHeight > tocInner.clientHeight + 2);
+  }
+
+  // ─── Active item tracking via IntersectionObserver ───────────────────────
+  var currentActiveId = null;
+
+  function setActiveTocLink(id) {
+    if (id === currentActiveId) return;
+    currentActiveId = id;
+    var activeLink = null;
+    tocLinks.forEach(function (link) {
+      var isActive = link.getAttribute('href') === '#' + id;
+      link.classList.toggle('is-active', isActive);
+      if (isActive) activeLink = link;
+    });
+    if (activeLink && tocPanel && tocPanel.classList.contains('is-open')) {
+      activeLink.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+  }
+
+  var trackedEls = tocLinks.map(function (link) {
+    return document.getElementById(link.getAttribute('href').slice(1));
+  }).filter(Boolean);
+
+  if (trackedEls.length > 0) {
+    var tocObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          setActiveTocLink(entry.target.id);
+        }
+      });
+    }, { rootMargin: '-15% 0px -75% 0px', threshold: 0 });
+
+    trackedEls.forEach(function (el) { tocObserver.observe(el); });
+  }
+
+  if (tocBtn && tocPanel) {
+    tocBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var opening = !tocPanel.classList.contains('is-open');
+      if (opening) {
+        tocPanel.classList.add('is-open');
+        tocPanel.setAttribute('aria-hidden', 'false');
+        tocBtn.classList.add('is-active');
+        tocBtn.setAttribute('aria-expanded', 'true');
+        updateTocMask();
+      } else {
+        closeToc();
+      }
+    });
+
+    // Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && tocPanel.classList.contains('is-open')) {
+        closeToc();
+      }
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function (e) {
+      if (tocPanel.classList.contains('is-open') &&
+          !tocPanel.contains(e.target) &&
+          e.target !== tocBtn) {
+        closeToc();
+      }
+    });
+
+    // Close when a TOC link is clicked (spring scroll handled by existing listener)
+    tocPanel.addEventListener('click', function (e) {
+      if (e.target.closest('a')) {
+        closeToc();
+      }
+    });
+  }
+
 })();

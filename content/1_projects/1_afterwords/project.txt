@@ -110,9 +110,27 @@ Devlog:
     },
     {
         "content": {
-            "text": "<p>Lorem <a href=\"#part-1\" title=\"Part 1 \">ipsum</a> dolor sit amet, consectetur adipiscing elit. Maecenas posuere velit sit amet ligula bibendum, quis ultricies enim luctus. Integer sit amet ipsum ut sapien malesuada tincidunt. Suspendisse potenti. Sed vulputate, erat at pellentesque rhoncus, massa metus interdum mi, et iaculis nisl dui eget risus. Fusce malesuada iaculis bibendum. Donec gravida ligula quis ex tempor congue eu sit amet orci. Nam rhoncus nisi dictum feugiat dignissim. Nunc quis consequat massa, tincidunt tristique magna. Phasellus venenatis nunc id leo ultrices, nec dignissim ex euismod. Aenean sagittis blandit tempor. Aliquam at interdum mi. Nunc dignissim dolor vel ex eleifend, et tristique eros fermentum. Sed interdum felis ex, id vulputate ipsum posuere ut. Sed ac lectus ac ex ultricies lacinia. Vivamus pellentesque sapien sollicitudin nulla venenatis feugiat. Sed eleifend tempor mi, ullamcorper commodo lorem fermentum non.</p><p>In feugiat massa at risus tristique, ac mattis diam interdum. In suscipit, ante at accumsan pharetra, libero diam mollis ex, id sollicitudin ipsum nisi vitae purus. Sed libero est, ultricies quis maximus in, lacinia vel dolor. Sed efficitur sapien vitae quam iaculis efficitur. In eu libero eu sapien consequat tincidunt id vel dui. Aenean auctor est a elementum pulvinar. Morbi fringilla, magna ac sollicitudin tristique, nisl eros posuere est, eget rutrum libero justo at nulla.</p>"
+            "text": "<p>Lorem <a href=\"#part-1\" title=\"Part 1 \">ipsum</a> dolor sit amet, consectetur adipiscing elit. Maecenas posuere velit sit amet ligula bibendum, quis ultricies enim luctus. Integer sit amet ipsum ut sapien malesuada tincidunt. Suspendisse potenti. Sed vulputate, erat at pellentesque rhoncus, massa metus interdum mi, et iaculis nisl dui eget risus. Fusce malesuada iaculis bibendum. Donec gravida ligula quis ex tempor congue eu sit amet orci. Nam rhoncus nisi dictum feugiat dignissim. Nunc quis consequat massa, tincidunt tristique magna. Phasellus venenatis nunc id leo ultrices, nec dignissim ex euismod. Aenean sagittis blandit tempor. Aliquam at interdum mi. Nunc dignissim dolor vel ex eleifend, et tristique eros fermentum. Sed interdum felis ex, id vulputate ipsum posuere ut. Sed ac lectus ac ex ultricies lacinia. Vivamus pellentesque sapien sollicitudin nulla venenatis feugiat. Sed eleifend tempor mi, ullamcorper commodo lorem fermentum non.</p>"
         },
         "id": "78f21426-46c8-4b4f-9f43-31160a4ec5a6",
+        "isHidden": false,
+        "type": "text"
+    },
+    {
+        "content": {
+            "text": "This is another heading just for testing",
+            "level": "h3",
+            "anchorid": "Part 2.1"
+        },
+        "id": "ae9bef39-6fd3-499d-bd24-f1e6c0f7cbd6",
+        "isHidden": false,
+        "type": "heading"
+    },
+    {
+        "content": {
+            "text": "<p>In feugiat massa at risus tristique, ac mattis diam interdum. In suscipit, ante at accumsan pharetra, libero diam mollis ex, id sollicitudin ipsum nisi vitae purus. Sed libero est, ultricies quis maximus in, lacinia vel dolor. Sed efficitur sapien vitae quam iaculis efficitur. In eu libero eu sapien consequat tincidunt id vel dui. Aenean auctor est a elementum pulvinar. Morbi fringilla, magna ac sollicitudin tristique, nisl eros posuere est, eget rutrum libero justo at nulla.</p>"
+        },
+        "id": "91fb453e-d921-4455-978b-fd87594b40dd",
         "isHidden": false,
         "type": "text"
     },
