@@ -202,10 +202,26 @@ footer {
     font-size: 0.8rem;
   }
 }
-/* Mobile - hide logo, show slogan */
+/* Mobile - hide logo, fix grid alignment for even columns */
 @media screen and (max-width: 576px) {
   .footer-logo {
     display: none;
+  }
+  .footer-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+  }
+  .footer-left {
+    text-align: center;
+  }
+  .footer-right {
+    text-align: center;
+  }
+  .footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .slogan {
     display: block;

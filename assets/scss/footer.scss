@@ -225,10 +225,32 @@ footer {
   }
 }
 
-/* Mobile - hide logo, show slogan */
+/* Mobile - hide logo, fix grid alignment for even columns */
 @media screen and (max-width: $mobile-lg) {
   .footer-logo {
     display: none;
+  }
+
+  // Logo gone → switch from auto center column to equal thirds
+  // so left/right social columns are properly balanced
+  .footer-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+  }
+
+  .footer-left {
+    text-align: center;
+  }
+
+  .footer-right {
+    text-align: center;
+  }
+
+  .footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   .slogan {

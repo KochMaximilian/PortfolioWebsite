@@ -66,6 +66,16 @@
   animation: logo-bounce 0.4s $easing-bounce forwards;
 }
 
+// Mobile logo — hidden by default, shown on mobile only
+.navbar-logo-mobile {
+  display: none;
+}
+
+// Divider between name and banner — shown by default, hidden on mobile
+.logo-divider {
+  display: inline;
+}
+
 .navbar-nav {
   list-style: none;
   display: flex;
@@ -241,11 +251,43 @@
     justify-content: center;
   }
   
+  // Logo becomes a flex row: name | floating-svg | banner
   .logo-container .logo {
     font-size: font-size(xs);
-    white-space: normal;
+    white-space: nowrap;
     overflow: visible;
     line-height: 1.2;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 0 space(1);
+  }
+
+  .logo-name,
+  .logo-banner {
+    // Add breathing room around the logo image
+    padding: 0 space(2);
+  }
+
+  // Hide the text divider — replaced by the floating logo image
+  .logo-divider {
+    display: none;
+  }
+
+  // Mobile floating logo — appears between name and banner
+  .navbar-logo-mobile {
+    display: inline-block;
+    height: 1.75rem;
+    width: auto;
+    flex-shrink: 0;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
+    animation: logo-float-navbar 3s ease-in-out infinite;
+    vertical-align: middle;
+  }
+
+  @keyframes logo-float-navbar {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-3px); }
   }
   
   // Smaller logo bounce on mobile
