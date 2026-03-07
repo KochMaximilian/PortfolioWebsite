@@ -261,6 +261,20 @@
                 </section>
             <?php endif; ?>
 
+            <?php
+            $tocItems = [];
+            if ($page->devlog()->isNotEmpty()) {
+                foreach ($page->devlog()->toBlocks() as $block) {
+                    if ($block->type() !== 'heading') continue;
+                    if ($block->anchorid()->isEmpty()) continue;
+                    $rawText  = strip_tags((string)$block->text());
+                    $customId = trim($block->anchorid()->value());
+                    $anchorId = Str::slug($customId);
+                    $level    = (string)$block->level()->or('h2');
+                    $tocItems[] = ['id' => $anchorId, 'label' => $rawText, 'level' => $level];
+                }
+            }
+            ?>
 
             <?php if ($page->devlog()->isNotEmpty()): ?>
                 <section class="devlog">
@@ -313,18 +327,39 @@
 </div>
 
 <?php if ($prevProject || $nextProject): ?>
+    <!-- TOC PANEL — appears above sticky nav left group -->
+    <?php if (!empty($tocItems)): ?>
+    <div class="toc-panel" id="toc-panel" aria-hidden="true">
+        <nav class="toc-inner" aria-label="Table of contents">
+            <?php foreach ($tocItems as $item): ?>
+                <a href="#<?= htmlspecialchars($item['id']) ?>" class="toc-item toc-item--<?= $item['level'] ?>">
+                    <?= htmlspecialchars($item['label']) ?>
+                </a>
+            <?php endforeach; ?>
+        </nav>
+    </div>
+    <?php endif; ?>
+
     <!-- STICKY NAV — bouncy pop-in after 300px scroll, hides near bottom nav -->
     <nav class="project-nav-sticky" aria-label="Project navigation">
-        <?php if ($prevProject): ?>
-            <a href="<?= $prevProject->url() ?>" class="project-nav-sticky-link project-nav-sticky-prev" aria-label="Previous project: <?= $prevProject->name() ?>">
-                <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
-                <span class="project-nav-sticky-name"><?= $prevProject->name() ?></span>
-            </a>
-        <?php else: ?>
-            <span class="project-nav-sticky-link project-nav-sticky-dead" aria-hidden="true">
-                <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
-            </span>
-        <?php endif; ?>
+        <div class="project-nav-sticky-group">
+            <?php if ($prevProject): ?>
+                <a href="<?= $prevProject->url() ?>" class="project-nav-sticky-link project-nav-sticky-prev" aria-label="Previous project: <?= $prevProject->name() ?>">
+                    <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
+                    <span class="project-nav-sticky-name"><?= $prevProject->name() ?></span>
+                </a>
+            <?php else: ?>
+                <span class="project-nav-sticky-link project-nav-sticky-dead" aria-hidden="true">
+                    <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
+                </span>
+            <?php endif; ?>
+            <?php if (!empty($tocItems)): ?>
+                <button class="toc-toggle" aria-label="Table of contents" aria-expanded="false" aria-controls="toc-panel" type="button">
+                    <i class="fa-solid fa-list" aria-hidden="true"></i>
+                    <span class="toc-count"><?= count($tocItems) ?></span>
+                </button>
+            <?php endif; ?>
+        </div>
 
         <div class="project-nav-sticky-group">
             <button class="scroll-to-top" aria-label="Scroll to top" type="button">
