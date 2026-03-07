@@ -102,7 +102,7 @@ Devlog:
         "content": {
             "text": "This is a test heading h2 size",
             "level": "h2",
-            "anchorid": "Part 1"
+            "anchorid": "part 1"
         },
         "id": "aa877051-a637-49d6-bb22-3ad78e58bc6a",
         "isHidden": false,
@@ -110,7 +110,7 @@ Devlog:
     },
     {
         "content": {
-            "text": "<p>Lorem <a href=\"#part-1\" title=\"Part 1 \">ipsum</a> dolor sit amet, consectetur adipiscing elit. Maecenas posuere velit sit amet ligula bibendum, quis ultricies enim luctus. Integer sit amet ipsum ut sapien malesuada tincidunt. Suspendisse potenti. Sed vulputate, erat at pellentesque rhoncus, massa metus interdum mi, et iaculis nisl dui eget risus. Fusce malesuada iaculis bibendum. Donec gravida ligula quis ex tempor congue eu sit amet orci. Nam rhoncus nisi dictum feugiat dignissim. Nunc quis consequat massa, tincidunt tristique magna. Phasellus venenatis nunc id leo ultrices, nec dignissim ex euismod. Aenean sagittis blandit tempor. Aliquam at interdum mi. Nunc dignissim dolor vel ex eleifend, et tristique eros fermentum. Sed interdum felis ex, id vulputate ipsum posuere ut. Sed ac lectus ac ex ultricies lacinia. Vivamus pellentesque sapien sollicitudin nulla venenatis feugiat. Sed eleifend tempor mi, ullamcorper commodo lorem fermentum non.</p>"
+            "text": "<p>Lorem <a href=\"#part-1\" title=\"Part 1 \">ipsum </a>dolor sit amet, consectetur adipiscing elit. Maecenas posuere velit sit amet ligula bibendum, quis ultricies enim luctus. Integer sit amet ipsum ut sapien malesuada tincidunt. Suspendisse potenti. Sed vulputate, erat at pellentesque rhoncus, massa metus interdum mi, et iaculis nisl dui eget risus. Fusce malesuada iaculis bibendum. Donec gravida ligula quis ex tempor congue eu sit amet orci. Nam rhoncus nisi dictum feugiat dignissim. Nunc quis consequat massa, tincidunt tristique magna. Phasellus venenatis nunc id leo ultrices, nec dignissim ex euismod. Aenean sagittis blandit tempor. Aliquam at interdum mi. Nunc dignissim dolor vel ex eleifend, et tristique eros fermentum. Sed interdum felis ex, id vulputate ipsum posuere ut. Sed ac lectus ac ex ultricies lacinia. Vivamus pellentesque sapien sollicitudin nulla venenatis feugiat. Sed eleifend tempor mi, ullamcorper commodo lorem fermentum non.</p>"
         },
         "id": "78f21426-46c8-4b4f-9f43-31160a4ec5a6",
         "isHidden": false,
@@ -120,7 +120,7 @@ Devlog:
         "content": {
             "text": "This is another heading just for testing",
             "level": "h3",
-            "anchorid": "Part 2.1"
+            "anchorid": "part 1.1"
         },
         "id": "ae9bef39-6fd3-499d-bd24-f1e6c0f7cbd6",
         "isHidden": false,

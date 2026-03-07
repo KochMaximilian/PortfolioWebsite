@@ -320,6 +320,19 @@
                         </span>
                     <?php endif; ?>
                 </nav>
+
+                <!-- Mobile-only inline buttons (scroll-to-top + TOC) — hidden on desktop -->
+                <div class="project-nav-mobile-utils">
+                    <?php if (!empty($tocItems)): ?>
+                        <button class="toc-toggle toc-toggle-mobile" aria-label="Table of contents" aria-expanded="false" aria-controls="toc-panel" type="button">
+                            <i class="fa-solid fa-list" aria-hidden="true"></i>
+                            <span class="toc-count"><?= count($tocItems) ?></span>
+                        </button>
+                    <?php endif; ?>
+                    <button class="scroll-to-top scroll-to-top-mobile" aria-label="Scroll to top" type="button">
+                        <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+                    </button>
+                </div>
             <?php endif; ?>
 
         </main>
