@@ -16,7 +16,7 @@
     window.scrollTo(0, 0);
   }
 
-  // ─── Reactive reduced-motion preference ───────────────────────────────────────
+  // ─── Reactive reduced-motion preference ──────────────────────────────────────
   var reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   var prefersReduced = reducedMotionQuery.matches;
 
@@ -128,15 +128,18 @@
     });
   }
 
-  // ─── Sticky nav — unified scroll listener ────────────────────────────────────
-  // Animation replays every time the bar appears (scroll down → up → down).
-  // When near bottom nav: prev/next slide down away, scroll-to-top stays.
-  var stickyNav  = document.querySelector('.project-nav-sticky');
-  var bottomNav  = document.getElementById('project-nav-bottom');
+  // ─── Sticky nav — unified scroll listener ─────────────────────────────────────
+  // Entrance: is-animating-in suppresses transition so pop-in keyframe plays clean.
+  // Exit:     is-animating-in is removed after 510ms, restoring the base transition
+  //           so removing is-visible slides the bar back down smoothly.
+  // On mobile: CSS !important overrides make JS classes irrelevant for visibility.
+  var stickyNav = document.querySelector('.project-nav-sticky');
+  var bottomNav = document.getElementById('project-nav-bottom');
 
-  var SCROLL_THRESHOLD = 300;
-  var ticking = false;
-  var wasVisible = false;
+  var SCROLL_THRESHOLD   = 300;
+  var ticking            = false;
+  var wasVisible         = false;
+  var animatingInTimer   = null; // tracks the 510ms cleanup timeout
 
   function updateScrollUI() {
     var pastTop = window.scrollY > SCROLL_THRESHOLD;
@@ -150,20 +153,40 @@
     if (stickyNav) {
       if (pastTop) {
         if (!wasVisible) {
-          // Force animation restart: strip animation, reflow, re-add class
+          // Clear any stale cleanup timer from a previous entrance
+          if (animatingInTimer) {
+            clearTimeout(animatingInTimer);
+            animatingInTimer = null;
+          }
+
+          // Entrance: force animation restart, add both classes simultaneously
           stickyNav.classList.remove('is-visible');
-          stickyNav.style.animation = 'none';
-          void stickyNav.offsetHeight;
-          stickyNav.style.animation = '';
+          stickyNav.classList.remove('is-animating-in');
+          void stickyNav.offsetHeight; // force reflow so animation restarts cleanly
           stickyNav.classList.add('is-visible');
+          stickyNav.classList.add('is-animating-in');
           wasVisible = true;
+
+          // Remove is-animating-in after pop-in completes (500ms + 10ms buffer)
+          // This restores the base transition so the exit animates properly
+          animatingInTimer = setTimeout(function () {
+            stickyNav.classList.remove('is-animating-in');
+            animatingInTimer = null;
+          }, 510);
         }
       } else {
+        // Exit: cancel any pending cleanup, strip both classes
+        if (animatingInTimer) {
+          clearTimeout(animatingInTimer);
+          animatingInTimer = null;
+        }
+        stickyNav.classList.remove('is-animating-in');
         stickyNav.classList.remove('is-visible');
         stickyNav.classList.remove('is-near-bottom');
         wasVisible = false;
       }
 
+      // Near-bottom: prev/next slide away, scroll-to-top stays
       if (pastTop && nearBottom) {
         stickyNav.classList.add('is-near-bottom');
       } else {

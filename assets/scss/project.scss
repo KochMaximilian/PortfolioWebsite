@@ -201,7 +201,8 @@
 
 .stat-description-text {
   font-family: $font-poppins; font-size: font-size(sm);
-  font-weight: $weight-normal; color: $black-dark; line-height: 1.6;
+  font-weight: $weight-normal; color: $black-dark;
+  line-height: 1.6;
   p { margin: 0 0 space(2) 0; &:last-child { margin-bottom: 0; } }
   a { color: $yellow-dark; text-decoration: none; transition: text-decoration 0.15s ease; &:hover { text-decoration: underline; } }
 }
@@ -260,7 +261,6 @@
 }
 
 // Video icon pop — overshoots to 1.18 then settles to 1.08.
-// That's the juice: snappy overshoot without being a wiggle.
 @keyframes icon-pop {
   0%   { transform: translate(-50%, -50%) scale(1); }
   50%  { transform: translate(-50%, -50%) scale(1.18); }
@@ -283,8 +283,6 @@
     .project-gallery-image { transform: scale(1.08); }
     .image-caption-badge { opacity: 1; }
 
-    // Icon pops with overshoot then settles to match image scale.
-    // Color goes yellow. No glow — just the snap.
     .video-play-icon {
       color: $yellow-dark;
       filter: drop-shadow(0 2px 6px rgba(0,0,0,0.7));
@@ -318,7 +316,6 @@
 }
 
 // Video play icon — base state centered, white, shadowed.
-// On hover the icon-pop keyframe fires for the juicy overshoot.
 .video-play-icon {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
@@ -368,8 +365,8 @@
 
 // ============================================
 // STICKY NAV
-// Bouncy keyframe pop-in. Contains prev, scroll-to-top, and next.
-// On mobile: icon-only compact bar, no project names.
+// Contains prev, scroll-to-top, and next.
+// On mobile: scroll-to-top only, always visible, no animation threshold.
 // ============================================
 
 // Bouncy entrance keyframe — slides up, overshoots, bounces back to rest.
@@ -393,18 +390,23 @@
   // Hidden: pushed down, faded out.
   transform: translateX(-50%) translateY(3rem);
   opacity: 0;
-  // Exit: slides back down smoothly
-  transition: transform 0.3s $easing-pop, opacity 0.2s ease;
+  // Exit: slower slide-back so it doesn't snap away jarringly
+  transition: transform 0.5s $easing-pop, opacity 0.45s ease;
 
   &.is-visible {
     opacity: 1; pointer-events: auto;
     transform: translateX(-50%) translateY(0);
-    // Entrance: bouncy pop-in, then transition handles exit
+    // Transition left on for the exit animation — entrance handled by is-animating-in
+  }
+
+  // Separate class for entrance animation — suppresses transition during pop-in
+  // JS adds this alongside is-visible, then removes it after 510ms
+  &.is-animating-in {
     transition: none;
     animation: pop-in-sticky 0.5s $easing-bounce forwards;
   }
 
-// Near bottom: prev/next slide down and vanish, scroll-to-top stays put.
+  // Near bottom: prev/next slide down and vanish, scroll-to-top stays put.
   &.is-near-bottom {
     > .project-nav-sticky-link,
     > .project-nav-sticky-dead {
@@ -479,17 +481,30 @@
   .scroll-to-top { font-size: font-size(md); }
 }
 
-// Mobile: icon-only compact centered bar — no project names
+// Mobile: scroll-to-top ONLY — always visible, no prev/next, no scroll threshold
 @media (max-width: $mobile-lg) {
   .project-nav-sticky {
-    bottom: calc(var(--footer-height) + 0.75rem);
-    justify-content: center; gap: space(2); padding: 0 space(2);
+    // Always visible — override the JS hidden state entirely
+    opacity: 1 !important;
+    transform: translateX(-50%) translateY(0) !important;
+    pointer-events: auto !important;
+    transition: none !important;
+    animation: none !important;
+    bottom: 8.5rem; // Tighter than --footer-height, sits just above the visual footer
+    justify-content: center;
+    gap: space(2);
+    padding: 0 space(2);
+  }
+  // Hide prev/next links on mobile — scroll-to-top is sufficient
+  .project-nav-sticky > .project-nav-sticky-link,
+  .project-nav-sticky > .project-nav-sticky-dead {
+    display: none !important;
   }
   .project-nav-sticky-name { display: none; }
-  .project-nav-sticky-group { display: contents; }
-  .project-nav-sticky-link {
-    padding: space(2); min-width: 2.75rem;
-    justify-content: center; border-width: $border-xs;
+  .project-nav-sticky-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .scroll-to-top {
     min-width: 2.75rem; font-size: font-size(md); border-width: $border-xs;
@@ -497,182 +512,17 @@
 }
 
 @media (max-width: $mobile-sm) {
-  .project-nav-sticky { bottom: calc(var(--footer-height) + 0.5rem); gap: space(1); }
-  .project-nav-sticky-link { min-width: 2.25rem; font-size: font-size(sm); padding: space(1) space(2); }
+  .project-nav-sticky { bottom: 8rem; gap: space(1); }
   .scroll-to-top { min-width: 2.25rem; font-size: font-size(sm); padding: space(1) space(2); }
 }
 
 
 // ============================================
-// RESPONSIVE
+// GLIGHTBOX OVERRIDES
 // ============================================
-
-@media (max-width: $desktop-lg) {
-  .stat-name-plate { padding: space(2) space(4); }
-  .stat-project-title { font-size: font-size(2xl); }
-  .stat-engine-orb { width: 2.3rem; height: 2.3rem; svg { width: 1.2rem; height: 1.2rem; } }
-  .stat-flavor { padding: space(2) space(4); }
-  .stat-body { padding: space(3) space(4); gap: space(3); }
-  .stat-award-row { padding: space(2) space(4); }
-  .stat-row dt { width: 5rem; }
-  .project-image-container { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: space(5); }
-  .image-caption-badge { font-size: font-size(sm); }
-}
-
-@media (max-width: $tablet-lg) {
-  .project-main-container { border-width: $border-md; }
-  .stat-name-plate { padding: space(2) space(3); }
-  .stat-project-title { font-size: font-size(xl); }
-  .stat-flavor { padding: space(2) space(3); }
-  .stat-body { padding: space(3); gap: space(3); }
-  .stat-award-row { padding: space(2) space(3); }
-  .stat-row dd { font-size: font-size(xs); }
-  .stat-description-text { font-size: font-size(xs); }
-  .stat-link-icon { font-size: font-size(2xl); }
-  .project-image-container { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: space(4); }
-  .image-slot { padding: 0.3rem; }
-  .section-divider-title { font-size: font-size(md); }
-  .section-divider-badge { padding: space(1) space(3); }
-  .project-nav-link { padding: space(2) space(3); }
-  .project-nav-label { font-size: font-size(md); }
-  .project-nav-name { font-size: font-size(sm); }
-}
-
-@media (max-width: $tablet) {
-  .stat-engine-orb { width: 2rem; height: 2rem; svg { width: 1.1rem; height: 1.1rem; } }
-  .stat-type-label { font-size: font-size(xs); }
-  .stat-type-divider { font-size: font-size(xs); }
-  .stat-type-line .stat-tag-genre { font-size: font-size(2xs); }
-  .stat-body { gap: space(2); }
-  .stat-row dt { width: 4.5rem; font-size: font-size(2xs); }
-  .stat-label { font-size: font-size(2xs); }
-  .stat-tag { font-size: font-size(2xs); padding: 0.1rem space(1); }
-  .stat-award-text { font-size: font-size(sm); }
-  .project-image-container { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: space(4); }
-  .image-slot { border-width: $border-xs; }
-  .image-caption-badge { font-size: font-size(md); padding: space(1) space(2); border-width: $border-sm; }
-  .project-nav-button { font-size: font-size(xl); }
-}
-
-@media (max-width: $mobile-lg) {
-  .project-main-container { border-width: $border-sm; }
-  .project-hero-image { max-height: 35vh; }
-  .stat-name-plate { padding: space(2); }
-  .stat-project-title { font-size: font-size(lg); }
-  .stat-type-label { font-size: font-size(xs); }
-  .stat-type-line .stat-tag-genre { font-size: font-size(3xs); padding: 0.05rem space(1); }
-  .stat-engine-orb { width: 1.8rem; height: 1.8rem; border-width: $border-xsm; svg { width: 1rem; height: 1rem; } }
-  .stat-flavor { padding: space(1) space(2); p { font-size: font-size(xs); } }
-  .stat-body { grid-template-columns: 1fr; padding: space(2); gap: space(3); }
-  .stat-row { padding: space(1) 0; dt { width: 5rem; } }
-  .stat-tag { font-size: font-size(xs); padding: 0.1rem space(1); }
-  .stat-link-icon { font-size: font-size(2xl); }
-  .stat-award-row { padding: space(1) space(2); }
-  .stat-award-text { font-size: font-size(sm); }
-  .stat-award-row i { font-size: font-size(md); }
-  .stat-description-text { font-size: font-size(xs); line-height: 1.5; }
-  .project-image-container { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: space(3); }
-  .image-slot { padding: 0.25rem; border-width: $border-xsm; }
-  .project-gallery-image { border-radius: $radius-small; }
-  .image-caption-badge { font-size: font-size(md); }
-  .section-divider { gap: space(2); margin-bottom: space(3); }
-  .section-divider-badge { padding: space(1) space(2); gap: space(1); }
-  .section-divider-title { font-size: font-size(sm); letter-spacing: 0.03em; }
-  .section-divider-badge i { font-size: font-size(sm); }
-  .project-nav { flex-direction: column; gap: space(3); }
-  .project-nav-link { max-width: 100%; padding: space(2) space(3); border-width: $border-xs; }
-  .project-nav-prev { margin-right: 0; }
-  .project-nav-next { margin-left: 0; flex-direction: row-reverse; text-align: left; }
-  .project-nav-label { font-size: font-size(sm); }
-  .project-nav-name { font-size: font-size(sm); }
-  .project-nav-button { font-size: font-size(xl); }
-}
-
-@media (max-width: $mobile-sm) {
-  .project-hero-image { max-height: 28vh; }
-  .stat-name-plate { padding: space(1) space(2); }
-  .stat-project-title { font-size: font-size(md); }
-  .stat-type-label { font-size: font-size(2xs); }
-  .stat-type-divider { font-size: font-size(2xs); }
-  .stat-type-line .stat-tag-genre { font-size: font-size(3xs); }
-  .stat-engine-orb { width: 1.6rem; height: 1.6rem; svg { width: 0.9rem; height: 0.9rem; } }
-  .stat-flavor { padding: space(1) space(2); }
-  .stat-body { padding: space(1) space(2); gap: space(2); }
-  .stat-row { dt { width: 4rem; font-size: font-size(2xs); } dd { font-size: font-size(xs); } }
-  .stat-label { font-size: font-size(2xs); }
-  .stat-tag { font-size: font-size(3xs); padding: 0.05rem space(1); }
-  .stat-link-icon { font-size: font-size(xl); }
-  .stat-description-text { font-size: font-size(xs); line-height: 1.4; }
-  .stat-award-row { padding: space(1) space(2); }
-  .stat-award-text { font-size: font-size(xs); }
-  .stat-award-row i { font-size: font-size(sm); }
-  .project-image-container { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: space(3); }
-  .image-slot { padding: 0.2rem; }
-  .image-caption-badge { font-size: font-size(sm); padding: space(1); }
-  .section-divider { gap: space(1); }
-  .project-nav { gap: space(2); }
-  .project-nav-link { padding: space(2); }
-  .project-nav-label { font-size: font-size(xs); }
-  .project-nav-name { font-size: font-size(xs); }
-  .project-nav-button { font-size: font-size(lg); }
-}
-
-
-// ============================================
-// GLIGHTBOX SKIN
-// ============================================
-
-body.glightbox-open .site-header {
-  padding-right: var(--scrollbar-compensation, 0px);
-}
-
-.goverlay { background: rgba($black-dark, 0.80); }
-
-.gbtn {
-  width: 2.25rem !important; height: 2.25rem !important;
-  background: $white !important;
-  border: $border-xs solid $black-dark !important;
-  border-radius: $radius-xs !important;
-  box-shadow: $solid-shadow-sm !important;
-  display: flex !important; align-items: center !important; justify-content: center !important;
-  transition: transform 0.2s $easing-pop, background 0.15s ease, box-shadow 0.15s ease !important;
-  opacity: 1 !important;
-  svg { display: none !important; }
-  &::after {
-    font-family: "Font Awesome 6 Free"; font-weight: 900;
-    font-size: font-size(sm); color: $black-dark; line-height: 1; display: block;
-  }
-  &:hover {
-    background: $yellow-dark !important; transform: scale(1.08) !important;
-    box-shadow: $solid-shadow-xs !important;
-  }
-}
-
-.gclose { &::after { content: '\f00d'; } }
-.gprev { &::after { content: '\f053'; } &:hover { transform: scale(1.08) translateX(-2px) !important; } }
-.gnext { &::after { content: '\f054'; } &:hover { transform: scale(1.08) translateX(2px) !important; } }
-
-.infobar {
-  font-family: $font-barlow !important; font-weight: $weight-black !important;
-  font-size: font-size(xs) !important; text-transform: uppercase;
-  letter-spacing: 0.08em; color: $black-dark !important;
-  background: $white !important; border: $border-xs solid $black-dark !important;
-  border-radius: $radius-xs !important; box-shadow: $solid-shadow-sm !important;
-  padding: 0.1rem space(3) !important; opacity: 1 !important;
-}
-
-.gslide-description {
-  background: $black-dark !important;
-  .gslider[data-desc-position="left"] &, .gslider[data-desc-position="right"] & {
-    border-left: $border-xs solid $black-light;
-  }
-}
-
-.gdesc-inner { padding: space(4) space(5) !important; }
 
 .gslide-title {
-  font-family: $font-barlow !important; font-weight: $weight-black !important;
-  font-size: font-size(md) !important; text-transform: uppercase;
+  font-family: $font-barlow !important; font-size: font-size(md) !important; text-transform: uppercase;
   color: $white !important; letter-spacing: 0.03em; margin-bottom: space(2) !important;
 }
 
@@ -1010,11 +860,132 @@ body.glightbox-open .site-header {
   .devlog-content { gap: space(4); }
   .devlog-heading--h2 { font-size: font-size(sm); }
   .devlog-heading--h3 { font-size: font-size(xs); }
-  .devlog-text, .devlog-sidebyside-text { font-size: font-size(xs); line-height: 1.65; }
+  // Fix: explicit p font-size so body p rule from main.scss doesn't override
+  .devlog-text, .devlog-sidebyside-text {
+    font-size: font-size(xs);
+    line-height: 1.65;
+    p { font-size: font-size(xs); }
+  }
+  .devlog-list ul li, .devlog-list ol li { font-size: font-size(xs); }
+  .devlog-quote { p { font-size: font-size(xs); } }
   .devlog-figure--large, .devlog-figure--medium, .devlog-figure--small,
   .devlog-video--large, .devlog-video--medium, .devlog-video--small,
   .devlog-table-wrap--large, .devlog-table-wrap--medium, .devlog-table-wrap--small {
     width: 100%; max-width: 100%;
   }
+  // Smaller captions on mobile — they read too large on small screens
+  .devlog-fig-id { font-size: font-size(2xs); padding: 0.1rem space(1); }
+  .devlog-caption-text { font-size: font-size(2xs); padding: 0.1rem space(2); }
+  .image-caption-badge { font-size: font-size(2xs); padding: 0.1rem space(1); border-width: 2px; }
+}
 
+// ============================================
+// RESPONSIVE
+// ============================================
+
+@media (max-width: $desktop-lg) {
+  .stat-name-plate { padding: space(2) space(4); }
+  .stat-project-title { font-size: font-size(2xl); }
+  .stat-engine-orb { width: 2.3rem; height: 2.3rem; svg { width: 1.2rem; height: 1.2rem; } }
+  .stat-flavor { padding: space(2) space(4); }
+  .stat-body { padding: space(3) space(4); gap: space(3); }
+  .stat-award-row { padding: space(2) space(4); }
+  .stat-row dt { width: 5rem; }
+  .project-image-container { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: space(5); }
+  .image-caption-badge { font-size: font-size(sm); }
+}
+
+@media (max-width: $tablet-lg) {
+  .project-main-container { border-width: $border-md; }
+  .stat-name-plate { padding: space(2) space(3); }
+  .stat-project-title { font-size: font-size(xl); }
+  .stat-flavor { padding: space(2) space(3); }
+  .stat-body { padding: space(3); gap: space(3); }
+  .stat-award-row { padding: space(2) space(3); }
+  .stat-row dd { font-size: font-size(xs); }
+  .stat-description-text { font-size: font-size(xs); }
+  .stat-link-icon { font-size: font-size(2xl); }
+  .project-image-container { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: space(4); }
+  .image-slot { padding: 0.3rem; }
+  .section-divider-title { font-size: font-size(md); }
+  .section-divider-badge { padding: space(1) space(3); }
+  .project-nav-link { padding: space(2) space(3); }
+  .project-nav-label { font-size: font-size(md); }
+  .project-nav-name { font-size: font-size(sm); }
+}
+
+@media (max-width: $tablet) {
+  .stat-engine-orb { width: 2rem; height: 2rem; svg { width: 1.1rem; height: 1.1rem; } }
+  .stat-type-label { font-size: font-size(xs); }
+  .stat-type-divider { font-size: font-size(xs); }
+  .stat-type-line .stat-tag-genre { font-size: font-size(2xs); }
+  .stat-body { gap: space(2); }
+  .stat-row dt { width: 4.5rem; font-size: font-size(2xs); }
+  .stat-label { font-size: font-size(2xs); }
+  .stat-tag { font-size: font-size(2xs); padding: 0.1rem space(1); }
+  .stat-award-text { font-size: font-size(sm); }
+  .project-image-container { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: space(4); }
+  .image-slot { border-width: $border-xs; }
+  .image-caption-badge { font-size: font-size(md); padding: space(1) space(2); border-width: $border-sm; }
+  .project-nav-button { font-size: font-size(xl); }
+}
+
+@media (max-width: $mobile-lg) {
+  .project-main-container { border-width: $border-sm; }
+  .project-hero-image { max-height: 35vh; }
+  .stat-name-plate { padding: space(2); }
+  .stat-project-title { font-size: font-size(lg); }
+  .stat-type-label { font-size: font-size(xs); }
+  .stat-type-line .stat-tag-genre { font-size: font-size(3xs); padding: 0.05rem space(1); }
+  .stat-engine-orb { width: 1.8rem; height: 1.8rem; border-width: $border-xsm; svg { width: 1rem; height: 1rem; } }
+  .stat-flavor { padding: space(1) space(2); p { font-size: font-size(xs); } }
+  .stat-body { grid-template-columns: 1fr; padding: space(2); gap: space(3); }
+  .stat-row { padding: space(1) 0; dt { width: 5rem; } }
+  .stat-tag { font-size: font-size(xs); padding: 0.1rem space(1); }
+  .stat-link-icon { font-size: font-size(2xl); }
+  .stat-award-row { padding: space(1) space(2); }
+  .stat-award-text { font-size: font-size(sm); }
+  .stat-award-row i { font-size: font-size(md); }
+  .stat-description-text { font-size: font-size(xs); line-height: 1.5; }
+  .project-image-container { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: space(3); }
+  .image-slot { padding: 0.25rem; border-width: $border-xsm; }
+  .project-gallery-image { border-radius: $radius-small; }
+  .section-divider { gap: space(2); margin-bottom: space(3); }
+  .section-divider-badge { padding: space(1) space(2); gap: space(1); }
+  .section-divider-title { font-size: font-size(sm); letter-spacing: 0.03em; }
+  .section-divider-badge i { font-size: font-size(sm); }
+  .project-nav { flex-direction: column; gap: space(3); }
+  .project-nav-link { max-width: 100%; padding: space(2) space(3); border-width: $border-xs; }
+  .project-nav-prev { margin-right: 0; }
+  .project-nav-next { margin-left: 0; flex-direction: row-reverse; text-align: left; }
+  .project-nav-label { font-size: font-size(sm); }
+  .project-nav-name { font-size: font-size(sm); }
+  .project-nav-button { font-size: font-size(xl); }
+}
+
+@media (max-width: $mobile-sm) {
+  .project-hero-image { max-height: 28vh; }
+  .stat-name-plate { padding: space(1) space(2); }
+  .stat-project-title { font-size: font-size(md); }
+  .stat-type-label { font-size: font-size(2xs); }
+  .stat-type-divider { font-size: font-size(2xs); }
+  .stat-type-line .stat-tag-genre { font-size: font-size(3xs); }
+  .stat-engine-orb { width: 1.6rem; height: 1.6rem; svg { width: 0.9rem; height: 0.9rem; } }
+  .stat-flavor { padding: space(1) space(2); }
+  .stat-body { padding: space(1) space(2); gap: space(2); }
+  .stat-row { dt { width: 4rem; font-size: font-size(2xs); } dd { font-size: font-size(xs); } }
+  .stat-label { font-size: font-size(2xs); }
+  .stat-tag { font-size: font-size(3xs); padding: 0.05rem space(1); }
+  .stat-link-icon { font-size: font-size(xl); }
+  .stat-description-text { font-size: font-size(xs); line-height: 1.4; }
+  .stat-award-row { padding: space(1) space(2); }
+  .stat-award-text { font-size: font-size(xs); }
+  .stat-award-row i { font-size: font-size(sm); }
+  .project-image-container { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: space(3); }
+  .image-slot { padding: 0.2rem; border-width: $border-xsm; }
+  .image-caption-badge { font-size: font-size(xs); border-width: $border-xs; }
+  .section-divider { gap: space(2); margin-bottom: space(2); }
+  .section-divider-title { font-size: font-size(xs); }
+  .project-nav-name { font-size: font-size(xs); }
+  .project-nav-button { font-size: font-size(lg); }
 }
