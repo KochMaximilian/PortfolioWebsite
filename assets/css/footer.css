@@ -9,17 +9,17 @@
 }
 @media screen and (max-width: 576px) {
   :root {
-    --footer-height: 12rem;
+    --footer-height: 9rem;
   }
 }
 @media screen and (max-width: 480px) {
   :root {
-    --footer-height: 11rem;
+    --footer-height: 9rem;
   }
 }
 @media screen and (max-width: 320px) {
   :root {
-    --footer-height: 10rem;
+    --footer-height: 8.5rem;
   }
 }
 /* Base footer styling */
@@ -239,57 +239,46 @@ footer {
   }
   .footer-container {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
     row-gap: 0.3rem;
   }
   .footer-center {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    text-align: center;
     grid-column: 1;
     grid-row: 1;
-  }
-  /* Combine social icon sections side-by-side */
-  .footer-left {
-    grid-column: 1;
-    grid-row: 2;
-    text-align: center;
-    display: inline-block;
-    width: 50%;
-    padding-right: 0.5rem;
-  }
-  .footer-right {
-    grid-column: 1;
-    grid-row: 2;
-    text-align: center;
-    display: inline-block;
-    width: 50%;
-    padding-left: 0.5rem;
-  }
-  .footer-language {
-    grid-column: 1;
-    grid-row: 3;
-  }
-  .mobile-socials.left,
-  .mobile-socials.right {
-    display: inline-flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: center;
+    column-gap: 0.4rem;
+    row-gap: 0.25rem;
+    width: 100%;
+    text-align: center;
   }
-  .mobile-socials.left,
+  .footer-left,
+  .footer-right {
+    display: none;
+  }
+  .mobile-socials.left {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
   .mobile-socials.right {
-    gap: 0.9rem;
+    grid-column: 3;
+    grid-row: 1;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
   }
   .slogan {
-    font-size: 0.65rem;
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 0.6rem;
+    margin: 0;
   }
   .copyright {
-    width: 100%;
-    margin-top: 0.3rem;
+    grid-column: 1 / -1;
+    grid-row: 2;
     display: block;
     font-size: 0.5rem;
     opacity: 0.7;
@@ -301,13 +290,8 @@ footer {
   .socials {
     display: none;
   }
-  .mobile-socials {
-    display: flex;
-    gap: 0.4rem;
-    justify-content: center;
-  }
   .mobile-socials .custom-icon-size {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 }
 /* Handle extremely small screens */

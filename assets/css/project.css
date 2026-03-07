@@ -662,42 +662,28 @@
     font-size: 1rem;
   }
 }
+/* ─── Mobile: hide sticky nav, show inline utils ─────────────────────── */
 @media (max-width: 576px) {
   .project-nav-sticky {
-    opacity: 1 !important;
-    transform: translateX(-50%) translateY(0) !important;
-    pointer-events: auto !important;
-    transition: none !important;
-    animation: none !important;
-    bottom: 8.5rem;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0 0.5rem;
-  }
-  .project-nav-sticky > .project-nav-sticky-link,
-  .project-nav-sticky > .project-nav-sticky-dead {
     display: none !important;
   }
-  .project-nav-sticky-name {
-    display: none;
-  }
-  .project-nav-sticky-group {
+  .project-nav-mobile-utils {
     display: flex;
     justify-content: center;
-    align-items: center;
-  }
-  .scroll-to-top {
-    min-width: 2.75rem;
-    font-size: 1rem;
-    border-width: 3px;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
   }
 }
 @media (max-width: 480px) {
-  .project-nav-sticky {
-    bottom: 8rem;
-    gap: 0.25rem;
+  .project-nav-mobile-utils {
+    gap: 0.5rem;
   }
-  .scroll-to-top {
+  .project-nav-mobile-utils .scroll-to-top {
+    min-width: 2.25rem;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .project-nav-mobile-utils .toc-toggle {
     min-width: 2.25rem;
     font-size: 0.875rem;
     padding: 0.25rem 0.5rem;
@@ -1564,9 +1550,7 @@
     border-width: 3px;
   }
   .image-caption-badge {
-    font-size: 1rem;
-    padding: 0.25rem 0.5rem;
-    border-width: 4px;
+    font-size: 0.75rem;
   }
   .project-nav-button {
     font-size: 1.25rem;
@@ -1810,6 +1794,11 @@
   background: #FCBB3F;
 }
 
+/* ─── Mobile inline utils (hidden on desktop) ──────────────────────────── */
+.project-nav-mobile-utils {
+  display: none;
+}
+
 /* ─── TOC Panel ─────────────────────────────────────────────────────────── */
 .toc-panel {
   position: fixed;
@@ -1915,27 +1904,19 @@
   }
 }
 @media (max-width: 576px) {
-  .toc-toggle {
-    min-width: 2.75rem;
-    font-size: 1rem;
-    border-width: 3px;
-  }
   .toc-panel {
-    bottom: calc(var(--footer-height) + 3.5rem);
+    bottom: auto;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(0.95);
     justify-content: center;
+    padding: 0 1rem;
+  }
+  .toc-panel.is-open {
+    transform: translateX(-50%) translateY(-50%) scale(1);
   }
   .toc-inner {
-    max-width: calc(100% - 2rem);
-  }
-}
-@media (max-width: 480px) {
-  .toc-toggle {
-    min-width: 2.25rem;
-    font-size: 0.875rem;
-    padding: 0.25rem 0.5rem;
-  }
-  .toc-panel {
-    bottom: calc(var(--footer-height) + 3rem);
+    max-width: calc(100vw - 3rem);
+    max-height: 60vh;
   }
 }
 

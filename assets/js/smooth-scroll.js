@@ -114,11 +114,11 @@
     }
   });
 
-  // ─── Scroll-to-top button (lives inside sticky nav) ──────────────────────────
-  var scrollTopBtn = document.querySelector('.scroll-to-top');
+  // ─── Scroll-to-top buttons (sticky nav + mobile inline) ──────────────────────
+  var scrollTopBtns = document.querySelectorAll('.scroll-to-top');
 
-  if (scrollTopBtn) {
-    scrollTopBtn.addEventListener('click', function (e) {
+  scrollTopBtns.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
       e.preventDefault();
       if (prefersReduced) {
         window.scrollTo(0, 0);
@@ -126,7 +126,7 @@
         springScrollTo(0);
       }
     });
-  }
+  });
 
   // ─── Sticky nav — unified scroll listener ─────────────────────────────────────
   // Entrance: is-animating-in suppresses transition so pop-in keyframe plays clean.
@@ -205,7 +205,7 @@
   }, { passive: true });
 
   // ─── TOC panel ────────────────────────────────────────────────────────────
-  var tocBtn   = document.querySelector('.toc-toggle');
+  var tocBtns  = document.querySelectorAll('.toc-toggle');
   var tocPanel = document.getElementById('toc-panel');
   var tocInner = tocPanel ? tocPanel.querySelector('.toc-inner') : null;
   var tocLinks = tocPanel
@@ -216,10 +216,10 @@
     if (!tocPanel) return;
     tocPanel.classList.remove('is-open');
     tocPanel.setAttribute('aria-hidden', 'true');
-    if (tocBtn) {
-      tocBtn.classList.remove('is-active');
-      tocBtn.setAttribute('aria-expanded', 'false');
-    }
+    tocBtns.forEach(function (btn) {
+      btn.classList.remove('is-active');
+      btn.setAttribute('aria-expanded', 'false');
+    });
   }
 
   function updateTocMask() {
@@ -260,19 +260,23 @@
     trackedEls.forEach(function (el) { tocObserver.observe(el); });
   }
 
-  if (tocBtn && tocPanel) {
-    tocBtn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var opening = !tocPanel.classList.contains('is-open');
-      if (opening) {
-        tocPanel.classList.add('is-open');
-        tocPanel.setAttribute('aria-hidden', 'false');
-        tocBtn.classList.add('is-active');
-        tocBtn.setAttribute('aria-expanded', 'true');
-        updateTocMask();
-      } else {
-        closeToc();
-      }
+  if (tocBtns.length > 0 && tocPanel) {
+    tocBtns.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var opening = !tocPanel.classList.contains('is-open');
+        if (opening) {
+          tocPanel.classList.add('is-open');
+          tocPanel.setAttribute('aria-hidden', 'false');
+          tocBtns.forEach(function (b) {
+            b.classList.add('is-active');
+            b.setAttribute('aria-expanded', 'true');
+          });
+          updateTocMask();
+        } else {
+          closeToc();
+        }
+      });
     });
 
     // Escape key
@@ -284,11 +288,13 @@
 
     // Close when clicking outside
     document.addEventListener('click', function (e) {
-      if (tocPanel.classList.contains('is-open') &&
-          !tocPanel.contains(e.target) &&
-          e.target !== tocBtn) {
-        closeToc();
-      }
+      if (!tocPanel.classList.contains('is-open')) return;
+      if (tocPanel.contains(e.target)) return;
+      var clickedTocBtn = false;
+      tocBtns.forEach(function (btn) {
+        if (btn.contains(e.target)) clickedTocBtn = true;
+      });
+      if (!clickedTocBtn) closeToc();
     });
 
     // Close when a TOC link is clicked (spring scroll handled by existing listener)
