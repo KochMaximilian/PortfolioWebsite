@@ -326,7 +326,6 @@
                     <?php if (!empty($tocItems)): ?>
                         <button class="toc-toggle toc-toggle-mobile" aria-label="Table of contents" aria-expanded="false" aria-controls="toc-panel" type="button">
                             <i class="fa-solid fa-list" aria-hidden="true"></i>
-                            <span class="toc-count"><?= count($tocItems) ?></span>
                         </button>
                     <?php endif; ?>
                     <button class="scroll-to-top scroll-to-top-mobile" aria-label="Scroll to top" type="button">
@@ -341,17 +340,23 @@
 
 <?php if ($prevProject || $nextProject): ?>
     <!-- TOC PANEL — appears above sticky nav left group -->
-    <?php if (!empty($tocItems)): ?>
-    <div class="toc-panel" id="toc-panel" aria-hidden="true">
-        <nav class="toc-inner" aria-label="Table of contents">
-            <?php foreach ($tocItems as $item): ?>
-                <a href="#<?= htmlspecialchars($item['id']) ?>" class="toc-item toc-item--<?= $item['level'] ?>">
-                    <?= htmlspecialchars($item['label']) ?>
-                </a>
-            <?php endforeach; ?>
-        </nav>
+<?php if (!empty($tocItems)): ?>
+<div class="toc-panel" id="toc-panel" aria-hidden="true">
+    <div class="toc-header">
+        <span class="toc-header-title">Development Notes Contents</span>
+        <div class="toc-header-line"></div>
     </div>
-    <?php endif; ?>
+    
+    <nav class="toc-inner" aria-label="Table of contents">
+        <?php foreach ($tocItems as $item): ?>
+            <a href="#<?= htmlspecialchars($item['id']) ?>" 
+               class="toc-item toc-item--<?= $item['level'] ?>">
+                <span class="toc-item-text"><?= htmlspecialchars($item['label']) ?></span>
+            </a>
+        <?php endforeach; ?>
+    </nav>
+</div>
+<?php endif; ?>
 
     <!-- STICKY NAV — bouncy pop-in after 300px scroll, hides near bottom nav -->
     <nav class="project-nav-sticky" aria-label="Project navigation">
@@ -369,7 +374,6 @@
             <?php if (!empty($tocItems)): ?>
                 <button class="toc-toggle" aria-label="Table of contents" aria-expanded="false" aria-controls="toc-panel" type="button">
                     <i class="fa-solid fa-list" aria-hidden="true"></i>
-                    <span class="toc-count"><?= count($tocItems) ?></span>
                 </button>
             <?php endif; ?>
         </div>
