@@ -260,7 +260,6 @@
   width: 100%; max-width: 1200px; margin: 0 auto;
 }
 
-// Video icon pop — overshoots to 1.18 then settles to 1.08.
 @keyframes icon-pop {
   0%   { transform: translate(-50%, -50%) scale(1); }
   50%  { transform: translate(-50%, -50%) scale(1.18); }
@@ -315,7 +314,6 @@
   will-change: opacity; pointer-events: none;
 }
 
-// Video play icon — base state centered, white, shadowed.
 .video-play-icon {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
@@ -363,13 +361,150 @@
   overflow: hidden; text-overflow: ellipsis;
 }
 
+// Mobile utility buttons — hidden always, sticky bar handles everything
+.project-nav-mobile-utils {
+  display: none;
+}
+
 // ============================================
-// STICKY NAV
-// Contains prev, scroll-to-top, and next.
-// On mobile: scroll-to-top only, always visible, no animation threshold.
+// TABLE OF CONTENTS — TOGGLE + PANEL
 // ============================================
 
-// Bouncy entrance keyframe — slides up, overshoots, bounces back to rest.
+.toc-toggle {
+  display: flex; align-items: center; gap: space(1);
+  padding: space(2) space(3);
+  background: $white; color: $black-dark;
+  border: $border-sm solid $black-dark; border-radius: $radius-small;
+  box-shadow: $solid-shadow-sm; cursor: pointer;
+  font-family: $font-barlow; font-weight: $weight-black;
+  font-size: font-size(md); text-transform: uppercase;
+  transition: transform 0.2s $easing-bounce, background-color 0.2s $easing-bounce, box-shadow 0.2s $easing-bounce;
+
+  &:hover {
+    background: $yellow-dark; transform: scale(0.95); box-shadow: $solid-shadow-xs;
+  }
+
+  &.is-active {
+    background: $yellow-dark;
+  }
+
+  i { font-size: font-size(sm); flex-shrink: 0; }
+}
+
+
+/* --- Table of Contents Panel --- */
+
+.toc-panel {
+  position: fixed;
+  bottom: calc(var(--sticky-nav-height, 70px) + 20px); // Sits above the sticky bar
+  left: space(4);
+  width: 280px;
+  max-height: 60vh;
+  
+  // High-end Visuals
+  background: rgba($black-dark, 0.85); 
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: $border-sm solid $black-dark;
+  border-radius: $radius-medium;
+  box-shadow: $solid-shadow-md, 0 10px 30px rgba(0,0,0,0.5);
+  
+  // Layout
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+
+  // Initial State: Hidden
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.95);
+  pointer-events: none;
+  transition: all 0.3s $easing-bounce;
+
+// The State the JS triggers
+  &.is-open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* --- The Interior Structure --- */
+
+.toc-header {
+  padding: space(3) space(4) space(1);
+  display: flex;
+  align-items: center;
+  gap: space(2);
+  border-bottom: 2.5px solid $yellow-dark;
+  
+  &-title {
+    font-family: $font-barlow;
+    font-weight: $weight-black;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: $yellow-dark;
+    letter-spacing: 0.1em;
+  }
+}
+
+.toc-inner {
+  padding: space(2) 0;
+  overflow-y: auto;
+  // Your existing mask-image for scroll fading
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+
+.toc-item {
+  display: block;
+  padding: space(2) space(4);
+  color: $white;
+  font-family: $font-barlow;
+  font-weight: $weight-bold;
+  font-size: font-size(sm);
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+
+  &--h3 { 
+    padding-left: space(8); 
+    opacity: 0.7; 
+    font-size: font-size(xs); 
+    text-transform: none; 
+    font-weight: $weight-medium;
+    
+    // Add a visual dash before the text
+    &::before {
+      content: "—";
+      margin-right: space(2);
+      opacity: 0.5;
+    }
+  }
+
+  &.is-active {
+    color: $yellow-dark;
+    background: rgba($yellow-dark, 0.1);
+    border-left-color: $yellow-dark;
+    opacity: 1; // Ensure active sub-items are fully visible
+  }
+}
+
+/* --- Mobile Positioning Adjustments --- */
+@media (max-width: $mobile-lg) {
+  .toc-panel {
+    left: space(2);
+    right: space(2);
+    width: auto; // Full width on mobile
+    bottom: 80px; 
+  }
+}
+// ============================================
+// STICKY NAV
+// ============================================
+
 @keyframes pop-in-sticky {
   0%   { transform: translateX(-50%) translateY(3rem); opacity: 0; }
   35%  { opacity: 1; }
@@ -387,26 +522,26 @@
   justify-content: space-between; align-items: stretch;
   gap: space(4); z-index: z(toolbar); pointer-events: none;
 
-  // Hidden: pushed down, faded out.
   transform: translateX(-50%) translateY(3rem);
   opacity: 0;
-  // Exit: slower slide-back so it doesn't snap away jarringly
   transition: transform 0.5s $easing-pop, opacity 0.45s ease;
 
   &.is-visible {
-    opacity: 1; pointer-events: auto;
+    opacity: 1; 
     transform: translateX(-50%) translateY(0);
-    // Transition left on for the exit animation — entrance handled by is-animating-in
+    .project-nav-sticky-link,
+    .project-nav-sticky-dead,
+    .scroll-to-top,
+    .toc-toggle {
+      pointer-events: auto;
+    }
   }
 
-  // Separate class for entrance animation — suppresses transition during pop-in
-  // JS adds this alongside is-visible, then removes it after 510ms
   &.is-animating-in {
     transition: none;
     animation: pop-in-sticky 0.5s $easing-bounce forwards;
   }
 
-  // Near bottom: prev/next slide down and vanish, scroll-to-top stays put.
   &.is-near-bottom {
     > .project-nav-sticky-link,
     > .project-nav-sticky-dead {
@@ -452,12 +587,10 @@
   &:hover { background: $white; transform: none; box-shadow: $solid-shadow-sm; }
 }
 
-// Right group: scroll-to-top + next button side by side
 .project-nav-sticky-group {
   display: flex; align-items: stretch; gap: space(2);
 }
 
-// Scroll-to-top — lives inside sticky nav, same height as nav buttons.
 .scroll-to-top {
   display: flex; align-items: center; justify-content: center;
   padding: space(2); background: $white;
@@ -481,45 +614,91 @@
   .scroll-to-top { font-size: font-size(md); }
 }
 
-// Mobile: scroll-to-top ONLY — always visible, no prev/next, no scroll threshold
+// Mobile: sticky bar is PERMANENT with all buttons — replaces in-page nav entirely
 @media (max-width: $mobile-lg) {
   .project-nav-sticky {
-    // Always visible — override the JS hidden state entirely
+    // Always visible — override JS hidden state and near-bottom completely
     opacity: 1 !important;
     transform: translateX(-50%) translateY(0) !important;
-    pointer-events: auto !important;
+    pointer-events: none !important;
     transition: none !important;
     animation: none !important;
-    bottom: 8.5rem; // Tighter than --footer-height, sits just above the visual footer
+    bottom: 8.5rem;
     justify-content: center;
     gap: space(2);
     padding: 0 space(2);
   }
-  // Hide prev/next links on mobile — scroll-to-top is sufficient
-  .project-nav-sticky > .project-nav-sticky-link,
-  .project-nav-sticky > .project-nav-sticky-dead {
-    display: none !important;
+
+.project-nav-sticky-link:not(.project-nav-sticky-dead),
+  .scroll-to-top,
+  .toc-toggle {
+    pointer-events: auto !important;
   }
+  // Hide project names — not enough space on mobile, arrows only
   .project-nav-sticky-name { display: none; }
-  .project-nav-sticky-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  // Override is-near-bottom — NOTHING hides on mobile, bar is permanent
+.project-nav-sticky.is-near-bottom > .project-nav-sticky-link:not(.project-nav-sticky-dead),
+  .project-nav-sticky.is-near-bottom .project-nav-sticky-group > .project-nav-sticky-link:not(.project-nav-sticky-dead) {
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
+
+  .project-nav-sticky.is-near-bottom > .project-nav-sticky-dead,
+  .project-nav-sticky.is-near-bottom .project-nav-sticky-group > .project-nav-sticky-dead {
+    transform: none !important;
+    opacity: 0.4 !important; // Keeps the button looking disabled
+    pointer-events: none !important; // Ensures it cannot be clicked
+  }
+
+  // Scale down buttons for mobile
+  .project-nav-sticky-link {
+    padding: space(2); font-size: font-size(md); border-width: $border-xs;
+    box-shadow: $solid-shadow-xs;
+  }
+
+  .project-nav-sticky-dead {
+    padding: space(2); font-size: font-size(md); border-width: $border-xs;
+  }
+
   .scroll-to-top {
     min-width: 2.75rem; font-size: font-size(md); border-width: $border-xs;
+    box-shadow: $solid-shadow-xs;
+  }
+
+  .toc-toggle {
+    border-width: $border-xs; box-shadow: $solid-shadow-xs;
+  }
+
+  // Hide in-page bottom nav — sticky bar handles everything on mobile
+  .project-nav { display: none !important; }
+
+  .toc-panel {
+    bottom: 12rem; left: space(2); max-width: calc(100% - 2rem);
   }
 }
 
 @media (max-width: $mobile-sm) {
   .project-nav-sticky { bottom: 8rem; gap: space(1); }
   .scroll-to-top { min-width: 2.25rem; font-size: font-size(sm); padding: space(1) space(2); }
+  .project-nav-sticky-link { padding: space(1) space(2); font-size: font-size(sm); }
+  .toc-toggle { padding: space(1) space(2); font-size: font-size(xs); }
+  .toc-panel { bottom: 11rem; }
 }
 
 
 // ============================================
 // GLIGHTBOX OVERRIDES
 // ============================================
+
+.glightbox-clean .gslide-description {
+  background: $black-dark !important;
+}
+
+.glightbox-clean .gdesc-inner {
+  padding: space(4) space(5) !important;
+}
 
 .gslide-title {
   font-family: $font-barlow !important; font-size: font-size(md) !important; text-transform: uppercase;
@@ -860,7 +1039,6 @@
   .devlog-content { gap: space(4); }
   .devlog-heading--h2 { font-size: font-size(sm); }
   .devlog-heading--h3 { font-size: font-size(xs); }
-  // Fix: explicit p font-size so body p rule from main.scss doesn't override
   .devlog-text, .devlog-sidebyside-text {
     font-size: font-size(xs);
     line-height: 1.65;
@@ -873,7 +1051,6 @@
   .devlog-table-wrap--large, .devlog-table-wrap--medium, .devlog-table-wrap--small {
     width: 100%; max-width: 100%;
   }
-  // Smaller captions on mobile — they read too large on small screens
   .devlog-fig-id { font-size: font-size(2xs); padding: 0.1rem space(1); }
   .devlog-caption-text { font-size: font-size(2xs); padding: 0.1rem space(2); }
   .image-caption-badge { font-size: font-size(2xs); padding: 0.1rem space(1); border-width: 2px; }
@@ -954,13 +1131,6 @@
   .section-divider-badge { padding: space(1) space(2); gap: space(1); }
   .section-divider-title { font-size: font-size(sm); letter-spacing: 0.03em; }
   .section-divider-badge i { font-size: font-size(sm); }
-  .project-nav { flex-direction: column; gap: space(3); }
-  .project-nav-link { max-width: 100%; padding: space(2) space(3); border-width: $border-xs; }
-  .project-nav-prev { margin-right: 0; }
-  .project-nav-next { margin-left: 0; flex-direction: row-reverse; text-align: left; }
-  .project-nav-label { font-size: font-size(sm); }
-  .project-nav-name { font-size: font-size(sm); }
-  .project-nav-button { font-size: font-size(xl); }
 }
 
 @media (max-width: $mobile-sm) {
