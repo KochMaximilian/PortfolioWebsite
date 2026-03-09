@@ -21,14 +21,7 @@ html {
 
 /* ============================================
    BACKGROUND SYSTEM
-   ============================================
-   Solid color on body (loads instantly, no flash).
-   Pattern on ::before with opacity (loads after, blends in).
-   
-   Background-size is scaled per breakpoint so the pattern
-   covers the viewport with minimal tiling (fewer seams).
-   Sizes: 4K = 3840×2160, 2K = 2560×1440, FHD = 1920×1080
-*/
+   ============================================ */
 
 body {
   min-height: 100vh;
@@ -40,12 +33,9 @@ body {
   line-height: 1.6;
   letter-spacing: 0.03em;
   position: relative;
-  
-  /* Solid color - shows immediately */
   background-color: $blue-light;
 }
 
-/* Pattern overlay */
 body::before {
   content: '';
   position: fixed;
@@ -63,21 +53,18 @@ body::before {
   pointer-events: none;
 }
 
-// 2K screens and up — one tile covers the viewport
 @media (min-width: 2000px) {
   body::before {
     background-size: 2560px 1440px;
   }
 }
 
-// 4K screens — scale up again so it tiles at most 1.5×
 @media (min-width: 3200px) {
   body::before {
     background-size: 3840px 2160px;
   }
 }
 
-// Variant-specific background patterns — matched to footer logo
 body.variant-piece::before {
   background-image: url('/assets/img/pattern_piece.png');
 }
@@ -124,8 +111,6 @@ a {
   padding-left: space(4);
   padding-right: space(4);
   box-sizing: border-box;
-  
-  // Footer clearance
   padding-bottom: calc(var(--footer-height) + 2rem);
 }
 
@@ -163,39 +148,30 @@ a {
   margin-bottom: 3.5rem;
 }
 
-/*NAVIGATION */
-
 /* Keyframes */
 @-webkit-keyframes wobble-hor-top {
-
-  0%,
-  100% {
+  0%, 100% {
     -webkit-transform: translateX(0%);
     transform: translateX(0%);
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
   }
-
   15% {
     -webkit-transform: translateX(-30px) rotate(6deg);
     transform: translateX(-30px) rotate(6deg);
   }
-
   30% {
     -webkit-transform: translateX(15px) rotate(-6deg);
     transform: translateX(15px) rotate(-6deg);
   }
-
   45% {
     -webkit-transform: translateX(-15px) rotate(3.6deg);
     transform: translateX(-15px) rotate(3.6deg);
   }
-
   60% {
     -webkit-transform: translateX(9px) rotate(-2.4deg);
     transform: translateX(9px) rotate(-2.4deg);
   }
-
   75% {
     -webkit-transform: translateX(-6px) rotate(1.2deg);
     transform: translateX(-6px) rotate(1.2deg);
@@ -203,43 +179,33 @@ a {
 }
 
 @keyframes wobble-hor-top {
-
-  0%,
-  100% {
+  0%, 100% {
     -webkit-transform: translateX(0%);
     transform: translateX(0%);
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
   }
-
   15% {
     -webkit-transform: translateX(-30px) rotate(6deg);
     transform: translateX(-30px) rotate(6deg);
   }
-
   30% {
     -webkit-transform: translateX(15px) rotate(-6deg);
     transform: translateX(15px) rotate(-6deg);
   }
-
   45% {
     -webkit-transform: translateX(-15px) rotate(3.6deg);
     transform: translateX(-15px) rotate(3.6deg);
   }
-
   60% {
     -webkit-transform: translateX(9px) rotate(-2.4deg);
     transform: translateX(9px) rotate(-2.4deg);
   }
-
   75% {
     -webkit-transform: translateX(-6px) rotate(1.2deg);
     transform: translateX(-6px) rotate(1.2deg);
   }
 }
-
-
-/* Animations */
 
 .wobble-hor-top.disabled {
   -webkit-animation: wobble-hor-top 0.8s cubic-bezier(0.230, 1.000, 0.320, 1.000) 1 both;
@@ -255,13 +221,8 @@ a {
   cursor: not-allowed;
 }
 
-/*HEADINGS*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* HEADINGS */
+h1, h2, h3, h4, h5, h6 {
   font-family: $font-barlow;
   line-height: 1.3;
   font-weight: $weight-black;
@@ -302,7 +263,7 @@ p {
   font-size: font-size(md);
 }
 
-/*MEDIA QUERY TYPOGRAPHY*/
+/* MEDIA QUERY TYPOGRAPHY */
 @media (max-width: $mobile-lg) {
   html {
     font-size: 87.5%;
@@ -319,59 +280,25 @@ p {
   html {
     font-size: 112.5%;
   }
-
-  body h1 {
-    font-size: font-size(6xl);
-  }
-
-  body h2 {
-    font-size: font-size(5xl);
-  }
-
-  body h3 {
-    font-size: font-size(4xl);
-  }
+  body h1 { font-size: font-size(6xl); }
+  body h2 { font-size: font-size(5xl); }
+  body h3 { font-size: font-size(4xl); }
 }
 
 @media (max-width: $tablet-lg) {
-  body h1 {
-    font-size: font-size(4xl);
-  }
-  
-  body h2 {
-    font-size: font-size(3xl);
-  }
-  
-  body h3 {
-    font-size: font-size(2xl);
-  }
-  
-  body h4 {
-    font-size: font-size(xl);
-  }
+  body h1 { font-size: font-size(4xl); }
+  body h2 { font-size: font-size(3xl); }
+  body h3 { font-size: font-size(2xl); }
+  body h4 { font-size: font-size(xl); }
 }
 
 @media (max-width: $tablet) {
-  body h1 {
-    font-size: font-size(3xl);
-  }
-  
-  body h2 {
-    font-size: font-size(2xl);
-  }
-  
-  body h3 {
-    font-size: font-size(xl);
-  }
-  
-  body h4 {
-    font-size: font-size(lg);
-  }
-  
-  body h5 {
-    font-size: font-size(md);
-  }
-  
+  body h1 { font-size: font-size(3xl); }
+  body h2 { font-size: font-size(2xl); }
+  body h3 { font-size: font-size(xl); }
+  body h4 { font-size: font-size(lg); }
+  body h5 { font-size: font-size(md); }
+
   body .project-description h1,
   body .project-description h2,
   body .project-description h3,
@@ -388,112 +315,99 @@ p {
 }
 
 @media (max-width: $mobile-lg) {
-  body h1 {
-    font-size: font-size(2xl);
+  body h1 { font-size: font-size(2xl); }
+  body h2 { font-size: font-size(xl); }
+  body h3 { font-size: font-size(lg); }
+  body h4 { font-size: font-size(md); }
+  body h5 { font-size: font-size(sm); }
+  body h6 { font-size: font-size(xs); }
+  body p  { font-size: font-size(md); }
+
+  body .project-description h1 { font-size: font-size(xl); }
+  body .project-description h2 { font-size: font-size(lg); }
+  body .project-description h3 { font-size: font-size(md); }
+  body .project-description h4 { font-size: font-size(md); }
+  body .project-description h5 { font-size: font-size(sm); }
+  body .project-description h6 { font-size: font-size(xs); }
+  body .project-description p  { font-size: font-size(md); line-height: 1.4; }
+
+  // Reduce shadows on mobile — brutal shadows get chunky at small sizes
+  .content-block {
+    box-shadow: $solid-shadow-md;
+    border-width: $border-sm;
   }
-  
-  body h2 {
-    font-size: font-size(xl);
-  }
-  
-  body h3 {
-    font-size: font-size(lg);
-  }
-  
-  body h4 {
-    font-size: font-size(md);
-  }
-  
-  body h5 {
-    font-size: font-size(sm);
-  }
-  
-  body h6 {
-    font-size: font-size(xs);
-  }
-  
-  body p {
-    font-size: font-size(md);
-  }
-  
-  body .project-description h1 {
-    font-size: font-size(xl); 
-  }
-  
-  body .project-description h2 {
-    font-size: font-size(lg);
-  }
-  
-  body .project-description h3 {
-    font-size: font-size(md);
-  }
-  
-  body .project-description h4 {
-    font-size: font-size(md);
-  }
-  
-  body .project-description h5 {
-    font-size: font-size(sm);
-  }
-  
-  body .project-description h6 {
-    font-size: font-size(xs);
-  }
-  
-  body .project-description p {
-    font-size: font-size(md);
-    line-height: 1.4;
+
+  .subcontent-block {
+    box-shadow: $solid-shadow-md;
+    border-width: $border-sm;
   }
 }
 
 @media (max-width: $mobile-sm) {
-  body h1 {
-    font-size: font-size(xl);
-  }
-  
-  body h2 {
-    font-size: font-size(lg);
-  }
-  
-  body h3 {
-    font-size: font-size(md);
-  }
-  
-  body h4,
-  body h5 {
-    font-size: font-size(sm);
-  }
-  
-  body p {
-    font-size: font-size(sm);
-  }
-  
-  body .project-description h1 {
-    font-size: font-size(lg); 
-  }
-  
-  body .project-description h2 {
-    font-size: font-size(md);
-  }
-  
+  body h1 { font-size: font-size(xl); }
+  body h2 { font-size: font-size(lg); }
+  body h3 { font-size: font-size(md); }
+  body h4, body h5 { font-size: font-size(sm); }
+  body p  { font-size: font-size(sm); }
+
+  body .project-description h1 { font-size: font-size(lg); }
+  body .project-description h2 { font-size: font-size(md); }
   body .project-description h3,
   body .project-description h4,
-  body .project-description h5 {
-    font-size: font-size(sm);
-  }
-  
-  body .project-description p {
-    font-size: font-size(sm);
-    line-height: 1.3;
-  }
+  body .project-description h5 { font-size: font-size(sm); }
+  body .project-description p  { font-size: font-size(sm); line-height: 1.3; }
 
   .content-block {
-    margin-top: space(24);
+    margin-top: space(16);
     padding: .4rem .9rem;
+    box-shadow: $solid-shadow-sm;
+    border-width: $border-xs;
+  }
+
+  .subcontent-block {
+    box-shadow: $solid-shadow-sm;
+    border-width: $border-xs;
   }
 
   .wrapper {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+// ============================================
+// MOBILE XS — 320px (iPhone SE, smallest devices)
+// ============================================
+@media (max-width: $mobile-xs) {
+  html {
+    font-size: 81.25%; // 13px base — tighter than 87.5% at $mobile-lg
+  }
+
+  body h1 { font-size: font-size(lg); }
+  body h2 { font-size: font-size(md); }
+  body h3 { font-size: font-size(sm); }
+  body h4, body h5, body h6 { font-size: font-size(xs); }
+  body p  { font-size: font-size(sm); }
+
+  body .project-description h1 { font-size: font-size(md); }
+  body .project-description h2 { font-size: font-size(sm); }
+  body .project-description h3,
+  body .project-description h4,
+  body .project-description h5 { font-size: font-size(xs); }
+  body .project-description p  { font-size: font-size(xs); line-height: 1.3; }
+
+  .content-block {
+    margin-top: space(12);
+    padding: .3rem .6rem;
+    box-shadow: $solid-shadow-xs;
+    border-width: $border-xsm;
+    border-radius: $radius-small;
+  }
+
+  .subcontent-block {
+    box-shadow: $solid-shadow-xs;
+    border-width: $border-xsm;
+    border-radius: $radius-small;
+    margin-bottom: space(8);
   }
 }
