@@ -30,24 +30,12 @@
 
 // Logo bounce animation - more playful than nav links
 @keyframes logo-bounce {
-  0% {
-    transform: scale(1) rotate(0deg);
-  }
-  20% {
-    transform: scale(1.08) rotate(-1deg);
-  }
-  40% {
-    transform: scale(1.05) rotate(0.5deg);
-  }
-  60% {
-    transform: scale(1.07) rotate(-0.3deg);
-  }
-  80% {
-    transform: scale(1.06) rotate(0.1deg);
-  }
-  100% {
-    transform: scale(1.06) rotate(0deg);
-  }
+  0%   { transform: scale(1) rotate(0deg); }
+  20%  { transform: scale(1.08) rotate(-1deg); }
+  40%  { transform: scale(1.05) rotate(0.5deg); }
+  60%  { transform: scale(1.07) rotate(-0.3deg); }
+  80%  { transform: scale(1.06) rotate(0.1deg); }
+  100% { transform: scale(1.06) rotate(0deg); }
 }
 
 .logo-container .logo {
@@ -88,18 +76,10 @@
 
 // Bounce animation for nav links
 @keyframes nav-bounce {
-  0% {
-    transform: translateY(0) scale(1);
-  }
-  40% {
-    transform: translateY(-3px) scale(1.03);
-  }
-  70% {
-    transform: translateY(-1px) scale(1.02);
-  }
-  100% {
-    transform: translateY(-2px) scale(1.02);
-  }
+  0%   { transform: translateY(0) scale(1); }
+  40%  { transform: translateY(-3px) scale(1.03); }
+  70%  { transform: translateY(-1px) scale(1.02); }
+  100% { transform: translateY(-2px) scale(1.02); }
 }
 
 .nav-link {
@@ -114,7 +94,6 @@
   position: relative;
   display: inline-block;
   
-  // Underline that grows from center
   &::after {
     content: '';
     position: absolute;
@@ -134,20 +113,12 @@
 .nav-link:hover {
   color: $yellow-dark;
   animation: nav-bounce 0.3s $easing-bounce forwards;
-  
-  &::after {
-    width: 100%;
-    opacity: 1;
-  }
+  &::after { width: 100%; opacity: 1; }
 }
 
 .nav-link.active {
   color: $yellow-dark;
-  
-  &::after {
-    width: 100%;
-    opacity: 1;
-  }
+  &::after { width: 100%; opacity: 1; }
 }
 
 .nav-link.active:hover {
@@ -169,14 +140,8 @@
     max-width: calc(100% - 3em);
   }
   
-  .logo-container .logo {
-    font-size: font-size(xl);
-  }
-  
-  .navbar-nav {
-    gap: space(3);
-    padding-right: space(3);
-  }
+  .logo-container .logo { font-size: font-size(xl); }
+  .navbar-nav { gap: space(3); padding-right: space(3); }
   
   .nav-link {
     font-size: font-size(lg);
@@ -193,23 +158,14 @@
     padding: 0 space(6);
   }
   
-  .logo-container .logo {
-    font-size: font-size(lg);
-  }
-  
-  .navbar-nav {
-    gap: space(2);
-    padding-right: space(2);
-  }
+  .logo-container .logo { font-size: font-size(lg); }
+  .navbar-nav { gap: space(2); padding-right: space(2); }
   
   .nav-link {
     font-size: font-size(md);
     padding: space(1) space(1);
     padding-bottom: space(1);
-    
-    &::after {
-      height: 3px;
-    }
+    &::after { height: 3px; }
   }
 }
 
@@ -221,23 +177,14 @@
     padding: 0 space(4);
   }
   
-  .logo-container .logo {
-    font-size: font-size(md);
-  }
-  
-  .navbar-nav {
-    gap: space(1);
-    padding-right: space(1);
-  }
+  .logo-container .logo { font-size: font-size(md); }
+  .navbar-nav { gap: space(1); padding-right: space(1); }
   
   .nav-link {
     font-size: font-size(md);
     padding: space(1) space(1);
     padding-bottom: space(1);
-    
-    &::after {
-      height: 3px;
-    }
+    &::after { height: 3px; }
   }
 }
 
@@ -251,7 +198,6 @@
     justify-content: center;
   }
   
-  // Logo becomes a flex row: name | floating-svg | banner
   .logo-container .logo {
     font-size: font-size(xs);
     white-space: nowrap;
@@ -265,16 +211,13 @@
 
   .logo-name,
   .logo-banner {
-    // Add breathing room around the logo image
     padding: 0 space(2);
   }
 
-  // Hide the text divider — replaced by the floating logo image
   .logo-divider {
     display: none;
   }
 
-  // Mobile floating logo — appears between name and banner
   .navbar-logo-mobile {
     display: inline-block;
     height: 1.75rem;
@@ -290,23 +233,12 @@
     50%       { transform: translateY(-3px); }
   }
   
-  // Smaller logo bounce on mobile
   @keyframes logo-bounce {
-    0% {
-      transform: scale(1) rotate(0deg);
-    }
-    20% {
-      transform: scale(1.05) rotate(-0.5deg);
-    }
-    40% {
-      transform: scale(1.03) rotate(0.3deg);
-    }
-    60% {
-      transform: scale(1.04) rotate(-0.2deg);
-    }
-    100% {
-      transform: scale(1.04) rotate(0deg);
-    }
+    0%   { transform: scale(1) rotate(0deg); }
+    20%  { transform: scale(1.05) rotate(-0.5deg); }
+    40%  { transform: scale(1.03) rotate(0.3deg); }
+    60%  { transform: scale(1.04) rotate(-0.2deg); }
+    100% { transform: scale(1.04) rotate(0deg); }
   }
   
   .navbar-desktop {
@@ -317,26 +249,14 @@
     font-size: font-size(lg);
     padding: space(1) space(3);
     padding-bottom: space(1);
-    
-    &::after {
-      height: 2px;
-    }
+    &::after { height: 2px; }
   }
   
-  // Smaller bounce on mobile
   @keyframes nav-bounce {
-    0% {
-      transform: translateY(0) scale(1);
-    }
-    40% {
-      transform: translateY(-2px) scale(1.02);
-    }
-    70% {
-      transform: translateY(-1px) scale(1.01);
-    }
-    100% {
-      transform: translateY(-1px) scale(1.01);
-    }
+    0%   { transform: translateY(0) scale(1); }
+    40%  { transform: translateY(-2px) scale(1.02); }
+    70%  { transform: translateY(-1px) scale(1.01); }
+    100% { transform: translateY(-1px) scale(1.01); }
   }
 
   .navbar-mobile .navbar-nav {
@@ -352,5 +272,63 @@
     justify-content: center;
     align-items: center;
     margin: space(2) 0;
+  }
+}
+
+/* Small mobile — footer nav text smaller */
+@media (max-width: $mobile-sm) {
+  .navbar-mobile .nav-link {
+    font-size: font-size(md);
+    padding: space(1) space(2);
+  }
+
+  .navbar-mobile .navbar-nav {
+    gap: space(1);
+  }
+
+  .navbar-mobile {
+    margin: space(1) 0;
+  }
+
+  .logo-container .logo {
+    font-size: font-size(2xs);
+  }
+
+  .navbar-logo-mobile {
+    height: 1.4rem;
+  }
+
+  .logo-name,
+  .logo-banner {
+    padding: 0 space(1);
+  }
+}
+
+/* Extra small mobile — footer nav text even smaller */
+@media (max-width: $mobile-xs) {
+  .navbar-mobile .nav-link {
+    font-size: font-size(sm);
+    padding: space(1) space(1);
+  }
+
+  .navbar-mobile .navbar-nav {
+    gap: 0;
+  }
+
+  .navbar-mobile {
+    margin: space(1) 0;
+  }
+
+  .navbar {
+    height: 40px;
+    padding: 0 space(2);
+  }
+
+  .logo-container .logo {
+    font-size: font-size(3xs);
+  }
+
+  .navbar-logo-mobile {
+    height: 1.2rem;
   }
 }

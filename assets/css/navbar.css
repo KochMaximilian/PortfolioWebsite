@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .nav-container {
   width: 100%;
   position: fixed;
@@ -305,6 +306,52 @@
     justify-content: center;
     align-items: center;
     margin: 0.5rem 0;
+  }
+}
+/* Small mobile — footer nav text smaller */
+@media (max-width: 480px) {
+  .navbar-mobile .nav-link {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .navbar-mobile .navbar-nav {
+    gap: 0.25rem;
+  }
+  .navbar-mobile {
+    margin: 0.25rem 0;
+  }
+  .logo-container .logo {
+    font-size: 0.625rem;
+  }
+  .navbar-logo-mobile {
+    height: 1.4rem;
+  }
+  .logo-name,
+  .logo-banner {
+    padding: 0 0.25rem;
+  }
+}
+/* Extra small mobile — footer nav text even smaller */
+@media (max-width: 320px) {
+  .navbar-mobile .nav-link {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.25rem;
+  }
+  .navbar-mobile .navbar-nav {
+    gap: 0;
+  }
+  .navbar-mobile {
+    margin: 0.25rem 0;
+  }
+  .navbar {
+    height: 40px;
+    padding: 0 0.5rem;
+  }
+  .logo-container .logo {
+    font-size: 0.5rem;
+  }
+  .navbar-logo-mobile {
+    height: 1.2rem;
   }
 }
 
