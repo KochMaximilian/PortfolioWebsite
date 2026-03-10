@@ -551,7 +551,7 @@
 /* --- Table of Contents Panel --- */
 .toc-panel {
   position: fixed;
-  bottom: calc(var(--sticky-nav-height, 70px) + 20px);
+  bottom: calc(var(--footer-height, 7.5rem) + 3.3rem + var(--sticky-nav-height, 70px) + 1rem);
   left: 1rem;
   width: 280px;
   max-height: 60vh;
@@ -638,7 +638,7 @@
     left: 0.5rem;
     right: 0.5rem;
     width: auto;
-    bottom: 80px;
+    bottom: 6rem;
   }
 }
 @keyframes pop-in-sticky {
@@ -859,7 +859,7 @@
     display: none !important;
   }
   .toc-panel {
-    bottom: 12rem;
+    bottom: 14rem;
     left: 0.5rem;
     max-width: calc(100% - 2rem);
   }
@@ -883,7 +883,7 @@
     font-size: 0.75rem;
   }
   .toc-panel {
-    bottom: 11rem;
+    bottom: 13rem;
   }
 }
 .glightbox-clean .gslide-description {
@@ -1835,7 +1835,8 @@
   }
   .image-slot {
     padding: 0.25rem;
-    border-width: 2px;
+    border-width: 3px;
+    box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
   }
   .project-gallery-image {
     border-radius: 0.25rem;
@@ -1847,6 +1848,8 @@
   .section-divider-badge {
     padding: 0.25rem 0.5rem;
     gap: 0.25rem;
+    border-width: 3px;
+    box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
   }
   .section-divider-title {
     font-size: 0.875rem;
@@ -1855,8 +1858,32 @@
   .section-divider-badge i {
     font-size: 0.875rem;
   }
+  .devlog-heading--h2 {
+    border-width: 3px;
+    box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
+  }
+  .devlog-heading--h3 {
+    border-width: 3px;
+    box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
+  }
+  .devlog-image-link {
+    border-width: 3px;
+    box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
+  }
+  .devlog-video-embed {
+    border-width: 3px;
+    box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
+  }
+  .devlog-quote {
+    border-width: 3px;
+    box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
+  }
 }
 @media (max-width: 480px) {
+  .project-main-container {
+    box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
+    border-width: 3px;
+  }
   .project-hero-image {
     max-height: 28vh;
   }
@@ -1929,8 +1956,16 @@
     border-width: 2px;
   }
   .image-caption-badge {
-    font-size: 0.75rem;
+    font-size: 0.625rem;
     border-width: 3px;
+  }
+  .devlog-fig-id {
+    font-size: 0.5rem;
+    padding: 0.05rem 0.25rem;
+  }
+  .devlog-caption-text {
+    font-size: 0.5rem;
+    padding: 0.05rem 0.25rem;
   }
   .section-divider {
     gap: 0.5rem;
@@ -1944,6 +1979,16 @@
   }
   .project-nav-button {
     font-size: 1.125rem;
+  }
+}
+@media (max-width: 320px) {
+  .devlog-fig-id {
+    font-size: 0.5rem;
+    padding: 0.05rem 0.25rem;
+  }
+  .devlog-caption-text {
+    font-size: 0.5rem;
+    padding: 0.05rem 0.25rem;
   }
 }
 

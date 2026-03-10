@@ -396,7 +396,7 @@
 
 .toc-panel {
   position: fixed;
-  bottom: calc(var(--sticky-nav-height, 70px) + 20px); // Sits above the sticky bar
+  bottom: calc(var(--footer-height, 7.5rem) + 3.3rem + var(--sticky-nav-height, 70px) + 1rem); // Sits above the sticky bar
   left: space(4);
   width: 280px;
   max-height: 60vh;
@@ -498,7 +498,7 @@
     left: space(2);
     right: space(2);
     width: auto; // Full width on mobile
-    bottom: 80px; 
+    bottom: 6rem;
   }
 }
 // ============================================
@@ -675,7 +675,7 @@
   .project-nav { display: none !important; }
 
   .toc-panel {
-    bottom: 12rem; left: space(2); max-width: calc(100% - 2rem);
+    bottom: 14rem; left: space(2); max-width: calc(100% - 2rem);
   }
 }
 
@@ -684,7 +684,7 @@
   .scroll-to-top { min-width: 2.25rem; font-size: font-size(sm); padding: space(1) space(2); }
   .project-nav-sticky-link { padding: space(1) space(2); font-size: font-size(sm); }
   .toc-toggle { padding: space(1) space(2); font-size: font-size(xs); }
-  .toc-panel { bottom: 11rem; }
+  .toc-panel { bottom: 13rem; }
 }
 
 
@@ -1125,15 +1125,21 @@
   .stat-award-row i { font-size: font-size(md); }
   .stat-description-text { font-size: font-size(xs); line-height: 1.5; }
   .project-image-container { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: space(3); }
-  .image-slot { padding: 0.25rem; border-width: $border-xsm; }
+  .image-slot { padding: 0.25rem; border-width: $border-xs; box-shadow: $solid-shadow-xs; }
   .project-gallery-image { border-radius: $radius-small; }
   .section-divider { gap: space(2); margin-bottom: space(3); }
-  .section-divider-badge { padding: space(1) space(2); gap: space(1); }
+  .section-divider-badge { padding: space(1) space(2); gap: space(1); border-width: $border-xs; box-shadow: $solid-shadow-xs; }
   .section-divider-title { font-size: font-size(sm); letter-spacing: 0.03em; }
   .section-divider-badge i { font-size: font-size(sm); }
+  .devlog-heading--h2 { border-width: $border-xs; box-shadow: $solid-shadow-xs; }
+  .devlog-heading--h3 { border-width: $border-xs; box-shadow: $solid-shadow-xs; }
+  .devlog-image-link { border-width: $border-xs; box-shadow: $solid-shadow-xs; }
+  .devlog-video-embed { border-width: $border-xs; box-shadow: $solid-shadow-xs; }
+  .devlog-quote { border-width: $border-xs; box-shadow: $solid-shadow-xs; }
 }
 
 @media (max-width: $mobile-sm) {
+  .project-main-container { box-shadow: $solid-shadow-xs; border-width: $border-xs; }
   .project-hero-image { max-height: 28vh; }
   .stat-name-plate { padding: space(1) space(2); }
   .stat-project-title { font-size: font-size(md); }
@@ -1153,9 +1159,16 @@
   .stat-award-row i { font-size: font-size(sm); }
   .project-image-container { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: space(3); }
   .image-slot { padding: 0.2rem; border-width: $border-xsm; }
-  .image-caption-badge { font-size: font-size(xs); border-width: $border-xs; }
+  .image-caption-badge { font-size: font-size(2xs); border-width: $border-xs; }
+  .devlog-fig-id { font-size: font-size(3xs); padding: 0.05rem space(1); }
+  .devlog-caption-text { font-size: font-size(3xs); padding: 0.05rem space(1); }
   .section-divider { gap: space(2); margin-bottom: space(2); }
   .section-divider-title { font-size: font-size(xs); }
   .project-nav-name { font-size: font-size(xs); }
   .project-nav-button { font-size: font-size(lg); }
+}
+
+@media (max-width: $mobile-xs) {
+  .devlog-fig-id { font-size: font-size(3xs); padding: 0.05rem space(1); }
+  .devlog-caption-text { font-size: font-size(3xs); padding: 0.05rem space(1); }
 }
