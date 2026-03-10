@@ -9,17 +9,17 @@
 }
 @media screen and (max-width: 576px) {
   :root {
-    --footer-height: 9rem;
+    --footer-height: 12rem;
   }
 }
 @media screen and (max-width: 480px) {
   :root {
-    --footer-height: 9rem;
+    --footer-height: 11rem;
   }
 }
 @media screen and (max-width: 320px) {
   :root {
-    --footer-height: 8.5rem;
+    --footer-height: 10rem;
   }
 }
 /* Base footer styling */
@@ -277,9 +277,8 @@ footer {
     margin: 0;
   }
   .copyright {
-    grid-column: 1 / -1;
+    grid-column: 1/-1;
     grid-row: 2;
-    display: block;
     font-size: 0.5rem;
     opacity: 0.7;
     text-align: center;
@@ -291,7 +290,7 @@ footer {
     display: none;
   }
   .mobile-socials .custom-icon-size {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
 }
 /* Handle extremely small screens */
@@ -318,6 +317,55 @@ footer {
   }
   .mobile-socials .custom-icon-size {
     font-size: 1.1rem;
+  }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  :root {
+    --footer-height: 4rem;
+  }
+  footer {
+    padding: 0.5rem 0;
+  }
+  .footer-logo {
+    height: 3.5rem;
+    margin-top: -4rem;
+  }
+  .socials {
+    gap: 0.5rem;
+  }
+  .custom-icon-size {
+    font-size: 1.3rem;
+  }
+  .slogan {
+    font-size: 0.55rem;
+    margin: 0.1rem 0;
+  }
+  .copyright {
+    font-size: 0.4rem;
+  }
+}
+@media (max-height: 400px) and (orientation: landscape) {
+  :root {
+    --footer-height: 3rem;
+  }
+  footer {
+    padding: 0.3rem 0;
+  }
+  .footer-logo {
+    height: 2.5rem;
+    margin-top: -3rem;
+  }
+  .socials {
+    gap: 0.3rem;
+  }
+  .custom-icon-size {
+    font-size: 1.1rem;
+  }
+  .slogan {
+    font-size: 0.45rem;
+  }
+  .copyright {
+    font-size: 0.35rem;
   }
 }
 

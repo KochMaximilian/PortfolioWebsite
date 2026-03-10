@@ -470,5 +470,15 @@ p {
     margin-bottom: 2rem;
   }
 }
+@media (max-height: 500px) and (orientation: landscape) {
+  .content-block {
+    margin-top: 4.5rem;
+  }
+}
+@media (max-height: 400px) and (orientation: landscape) {
+  .content-block {
+    margin-top: 3.5rem;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */
