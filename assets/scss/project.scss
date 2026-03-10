@@ -606,12 +606,16 @@
 
 @media (max-width: $tablet-lg) {
   .project-nav-sticky-name { max-width: 10rem; }
+  .project-nav-sticky-link { padding: space(2) space(3); font-size: font-size(md); }
+  .scroll-to-top { padding: space(2); font-size: font-size(md); }
+  .toc-toggle { padding: space(2); font-size: font-size(sm); i { font-size: font-size(xs); } }
 }
 
 @media (max-width: $tablet) {
   .project-nav-sticky-name { max-width: 7rem; font-size: font-size(xs); }
-  .project-nav-sticky-link { padding: space(2); font-size: font-size(md); }
-  .scroll-to-top { font-size: font-size(md); }
+  .project-nav-sticky-link { padding: space(2); font-size: font-size(sm); }
+  .scroll-to-top { padding: space(2); font-size: font-size(sm); }
+  .toc-toggle { padding: space(2); font-size: font-size(xs); i { font-size: font-size(2xs); } }
 }
 
 // Mobile: sticky bar is PERMANENT with all buttons — replaces in-page nav entirely
@@ -691,6 +695,42 @@
 // ============================================
 // GLIGHTBOX OVERRIDES
 // ============================================
+
+.glightbox-clean .gclose,
+.glightbox-clean .gnext,
+.glightbox-clean .gprev {
+  background: $white !important;
+  border: $border-xs solid $black-dark !important;
+  border-radius: $radius-xs !important;
+  box-shadow: $solid-shadow-sm !important;
+  opacity: 1 !important;
+  transition: transform 0.2s $easing-bounce, box-shadow 0.2s $easing-bounce !important;
+
+  // FontAwesome icon styling
+  i {
+    color: $black-dark;
+    font-size: font-size(lg);
+    transition: color 0.2s $easing-bounce;
+  }
+
+  // Hide default SVGs
+  svg { display: none !important; }
+
+  &:hover {
+    background: $yellow-dark !important;
+    transform: scale(0.95) !important;
+    box-shadow: $solid-shadow-xs !important;
+  }
+
+  &.disabled {
+    opacity: 0.3 !important;
+  }
+}
+
+.glightbox-clean .gprev { width: 44px !important; height: 54px !important; }
+.glightbox-clean .gnext { width: 44px !important; height: 54px !important; }
+.glightbox-clean .gclose { width: 38px !important; height: 38px !important; }
+.glightbox-clean .gclose i { font-size: font-size(md); }
 
 .glightbox-clean .gslide-description {
   background: $black-dark !important;
@@ -1104,7 +1144,9 @@
   .project-image-container { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: space(4); }
   .image-slot { border-width: $border-xs; }
   .image-caption-badge { font-size: font-size(md); padding: space(1) space(2); border-width: $border-sm; }
-  .project-nav-button { font-size: font-size(xl); }
+  .project-nav-link { padding: space(2); font-size: font-size(sm); }
+  .project-nav-name { font-size: font-size(xs); }
+  .project-nav-button { font-size: font-size(lg); }
 }
 
 @media (max-width: $mobile-lg) {
@@ -1171,4 +1213,58 @@
 @media (max-width: $mobile-xs) {
   .devlog-fig-id { font-size: font-size(3xs); padding: 0.05rem space(1); }
   .devlog-caption-text { font-size: font-size(3xs); padding: 0.05rem space(1); }
+}
+
+// ============================================
+// LANDSCAPE
+// ============================================
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .project-hero-image { max-height: 30vh; }
+  .project-nav-sticky {
+    bottom: calc(var(--footer-height) + 1rem);
+    gap: space(1);
+  }
+  .project-nav-sticky-link { padding: space(1) space(2); font-size: font-size(sm); }
+  .project-nav-sticky-dead { padding: space(1) space(2); font-size: font-size(sm); }
+  .scroll-to-top { padding: space(1) space(2); font-size: font-size(sm); min-width: 2rem; }
+  .toc-toggle { padding: space(1) space(2); font-size: font-size(xs); }
+  .toc-panel { max-height: 40vh; bottom: calc(var(--footer-height) + 1rem + var(--sticky-nav-height, 50px) + 0.5rem); }
+  .stat-project-title { font-size: font-size(lg); }
+  .stat-name-plate { padding: space(1) space(3); }
+}
+
+@media (max-height: 500px) and (orientation: landscape) and (max-width: $tablet) {
+  .project-hero-image { max-height: 25vh; }
+  .stat-project-title { font-size: font-size(md); }
+  .stat-name-plate { padding: space(1) space(2); }
+  .project-nav-sticky-link { padding: space(1) space(2); font-size: font-size(xs); border-width: $border-xs; box-shadow: $solid-shadow-xs; }
+  .project-nav-sticky-dead { padding: space(1) space(2); font-size: font-size(xs); border-width: $border-xs; }
+  .scroll-to-top { padding: space(1) space(2); font-size: font-size(xs); min-width: 1.8rem; border-width: $border-xs; box-shadow: $solid-shadow-xs; }
+  .toc-toggle { padding: space(1); font-size: font-size(2xs); border-width: $border-xs; box-shadow: $solid-shadow-xs; }
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+  .project-hero-image { max-height: 20vh; }
+  .project-nav-sticky {
+    bottom: calc(var(--footer-height) + 0.5rem);
+    gap: space(1);
+  }
+  .project-nav-sticky-link { padding: space(1); font-size: font-size(xs); border-width: $border-xs; box-shadow: $solid-shadow-xs; }
+  .project-nav-sticky-dead { padding: space(1); font-size: font-size(xs); border-width: $border-xs; }
+  .scroll-to-top { padding: space(1); font-size: font-size(xs); min-width: 1.8rem; border-width: $border-xs; box-shadow: $solid-shadow-xs; }
+  .toc-toggle { padding: space(1); font-size: font-size(2xs); border-width: $border-xs; box-shadow: $solid-shadow-xs; }
+  .toc-panel { max-height: 30vh; bottom: calc(var(--footer-height) + 0.5rem + var(--sticky-nav-height, 40px) + 0.5rem); }
+  .stat-project-title { font-size: font-size(md); }
+  .stat-name-plate { padding: space(1) space(2); }
+}
+
+@media (max-height: 400px) and (orientation: landscape) and (max-width: $tablet) {
+  .project-hero-image { max-height: 15vh; }
+  .stat-project-title { font-size: font-size(sm); }
+  .stat-name-plate { padding: space(1); }
+  .project-nav-sticky-link { padding: space(1); font-size: font-size(2xs); }
+  .project-nav-sticky-dead { padding: space(1); font-size: font-size(2xs); }
+  .scroll-to-top { padding: space(1); font-size: font-size(2xs); min-width: 1.5rem; }
+  .toc-toggle { padding: space(1); font-size: font-size(3xs); }
 }

@@ -332,3 +332,19 @@
     height: 1.2rem;
   }
 }
+
+// ============================================
+// LANDSCAPE
+// ============================================
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .navbar { height: 40px; }
+  .logo-container .logo { font-size: font-size(sm); }
+  .nav-link { font-size: font-size(sm); padding: space(1); }
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+  .navbar { height: 35px; }
+  .logo-container .logo { font-size: font-size(xs); }
+  .nav-link { font-size: font-size(xs); padding: space(1); }
+}
