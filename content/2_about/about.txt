@@ -2,15 +2,45 @@ Title: About
 
 ----
 
-Page-name: About Me
-
-----
-
 Author-name: Maximilian Koch
 
 ----
 
-Fav-games: 
+Role: Game Designer
+
+----
+
+Location: Barcelona, SPAIN
+
+----
+
+Currently-playing: Path of Exile
+
+----
+
+Tagline: Where others see chaos, I see opportunity
+
+----
+
+Fav-games: Magic the Gathering, Pathf of Exile 2, Super Mario Galaxy
+
+----
+
+Social-links:
+
+- 
+  platform: linkedin
+  url: >
+    https://www.linkedin.com/in/maximiliankochlinked/
+- 
+  platform: github
+  url: https://github.com/KochMaximilian
+- 
+  platform: itch
+  url: https://fat-fingers.itch.io/
+- 
+  platform: youtube
+  url: https://www.youtube.com/@KochMaximilian
 
 ----
 
@@ -22,14 +52,6 @@ Game-design-skills: Game System Design, Implementation, Level Design, Blockouts,
 
 ----
 
-Software: Adobe Photoshop, Adobe Illustrator, Affinity Photo, Affinity Designer, Blender, Ink (Narrative Scripting), Playmaker Unity Plugin
-
-----
-
-Production: MS Office 365, Google Suite, Miro, Confluence, Trello, Notion, Slack, Discord
-
-----
-
 Editors: Unreal Engine, Unity Engine, Godot
 
 ----
@@ -38,7 +60,27 @@ Programming-source: Unreal Blueprints, C#, Python, Web Technologies, Git, Perfor
 
 ----
 
+Software: Adobe Photoshop, Adobe Illustrator, Affinity Photo, Affinity Designer, Blender, Ink (Narrative Scripting), Playmaker Unity Plugin
+
+----
+
+Production: MS Office 365, Google Suite, Miro, Confluence, Trello, Notion, Slack, Discord
+
+----
+
 Languages: German (Native), English (C1)
+
+----
+
+Experience: 
+
+----
+
+Education: 
+
+----
+
+Page-name: About Me
 
 ----
 
