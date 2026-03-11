@@ -95,6 +95,10 @@ Externallinks:
 
 ----
 
+Show-toc: true
+
+----
+
 Devlog:
 
 [

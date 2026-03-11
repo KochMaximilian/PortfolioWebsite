@@ -250,6 +250,15 @@ columns:
         label: Dev Notes
         type: fields
         fields:
+          show_toc:
+            label: Show Table of Contents
+            type: toggle
+            text:
+              - "No"
+              - "Yes"
+            default: no
+            width: 1/4
+            help: Display a collapsible TOC above the dev notes.
           devlog:
             label: Dev Notes
             help: Write your dev process writeup here. Drag blocks to reorder.

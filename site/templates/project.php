@@ -284,6 +284,10 @@
                             <span class="section-divider-title">Dev Notes</span>
                         </span>
                     </div>
+                    <?php if ($page->show_toc()->toBool() && !empty($tocItems)): ?>
+                        <?php snippet('toc-inline', ['tocItems' => $tocItems]) ?>
+                    <?php endif; ?>
+
                     <div class="devlog-content">
                         <?php foreach ($page->devlog()->toBlocks() as $block): ?>
                             <?= $block ?>
