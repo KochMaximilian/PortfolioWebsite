@@ -30,10 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3D CARD TILT + GLARE + HOLO - Desktop only
 
     const isDesktop = window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)').matches;
-    
-    if (!isDesktop) {
-        return;
-    }
 
     // Math helpers from pokemon-cards-css Math.js
     const round = (value, precision = 3) => parseFloat(value.toFixed(precision));
@@ -41,10 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const adjust = (value, fromMin, fromMax, toMin, toMax) => {
         return round(toMin + (toMax - toMin) * (value - fromMin) / (fromMax - fromMin));
     };
+    const lerp = (start, end, factor) => start + (end - start) * factor;
 
     const cards = document.querySelectorAll('.projects-figure');
-    
-    cards.forEach(card => {
+
+    if (isDesktop) cards.forEach(card => {
         let isHovering = false;
         let currentX = 0;
         let currentY = 0;
@@ -55,14 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentGlare = 0;
         let targetGlare = 0;
         let rafId = null;
-        
+
         // Lerp speeds - fast in, slow out
         const lerpTiltIn = 0.15;
         const lerpTiltOut = 0.045;
         const lerpScaleIn = 0.12;
         const lerpScaleOut = 0.04;
-        
-        const lerp = (start, end, factor) => start + (end - start) * factor;
         
         const updateTilt = () => {
             const tiltLerp = isHovering ? lerpTiltIn : lerpTiltOut;
@@ -196,4 +191,105 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // About card 3D tilt (simplified - no holo)
+    const aboutCard = document.querySelector('.about-image');
+    if (aboutCard && isDesktop) {
+        let abIsHovering = false;
+        let abCurrentX = 0, abCurrentY = 0, abTargetX = 0, abTargetY = 0;
+        let abCurrentScale = 1, abTargetScale = 1;
+        let abRafId = null;
+
+        const abUpdateTilt = () => {
+            const tiltLerp = abIsHovering ? 0.15 : 0.045;
+            const scaleLerp = abIsHovering ? 0.12 : 0.04;
+
+            abCurrentX = lerp(abCurrentX, abTargetX, tiltLerp);
+            abCurrentY = lerp(abCurrentY, abTargetY, tiltLerp);
+            abCurrentScale = lerp(abCurrentScale, abTargetScale, scaleLerp);
+
+            const done = !abIsHovering &&
+                Math.abs(abCurrentX - abTargetX) < 0.001 &&
+                Math.abs(abCurrentY - abTargetY) < 0.001 &&
+                Math.abs(abCurrentScale - abTargetScale) < 0.001;
+
+            if (done) {
+                abCurrentX = 0; abCurrentY = 0; abCurrentScale = 1;
+                aboutCard.style.setProperty('--tilt-x', '0deg');
+                aboutCard.style.setProperty('--tilt-y', '0deg');
+                aboutCard.style.setProperty('--card-scale', '1');
+                aboutCard.style.setProperty('--shadow-x', '0px');
+                aboutCard.style.setProperty('--shadow-y', '8px');
+                aboutCard.style.setProperty('--pointer-x', '50%');
+                aboutCard.style.setProperty('--pointer-y', '50%');
+                abRafId = null;
+                return;
+            }
+
+            const tiltY = abCurrentX * 10;
+            const tiltX = abCurrentY * -10;
+            const shadowX = abCurrentX * -15;
+            const shadowY = 8 + (abCurrentY * -10);
+
+            aboutCard.style.setProperty('--tilt-x', `${tiltX}deg`);
+            aboutCard.style.setProperty('--tilt-y', `${tiltY}deg`);
+            aboutCard.style.setProperty('--card-scale', abCurrentScale.toString());
+            aboutCard.style.setProperty('--shadow-x', `${shadowX}px`);
+            aboutCard.style.setProperty('--shadow-y', `${shadowY}px`);
+
+            abRafId = requestAnimationFrame(abUpdateTilt);
+        };
+
+        aboutCard.addEventListener('mouseenter', () => {
+            abIsHovering = true;
+            abTargetScale = 1.05;
+            aboutCard.style.setProperty('--card-opacity', '1');
+            if (!abRafId) abRafId = requestAnimationFrame(abUpdateTilt);
+        });
+
+        aboutCard.addEventListener('mousemove', (e) => {
+            if (!abIsHovering) return;
+            const rect = aboutCard.getBoundingClientRect();
+            abTargetX = clamp((e.clientX - rect.left - rect.width / 2) / (rect.width / 2), -1, 1);
+            abTargetY = clamp((e.clientY - rect.top - rect.height / 2) / (rect.height / 2), -1, 1);
+
+            const px = round((e.clientX - rect.left) / rect.width * 100);
+            const py = round((e.clientY - rect.top) / rect.height * 100);
+            aboutCard.style.setProperty('--pointer-x', px + '%');
+            aboutCard.style.setProperty('--pointer-y', py + '%');
+        });
+
+        aboutCard.addEventListener('mouseleave', () => {
+            abIsHovering = false;
+            abTargetX = 0; abTargetY = 0; abTargetScale = 1;
+            aboutCard.style.setProperty('--card-opacity', '0');
+            if (!abRafId) abRafId = requestAnimationFrame(abUpdateTilt);
+        });
+    }
+
+    // Now Playing tag toggle
+    const nowPlayingTag = document.querySelector('.now-playing-tag');
+    if (nowPlayingTag) {
+        const textEl = nowPlayingTag.querySelector('.now-playing-text');
+        let naturalWidth = 0;
+
+        // Measure the natural width once
+        if (textEl) {
+            textEl.style.transition = 'none';
+            textEl.style.width = 'auto';
+            textEl.style.padding = '0.15rem 0.5rem 0.15rem 0.6rem';
+            naturalWidth = textEl.scrollWidth;
+            textEl.style.width = '0';
+            textEl.style.padding = '0';
+            textEl.offsetHeight; // force reflow
+            textEl.style.transition = '';
+        }
+
+        nowPlayingTag.addEventListener('click', () => {
+            const isOpen = nowPlayingTag.classList.toggle('is-open');
+            if (textEl) {
+                textEl.style.width = isOpen ? naturalWidth + 'px' : '0';
+            }
+        });
+    }
 });
