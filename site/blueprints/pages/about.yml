@@ -77,7 +77,7 @@ columns:
                 label: URL
                 width: 2/3
 
-  - width: 1/1
+  - width: 3/4
     sections:
       bio:
         label: Bio
@@ -90,6 +90,21 @@ columns:
             maxlength: 2000
             size: medium
             help: Your bio text. Displayed next to or below the profile card.
+
+  - width: 1/4
+    sections:
+      cv_upload:
+        label: CV / Resume
+        type: files
+        layout: cards
+        template: cv
+        empty: No CV uploaded yet.
+        help: Upload your CV/Resume as a PDF. A download button will appear in the Lore panel.
+        limit: 1
+        max: 1
+        image:
+          ratio: 1/1
+          cover: true
 
   - width: 1/2
     sections:
