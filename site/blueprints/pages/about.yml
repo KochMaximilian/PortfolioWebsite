@@ -1,284 +1,306 @@
 title: About
 
-columns:
-  - width: 1/2
-    sections:
-      personal_info:
-        label: Personal Info
-        type: fields
-        fields:
-          author_name:
-            label: Name
-            type: text
-            required: true
-            maxlength: 50
-            width: 1/2
-            placeholder: "Max Mustermann"
-            help: Your full name. Displayed in the profile card header.
-          role:
-            label: Role / Class Title
-            type: text
-            required: true
-            maxlength: 60
-            width: 1/2
-            placeholder: "Game Designer"
-            help: Your title — shown in the profile card type-line (e.g. "Systems Designer", "Level Designer").
-          location:
-            label: Location
-            type: text
-            maxlength: 50
-            width: 1/2
-            placeholder: "Vienna, Austria"
-            help: City and country. Shown on the profile card.
-          currently_playing:
-            label: Currently Playing
-            type: text
-            maxlength: 60
-            width: 1/2
-            placeholder: "Path of Exile 2"
-            help: What you're playing right now. Adds personality and freshness.
-          tagline:
-            label: Tagline
-            type: text
-            maxlength: 80
-            width: 1/1
-            placeholder: "Where others see bugs, I see features."
-            help: Short flavor text for the profile card (max 80 chars).
+tabs:
 
-  - width: 1/2
-    sections:
-      social_and_games:
-        label: Social & Games
-        type: fields
-        fields:
-          fav_games:
-            label: Favourite Games
-            type: tags
-            width: 1/1
-            help: Games that inspire your design work. Rendered as badges on the profile card.
-          social_links:
-            label: Social Links
-            type: structure
-            width: 1/1
-            help: External profiles where people can find you outside this portfolio.
+  # ─── Profile Tab ───
+  profile:
+    label: Profile
+    icon: user
+    columns:
+      - width: 1/2
+        sections:
+          personal_info:
+            label: Personal Info
+            type: fields
             fields:
-              platform:
-                type: select
-                label: Platform
-                width: 1/3
-                options:
-                  linkedin: LinkedIn
-                  artstation: ArtStation
-                  github: GitHub
-                  itch: itch.io
-                  youtube: YouTube
-              url:
-                type: url
-                label: URL
-                width: 2/3
-
-  - width: 3/4
-    sections:
-      bio:
-        label: Bio
-        type: fields
-        fields:
-          author_description:
-            label: About Me
-            type: writer
-            required: true
-            maxlength: 2000
-            size: medium
-            help: Your bio text. Displayed next to or below the profile card.
-
-  - width: 1/4
-    sections:
-      cv_upload:
-        label: CV / Resume
-        type: files
-        layout: cards
-        template: cv
-        empty: No CV uploaded yet.
-        help: Upload your CV/Resume as a PDF. A download button will appear in the Lore panel.
-        limit: 1
-        max: 1
-        image:
-          ratio: 1/1
-          cover: true
-
-  - width: 1/2
-    sections:
-      skills_left:
-        label: Design & Engine Skills
-        type: fields
-        fields:
-          game_design_skills:
-            label: Game Design Skills
-            type: tags
-            required: true
-            min: 3
-            width: 1/1
-            help: Core design competencies. Rendered as skill badges.
-            options:
-              - Game System Design
-              - Implementation
-              - Balancing
-              - Level Design
-              - Blockouts
-              - Rapid Prototyping
-              - Combat Encounter Design
-              - Scripting
-              - Design Documentation (Visual & Written)
-              - Play Testing
-              - Clear Communication
-          editors:
-            label: Game Engines & Editors
-            type: tags
-            required: true
-            min: 1
-            width: 1/1
-            help: Engines you have hands-on experience with.
-            options:
-              - Unreal Engine
-              - Unity Engine
-              - Godot
-          programming_source:
-            label: Programming & Version Control
-            type: tags
-            required: true
-            width: 1/1
-            help: Programming languages and version control tools you know.
-            options:
-              - C#
-              - Unreal Blueprints
-              - Python
-              - Web Technologies
-              - Git
-              - Perforce
-
-  - width: 1/2
-    sections:
-      skills_right:
-        label: Tools & Communication Skills
-        type: fields
-        fields:
-          software:
-            label: Tools & Software
-            type: tags
-            required: true
-            width: 1/1
-            help: Design tools, art software, and other programs you use.
-            options:
-              - Adobe Photoshop
-              - Adobe Illustrator
-              - Adobe InDesign
-              - Affinity Photo
-              - Affinity Designer
-              - Blender
-              - Playmaker Unity Plugin
-              - Ink (Narrative Scripting)
-          production:
-            label: Production & Communication
-            type: tags
-            required: true
-            width: 1/1
-            help: Project management and communication tools you work with.
-            options:
-              - MS Office 365
-              - Google Suite
-              - Miro
-              - Confluence
-              - Trello
-              - Notion
-              - Slack
-              - Discord
-          languages:
-            label: Known Languages
-            type: tags
-            required: true
-            width: 1/1
-            help: Languages you speak with proficiency level.
-            options:
-              - German (Native)
-              - English (C1)
-
-  - width: 1/1
-    sections:
-      experience_section:
-        label: Experience & Education
-        type: fields
-        fields:
-          experience:
-            label: Work Experience
-            type: structure
-            width: 1/1
-            help: Professional experience entries. Displayed as a vertical timeline.
-            fields:
-              date_range:
+              author_name:
+                label: Name
                 type: text
-                label: Date Range
-                width: 1/4
-                placeholder: "2023 – Present"
-                help: Year or date range.
-              title:
+                required: true
+                maxlength: 50
+                width: 1/2
+                placeholder: "Max Mustermann"
+                help: Your full name. Displayed in the profile card header.
+              role:
+                label: Role / Class Title
                 type: text
-                label: Job Title
-                width: 1/4
+                required: true
+                maxlength: 60
+                width: 1/2
                 placeholder: "Game Designer"
-              organization:
+                help: Your title — shown in the profile card type-line (e.g. "Systems Designer", "Level Designer").
+              location:
+                label: Location
                 type: text
-                label: Company / Studio
-                width: 1/4
-                placeholder: "Studio Name"
-              description:
-                type: textarea
-                label: Description
-                size: small
-                width: 1/4
-                maxlength: 300
-                help: Brief description of your role and contributions.
-          education:
-            label: Education
-            type: structure
-            width: 1/1
-            help: Education entries. Displayed below work experience on the timeline.
-            fields:
-              date_range:
+                maxlength: 50
+                width: 1/2
+                placeholder: "Vienna, Austria"
+                help: City and country. Shown on the profile card.
+              currently_playing:
+                label: Currently Playing
                 type: text
-                label: Date Range
-                width: 1/4
-                placeholder: "2019 – 2023"
-                help: Year or date range.
-              title:
+                maxlength: 60
+                width: 1/2
+                placeholder: "Path of Exile 2"
+                help: What you're playing right now. Adds personality and freshness.
+              tagline:
+                label: Tagline
                 type: text
-                label: Degree / Program
-                width: 1/4
-                placeholder: "BA Game Design"
-              organization:
-                type: text
-                label: Institution
-                width: 1/4
-                placeholder: "University Name"
-              description:
-                type: textarea
-                label: Description
-                size: small
-                width: 1/4
-                maxlength: 300
-                help: Brief description of the program or thesis.
+                maxlength: 80
+                width: 1/1
+                placeholder: "Where others see bugs, I see features."
+                help: Short flavor text for the profile card (max 80 chars).
+              fav_games:
+                label: Favourite Games
+                type: tags
+                width: 1/1
+                help: Games that inspire your design work. Rendered as badges on the profile card.
 
-  - width: 1/4
-    sections:
-      personal_image:
-        label: Profile Photo
-        type: files
-        layout: cards
-        empty: No image uploaded yet.
-        template: personal-img
-        help: Your profile photo. Used as the card art in the TCG-style profile card. Max 1 image.
-        limit: 1
-        min: 1
-        max: 1
-        image:
-          ratio: 1/1
-          cover: true
+      - width: 1/2
+        sections:
+          personal_image:
+            label: Profile Photo
+            type: files
+            layout: cards
+            empty: No image uploaded yet.
+            template: personal-img
+            help: Your profile photo. Used as the card art in the TCG-style profile card. Max 1 image.
+            limit: 1
+            min: 1
+            max: 1
+            image:
+              ratio: 1/1
+              cover: true
+          cv_upload:
+            label: CV / Resume
+            type: files
+            layout: cards
+            template: cv
+            empty: No CV uploaded yet.
+            help: Upload your CV/Resume as a PDF. A download button will appear in the Lore panel.
+            limit: 1
+            max: 1
+            image:
+              ratio: 1/1
+              cover: true
+
+      - width: 2/3
+        sections:
+          bio:
+            label: Bio
+            type: fields
+            fields:
+              author_description:
+                label: About Me
+                type: writer
+                required: true
+                maxlength: 2000
+                size: medium
+                help: Your bio text. Displayed next to or below the profile card.
+
+      - width: 1/3
+        sections:
+          social:
+            label: Social Links
+            type: fields
+            fields:
+              social_links:
+                label: Social Links
+                type: structure
+                width: 1/1
+                help: External profiles where people can find you outside this portfolio.
+                fields:
+                  platform:
+                    type: text
+                    label: Platform Name
+                    width: 1/4
+                    placeholder: "LinkedIn"
+                    help: Display name for the link (used as aria-label).
+                  icon:
+                    type: text
+                    label: Font Awesome Class
+                    width: 1/3
+                    placeholder: "fa-brands fa-linkedin"
+                    help: "FA icon class. Common: fa-brands fa-linkedin, fa-brands fa-artstation, fa-brands fa-square-github, fa-brands fa-itch-io, fa-brands fa-square-youtube"
+                  url:
+                    type: url
+                    label: URL
+                    width: 5/12
+
+  # ─── Skills Tab ───
+  skills:
+    label: Skills
+    icon: star
+    columns:
+      - width: 1/2
+        sections:
+          skills_left:
+            label: Design & Engine Skills
+            type: fields
+            fields:
+              game_design_skills:
+                label: Game Design Skills
+                type: tags
+                required: true
+                min: 3
+                width: 1/1
+                help: Core design competencies. Rendered as skill badges.
+                options:
+                  - Game System Design
+                  - Implementation
+                  - Balancing
+                  - Level Design
+                  - Blockouts
+                  - Rapid Prototyping
+                  - Combat Encounter Design
+                  - Scripting
+                  - Design Documentation (Visual & Written)
+                  - Play Testing
+                  - Clear Communication
+              editors:
+                label: Game Engines & Editors
+                type: tags
+                required: true
+                min: 1
+                width: 1/1
+                help: Engines you have hands-on experience with.
+                options:
+                  - Unreal Engine
+                  - Unity Engine
+                  - Godot
+              programming_source:
+                label: Programming & Version Control
+                type: tags
+                required: true
+                width: 1/1
+                help: Programming languages and version control tools you know.
+                options:
+                  - C#
+                  - Unreal Blueprints
+                  - Python
+                  - Web Technologies
+                  - Git
+                  - Perforce
+
+      - width: 1/2
+        sections:
+          skills_right:
+            label: Tools & Communication Skills
+            type: fields
+            fields:
+              software:
+                label: Tools & Software
+                type: tags
+                required: true
+                width: 1/1
+                help: Design tools, art software, and other programs you use.
+                options:
+                  - Adobe Photoshop
+                  - Adobe Illustrator
+                  - Adobe InDesign
+                  - Affinity Photo
+                  - Affinity Designer
+                  - Blender
+                  - Playmaker Unity Plugin
+                  - Ink (Narrative Scripting)
+              production:
+                label: Production & Communication
+                type: tags
+                required: true
+                width: 1/1
+                help: Project management and communication tools you work with.
+                options:
+                  - MS Office 365
+                  - Google Suite
+                  - Miro
+                  - Confluence
+                  - Trello
+                  - Notion
+                  - Slack
+                  - Discord
+              languages:
+                label: Known Languages
+                type: tags
+                required: true
+                width: 1/1
+                help: Languages you speak with proficiency level.
+                options:
+                  - German (Native)
+                  - English (C1)
+
+  # ─── Experience Tab ───
+  experience:
+    label: Experience
+    icon: calendar
+    columns:
+      - width: 1/2
+        sections:
+          work:
+            label: Work Experience
+            type: fields
+            fields:
+              experience:
+                label: Work Experience
+                type: structure
+                width: 1/1
+                help: Professional experience entries. Displayed as a vertical timeline.
+                fields:
+                  date_range:
+                    type: text
+                    label: Date Range
+                    width: 1/4
+                    placeholder: "2023 – Present"
+                    help: Year or date range.
+                  title:
+                    type: text
+                    label: Job Title
+                    width: 1/4
+                    placeholder: "Game Designer"
+                  organization:
+                    type: text
+                    label: Company / Studio
+                    width: 1/4
+                    placeholder: "Studio Name"
+                  description:
+                    type: textarea
+                    label: Description
+                    size: small
+                    width: 1/4
+                    maxlength: 300
+                    help: Brief description of your role and contributions.
+
+      - width: 1/2
+        sections:
+          edu:
+            label: Education
+            type: fields
+            fields:
+              education:
+                label: Education
+                type: structure
+                width: 1/1
+                help: Education entries. Displayed below work experience on the timeline.
+                fields:
+                  date_range:
+                    type: text
+                    label: Date Range
+                    width: 1/4
+                    placeholder: "2019 – 2023"
+                    help: Year or date range.
+                  title:
+                    type: text
+                    label: Degree / Program
+                    width: 1/4
+                    placeholder: "BA Game Design"
+                  organization:
+                    type: text
+                    label: Institution
+                    width: 1/4
+                    placeholder: "University Name"
+                  description:
+                    type: textarea
+                    label: Description
+                    size: small
+                    width: 1/4
+                    maxlength: 300
+                    help: Brief description of the program or thesis.

@@ -14,7 +14,7 @@ Location: Barcelona, SPAIN
 
 ----
 
-Currently-playing: Path of Exile
+Currently-playing: Path of Exile 2
 
 ----
 
@@ -22,7 +22,7 @@ Tagline: Where others see chaos, I see opportunity
 
 ----
 
-Fav-games: Magic the Gathering, Pathf of Exile 2, Super Mario Galaxy
+Fav-games: Magic the Gathering, Diablo 2, Super Mario Galaxy, Wario Land 4, World of Warcraft, Bioshock
 
 ----
 
@@ -30,16 +30,20 @@ Social-links:
 
 - 
   platform: linkedin
+  icon: fa-brands fa-linkedin
   url: >
     https://www.linkedin.com/in/maximiliankochlinked/
 - 
   platform: github
+  icon: fa-brands fa-square-github
   url: https://github.com/KochMaximilian
 - 
   platform: itch
+  icon: fa-brands fa-itch-io
   url: https://fat-fingers.itch.io/
 - 
   platform: youtube
+  icon: fa-brands fa-square-youtube
   url: https://www.youtube.com/@KochMaximilian
 
 ----
