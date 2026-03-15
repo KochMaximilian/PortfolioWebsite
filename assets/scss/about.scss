@@ -16,13 +16,27 @@
   --shadow-y: 8px;
   --pointer-x: 50%;
   --pointer-y: 50%;
-  --glare-opacity: 0;
+  --card-opacity: 0;
   position: relative;
   display: flex;
   flex-direction: column;
-  border-radius: $radius-medium;
-  border: $border-md solid $black-dark;
-  box-shadow: var(--shadow-x) var(--shadow-y) 20px rgba(0, 0, 0, 0.3), $solid-shadow-md;
+  border-radius: $radius-large;
+  border: 2px solid rgba($black-light, 0.3);
+  background: var(--site-pattern, url('/assets/img/pattern.png')) repeat, linear-gradient(
+    45deg,
+    $purple-light 0%,
+    $purple-light 20%,
+    mix($purple-light, $black-dark, 70%) 45%,
+    mix($purple-light, $black-dark, 30%) 75%,
+    $black-dark 100%
+  );
+  background-size: 100%;
+  background-blend-mode: difference;
+  backface-visibility: hidden;
+  filter: contrast(1.05) brightness(1.02);
+  outline: 2px solid rgba($gray-dark, 0.4);
+  outline-offset: -4px;
+  box-shadow: var(--shadow-x) var(--shadow-y) 25px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   transform: perspective(800px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) scale(var(--card-scale));
   transform-style: preserve-3d;
@@ -30,12 +44,18 @@
 }
 
 .about-text-wrapper {
+  display: flex;
+  flex-direction: column;
   border-radius: $radius-medium;
   border: $border-md solid $black-dark;
   box-shadow: $solid-shadow-md;
-  background: $white;
+  background: $black-dark;
   overflow: hidden;
 }
+
+body.variant-piece .about-image { --site-pattern: url('/assets/img/pattern_piece.png'); }
+body.variant-shaka .about-image { --site-pattern: url('/assets/img/pattern_shaka.png'); }
+body.variant-ok .about-image { --site-pattern: url('/assets/img/pattern_ok.png'); }
 
 /* Card Art Wrapper (image + focus bar) */
 .about-card-art {
@@ -148,8 +168,8 @@
 }
 
 .about-image .card-glare {
-  border-radius: $radius-medium;
-  opacity: calc(var(--glare-opacity) * 0.5);
+  border-radius: $radius-large;
+  opacity: calc(var(--card-opacity) * 0.5);
 }
 
 .about-image img {
@@ -157,6 +177,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s $easing-pop;
 }
 
 /* About Card Header */
@@ -165,14 +186,9 @@
   align-items: center;
   justify-content: center;
   padding: 0.4rem 0.8rem;
-  background: linear-gradient(
-    45deg,
-    mix($purple-light, $black-dark, 30%) 0%,
-    $black-dark 50%,
-    mix($purple-light, $black-dark, 20%) 100%
-  );
-  border-bottom: $border-md solid $black-dark;
+  border-bottom: $border-xsm solid $black-dark;
   text-align: center;
+  transition: background 0.3s $easing-pop;
 }
 
 .about-card-name {
@@ -182,6 +198,7 @@
   color: $white;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  transition: color 0.3s $easing-pop;
 }
 
 /* About Card Focus Bar (fav games overlay) */
@@ -235,6 +252,7 @@
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
+  transition: transform 0.3s $easing-pop;
 }
 
 /* About Card Type Line */
@@ -244,7 +262,7 @@
   justify-content: center;
   padding: 0.5rem 0.6rem;
   background: $white;
-  border-top: $border-md solid $black-dark;
+  border-top: $border-xsm solid $black-dark;
   gap: space(2);
 }
 
@@ -281,8 +299,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.2rem 0.5rem;
-  background: linear-gradient(135deg, $black-dark 0%, $black-medium 100%);
-  border-top: $border-md solid $black-dark;
+  border-top: $border-xsm solid $black-dark;
 }
 
 .about-card-footer-left,
@@ -293,6 +310,7 @@
   color: rgba($white, 0.5);
   text-transform: uppercase;
   letter-spacing: 0.03em;
+  transition: color 0.3s $easing-pop;
 }
 
 .about-card-footer-right {
@@ -300,15 +318,164 @@
   letter-spacing: 0.05em;
 }
 
-.about-text {
+/* About Profile Panel (Character Sheet) */
+.about-profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.8rem;
+  background: linear-gradient(
+    45deg,
+    mix($purple-light, $black-dark, 30%) 0%,
+    $black-dark 50%,
+    mix($purple-light, $black-dark, 20%) 100%
+  );
+  border-bottom: $border-md solid $black-dark;
+
+  span {
+    font-family: $font-barlow;
+    font-weight: $weight-black;
+    font-size: font-size(lg);
+    color: $white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+.about-profile-tagline {
+  padding: 0.6rem 1.5rem;
+  border-bottom: $border-md solid $black-dark;
+  background: $white;
+  text-align: center;
+}
+
+.tagline-text {
+  font-family: $font-poppins;
+  font-style: italic;
+  font-size: font-size(sm);
+  color: $gray-medium;
+  line-height: 1.4;
+}
+
+.about-profile-body {
   padding: 1.5rem;
   overflow-y: auto;
   max-height: 500px;
+  flex: 1;
+  background: $white;
+
+  p {
+    padding-bottom: 0.5rem;
+    line-height: 1.6;
+  }
 }
 
-.about-text p {
-  padding-bottom: 0.5rem;
-  line-height: 1.6;
+.about-profile-cv {
+  display: flex;
+  justify-content: center;
+  padding: 0 1.5rem 1.5rem;
+  background: $white;
+}
+
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: space(2);
+  padding: 0.6rem 1.4rem;
+  font-family: $font-barlow;
+  font-weight: $weight-bold;
+  font-size: font-size(md);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: $black-dark;
+  background: $white;
+  border: $border-xs solid $black-dark;
+  border-radius: $radius-small;
+  box-shadow: $solid-shadow-xs;
+  cursor: pointer;
+  transition: transform 0.2s $easing-bounce,
+              background-color 0.2s $easing-bounce,
+              box-shadow 0.2s $easing-bounce,
+              color 0.2s $easing-bounce;
+
+  i {
+    font-size: font-size(lg);
+  }
+
+  &:hover {
+    background: $yellow-dark;
+    color: $black-dark;
+    transform: scale(0.95);
+    box-shadow: 2px 2px 0 $black-dark;
+  }
+
+  &:active {
+    transform: scale(0.9);
+    box-shadow: 1px 1px 0 $black-dark;
+  }
+}
+
+.about-profile-hotbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: space(4);
+  padding: 0.8rem 1rem;
+  border-top: $border-md solid $black-dark;
+  background: $white;
+}
+
+.hotbar-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $black-dark;
+  font-size: font-size(2xl);
+  text-decoration: none;
+  transition: transform 0.2s $easing-bounce,
+              color 0.2s $easing-bounce;
+
+  &:hover {
+    color: $yellow-dark;
+    transform: scale(1.2);
+    animation: icon-bounce 0.4s $easing-pop;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+/* ============================================
+   HOVER EFFECTS - All Devices
+   ============================================ */
+.about-image:hover img {
+  transform: scale(1.08);
+}
+
+.about-image:hover .about-card-header {
+  background: linear-gradient(to right, rgba($purple-light, 0.6) 0%, transparent 60%);
+  background-size: 100% 100%;
+  animation: header-slide-in 1s ease-out forwards;
+}
+
+@keyframes header-slide-in {
+  0% { background-position: -100% 0; }
+  100% { background-position: 0% 0; }
+}
+
+.about-image:hover .about-card-name {
+  color: $white;
+}
+
+.about-image:hover .about-card-keyword {
+  transform: translateY(-1.5px);
+}
+
+.about-image:hover .about-card-footer-left,
+.about-image:hover .about-card-footer-right {
+  color: rgba($white, 0.85);
 }
 
 /* Responsive Media Queries - Desktop First */
@@ -330,7 +497,7 @@
     width: 450px;
   }
   
-  .about-text {
+  .about-profile-body {
     max-height: 500px;
   }
 }
@@ -340,8 +507,8 @@
   .about-image {
     width: 350px;
   }
-  
-  .about-text {
+
+  .about-profile-body {
     max-height: 450px;
   }
 }
@@ -351,14 +518,19 @@
   .about-image {
     width: 300px;
   }
-  
-  .about-text {
+
+  .about-profile-body {
     max-height: 400px;
     padding: 1.25rem;
   }
+
+  .about-profile-header span {
+    font-size: font-size(md);
+  }
+
 }
 
-/* Large Mobile / Small Tablet */
+/* Large Mobile / Small Tablet — $border-sm, $solid-shadow-sm */
 @media (max-width: $tablet) {
   .about-content {
     grid-template-columns: 1fr;
@@ -371,31 +543,137 @@
     max-height: 500px;
   }
 
-  .about-text {
+  .about-profile-body {
     max-height: none;
     overflow-y: visible;
   }
+
+  // Lore panel — $border-sm
+  .about-text-wrapper {
+    border-width: $border-sm;
+    box-shadow: $solid-shadow-sm;
+  }
+
+  .about-profile-header {
+    border-bottom-width: $border-sm;
+
+  }
+
+  .about-profile-tagline {
+    border-bottom-width: $border-sm;
+  }
+
+  .about-profile-hotbar {
+    border-top-width: $border-sm;
+  }
+
+  .cv-download-btn {
+    border-width: $border-xs;
+    box-shadow: $solid-shadow-xs;
+  }
+
 }
 
-/* Medium Mobile */
+/* Medium Mobile — $border-xs, $solid-shadow-xs */
 @media (max-width: $mobile-lg) {
-  .about-text {
+  .about-profile-body {
     padding: 1.25rem;
   }
-  
+
   .about-image {
     max-height: 450px;
   }
+
+  .about-text-wrapper {
+    border-width: $border-xs;
+    box-shadow: $solid-shadow-xs;
+  }
+
+  .about-profile-header {
+    border-bottom-width: $border-xs;
+
+  }
+
+  .about-profile-tagline {
+    border-bottom-width: $border-xs;
+  }
+
+  .about-profile-hotbar {
+    border-top-width: $border-xs;
+  }
+
+  .cv-download-btn {
+    border-width: $border-xsm;
+    box-shadow: $solid-shadow-xs;
+    font-size: font-size(sm);
+  }
+
+  .about-profile-cv {
+    padding: 0 1.25rem 1.25rem;
+  }
+
+  .hotbar-slot {
+    font-size: font-size(xl);
+  }
 }
 
-/* Small Mobile */
+/* Small Mobile — $border-xsm, $solid-shadow-xs */
 @media (max-width: $mobile-sm) {
-  .about-text {
+  .about-profile-body {
     padding: space(4);
   }
-  
+
   .about-image {
     max-height: 400px;
+  }
+
+  .about-text-wrapper {
+    border-width: $border-xsm;
+    box-shadow: $solid-shadow-xs;
+  }
+
+  .about-profile-header {
+    border-bottom-width: $border-xsm;
+
+    padding: 0.3rem 0.6rem;
+
+    span {
+      font-size: font-size(sm);
+    }
+  }
+
+  .about-profile-tagline {
+    border-bottom-width: $border-xsm;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .about-profile-hotbar {
+    border-top-width: $border-xsm;
+    gap: space(3);
+    padding: 0.4rem 0.6rem;
+  }
+
+  .cv-download-btn {
+    border-width: $border-xsm;
+    font-size: font-size(xs);
+    padding: 0.5rem 1rem;
+    box-shadow: 2px 2px 0 $black-dark;
+
+    i {
+      font-size: font-size(sm);
+    }
+  }
+
+  .about-profile-cv {
+    padding: 0 space(4) space(4);
+  }
+
+  .hotbar-slot {
+    font-size: font-size(lg);
+  }
+
+  .tagline-text {
+    font-size: font-size(xs);
   }
 }
 
@@ -403,6 +681,96 @@
 @media (max-width: $mobile-xs) {
   .about-image {
     max-height: 350px;
+  }
+}
+
+/* ============================================
+   DESKTOP 3D TILT + GLARE + SHIMMER
+   ============================================ */
+
+@keyframes about-shimmer-sweep {
+  0% { transform: rotate(0deg) translateX(-100%); }
+  100% { transform: rotate(0deg) translateX(100%); }
+}
+
+@keyframes about-idle-shimmer {
+  0% { transform: translateX(-100%); opacity: 0; }
+  15% { opacity: 0; }
+  25% { opacity: 0.25; }
+  35% { opacity: 0; }
+  50% { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes about-card-float {
+  0%, 100% {
+    transform: perspective(800px) translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(800px) translateY(-4px) rotateX(1deg) rotateY(-1deg);
+  }
+}
+
+@media (min-width: $desktop) and (hover: hover) and (pointer: fine) {
+
+  .about-image {
+    animation: about-card-float 4s ease-in-out infinite;
+  }
+
+  .about-image:hover {
+    animation: none;
+    transform: perspective(800px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) scale(var(--card-scale));
+  }
+
+  // Pointer-following shine on hover
+  .about-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at var(--pointer-x) var(--pointer-y),
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.15) 25%,
+      transparent 50%
+    );
+    opacity: var(--card-opacity);
+    pointer-events: none;
+    z-index: 15;
+    border-radius: $radius-large;
+    transition: opacity 0.3s ease-out;
+    mix-blend-mode: overlay;
+  }
+
+  // Shimmer sweep layer — idle loop + stronger on hover
+  .about-image::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+      105deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.4) 40%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0.4) 60%,
+      transparent 80%
+    );
+    transform: rotate(0deg) translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 16;
+    animation: about-idle-shimmer 6s ease-in-out infinite;
+  }
+
+  // Hover: stronger single sweep
+  .about-image:hover::after {
+    animation: about-shimmer-sweep 0.8s ease-out forwards;
+    opacity: 1;
   }
 }
 

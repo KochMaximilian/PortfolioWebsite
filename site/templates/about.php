@@ -83,13 +83,46 @@
                     <div class="card-glare"></div>
                     <div class="about-card-footer">
                         <span class="about-card-footer-left">1st Edition</span>
-                        <span class="about-card-footer-right">MK-GD-<?= date('Y') ?></span>
+                        <span class="about-card-footer-right">MK-PORTFOLIO-<?= date('Y') ?></span>
                     </div>
                 </div>
                 <div class="about-text-wrapper">
-                    <div class="about-text">
+                    <div class="about-profile-header">
+                        <span>Lore</span>
+                    </div>
+                    <?php if ($page->tagline()->isNotEmpty()): ?>
+                    <div class="about-profile-tagline">
+                        <span class="tagline-text">&ldquo;<?= $page->tagline() ?>&rdquo;</span>
+                    </div>
+                    <?php endif; ?>
+                    <div class="about-profile-body">
                         <?= $page->author_description()->kt() ?>
                     </div>
+                    <?php $cv = $page->files()->template('cv')->first(); ?>
+                    <div class="about-profile-cv">
+                        <a class="cv-download-btn" <?php if ($cv): ?>href="<?= $cv->url() ?>" download<?php endif; ?>>
+                            <i class="fa-solid fa-file-arrow-down"></i>
+                            <span>Download CV</span>
+                        </a>
+                    </div>
+                    <?php
+                        $socialIcons = [
+                            'linkedin'   => 'fa-brands fa-linkedin',
+                            'artstation' => 'fa-brands fa-artstation',
+                            'github'     => 'fa-brands fa-square-github',
+                            'itch'       => 'fa-brands fa-itch-io',
+                            'youtube'    => 'fa-brands fa-square-youtube',
+                        ];
+                    ?>
+                    <?php if ($page->social_links()->toStructure()->isNotEmpty()): ?>
+                    <div class="about-profile-hotbar">
+                        <?php foreach ($page->social_links()->toStructure() as $link): ?>
+                            <a class="hotbar-slot" href="<?= $link->url() ?>" target="_blank" rel="noopener" aria-label="<?= $link->platform() ?>">
+                                <i class="<?= $socialIcons[$link->platform()->value()] ?? 'fa-solid fa-link' ?>"></i>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php endif; ?>
                 </div>
             </section>
 
