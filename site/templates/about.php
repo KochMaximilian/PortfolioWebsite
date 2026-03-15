@@ -100,25 +100,16 @@
                     </div>
                     <?php $cv = $page->files()->template('cv')->first(); ?>
                     <div class="about-profile-cv">
-                        <a class="cv-download-btn" <?php if ($cv): ?>href="<?= $cv->url() ?>" download<?php endif; ?>>
+                        <a class="cv-download-btn" <?php if ($cv): ?>href="<?= url('download/cv') ?>" download<?php endif; ?>>
                             <i class="fa-solid fa-file-arrow-down"></i>
                             <span>Download CV</span>
                         </a>
                     </div>
-                    <?php
-                        $socialIcons = [
-                            'linkedin'   => 'fa-brands fa-linkedin',
-                            'artstation' => 'fa-brands fa-artstation',
-                            'github'     => 'fa-brands fa-square-github',
-                            'itch'       => 'fa-brands fa-itch-io',
-                            'youtube'    => 'fa-brands fa-square-youtube',
-                        ];
-                    ?>
                     <?php if ($page->social_links()->toStructure()->isNotEmpty()): ?>
                     <div class="about-profile-hotbar">
                         <?php foreach ($page->social_links()->toStructure() as $link): ?>
                             <a class="hotbar-slot" href="<?= $link->url() ?>" target="_blank" rel="noopener" aria-label="<?= $link->platform() ?>">
-                                <i class="<?= $socialIcons[$link->platform()->value()] ?? 'fa-solid fa-link' ?>"></i>
+                                <i class="<?= $link->icon()->isNotEmpty() ? $link->icon()->value() : 'fa-solid fa-link' ?>"></i>
                             </a>
                         <?php endforeach; ?>
                     </div>

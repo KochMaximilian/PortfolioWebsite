@@ -292,4 +292,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Randomize idle shimmer delays so cards glint organically
+    document.querySelectorAll('.card-frame').forEach(frame => {
+        const delay = -(Math.random() * 10).toFixed(2);
+        frame.style.setProperty('--shimmer-delay', delay + 's');
+    });
 });
