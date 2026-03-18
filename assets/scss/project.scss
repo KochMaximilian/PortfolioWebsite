@@ -16,6 +16,11 @@
   background: $white;
 }
 
+// Engine pattern textures — same as project cards
+.engine-unity { --engine-pattern: url('/assets/img/holo/pattern_unity.png'); }
+.engine-unreal { --engine-pattern: url('/assets/img/holo/pattern_unreal.png'); }
+.engine-godot { --engine-pattern: url('/assets/img/holo/pattern_godot.png'); }
+
 // ============================================
 // HERO
 // ============================================
@@ -49,7 +54,17 @@
 
 .stat-name-plate {
   display: flex; justify-content: space-between; align-items: center;
-  padding: space(3) space(5); background: $black-dark;
+  padding: space(3) space(5);
+  background: var(--engine-pattern, none) repeat, linear-gradient(
+    45deg,
+    $purple-light 0%,
+    $purple-light 20%,
+    mix($purple-light, $black-dark, 70%) 45%,
+    mix($purple-light, $black-dark, 30%) 75%,
+    $black-dark 100%
+  );
+  background-size: 100%;
+  background-blend-mode: difference;
 }
 
 .stat-name-plate-text {
