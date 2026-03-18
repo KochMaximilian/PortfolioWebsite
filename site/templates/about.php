@@ -11,6 +11,16 @@
                         <span class="about-card-name"><?= $page->author_name() ?></span>
                     </div>
                     <div class="about-card-art">
+                        <?php if ($page->languages()->isNotEmpty()): ?>
+                        <div class="about-card-lang-tags">
+                            <?php foreach ($page->languages()->split(',') as $lang):
+                                $lang = trim($lang);
+                                $name = preg_replace('/\s*\(.*?\)$/', '', $lang);
+                            ?>
+                                <span class="about-card-lang-tag"><?= $name ?></span>
+                            <?php endforeach ?>
+                        </div>
+                        <?php endif; ?>
                         <?php if ($page->currently_playing()->isNotEmpty()): ?>
                         <button class="now-playing-tag" type="button" aria-label="Currently playing">
                             <span class="now-playing-text">
@@ -118,114 +128,30 @@
             </section>
 
 
-
-
-            <!-- Skills Section — Character Sheet -->
-            <section class="skills-sheet">
-                <div class="skills-sheet__banner">
-                    <h2 class="skills-sheet__banner-title">Skills</h2>
-                </div>
-                <div class="skills-sheet__body">
-
-                    <!-- Left Sidebar — Game Design -->
-                    <div class="skills-sheet__sidebar">
-                        <div class="skills-sheet__cat-header">
-                            <span class="skills-sheet__icon skills-sheet__icon--lg" aria-hidden="true"></span>
-                            <h3 class="skills-sheet__cat-title skills-sheet__cat-title--lg">Game Design</h3>
-                        </div>
-                        <div class="skills-sheet__tags skills-sheet__tags--lg">
-                            <?php foreach ($page->game_design_skills()->split(',') as $skill): ?>
-                                <span class="skills-sheet__tag skills-sheet__tag--lg"><?= trim($skill) ?></span>
+            <!-- Skills — Skill Tree -->
+            <section class="skills-tree">
+                <?php
+                $categories = [
+                    ['label' => 'Game Design', 'field' => $page->game_design_skills(), 'mod' => 'gd',    'icon' => 'fa-solid fa-dice-d20'],
+                    ['label' => 'Engines',     'field' => $page->editors(),             'mod' => 'eng',   'icon' => 'fa-solid fa-gear'],
+                    ['label' => 'Programming', 'field' => $page->programming_source(),  'mod' => 'prg',   'icon' => 'fa-solid fa-code'],
+                    ['label' => 'Tools',       'field' => $page->software(),            'mod' => 'tools', 'icon' => 'fa-solid fa-screwdriver-wrench'],
+                    ['label' => 'Production',  'field' => $page->production(),          'mod' => 'prod',  'icon' => 'fa-solid fa-list-check'],
+                ];
+                ?>
+                <div class="skills-tree__branches">
+                    <h2 class="skills-tree__heading">Proficiencies</h2>
+                    <?php foreach ($categories as $cat): ?>
+                    <div class="skills-tree__branch skills-tree__branch--<?= $cat['mod'] ?>">
+                        <div class="skills-tree__root"><i class="<?= $cat['icon'] ?>"></i> <?= $cat['label'] ?></div>
+                        <div class="skills-tree__connector"></div>
+                        <div class="skills-tree__nodes">
+                            <?php foreach ($cat['field']->split(',') as $skill): ?>
+                            <span class="skills-tree__node"><?= trim($skill) ?></span>
                             <?php endforeach ?>
                         </div>
                     </div>
-
-                    <!-- Right Side — Other Categories -->
-                    <div class="skills-sheet__main">
-
-                        <!-- Row 1: Engines + Programming -->
-                        <div class="skills-sheet__row">
-                            <div class="skills-sheet__panel">
-                                <div class="skills-sheet__panel-header">
-                                    <span class="skills-sheet__icon skills-sheet__icon--sm" aria-hidden="true"></span>
-                                    <h3 class="skills-sheet__cat-title skills-sheet__cat-title--sm">Engines</h3>
-                                </div>
-                                <div class="skills-sheet__tags">
-                                    <?php foreach ($page->editors()->split(',') as $engine): ?>
-                                        <span class="skills-sheet__tag"><?= trim($engine) ?></span>
-                                    <?php endforeach ?>
-                                </div>
-                            </div>
-                            <div class="skills-sheet__panel">
-                                <div class="skills-sheet__panel-header">
-                                    <span class="skills-sheet__icon skills-sheet__icon--sm" aria-hidden="true"></span>
-                                    <h3 class="skills-sheet__cat-title skills-sheet__cat-title--sm">Programming</h3>
-                                </div>
-                                <div class="skills-sheet__tags">
-                                    <?php foreach ($page->programming_source()->split(',') as $lang): ?>
-                                        <span class="skills-sheet__tag"><?= trim($lang) ?></span>
-                                    <?php endforeach ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Row 2: Tools + Production -->
-                        <div class="skills-sheet__row">
-                            <div class="skills-sheet__panel">
-                                <div class="skills-sheet__panel-header">
-                                    <span class="skills-sheet__icon skills-sheet__icon--sm" aria-hidden="true"></span>
-                                    <h3 class="skills-sheet__cat-title skills-sheet__cat-title--sm">Tools</h3>
-                                </div>
-                                <div class="skills-sheet__tags">
-                                    <?php foreach ($page->software()->split(',') as $tool): ?>
-                                        <span class="skills-sheet__tag"><?= trim($tool) ?></span>
-                                    <?php endforeach ?>
-                                </div>
-                            </div>
-                            <div class="skills-sheet__panel">
-                                <div class="skills-sheet__panel-header">
-                                    <span class="skills-sheet__icon skills-sheet__icon--sm" aria-hidden="true"></span>
-                                    <h3 class="skills-sheet__cat-title skills-sheet__cat-title--sm">Production</h3>
-                                </div>
-                                <div class="skills-sheet__tags">
-                                    <?php foreach ($page->production()->split(',') as $item): ?>
-                                        <span class="skills-sheet__tag"><?= trim($item) ?></span>
-                                    <?php endforeach ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Row 3: Languages Strip -->
-                        <div class="skills-sheet__lang-strip">
-                            <span class="skills-sheet__icon skills-sheet__icon--xs" aria-hidden="true"></span>
-                            <span class="skills-sheet__lang-title">Languages</span>
-                            <div class="skills-sheet__lang-entries">
-                                <?php $langs = $page->languages()->split(','); ?>
-                                <?php foreach ($langs as $i => $lang):
-                                    $lang = trim($lang);
-                                    // Parse "German (Native)" → name + level
-                                    if (preg_match('/^(.+?)\s*\((.+?)\)$/', $lang, $m)):
-                                        $name = trim($m[1]);
-                                        $level = trim($m[2]);
-                                    else:
-                                        $name = $lang;
-                                        $level = '';
-                                    endif;
-                                ?>
-                                    <?php if ($i > 0): ?>
-                                        <span class="skills-sheet__lang-sep"></span>
-                                    <?php endif; ?>
-                                    <span class="skills-sheet__lang-entry">
-                                        <span class="skills-sheet__lang-name"><?= $name ?></span>
-                                        <?php if ($level): ?>
-                                            <span class="skills-sheet__lang-level"><?= $level ?></span>
-                                        <?php endif; ?>
-                                    </span>
-                                <?php endforeach ?>
-                            </div>
-                        </div>
-
-                    </div>
+                    <?php endforeach ?>
                 </div>
             </section>
 

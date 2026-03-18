@@ -26,6 +26,10 @@ Fav-games: Magic the Gathering, Diablo 2, Super Mario Galaxy, Wario Land 4, Worl
 
 ----
 
+Author-description: <p>Since childhood, video games have been my greatest passion. Growing up in a small Austrian town, I was drawn to their virtual worlds. While classic games like Donkey Kong Country initially caught my attention, it was World of Warcraft: The Burning Crusade that truly captivated me with its open world and community. </p><p>My fascination with game design began as I examined the mechanics of Pocky &amp; Rocky (1993) and went more in-depth as I explored level design and narrative in games like Fallout: New Vegas and Dishonored. </p><p>Having a background in computer science gave me a systematic way of learning about game mechanics. This allows me to be able to summarize design concepts and learn new tools easily. My interest areas are working on gameplay mechanics and level design to create engaging experiences.</p>
+
+----
+
 Social-links:
 
 - 
@@ -48,10 +52,6 @@ Social-links:
 
 ----
 
-Author-description: <p>Since childhood, video games have been my greatest passion. Growing up in a small Austrian town, I was drawn to their virtual worlds. While classic games like Donkey Kong Country initially caught my attention, it was World of Warcraft: The Burning Crusade that truly captivated me with its open world and community. </p><p>My fascination with game design began as I examined the mechanics of Pocky &amp; Rocky (1993) and went more in-depth as I explored level design and narrative in games like Fallout: New Vegas and Dishonored. </p><p>Having a background in computer science gave me a systematic way of learning about game mechanics. This allows me to be able to summarize design concepts and learn new tools easily. My interest areas are working on gameplay mechanics and level design to create engaging experiences.</p>
-
-----
-
 Game-design-skills: Game System Design, Implementation, Level Design, Blockouts, Scripting, Rapid Prototyping, Combat Encounter Design, Balancing, Play Testing, Design Documentation (Visual & Written), Clear Communication
 
 ----
@@ -64,11 +64,11 @@ Programming-source: Unreal Blueprints, C#, Python, Web Technologies, Git, Perfor
 
 ----
 
-Software: Adobe Photoshop, Adobe Illustrator, Affinity Photo, Affinity Designer, Blender, Ink (Narrative Scripting), Playmaker Unity Plugin
+Software: Playmaker Unity Plugin, Blender, Affinity, Ink (Narrative Scripting), Adobe Photoshop
 
 ----
 
-Production: MS Office 365, Google Suite, Miro, Confluence, Trello, Notion, Slack, Discord
+Production: MS Office 365, Google Suite, Miro, Confluence, Trello, Notion, Slack
 
 ----
 

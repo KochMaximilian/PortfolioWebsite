@@ -351,9 +351,11 @@
     background: $purple-light;
     border: 1px solid $black-dark;
     border-radius: $radius-xs;
-    transition: background 0.2s $easing-pop, 
+    transition: background 0.2s $easing-pop,
                 transform 0.25s $easing-pop,
                 box-shadow 0.25s $easing-pop;
+
+
 }
 
 .card-year {

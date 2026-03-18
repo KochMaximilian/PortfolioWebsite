@@ -42,7 +42,15 @@
             ];
             ?>
 
-            <section class="project-main-container">
+            <?php
+            $enginePatternMap = [
+                'Unity' => 'unity',
+                'Unreal Engine 5' => 'unreal',
+                'Godot' => 'godot',
+            ];
+            $engineSlug = $enginePatternMap[$page->engine()->value()] ?? 'unity';
+            ?>
+            <section class="project-main-container engine-<?= $engineSlug ?>">
 
                 <!-- HERO -->
                 <div class="project-hero">
