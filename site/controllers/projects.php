@@ -4,7 +4,7 @@ return function ($page) {
 
 
     $filterBy = get('filter');
-    $unfilterd = collection('projects')->sortBy('year', 'desc');
+    $unfilterd = collection('projects')->sortBy('featured', 'desc', 'year', 'desc');
 
     $projects = $unfilterd
         ->when($filterBy, function ($filterBy) {
