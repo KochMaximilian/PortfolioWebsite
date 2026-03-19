@@ -1,562 +1,678 @@
 title: Project
 
-columns:
-  - width: 1/2
-    sections:
-      project_info:
-        label: Content & Media
-        type: fields
-        fields:
-          name:
-            label: Game Title
-            required: true
-            type: text
-            maxlength: 50
-            width: 5/6
-          featured:
-            label: Featured
-            type: toggle
-            text:
-              - "No"
-              - "Yes"
-            default: no
-            width: 1/6
-            help: Foil card
-          flavortext:
-            label: Card Flavor Text
-            type: text
-            maxlength: 80
-            width: 1/1
-            help: Short text for the portfolio card (max 80 chars).
-            placeholder: "Where others see chaos, I see opportunity."
-          description:
-            label: Description
-            required: true
-            maxlength: 500
-            help: Project description shown in the info panel.
-            type: textarea
-            size: small
-            width: 1/1
-          type:
-            label: Project Type
-            required: true
-            type: select
-            options:
-              - Personal
-              - Professional
-              - Game Jam
-            width: 1/2
-          year:
-            label: Release Year
-            required: true
-            min: 2023
-            type: number
-            width: 1/2
-          embedlink:
-            label: Embed Link
-            type: link
-            width: 1/2
-            help: YouTube privacy-enhanced mode link.
-          embedTitle:
-            label: Video Title
-            type: text
-            maxlength: 50
-            width: 1/2
+tabs:
 
-  - width: 1/2
-    sections:
-      project_details:
-        label: Details & Metadata
-        type: fields
-        fields:
-          genre:
-            label: Genre
-            required: true
-            min: 1
-            icon: heart-filled
-            type: tags
-            options:
-              - RPG
-              - FPS
-              - Action
-              - Strategy
-              - Turn-Based
-              - Arcade
-              - Puzzle
-              - Narrative
-            width: 1/2
-          platform:
-            label: Platforms
-            required: true
-            type: tags
-            icon: blank
-            options:
-              - PC Windows
-              - Playstation 4
-              - Playstation 5
-              - Xbox One
-              - Xbox Series S/X
-              - Nintendo Switch
-              - Android
-              - iOS
-              - Web
-            width: 1/2
-          focus:
-            label: Focus Areas
-            required: true
-            icon: badge
-            type: tags
-            options:
-              - Level Design
-              - System Design
-              - Game Design
-              - Narrative Design
-              - UI/UX Design
-              - Technical Design
-              - Game Art
-              - Sound Design
-              - Animation
-              - Gameplay Programming
-              - Tools Programming
-              - 3D Modeling
-              - 2D Art
-            width: 1/2
-          duration:
-            label: Duration
-            required: true
-            type: text
-            icon: clock
-            width: 1/2
-          team:
-            label: Team Size
-            type: text
-            icon: users
-            width: 1/4
-          projectstatus:
-            label: Status
-            type: select
-            default: released
-            width: 1/4
-            options:
-              released: Released
-              prototype: Prototype
-              in-development: In Development
-              early-access: Early Access
-              cancelled: Cancelled
-              game-jam: Game Jam Build
-          role:
-            label: Role
-            type: text
-            width: 2/4
-            placeholder: "Game Designer"
-          engine:
-            label: Engine
-            type: tags
-            required: true
-            min: 1
-            max: 1
-            empty: No engine selected yet.
-            options:
-              - Unreal Engine 5
-              - Unreal Engine 4
-              - Unity
-              - Godot
-            width: 1/2
-          engineicon:
-            label: Engine Icon
-            type: select
-            options:
-              godot-engine.svg: Godot Engine
-              svg-sprite.svg: SVG Sprite
-              unity.svg: Unity
-              unreal-engine.svg: Unreal Engine
-            required: true
-            width: 1/2
-          has_award:
-            label: Award
-            type: toggle
-            text:
-              - "No"
-              - "Yes"
-            default: no
-            width: 1/4
-          award_description:
-            label: Award Description
-            type: text
-            maxlength: 100
-            width: 3/4
-            when:
-              has_award: true
-          externallinks:
-            label: External Links
-            type: structure
-            width: 1/1
-            help: Platform icon buttons shown in the info panel.
+  # ─── Content Tab ───
+  content:
+    label: Content
+    icon: text
+    columns:
+      - width: 1/2
+        sections:
+          project_info:
+            label: Project Info
+            type: fields
             fields:
-              platform:
+              name:
+                label: Game Title
+                required: true
+                type: text
+                maxlength: 50
+                width: 5/6
+                placeholder: "My Awesome Game"
+                help: The project name shown on the card and detail page header.
+              featured:
+                label: Featured
+                type: toggle
+                text:
+                  - "No"
+                  - "Yes"
+                default: no
+                width: 1/6
+                help: Featured projects get a holographic foil card effect.
+              flavortext:
+                label: Card Flavor Text
+                type: text
+                maxlength: 80
+                width: 1/1
+                help: Short italic text for the portfolio card (max 80 chars).
+                placeholder: "Where others see chaos, I see opportunity."
+              description:
+                label: Description
+                required: true
+                maxlength: 500
+                help: Project description shown in the stat panel on the detail page.
+                type: textarea
+                size: small
+                width: 1/1
+
+      - width: 1/2
+        sections:
+          project_meta:
+            label: Project Metadata
+            type: fields
+            fields:
+              type:
+                label: Project Type
+                required: true
                 type: select
-                label: Platform
-                width: 1/3
                 options:
-                  steam: Steam
-                  itch: itch.io
-                  youtube: YouTube
-                  igdb: IGDB
-                  github: GitHub
-                  gamejolt: Game Jolt
-                  website: Website
-              url:
-                type: url
-                label: URL
-                width: 2/3
+                  - Personal
+                  - Professional
+                  - Game Jam
+                width: 1/2
+                help: Categorizes the project on the card type-line.
+              year:
+                label: Release Year
+                required: true
+                min: 2000
+                type: number
+                width: 1/2
+                help: Year of release or completion.
+              duration:
+                label: Duration
+                required: true
+                type: text
+                icon: clock
+                width: 1/2
+                placeholder: "6 Months"
+                help: How long the project took (e.g. "3 Months", "48 Hours").
+              team:
+                label: Team Size
+                type: text
+                icon: users
+                width: 1/4
+                placeholder: "4"
+                help: Number of team members.
+              projectstatus:
+                label: Status
+                type: select
+                default: released
+                width: 1/4
+                options:
+                  released: Released
+                  prototype: Prototype
+                  in-development: In Development
+                  early-access: Early Access
+                  cancelled: Cancelled
+                  game-jam: Game Jam Build
+              role:
+                label: Role
+                type: text
+                width: 1/2
+                placeholder: "Game Designer"
+                help: Your role on the project. Shown in the stat table.
+              has_award:
+                label: Award
+                type: toggle
+                text:
+                  - "No"
+                  - "Yes"
+                default: no
+                width: 1/4
+                help: Adds a trophy badge to the project card.
+              award_description:
+                label: Award Description
+                type: text
+                maxlength: 100
+                width: 3/4
+                placeholder: "Best Game Design — Global Game Jam 2024"
+                help: Award text shown in the stat panel and card badge tooltip.
+                when:
+                  has_award: true
 
-  - width: 1/4
-    sections:
-      gallery:
-        label: Cover Image
-        type: files
-        layout: cards
-        empty: No image added yet.
-        template: gallery-image
-        help: Maximum 1 image. Click on image to choose focus.
-        limit: 1
-        min: 1
-        max: 1
-        image:
-          ratio: 1/1
-          cover: true
+  # ─── Details Tab ───
+  details:
+    label: Details
+    icon: list-bullet
+    columns:
+      - width: 1/2
+        sections:
+          tags_section:
+            label: Tags & Classification
+            type: fields
+            fields:
+              genre:
+                label: Genre
+                required: true
+                min: 1
+                icon: heart-filled
+                type: tags
+                options:
+                  - RPG
+                  - FPS
+                  - Action
+                  - Strategy
+                  - Turn-Based
+                  - Arcade
+                  - Puzzle
+                  - Narrative
+                width: 1/1
+                help: Game genre(s). Shown as tags on the stat panel type-line.
+              platform:
+                label: Platforms
+                required: true
+                type: tags
+                icon: blank
+                options:
+                  - PC Windows
+                  - Playstation 4
+                  - Playstation 5
+                  - Xbox One
+                  - Xbox Series S/X
+                  - Nintendo Switch
+                  - Android
+                  - iOS
+                  - Web
+                width: 1/1
+                help: Target platforms. Shown with icons in the stat panel.
+              focus:
+                label: Focus Areas
+                required: true
+                icon: badge
+                type: tags
+                options:
+                  - Level Design
+                  - System Design
+                  - Game Design
+                  - Narrative Design
+                  - UI/UX Design
+                  - Technical Design
+                  - Game Art
+                  - Sound Design
+                  - Animation
+                  - Gameplay Programming
+                  - Tools Programming
+                  - 3D Modeling
+                  - 2D Art
+                width: 1/1
+                help: Your design focus areas on this project. Shown as keyword badges on the card.
 
-  - width: 3/4
-    sections:
-      showcase:
-        label: Showcase Images
-        type: files
-        layout: table
-        empty: No images added yet.
-        columns:
-          alt:
-            label: Alternative Text
-          focus: true
-        template: showcase-image
-        limit: 10
-        help: Maximum of 10 images.
-        image:
-          ratio: 1/1
-          cover: true
-
-  - width: 1/1
-    sections:
-      devlog_section:
-        label: Dev Notes
-        type: fields
-        fields:
-          show_toc:
-            label: Show Table of Contents
-            type: toggle
-            text:
-              - "No"
-              - "Yes"
-            default: no
-            width: 1/4
-            help: Display a collapsible TOC above the dev notes.
-          devlog:
-            label: Dev Notes
-            help: Write your dev process writeup here. Drag blocks to reorder.
-            type: blocks
-            pretty: true
-            fieldsets:
-              - type: heading
-                preview: fields
-                wysiwyg: true
+      - width: 1/2
+        sections:
+          engine_section:
+            label: Engine & Links
+            type: fields
+            fields:
+              engine:
+                label: Engine
+                type: tags
+                required: true
+                min: 1
+                max: 1
+                empty: No engine selected yet.
+                options:
+                  - Unreal Engine 5
+                  - Unreal Engine 4
+                  - Unity
+                  - Godot
+                width: 1/2
+                help: Game engine used. Determines the card frame pattern texture.
+              engineicon:
+                label: Engine Icon
+                type: select
+                options:
+                  godot-engine.svg: Godot Engine
+                  svg-sprite.svg: SVG Sprite
+                  unity.svg: Unity
+                  unreal-engine.svg: Unreal Engine
+                required: true
+                width: 1/2
+                help: SVG icon shown in the engine orb on the detail page.
+              embedlink:
+                label: Embed Link
+                type: link
+                width: 1/2
+                help: YouTube privacy-enhanced embed URL. Shown as hero video on the detail page.
+                placeholder: "https://www.youtube-nocookie.com/embed/..."
+              embedTitle:
+                label: Video Title
+                type: text
+                maxlength: 50
+                width: 1/2
+                help: Accessible title for the embedded video iframe.
+                placeholder: "Gameplay Trailer"
+              externallinks:
+                label: External Links
+                type: structure
+                width: 1/1
+                help: Platform link buttons shown in the stat panel (Steam, itch.io, etc.).
                 fields:
-                  text:
-                    type: writer
-                    label: Heading Text
-                    inline: true
-                    width: 1/1
-                  level:
+                  platform:
                     type: select
-                    label: Heading Level
-                    default: h2
-                    width: 1/2
-                    options:
-                      - value: h1
-                        text: H1
-                      - value: h2
-                        text: H2
-                      - value: h3
-                        text: H3
-                      - value: h4
-                        text: H4
-                      - value: h5
-                        text: H5
-                      - value: h6
-                        text: H6
-                  anchorid:
-                    type: text
-                    label: Anchor ID (optional)
-                    help: "Custom anchor — auto-generated from heading text if left empty. Link with: (link: #your-id text: Jump here)"
-                    placeholder: "my-section"
-                    width: 1/2
-              - text
-              - type: image
-                name: Image
-                icon: image
-                preview: image
-                fields:
-                  image:
-                    type: files
-                    label: Image
-                    width: 1/2
-                    multiple: false
-                  alt:
-                    type: text
-                    label: Alt Text
-                    width: 1/2
-                    help: Describe the image for accessibility.
-                  caption:
-                    type: text
-                    label: Caption
-                    help: Small text shown under the image on the page.
-                    width: 1/2
-                  caption_align:
-                    type: select
-                    label: Caption Align
-                    width: 1/2
-                    default: center
-                    options:
-                      - value: left
-                        text: Left
-                      - value: center
-                        text: Center
-                      - value: right
-                        text: Right
-                  figid:
-                    type: text
-                    label: Figure ID (optional)
-                    help: "e.g. '1' → sets anchor #fig-1 on this image. In any text block, link to it with: (link: #fig-1 text: See Fig. 1) — clicking it scrolls here."
-                    placeholder: "1"
-                    width: 1/2
-                  size:
-                    type: select
-                    label: Size
-                    width: 1/2
-                    default: full
-                    options:
-                      - value: full
-                        text: Full Width
-                      - value: large
-                        text: Large (80%)
-                      - value: medium
-                        text: Medium (60%)
-                      - value: small
-                        text: Small (40%)
-                  description:
-                    type: textarea
-                    label: Lightbox Description
-                    help: Text shown in the lightbox. Supports markdown.
-                    buttons:
-                      - bold
-                      - italic
-                      - link
-                      - ul
-                      - ol
-                    width: 2/3
-                  desc_position:
-                    type: select
-                    label: Description Position
+                    label: Platform
                     width: 1/3
-                    default: bottom
                     options:
-                      - value: bottom
-                        text: Bottom
-                      - value: left
-                        text: Left
-                      - value: right
-                        text: Right
-              - type: video
-                name: Video
-                icon: video
-                preview: fields
-                fields:
+                      steam: Steam
+                      itch: itch.io
+                      youtube: YouTube
+                      igdb: IGDB
+                      github: GitHub
+                      gamejolt: Game Jolt
+                      website: Website
                   url:
                     type: url
-                    label: Video URL
-                    help: YouTube or Vimeo link.
-                    width: 1/1
-                  caption:
-                    type: text
-                    label: Caption
-                    help: Small text shown under the video on the page.
-                    width: 1/2
-                  caption_align:
-                    type: select
-                    label: Caption Align
-                    width: 1/2
-                    default: center
-                    options:
-                      - value: left
-                        text: Left
-                      - value: center
-                        text: Center
-                      - value: right
-                        text: Right
-                  size:
-                    type: select
-                    label: Size
-                    width: 1/2
-                    default: full
-                    options:
-                      - value: full
-                        text: Full Width
-                      - value: large
-                        text: Large (80%)
-                      - value: medium
-                        text: Medium (60%)
-                      - value: small
-                        text: Small (40%)
-              - type: table
-                name: Table
-                icon: table
-                preview: fields
-                fields:
-                  headers:
-                    type: text
-                    label: Column Headers
-                    help: "Pipe-separated column names. e.g: Name | Type | Description"
-                    placeholder: "Name | Type | Description"
-                    width: 1/1
-                  rows:
-                    type: structure
-                    label: Table Rows
-                    help: "Click '+ Add' to add a row. Fill in each column individually."
-                    width: 1/1
-                    fields:
-                      col1:
-                        type: text
-                        label: Col 1
-                        width: 1/3
-                      col2:
-                        type: text
-                        label: Col 2
-                        width: 1/3
-                      col3:
-                        type: text
-                        label: Col 3
-                        width: 1/3
-                      col4:
-                        type: text
-                        label: Col 4
-                        width: 1/3
-                      col5:
-                        type: text
-                        label: Col 5
-                        width: 1/3
-                      col6:
-                        type: text
-                        label: Col 6
-                        width: 1/3
-                  size:
-                    type: select
-                    label: Size
-                    width: 1/2
-                    default: full
-                    options:
-                      - value: full
-                        text: Full Width
-                      - value: large
-                        text: Large (80%)
-                      - value: medium
-                        text: Medium (60%)
-                      - value: small
-                        text: Small (40%)
-              - quote
-              - list
-              - line
-              - type: sidebyside
-                name: Side by Side
-                icon: columns
-                preview: fields
-                fields:
-                  text:
-                    type: writer
-                    label: Text
-                    marks:
-                      - bold
-                      - italic
-                      - link
-                    nodes:
-                      - bulletList
-                      - orderedList
-                    width: 1/1
-                  image:
-                    type: files
-                    label: Image / Video Thumbnail
-                    width: 1/2
-                    multiple: false
-                  alt:
-                    type: text
-                    label: Alt Text
-                    width: 1/2
-                    help: Describe the image for accessibility.
-                  video_url:
-                    type: url
-                    label: Video URL
-                    help: YouTube or Vimeo — leave empty for image only.
-                    width: 1/2
-                  position:
-                    type: select
-                    label: Media Position
-                    default: right
-                    width: 1/2
-                    options:
-                      - value: left
-                        text: Media Left
-                      - value: right
-                        text: Media Right
-                  caption:
-                    type: text
-                    label: Caption
-                    help: Small text shown under the image/video.
-                    width: 1/2
-                  caption_align:
-                    type: select
-                    label: Caption Align
-                    width: 1/2
-                    default: center
-                    options:
-                      - value: left
-                        text: Left
-                      - value: center
-                        text: Center
-                      - value: right
-                        text: Right
-                  figid:
-                    type: text
-                    label: Figure ID (optional)
-                    help: "e.g. '1' → anchor #fig-1. Link from text with: (link: #fig-1 text: See Fig. 1)"
-                    placeholder: "1"
-                    width: 1/2
-                  description:
-                    type: textarea
-                    label: Lightbox Description
-                    help: Text shown in the lightbox. Supports markdown.
-                    buttons:
-                      - bold
-                      - italic
-                      - link
-                      - ul
-                      - ol
+                    label: URL
                     width: 2/3
-                  desc_position:
-                    type: select
-                    label: Description Position
-                    width: 1/3
-                    default: bottom
-                    options:
-                      - value: bottom
-                        text: Bottom
-                      - value: left
-                        text: Left
-                      - value: right
-                        text: Right
+
+  # ─── Media Tab ───
+  media:
+    label: Media
+    icon: image
+    columns:
+      - width: 1/4
+        sections:
+          gallery:
+            label: Cover Image
+            type: files
+            layout: cards
+            empty: No image added yet.
+            template: gallery-image
+            help: The main cover image for the project card and hero fallback. Max 1.
+            limit: 1
+            min: 1
+            max: 1
+            image:
+              ratio: 1/1
+              cover: true
+
+      - width: 3/4
+        sections:
+          showcase:
+            label: Showcase Images
+            type: files
+            layout: table
+            empty: No images added yet.
+            columns:
+              alt:
+                label: Alternative Text
+              focus: true
+            template: showcase-image
+            limit: 10
+            help: Gallery images for the detail page lightbox. Max 10. Click an image to set alt text and focus point.
+            image:
+              ratio: 1/1
+              cover: true
+
+  # ─── Dev Notes Tab ───
+  devnotes:
+    label: Dev Notes
+    icon: text
+    columns:
+      - width: 1/1
+        sections:
+          devlog_section:
+            label: Dev Notes
+            type: fields
+            fields:
+              show_toc:
+                label: Show Table of Contents
+                type: toggle
+                text:
+                  - "No"
+                  - "Yes"
+                default: no
+                width: 1/4
+                help: Display a collapsible table of contents above the dev notes section.
+              devlog:
+                label: Dev Notes
+                help: Your development writeup. Use headings with anchor IDs for TOC entries. Drag blocks to reorder.
+                type: blocks
+                pretty: true
+                fieldsets:
+                  - type: heading
+                    preview: fields
+                    wysiwyg: true
+                    fields:
+                      text:
+                        type: writer
+                        label: Heading Text
+                        inline: true
+                        width: 1/1
+                      level:
+                        type: select
+                        label: Heading Level
+                        default: h2
+                        width: 1/2
+                        options:
+                          - value: h1
+                            text: H1
+                          - value: h2
+                            text: H2
+                          - value: h3
+                            text: H3
+                          - value: h4
+                            text: H4
+                          - value: h5
+                            text: H5
+                          - value: h6
+                            text: H6
+                      anchorid:
+                        type: text
+                        label: Anchor ID (optional)
+                        help: "Custom anchor — auto-generated from heading text if left empty. Link with: (link: #your-id text: Jump here)"
+                        placeholder: "my-section"
+                        width: 1/2
+                  - text
+                  - type: image
+                    name: Image
+                    icon: image
+                    preview: image
+                    fields:
+                      image:
+                        type: files
+                        label: Image
+                        width: 1/2
+                        multiple: false
+                      alt:
+                        type: text
+                        label: Alt Text
+                        width: 1/2
+                        help: Describe the image for accessibility.
+                      caption:
+                        type: text
+                        label: Caption
+                        help: Small text shown under the image on the page.
+                        width: 1/2
+                      caption_align:
+                        type: select
+                        label: Caption Align
+                        width: 1/2
+                        default: center
+                        options:
+                          - value: left
+                            text: Left
+                          - value: center
+                            text: Center
+                          - value: right
+                            text: Right
+                      figid:
+                        type: text
+                        label: Figure ID (optional)
+                        help: "e.g. '1' → sets anchor #fig-1 on this image. In any text block, link to it with: (link: #fig-1 text: See Fig. 1) — clicking it scrolls here."
+                        placeholder: "1"
+                        width: 1/2
+                      size:
+                        type: select
+                        label: Size
+                        width: 1/2
+                        default: full
+                        options:
+                          - value: full
+                            text: Full Width
+                          - value: large
+                            text: Large (80%)
+                          - value: medium
+                            text: Medium (60%)
+                          - value: small
+                            text: Small (40%)
+                      description:
+                        type: textarea
+                        label: Lightbox Description
+                        help: Text shown in the lightbox overlay. Supports markdown.
+                        buttons:
+                          - bold
+                          - italic
+                          - link
+                          - ul
+                          - ol
+                        width: 2/3
+                      desc_position:
+                        type: select
+                        label: Description Position
+                        width: 1/3
+                        default: bottom
+                        options:
+                          - value: bottom
+                            text: Bottom
+                          - value: left
+                            text: Left
+                          - value: right
+                            text: Right
+                  - type: video
+                    name: Video
+                    icon: video
+                    preview: fields
+                    fields:
+                      url:
+                        type: url
+                        label: Video URL
+                        help: YouTube or Vimeo link.
+                        width: 1/1
+                      caption:
+                        type: text
+                        label: Caption
+                        help: Small text shown under the video on the page.
+                        width: 1/2
+                      caption_align:
+                        type: select
+                        label: Caption Align
+                        width: 1/2
+                        default: center
+                        options:
+                          - value: left
+                            text: Left
+                          - value: center
+                            text: Center
+                          - value: right
+                            text: Right
+                      size:
+                        type: select
+                        label: Size
+                        width: 1/2
+                        default: full
+                        options:
+                          - value: full
+                            text: Full Width
+                          - value: large
+                            text: Large (80%)
+                          - value: medium
+                            text: Medium (60%)
+                          - value: small
+                            text: Small (40%)
+                  - type: table
+                    name: Table
+                    icon: table
+                    preview: fields
+                    fields:
+                      headers:
+                        type: text
+                        label: Column Headers
+                        help: "Pipe-separated column names. e.g: Name | Type | Description"
+                        placeholder: "Name | Type | Description"
+                        width: 1/1
+                      rows:
+                        type: structure
+                        label: Table Rows
+                        help: "Click '+ Add' to add a row. Fill in each column individually."
+                        width: 1/1
+                        fields:
+                          col1:
+                            type: text
+                            label: Col 1
+                            width: 1/3
+                          col2:
+                            type: text
+                            label: Col 2
+                            width: 1/3
+                          col3:
+                            type: text
+                            label: Col 3
+                            width: 1/3
+                          col4:
+                            type: text
+                            label: Col 4
+                            width: 1/3
+                          col5:
+                            type: text
+                            label: Col 5
+                            width: 1/3
+                          col6:
+                            type: text
+                            label: Col 6
+                            width: 1/3
+                      size:
+                        type: select
+                        label: Size
+                        width: 1/2
+                        default: full
+                        options:
+                          - value: full
+                            text: Full Width
+                          - value: large
+                            text: Large (80%)
+                          - value: medium
+                            text: Medium (60%)
+                          - value: small
+                            text: Small (40%)
+                  - quote
+                  - list
+                  - line
+                  - type: sidebyside
+                    name: Side by Side
+                    icon: columns
+                    preview: fields
+                    fields:
+                      text:
+                        type: writer
+                        label: Text
+                        marks:
+                          - bold
+                          - italic
+                          - link
+                        nodes:
+                          - bulletList
+                          - orderedList
+                        width: 1/1
+                      image:
+                        type: files
+                        label: Image / Video Thumbnail
+                        width: 1/2
+                        multiple: false
+                      alt:
+                        type: text
+                        label: Alt Text
+                        width: 1/2
+                        help: Describe the image for accessibility.
+                      video_url:
+                        type: url
+                        label: Video URL
+                        help: YouTube or Vimeo — leave empty for image only.
+                        width: 1/2
+                      position:
+                        type: select
+                        label: Media Position
+                        default: right
+                        width: 1/2
+                        options:
+                          - value: left
+                            text: Media Left
+                          - value: right
+                            text: Media Right
+                      caption:
+                        type: text
+                        label: Caption
+                        help: Small text shown under the image/video.
+                        width: 1/2
+                      caption_align:
+                        type: select
+                        label: Caption Align
+                        width: 1/2
+                        default: center
+                        options:
+                          - value: left
+                            text: Left
+                          - value: center
+                            text: Center
+                          - value: right
+                            text: Right
+                      figid:
+                        type: text
+                        label: Figure ID (optional)
+                        help: "e.g. '1' → anchor #fig-1. Link from text with: (link: #fig-1 text: See Fig. 1)"
+                        placeholder: "1"
+                        width: 1/2
+                      description:
+                        type: textarea
+                        label: Lightbox Description
+                        help: Text shown in the lightbox. Supports markdown.
+                        buttons:
+                          - bold
+                          - italic
+                          - link
+                          - ul
+                          - ol
+                        width: 2/3
+                      desc_position:
+                        type: select
+                        label: Description Position
+                        width: 1/3
+                        default: bottom
+                        options:
+                          - value: bottom
+                            text: Bottom
+                          - value: left
+                            text: Left
+                          - value: right
+                            text: Right
+                  - type: accordion
+                    name: Accordion
+                    icon: bars
+                    preview: fields
+                    fields:
+                      summary:
+                        type: text
+                        label: Summary / Toggle Label
+                        width: 1/1
+                        placeholder: "Click to expand"
+                        help: The visible label when the accordion is collapsed.
+                      content:
+                        type: writer
+                        label: Content
+                        marks:
+                          - bold
+                          - italic
+                          - link
+                        nodes:
+                          - bulletList
+                          - orderedList
+                        width: 1/1
+                        help: Hidden content revealed when the accordion is expanded.
+
+  # ─── SEO Tab ───
+  seo:
+    label: SEO
+    icon: search
+    columns:
+      - width: 1/2
+        sections:
+          seo_fields:
+            label: Search Engine Optimization
+            type: fields
+            fields:
+              seo_description:
+                label: Meta Description
+                type: textarea
+                size: small
+                maxlength: 160
+                width: 1/1
+                help: Custom meta description for this project. Falls back to the project description if empty. Max 160 characters.
+                placeholder: "A short summary of this project for search engines..."
+              seo_keywords:
+                label: Keywords
+                type: tags
+                width: 1/1
+                help: Page-specific keywords. Combined with site-wide keywords in the meta tag.
+      - width: 1/2
+        sections:
+          seo_info:
+            label: SEO Preview
+            type: info
+            text: |
+              **Auto-generated from your content:**
+              - **Title tag:** Game Title | Site Title
+              - **OG image:** Cover image
+              - **JSON-LD:** CreativeWork schema with genre, year, author
+              - **Canonical URL:** Auto-set to this page's URL
+
+              Only fill in the fields on the left if you want to override the defaults.

@@ -8,14 +8,27 @@
 
     <?php
     // ── SEO Meta ──
-    // Per-page description: project pages use their description field, fallback to site-level
+    // Priority: per-page seo_description → auto-generated → site-level fallback
     $metaDescription = '';
-    if ($page->intendedTemplate()->name() === 'project' && $page->description()->isNotEmpty()) {
+    if ($page->seo_description()->isNotEmpty()) {
+        $metaDescription = $page->seo_description()->excerpt(160);
+    } elseif ($page->intendedTemplate()->name() === 'project' && $page->description()->isNotEmpty()) {
         $metaDescription = $page->description()->excerpt(160);
     } elseif ($page->intendedTemplate()->name() === 'about') {
         $metaDescription = 'Learn about ' . ($site->author()->or('Maximilian Koch')) . ' — ' . ($page->role()->or('Game Designer')) . '. Portfolio, skills, and experience.';
     } elseif ($site->description()->isNotEmpty()) {
         $metaDescription = $site->description()->excerpt(160);
+    }
+
+    // Per-page keywords merged with site-level
+    $keywords = '';
+    if ($page->seo_keywords()->isNotEmpty()) {
+        $keywords = $page->seo_keywords()->value();
+        if ($site->keywords()->isNotEmpty()) {
+            $keywords .= ', ' . $site->keywords()->value();
+        }
+    } elseif ($site->keywords()->isNotEmpty()) {
+        $keywords = $site->keywords()->value();
     }
 
     // OG image: project cover, or about profile photo, or first listed project cover
@@ -41,8 +54,8 @@
     <meta name="description" content="<?= esc($metaDescription, 'attr') ?>">
     <?php endif ?>
 
-    <?php if ($site->keywords()->isNotEmpty()): ?>
-    <meta name="keywords" content="<?= $site->keywords()->html() ?>">
+    <?php if ($keywords): ?>
+    <meta name="keywords" content="<?= esc($keywords, 'attr') ?>">
     <?php endif ?>
 
     <meta name="author" content="<?= ($site->author()->isNotEmpty() ? $site->author()->html() : 'Maximilian Koch') ?>">

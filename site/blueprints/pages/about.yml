@@ -304,3 +304,41 @@ tabs:
                     width: 1/4
                     maxlength: 300
                     help: Brief description of the program or thesis.
+
+  # ─── SEO Tab ───
+  seo:
+    label: SEO
+    icon: search
+    columns:
+      - width: 1/2
+        sections:
+          seo_fields:
+            label: Search Engine Optimization
+            type: fields
+            fields:
+              seo_description:
+                label: Meta Description
+                type: textarea
+                size: small
+                maxlength: 160
+                width: 1/1
+                help: Custom meta description for the About page. Falls back to an auto-generated one if empty. Max 160 characters.
+                placeholder: "Learn about your name — Game Designer, portfolio, skills, and experience."
+              seo_keywords:
+                label: Keywords
+                type: tags
+                width: 1/1
+                help: Page-specific keywords. Combined with site-wide keywords in the meta tag.
+      - width: 1/2
+        sections:
+          seo_info:
+            label: SEO Preview
+            type: info
+            text: |
+              **Auto-generated from your content:**
+              - **Title tag:** About | Site Title
+              - **OG image:** Profile photo
+              - **Description fallback:** "Learn about [Name] — [Role]. Portfolio, skills, and experience."
+              - **Canonical URL:** Auto-set to this page's URL
+
+              Only fill in the fields on the left if you want to override the defaults.
