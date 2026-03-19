@@ -157,7 +157,7 @@
 .flickity-button:hover {
   background-color: $yellow-dark;
   box-shadow: $solid-shadow-sm;
-  transform: scale(0.95) translateY(-50%);
+  transform: translateY(calc(-50% + 2px));
 }
 
 .flickity-prev-next-button {

@@ -803,6 +803,7 @@
   }
 }
 .pagination-dead-link {
+  display: inline-block;
   color: #0A0A0A;
   background-color: #FEFEFE;
   opacity: 0.6;
@@ -817,8 +818,11 @@
 }
 
 .pagination-link {
+  display: inline-block;
   padding: 0.5rem;
   font-size: 1.5rem;
+  color: #0A0A0A;
+  text-decoration: none;
   background-color: #FEFEFE;
   border: solid;
   border-radius: 0.25rem;
@@ -829,14 +833,9 @@
   cursor: pointer;
 }
 
-.pagination-link a {
-  color: #0A0A0A;
-  text-decoration: none;
-}
-
 .pagination-link:hover {
   background-color: #FCBB3F;
-  transform: scale(0.95);
+  transform: translateY(2px);
   box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
 }
 

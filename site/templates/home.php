@@ -1,7 +1,7 @@
 <?php snippet('header') ?>
 <div class="wrapper">
     <div class="main-content">
-        <main class="main-wrapper">
+        <main class="main-wrapper" id="main-content">
             <section class="content-block">
                 <h1>Featured Projects</h1>
             </section>

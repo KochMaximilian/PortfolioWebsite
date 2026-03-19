@@ -101,6 +101,14 @@ footer {
   margin-top: space(4);
 }
 
+.slogan {
+  font-family: $font-barlow;
+  font-weight: $weight-black;
+  font-size: font-size(lg);
+  text-transform: uppercase;
+  display: block;
+}
+
 .footer-logo {
   user-select: none;
   -moz-user-select: none;

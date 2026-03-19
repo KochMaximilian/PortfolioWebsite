@@ -1016,6 +1016,7 @@
 // PAGINATION
 // ============================================
 .pagination-dead-link {
+    display: inline-block;
     color: $black-dark;
     background-color: $white;
     opacity: 0.6;
@@ -1030,8 +1031,11 @@
 }
 
 .pagination-link {
+    display: inline-block;
     padding: space(2);
     font-size: font-size(2xl);
+    color: $black-dark;
+    text-decoration: none;
     background-color: $white;
     border: solid;
     border-radius: $radius-small;
@@ -1044,14 +1048,9 @@
     cursor: pointer;
 }
 
-.pagination-link a {
-    color: $black-dark;
-    text-decoration: none;
-}
-
 .pagination-link:hover {
     background-color: $yellow-dark;
-    transform: scale(0.95);
+    transform: translateY(2px);
     box-shadow: $solid-shadow-xs;
 }
 

@@ -16,7 +16,7 @@
                     
                     <!-- Header: Name + Engine Icon -->
                     <div class="card-header">
-                        <h5 class="card-title"><?= $project->name() ?></h5>
+                        <h2 class="card-title"><?= $project->name() ?></h2>
                         <div class="card-mana">
                             <svg role="img" aria-label="<?= $project->engine() ?> logo."><?= svg('/assets/fontawesome/engine-icons/' . $project->engineicon()) ?></svg>
                         </div>
@@ -24,7 +24,7 @@
                     
                     <!-- Art Box with Platform Set Symbol + Award Badge -->
                     <div class="card-art">
-                        <img 
+                        <img
                             src="<?= $project->images()->template('gallery-image')->first()->thumb([
                                 'autoOrient' => true,
                                 'width' => 420,
@@ -34,7 +34,10 @@
                                 'format' => 'webp',
                                 'driver' => 'im'
                             ])->url() ?>"
-                            alt="<?= $project->name() ?>"
+                            alt="<?= $project->name() ?> cover art"
+                            width="420"
+                            height="420"
+                            loading="lazy"
                             srcset="
                                 <?= $project->images()->template('gallery-image')->first()->thumb([
                                     'width' => 250,
@@ -82,8 +85,8 @@
                         >
                         
                         <?php if ($project->has_award()->toBool()): ?>
-                        <div class="card-award-badge" title="Award Winner">
-                            <i class="fa-solid fa-trophy"></i>
+                        <div class="card-award-badge" title="Award Winner" role="img" aria-label="Award Winner">
+                            <i class="fa-solid fa-trophy" aria-hidden="true"></i>
                         </div>
                         <?php endif ?>
                         
@@ -105,7 +108,7 @@
                             foreach ($platforms as $platform): 
                                 $iconClass = $platformIcons[trim($platform)] ?? 'fa-solid fa-gamepad';
                             ?>
-                                <i class="<?= $iconClass ?>" title="<?= $platform ?>"></i>
+                                <i class="<?= $iconClass ?>" title="<?= $platform ?>" aria-hidden="true"></i>
                             <?php endforeach; ?>
                         </div>
                     </div>
