@@ -52,7 +52,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 1.25rem;
+  padding: 1rem 1.25rem;
   background: var(--engine-pattern, none) repeat, linear-gradient(45deg, #484250 0%, #484250 20%, rgb(53.4, 49.2, 59) 45%, rgb(28.6, 26.8, 31) 75%, #0A0A0A 100%);
   background-size: 100%;
   background-blend-mode: difference;
@@ -107,7 +107,8 @@
   justify-content: center;
   width: 2.6rem;
   height: 2.6rem;
-  background: radial-gradient(circle at 35% 35%, #FEDD9F 0%, #FCBB3F 50%, #FDCC6F 100%);
+  background: rgba(72, 66, 80, 0.4);
+  backdrop-filter: blur(6px);
   border: 3px solid #0A0A0A;
   border-radius: 50%;
   flex-shrink: 0;
@@ -116,8 +117,10 @@
 .stat-engine-orb svg {
   width: 1.4rem;
   height: 1.4rem;
-  fill: #0A0A0A;
-  stroke: none;
+  fill: rgba(254, 254, 254, 0.9);
+  stroke: #0A0A0A;
+  stroke-width: 0.5px;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
 }
 
 .stat-flavor {

@@ -45,15 +45,24 @@
   overflow: hidden;
 }
 
-body.variant-piece .about-image {
+body.variant-piece .about-image,
+body.variant-piece .about-profile-header,
+body.variant-piece .about-profile-hotbar,
+body.variant-piece .skills-tree__branches {
   --site-pattern: url('/assets/img/pattern_piece.png');
 }
 
-body.variant-shaka .about-image {
+body.variant-shaka .about-image,
+body.variant-shaka .about-profile-header,
+body.variant-shaka .about-profile-hotbar,
+body.variant-shaka .skills-tree__branches {
   --site-pattern: url('/assets/img/pattern_shaka.png');
 }
 
-body.variant-ok .about-image {
+body.variant-ok .about-image,
+body.variant-ok .about-profile-header,
+body.variant-ok .about-profile-hotbar,
+body.variant-ok .skills-tree__branches {
   --site-pattern: url('/assets/img/pattern_ok.png');
 }
 
@@ -341,7 +350,9 @@ body.variant-ok .about-image {
   align-items: center;
   justify-content: center;
   padding: 0.4rem 0.8rem;
-  background: linear-gradient(45deg, rgb(28.6, 26.8, 31) 0%, #0A0A0A 50%, rgb(22.4, 21.2, 24) 100%);
+  background: var(--site-pattern, url("/assets/img/pattern.png")) repeat, linear-gradient(45deg, #484250 0%, #484250 20%, rgb(53.4, 49.2, 59) 45%, rgb(28.6, 26.8, 31) 75%, #0A0A0A 100%);
+  background-size: 100%;
+  background-blend-mode: difference;
   border-bottom: 5px solid #0A0A0A;
 }
 .about-profile-header span {
@@ -426,14 +437,16 @@ body.variant-ok .about-image {
   gap: 1rem;
   padding: 0.8rem 1rem;
   border-top: 5px solid #0A0A0A;
-  background: #FEFEFE;
+  background: var(--site-pattern, url("/assets/img/pattern.png")) repeat, linear-gradient(45deg, #484250 0%, #484250 20%, rgb(53.4, 49.2, 59) 45%, rgb(28.6, 26.8, 31) 75%, #0A0A0A 100%);
+  background-size: 100%;
+  background-blend-mode: difference;
 }
 
 .hotbar-slot {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0A0A0A;
+  color: #FEFEFE;
   font-size: 1.5rem;
   text-decoration: none;
   transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
@@ -774,7 +787,9 @@ body.variant-ok .about-image {
   flex-direction: column;
   border-radius: 0.25rem;
   overflow: hidden;
-  border: 2px solid rgba(254, 254, 254, 0.08);
+  border: 2px solid rgba(72, 66, 80, 0.5);
+  outline: 1px solid rgba(72, 72, 72, 0.4);
+  outline-offset: -3px;
 }
 .skills-tree__branch--gd {
   grid-column: 1/-1;
@@ -793,7 +808,7 @@ body.variant-ok .about-image {
   color: #FEFEFE;
   padding: 0.4rem 0.6rem;
   background: rgba(10, 10, 10, 0.7);
-  border-bottom: 2px solid rgba(254, 254, 254, 0.08);
+  border-bottom: 1px solid rgba(72, 66, 80, 0.5);
   backdrop-filter: blur(4px);
 }
 .skills-tree__root i {
@@ -824,7 +839,7 @@ body.variant-ok .about-image {
   color: #FEFEFE;
   padding: 0.15rem 0.4rem;
   background: #484250;
-  border: 1px solid #0A0A0A;
+  border: 3px solid #0A0A0A;
   border-radius: 0.2rem;
   white-space: nowrap;
   transition: background 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);

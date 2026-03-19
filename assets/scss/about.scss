@@ -53,9 +53,20 @@
   overflow: hidden;
 }
 
-body.variant-piece .about-image { --site-pattern: url('/assets/img/pattern_piece.png'); }
-body.variant-shaka .about-image { --site-pattern: url('/assets/img/pattern_shaka.png'); }
-body.variant-ok .about-image { --site-pattern: url('/assets/img/pattern_ok.png'); }
+body.variant-piece .about-image,
+body.variant-piece .about-profile-header,
+body.variant-piece .about-profile-hotbar,
+body.variant-piece .skills-tree__branches { --site-pattern: url('/assets/img/pattern_piece.png'); }
+
+body.variant-shaka .about-image,
+body.variant-shaka .about-profile-header,
+body.variant-shaka .about-profile-hotbar,
+body.variant-shaka .skills-tree__branches { --site-pattern: url('/assets/img/pattern_shaka.png'); }
+
+body.variant-ok .about-image,
+body.variant-ok .about-profile-header,
+body.variant-ok .about-profile-hotbar,
+body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/pattern_ok.png'); }
 
 /* Card Art Wrapper (image + focus bar) */
 .about-card-art {
@@ -349,12 +360,16 @@ body.variant-ok .about-image { --site-pattern: url('/assets/img/pattern_ok.png')
   align-items: center;
   justify-content: center;
   padding: 0.4rem 0.8rem;
-  background: linear-gradient(
+  background: var(--site-pattern, url('/assets/img/pattern.png')) repeat, linear-gradient(
     45deg,
-    mix($purple-light, $black-dark, 30%) 0%,
-    $black-dark 50%,
-    mix($purple-light, $black-dark, 20%) 100%
+    $purple-light 0%,
+    $purple-light 20%,
+    mix($purple-light, $black-dark, 70%) 45%,
+    mix($purple-light, $black-dark, 30%) 75%,
+    $black-dark 100%
   );
+  background-size: 100%;
+  background-blend-mode: difference;
   border-bottom: $border-md solid $black-dark;
 
   span {
@@ -447,14 +462,23 @@ body.variant-ok .about-image { --site-pattern: url('/assets/img/pattern_ok.png')
   gap: space(4);
   padding: 0.8rem 1rem;
   border-top: $border-md solid $black-dark;
-  background: $white;
+  background: var(--site-pattern, url('/assets/img/pattern.png')) repeat, linear-gradient(
+    45deg,
+    $purple-light 0%,
+    $purple-light 20%,
+    mix($purple-light, $black-dark, 70%) 45%,
+    mix($purple-light, $black-dark, 30%) 75%,
+    $black-dark 100%
+  );
+  background-size: 100%;
+  background-blend-mode: difference;
 }
 
 .hotbar-slot {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $black-dark;
+  color: $white;
   font-size: font-size(2xl);
   text-decoration: none;
   transition: transform 0.2s $easing-bounce,
@@ -861,7 +885,9 @@ body.variant-ok .about-image { --site-pattern: url('/assets/img/pattern_ok.png')
   flex-direction: column;
   border-radius: $radius-small;
   overflow: hidden;
-  border: $border-xsm solid rgba($white, 0.08);
+  border: 2px solid rgba($purple-light, 0.5);
+  outline: 1px solid rgba($gray-dark, 0.4);
+  outline-offset: -3px;
 
   // Game Design spans full width
   &--gd {
@@ -883,7 +909,7 @@ body.variant-ok .about-image { --site-pattern: url('/assets/img/pattern_ok.png')
   color: $white;
   padding: 0.4rem 0.6rem;
   background: rgba($black-dark, 0.7);
-  border-bottom: $border-xsm solid rgba($white, 0.08);
+  border-bottom: 1px solid rgba($purple-light, 0.5);
   backdrop-filter: blur(4px);
 
   i {
@@ -918,7 +944,7 @@ body.variant-ok .about-image { --site-pattern: url('/assets/img/pattern_ok.png')
   color: $white;
   padding: 0.15rem 0.4rem;
   background: $purple-light;
-  border: 1px solid $black-dark;
+  border: $border-xs solid $black-dark;
   border-radius: $radius-xs;
   white-space: nowrap;
   transition: background 0.2s $easing-pop,
