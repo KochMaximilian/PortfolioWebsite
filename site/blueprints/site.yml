@@ -1,19 +1,42 @@
 title: Site
 
-sections:
-  navpages:
-    headline: Main Pages (Navigation)
-    type: pages
-    layout: list
-    status: listed
-    image: false
-  
-  subpages:
-    headline: Subpages
-    type: pages
-    layout: list
-    status: unlisted
-    image: false
+tabs:
+  pages:
+    label: Pages
+    icon: page
+    sections:
+      navpages:
+        headline: Main Pages (Navigation)
+        type: pages
+        layout: list
+        status: listed
+        image: false
+
+      subpages:
+        headline: Subpages
+        type: pages
+        layout: list
+        status: unlisted
+        image: false
+
+  seo:
+    label: SEO
+    icon: search
+    fields:
+      description:
+        label: Site Description
+        type: textarea
+        size: small
+        maxlength: 160
+        help: Default meta description for pages that don't have their own. Max 160 characters for search snippets.
+      keywords:
+        label: Keywords
+        type: tags
+        help: Comma-separated keywords for the site-wide meta keywords tag.
+      author:
+        label: Author Name
+        type: text
+        help: Used in meta author tag, JSON-LD schema, and OG tags.
 
 
 

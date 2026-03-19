@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -r href=\"\".*\"\"\"\\\\s*target=\"\"_blank\" \" E:/WebProjects/PortfolioWebsite/site/snippets)"
+    ]
+  }
+}

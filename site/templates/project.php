@@ -1,7 +1,7 @@
 <?php snippet('header') ?>
 <div class="wrapper">
     <div class="project-layout">
-        <main class="main-wrapper">
+        <main class="main-wrapper" id="main-content">
             <section class="content-block">
                 <h1><?= $page->name() ?></h1>
             </section>
@@ -196,7 +196,7 @@
                                 <div class="stat-links-group">
                                     <?php foreach ($page->externallinks()->toStructure() as $link): ?>
                                         <?php $iconClass = $linkIconMap[$link->platform()->value()] ?? 'fa-solid fa-link'; ?>
-                                        <a class="stat-link-icon" href="<?= $link->url() ?>" target="_blank" rel="noopener" title="<?= ucfirst($link->platform()) ?>">
+                                        <a class="stat-link-icon" href="<?= $link->url() ?>" target="_blank" rel="noopener noreferrer" title="<?= ucfirst($link->platform()) ?>" aria-label="<?= ucfirst($link->platform()) ?>">
                                             <i class="<?= $iconClass ?>" aria-hidden="true"></i>
                                         </a>
                                     <?php endforeach; ?>

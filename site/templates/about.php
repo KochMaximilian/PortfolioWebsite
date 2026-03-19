@@ -1,7 +1,7 @@
 <?php snippet('header') ?>
 <div class="wrapper">
     <div class="about-layout">
-        <main class="main-wrapper">
+        <main class="main-wrapper" id="main-content">
             <section class="content-block">
                 <h1><?= $page->title() ?></h1>
             </section>
@@ -30,8 +30,9 @@
                             <i class="fa-solid fa-gamepad now-playing-icon"></i>
                         </button>
                         <?php endif; ?>
+                        <?php $personalImg = $page->images()->template('personal-img')->first(); ?>
                         <img class="author-image"
-                            src="<?= $page->images()->template('personal-img')->first()->thumb([
+                            src="<?= $personalImg->thumb([
                                         'autoOrient' => true,
                                         'width' => 400,
                                         'height' => 500,
@@ -40,32 +41,14 @@
                                         'format' => 'webp',
                                         'driver' => 'im'
                                     ])->url() ?>"
-                            alt="<?= $page->image()->alt() ?>"
+                            alt="<?= $personalImg->alt()->or($page->author_name()->or('Profile photo')) ?>"
+                            width="400"
+                            height="500"
                             srcset="
-                    <?= $page->images()->template('personal-img')->first()->thumb([
-                        'width' => 200,
-                        'height' => 250,
-                        'crop' => true,
-                        'format' => 'webp',
-                    ])->url() ?> 200w,
-                    <?= $page->images()->template('personal-img')->first()->thumb([
-                        'width' => 400,
-                        'height' => 500,
-                        'crop' => true,
-                        'format' => 'webp',
-                    ])->url() ?> 400w,
-                    <?= $page->images()->template('personal-img')->first()->thumb([
-                        'width' => 600,
-                        'height' => 750,
-                        'crop' => true,
-                        'format' => 'webp',
-                    ])->url() ?> 600w,
-                    <?= $page->images()->template('personal-img')->first()->thumb([
-                        'width' => 800,
-                        'height' => 1000,
-                        'crop' => true,
-                        'format' => 'webp',
-                    ])->url() ?> 800w
+                    <?= $personalImg->thumb(['width' => 200, 'height' => 250, 'crop' => true, 'format' => 'webp'])->url() ?> 200w,
+                    <?= $personalImg->thumb(['width' => 400, 'height' => 500, 'crop' => true, 'format' => 'webp'])->url() ?> 400w,
+                    <?= $personalImg->thumb(['width' => 600, 'height' => 750, 'crop' => true, 'format' => 'webp'])->url() ?> 600w,
+                    <?= $personalImg->thumb(['width' => 800, 'height' => 1000, 'crop' => true, 'format' => 'webp'])->url() ?> 800w
                 "
                             sizes="(max-width: 480px) 100vw,
                        (max-width: 768px) 100vw,
@@ -118,7 +101,7 @@
                     <?php if ($page->social_links()->toStructure()->isNotEmpty()): ?>
                     <div class="about-profile-hotbar">
                         <?php foreach ($page->social_links()->toStructure() as $link): ?>
-                            <a class="hotbar-slot" href="<?= $link->url() ?>" target="_blank" rel="noopener" aria-label="<?= $link->platform() ?>">
+                            <a class="hotbar-slot" href="<?= $link->url() ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= $link->platform() ?>">
                                 <i class="<?= $link->icon()->isNotEmpty() ? $link->icon()->value() : 'fa-solid fa-link' ?>"></i>
                             </a>
                         <?php endforeach; ?>

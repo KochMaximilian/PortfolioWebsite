@@ -9,7 +9,7 @@
 
 <div class="wrapper">
     <div class="page-zoom">
-        <main class="main-wrapper">
+        <main class="main-wrapper" id="main-content">
 
             <section class="content-block">
                 <h1><?= $page->title() ?></h1>

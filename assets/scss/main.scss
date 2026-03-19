@@ -1,5 +1,34 @@
 @use 'config/config' as *;
 
+/* Skip to Content — visible only on focus for keyboard users */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+  padding: space(2) space(4);
+  background: $yellow-dark;
+  color: $black-dark;
+  font-family: $font-barlow;
+  font-weight: $weight-black;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: $border-xs solid $black-dark;
+  border-radius: $radius-small;
+
+  &:focus {
+    position: fixed;
+    top: space(2);
+    left: space(2);
+    width: auto;
+    height: auto;
+    overflow: visible;
+  }
+}
+
 /* Global Reset */
 
 *,
@@ -422,4 +451,78 @@ p {
 
 @media (max-height: 400px) and (orientation: landscape) {
   .content-block { margin-top: 3.5rem; }
+}
+
+// ============================================
+// 404 ERROR PAGE
+// ============================================
+.error-page {
+  text-align: center;
+  padding: space(8) space(4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: space(4);
+}
+
+.error-code {
+  font-family: $font-barlow;
+  font-weight: $weight-black;
+  font-size: 8rem;
+  line-height: 1;
+  color: $black-dark;
+  text-shadow: $solid-shadow-md;
+  margin: 0;
+}
+
+.error-message {
+  font-family: $font-poppins;
+  font-size: font-size(lg);
+  color: $black-medium;
+  margin: 0;
+  max-width: 30rem;
+}
+
+.error-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: space(2);
+  padding: 0.6rem 1.4rem;
+  font-family: $font-barlow;
+  font-weight: $weight-bold;
+  font-size: font-size(md);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: $black-dark;
+  background: $white;
+  border: $border-sm solid $black-dark;
+  border-radius: $radius-small;
+  box-shadow: $solid-shadow-sm;
+  cursor: pointer;
+  transition: transform 0.2s $easing-bounce,
+              background-color 0.2s $easing-bounce,
+              box-shadow 0.2s $easing-bounce;
+
+  &:hover {
+    background: $yellow-dark;
+    transform: translateY(2px);
+    box-shadow: $solid-shadow-xs;
+  }
+
+  &:active {
+    transform: translateY(3px);
+    box-shadow: 1px 1px 0 $black-dark;
+  }
+}
+
+@media (max-width: $mobile-lg) {
+  .error-code { font-size: 5rem; }
+  .error-message { font-size: font-size(md); }
+  .error-back-btn { font-size: font-size(sm); }
+}
+
+@media (max-width: $mobile-sm) {
+  .error-code { font-size: 3.5rem; }
+  .error-message { font-size: font-size(sm); }
 }

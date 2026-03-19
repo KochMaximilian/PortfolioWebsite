@@ -431,7 +431,7 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   background: $white;
   border: $border-xs solid $black-dark;
   border-radius: $radius-small;
-  box-shadow: $solid-shadow-xs;
+  box-shadow: $solid-shadow-sm;
   cursor: pointer;
   transition: transform 0.2s $easing-bounce,
               background-color 0.2s $easing-bounce,
@@ -445,12 +445,12 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   &:hover {
     background: $yellow-dark;
     color: $black-dark;
-    transform: scale(0.95);
-    box-shadow: 2px 2px 0 $black-dark;
+    transform: translateY(2px);
+    box-shadow: $solid-shadow-xs;
   }
 
   &:active {
-    transform: scale(0.9);
+    transform: translateY(3px);
     box-shadow: 1px 1px 0 $black-dark;
   }
 }
@@ -604,7 +604,7 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
 
   .cv-download-btn {
     border-width: $border-xs;
-    box-shadow: $solid-shadow-xs;
+    box-shadow: $solid-shadow-sm;
   }
 }
 
@@ -931,7 +931,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   padding: 0.6rem;
   background: rgba($black-dark, 0.5);
   backdrop-filter: blur(6px);
-  flex: 1;
 }
 
 // Individual skill node — matches .card-tag

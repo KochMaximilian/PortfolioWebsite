@@ -360,7 +360,7 @@
 }
 
 .project-nav-link:hover {
-  background-color: $yellow-dark; transform: scale(0.95); box-shadow: $solid-shadow-xs;
+  background-color: $yellow-dark; transform: translateY(2px); box-shadow: $solid-shadow-xs;
 }
 
 .project-nav-dead {
@@ -397,7 +397,7 @@
   transition: transform 0.2s $easing-bounce, background-color 0.2s $easing-bounce, box-shadow 0.2s $easing-bounce;
 
   &:hover {
-    background: $yellow-dark; transform: scale(0.95); box-shadow: $solid-shadow-xs;
+    background: $yellow-dark; transform: translateY(2px); box-shadow: $solid-shadow-xs;
   }
 
   &.is-active {
@@ -682,7 +682,7 @@
   font-family: $font-barlow; font-weight: $weight-black;
   font-size: font-size(lg);
   transition: transform 0.2s $easing-bounce, background-color 0.2s $easing-bounce, box-shadow 0.2s $easing-bounce;
-  &:hover { background: $yellow-dark; transform: scale(0.95); box-shadow: $solid-shadow-xs; }
+  &:hover { background: $yellow-dark; transform: translateY(2px); box-shadow: $solid-shadow-xs; }
   i { flex-shrink: 0; }
 }
 
@@ -708,8 +708,8 @@
   box-shadow: $solid-shadow-sm; color: $black-dark;
   font-size: font-size(lg); cursor: pointer;
   transition: transform 0.2s $easing-bounce, background-color 0.2s $easing-bounce, box-shadow 0.2s $easing-bounce;
-  &:hover { background: $yellow-dark; transform: scale(0.92); box-shadow: $solid-shadow-xs; }
-  &:active { transform: scale(0.85); }
+  &:hover { background: $yellow-dark; transform: translateY(2px); box-shadow: $solid-shadow-xs; }
+  &:active { transform: translateY(3px); }
 }
 
 // ── Sticky nav responsive ──

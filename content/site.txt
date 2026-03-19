@@ -2,7 +2,11 @@ Title: Maximilian Koch - Game Designer
 
 ----
 
-Linkedin: https://www.linkedin.com/in/maximilian-k-32aa37140/
+Description: Game design portfolio of Maximilian Koch, featuring level design, system design, and gameplay projects in Unreal Engine and Unity.
+
+----
+
+Keywords: game design, level design, gameplay mechanics, game development, indie games, Unity, Unreal Engine, game designer portfolio
 
 ----
 
@@ -10,11 +14,11 @@ Author: Maximilian Koch
 
 ----
 
-Banner: Game Designer
+Linkedin: https://www.linkedin.com/in/maximilian-k-32aa37140/
 
 ----
 
-Description: This is Maximilian Kochs portfolio webpage. Work in Progress.
+Banner: Game Designer
 
 ----
 
@@ -47,7 +51,3 @@ Mail: maximiliankochhome+portfolio@gmail.com
 ----
 
 Github: https://github.com/KochMaximilian
-
-----
-
-Keywords: game design, level design, gameplay mechanics, game development, indie games, Unity, Unreal Enginge, game desigern portfolio

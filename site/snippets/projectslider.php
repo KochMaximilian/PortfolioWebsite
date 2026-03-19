@@ -10,14 +10,17 @@ $height = 300;
                 <figure class="slider-figure">
                     <img class="slider-image" src="<?= $project->images()->template('gallery-image')->first()->thumb([
                         'autoOrient' => true,
-                        'width' => $width, 
+                        'width' => $width,
                         'height' => $height,
                         'crop' => true,
-                        'quality' => 100,  
+                        'quality' => 100,
                         'format' => 'webp',
-                        'driver' =>'im'  
-                    ])->url() ?>" 
-                    alt="Featured Project: <?= $project->title() ?>"> 
+                        'driver' =>'im'
+                    ])->url() ?>"
+                    alt="Featured Project: <?= $project->title() ?>"
+                    width="<?= $width ?>"
+                    height="<?= $height ?>"
+                    loading="lazy"> 
                     <figcaption class="slider-caption">
                         <h4 class="slider-heading"><?= $project->title()->html() ?></h4>
                         <small><?= $project->type() . ' | ' . $project->year() ?></small>

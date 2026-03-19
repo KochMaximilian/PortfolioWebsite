@@ -45,6 +45,12 @@ RewriteRule ^(.*) index.php [L]
 # pass the Authorization header to PHP
 SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1
 
+# HTTPS redirect
+<IfModule mod_rewrite.c>
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
 # compress text file responses
 <IfModule mod_deflate.c>
 AddOutputFilterByType DEFLATE text/plain
@@ -54,6 +60,27 @@ AddOutputFilterByType DEFLATE text/javascript
 AddOutputFilterByType DEFLATE application/json
 AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE image/svg+xml
+AddOutputFilterByType DEFLATE application/xml
+</IfModule>
+
+# browser caching for static assets
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/gif "access plus 1 year"
+ExpiresByType image/webp "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+ExpiresByType image/x-icon "access plus 1 year"
+ExpiresByType text/css "access plus 1 month"
+ExpiresByType text/javascript "access plus 1 month"
+ExpiresByType application/javascript "access plus 1 month"
+ExpiresByType font/woff2 "access plus 1 year"
+ExpiresByType font/woff "access plus 1 year"
+ExpiresByType font/ttf "access plus 1 year"
+ExpiresByType application/font-woff2 "access plus 1 year"
+ExpiresByType application/font-woff "access plus 1 year"
 </IfModule>
 
 # set security headers in all responses
@@ -63,5 +90,17 @@ AddOutputFilterByType DEFLATE application/x-javascript
 # (hardens against attacks from malicious file uploads)
 Header set Content-Type "text/plain" "expr=-z %{CONTENT_TYPE}"
 Header set X-Content-Type-Options "nosniff"
+
+# prevent clickjacking — only allow your own site to frame pages
+Header set X-Frame-Options "SAMEORIGIN"
+
+# control referrer information sent with requests
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+# prevent MIME type sniffing and XSS in older browsers
+Header set X-XSS-Protection "1; mode=block"
+
+# restrict permissions for browser features
+Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 
 </IfModule>

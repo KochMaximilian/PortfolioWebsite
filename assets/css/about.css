@@ -412,7 +412,7 @@ body.variant-ok .skills-tree__branches {
   background: #FEFEFE;
   border: 3px solid #0A0A0A;
   border-radius: 0.25rem;
-  box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
+  box-shadow: #0A0A0A 1px 3px 0px 1px;
   cursor: pointer;
   transition: transform 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), background-color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), box-shadow 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2), color 0.2s cubic-bezier(0.25, 1.75, 0.5, 1.2);
 }
@@ -422,11 +422,11 @@ body.variant-ok .skills-tree__branches {
 .cv-download-btn:hover {
   background: #FCBB3F;
   color: #0A0A0A;
-  transform: scale(0.95);
-  box-shadow: 2px 2px 0 #0A0A0A;
+  transform: translateY(2px);
+  box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
 }
 .cv-download-btn:active {
-  transform: scale(0.9);
+  transform: translateY(3px);
   box-shadow: 1px 1px 0 #0A0A0A;
 }
 
@@ -554,7 +554,7 @@ body.variant-ok .skills-tree__branches {
   }
   .cv-download-btn {
     border-width: 3px;
-    box-shadow: #0A0A0A 0.5px 1.5px 0px 0.5px;
+    box-shadow: #0A0A0A 1px 3px 0px 1px;
   }
 }
 @media (max-width: 576px) {
@@ -827,7 +827,6 @@ body.variant-ok .skills-tree__branches {
   padding: 0.6rem;
   background: rgba(10, 10, 10, 0.5);
   backdrop-filter: blur(6px);
-  flex: 1;
 }
 
 .skills-tree__node {
