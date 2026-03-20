@@ -1,9 +1,5 @@
 @use 'config/config' as *;
 
-// Font Awesome: swap to avoid invisible text during load
-@font-face { font-family: "Font Awesome 6 Free"; font-display: swap; }
-@font-face { font-family: "Font Awesome 6 Brands"; font-display: swap; }
-
 // Skip to Content
 .skip-to-content {
   position: absolute;
