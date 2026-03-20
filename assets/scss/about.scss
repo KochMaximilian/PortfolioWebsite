@@ -529,12 +529,13 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
 // Sub-2K desktops
 @media (max-width: $fullhd) and (min-width: $desktop-lg + 1) {
   .about-content {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
+    gap: space(5);
   }
 
   .about-image {
-    width: 380px;
+    width: 400px;
   }
 
   .about-profile-body {
@@ -544,6 +545,10 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
 
   .about-profile-header span {
     font-size: font-size(lg);
+  }
+
+  .skills-tree {
+    margin-top: space(2);
   }
 }
 

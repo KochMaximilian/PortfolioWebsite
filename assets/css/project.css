@@ -1903,6 +1903,12 @@
   .image-caption-badge {
     font-size: 0.875rem;
   }
+  .project-nav-sticky {
+    bottom: calc(var(--footer-height) + 4.5rem);
+  }
+  .toc-panel {
+    bottom: calc(var(--footer-height) + 4.5rem + var(--sticky-nav-height, 70px) + 1rem);
+  }
 }
 @media (max-width: 1200px) {
   .stat-name-plate {

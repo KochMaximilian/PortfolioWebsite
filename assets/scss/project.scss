@@ -1122,6 +1122,14 @@
   .stat-flavor { padding: space(2) space(5); }
   .stat-body { padding: space(3) space(5); }
   .image-caption-badge { font-size: font-size(sm); }
+
+  .project-nav-sticky {
+    bottom: calc(var(--footer-height) + 4.5rem);
+  }
+
+  .toc-panel {
+    bottom: calc(var(--footer-height) + 4.5rem + var(--sticky-nav-height, 70px) + 1rem);
+  }
 }
 
 @media (max-width: $desktop-lg) {
