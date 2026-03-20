@@ -914,7 +914,7 @@ nav {
 }
 @media (max-width: 1920px) and (min-width: 1201px) {
   .projects {
-    grid-template-columns: repeat(3, minmax(0, 300px));
+    grid-template-columns: repeat(3, minmax(0, 330px));
     justify-content: center;
     gap: 1rem !important;
   }
