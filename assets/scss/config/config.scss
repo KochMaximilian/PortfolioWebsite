@@ -1,7 +1,6 @@
-// Import Sass map module (required for map.get)
 @use "sass:map";
 
-// Base colors
+// Colors
 $black-dark: #0A0A0A;
 $black-medium: #181818;
 $black-light: #292929;
@@ -28,9 +27,7 @@ $font-barlow: 'Barlow', sans-serif;
 $font-poppins: 'Poppins', sans-serif;
 
 
-// Font sizes (simplified map)
-// [IMPROVEMENT #4] Added 3xs (8px) and 2xs (10px) for responsive scaling
-// These replace hardcoded 0.5rem–0.65rem values scattered across breakpoints
+// Font sizes
 $font-sizes: (
   3xs: 0.5rem,    // 8px  — smallest mobile genre tags, labels
   2xs: 0.625rem,  // 10px — small mobile stat labels, type lines
@@ -46,7 +43,7 @@ $font-sizes: (
   6xl: 4rem       // 64px
 );
 
-// Bulma size variables
+// Size aliases
 $size-1: map.get($font-sizes, 6xl);
 $size-2: map.get($font-sizes, 5xl);
 $size-3: map.get($font-sizes, 4xl);
@@ -64,7 +61,7 @@ $weight-bold: 700;
 $weight-black: 800;
 
 
-// SPACING
+// Spacing
 $spacing: (
   0: 0,
   1: 0.25rem,   // 4px
@@ -82,39 +79,27 @@ $spacing: (
   32: 8rem      // 128px
 );
 
-// Quick access
 $spacer: 1rem;
 $gap: map.get($spacing, 8);
 
-// Bulma spacing
+// Layout spacing
 $block-spacing: map.get($spacing, 6);
 $section-padding: map.get($spacing, 12);
 $column-gap: map.get($spacing, 4);
 
 
-// ============================================
-// BREAKPOINTS
-// ============================================
-// These match the values you're actually using across your SCSS files.
-// The naming follows a logical progression from smallest to largest.
+// Breakpoints
+$mobile-xs: 320px;
+$mobile: 425px;
+$mobile-sm: 480px;
+$mobile-lg: 576px;
+$tablet: 768px;
+$tablet-lg: 992px;
+$desktop: 1024px;
+$desktop-lg: 1200px;
+$widescreen: 1440px;
+$fullhd: 1920px;
 
-// Mobile breakpoints (small screens)
-$mobile-xs: 320px;    // Extra small phones (iPhone SE, older devices)
-$mobile: 425px;       // Standard mobile (your original value)
-$mobile-sm: 480px;    // Small mobile / large phone
-$mobile-lg: 576px;    // Large mobile / phablet (Bootstrap's 'sm' breakpoint)
-
-// Tablet breakpoints
-$tablet: 768px;       // Standard tablet portrait (your original value)
-$tablet-lg: 992px;    // Large tablet / small laptop (Bootstrap's 'lg' breakpoint)
-
-// Desktop breakpoints
-$desktop: 1024px;     // Standard desktop (your original value)
-$desktop-lg: 1200px;  // Large desktop (Bootstrap's 'xl' breakpoint)
-$widescreen: 1440px;  // Widescreen monitors (your original value)
-$fullhd: 1920px;      // Full HD monitors (your original value)
-
-// Container max widths
 $container-max-width: 1200px;
 
 
@@ -132,7 +117,6 @@ $border-xs: 3px;
 $border-sm: 4px;
 $border-md: 5px;
 
-// Border widths map (for advanced use)
 $border-widths: (
   xsm: $border-xsm,
   xs: $border-xs,
@@ -141,7 +125,7 @@ $border-widths: (
 );
 
 
-// shadows
+// Shadows
 $shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.025);
 $shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
 $shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -154,10 +138,9 @@ $solid-shadow-sm: $black-dark 1px 3px 0px 1px;
 $solid-shadow-xs: $black-dark 0.5px 1.5px 0px 0.5px;
 $solid-white-shadow-sm: $white 1px 3px 0px 1px;
 
-// Bulma shadow
 $shadow: $shadow-sm;
 
-// Z-INDEX
+// Z-index
 $z-layers: (
   background: 100,
   content: 200,
@@ -174,7 +157,7 @@ $z-layers: (
 );
 
 
-// TRANSITIONS
+// Transitions
 $transition-speed: (
   fast: 0.2s,
   base: 0.3s,
@@ -185,10 +168,9 @@ $easing-bounce: cubic-bezier(0.25, 1.75, 0.5, 1.2);
 $easing-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
 $easing-default: ease-in-out;
 
-// Bulma speed
 $speed: map.get($transition-speed, base);
 
-// COMPONENT SIZES
+// Component sizes
 $heights: (
   xs: 1.5rem,   // 24px
   sm: 1.75rem,  // 28px
@@ -198,7 +180,7 @@ $heights: (
 );
 
 
-// BULMA OVERRIDES
+// Layout defaults
 $navbar-height: 4rem;
 $navbar-breakpoint: $tablet;
 $card-content-padding: map.get($spacing, 6);
@@ -207,17 +189,14 @@ $box-padding: map.get($spacing, 6);
 $box-shadow: $shadow-md;
 
 
-// Helper function to get spacing
 @function space($key) {
   @return map.get($spacing, $key);
 }
 
-// Helper function to get font size
 @function font-size($key) {
   @return map.get($font-sizes, $key);
 }
 
-// Helper function to get z-index
 @function z($key) {
   @return map.get($z-layers, $key);
 }

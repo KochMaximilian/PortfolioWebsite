@@ -22,7 +22,6 @@
     --footer-height: 10rem;
   }
 }
-/* Base footer styling */
 footer {
   background: #0A0A0A;
   border-radius: 0.6rem 0.6rem 0 0;
@@ -129,7 +128,6 @@ footer {
     transform: scale(1.15) rotate(-3deg);
   }
 }
-/* Footer Social Links */
 .socials {
   display: flex;
   justify-content: center;
@@ -183,7 +181,6 @@ footer {
   display: none;
 }
 
-/* Responsive styles for smaller screens */
 @media screen and (max-width: 768px) {
   footer {
     padding: 1.2rem 0;
@@ -210,7 +207,6 @@ footer {
     font-size: 0.8rem;
   }
 }
-/* Mobile - hide logo, fix grid alignment for even columns */
 @media screen and (max-width: 576px) {
   .footer-logo {
     display: none;
@@ -301,7 +297,6 @@ footer {
     font-size: 1.3rem;
   }
 }
-/* Handle extremely small screens */
 @media screen and (max-width: 320px) {
   footer {
     padding: 0.6rem 0 0.5rem 0;

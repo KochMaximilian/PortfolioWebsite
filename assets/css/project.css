@@ -565,7 +565,6 @@
   flex-shrink: 0;
 }
 
-/* --- Table of Contents Panel --- */
 .toc-panel {
   position: fixed;
   bottom: calc(var(--footer-height, 7.5rem) + 3.3rem + var(--sticky-nav-height, 70px) + 1rem);
@@ -595,7 +594,6 @@
   pointer-events: auto !important;
 }
 
-/* --- The Interior Structure --- */
 .toc-header {
   padding: 0.75rem 1rem 0.25rem;
   display: flex;
@@ -777,7 +775,6 @@
   font-weight: 400;
 }
 
-/* --- Mobile Positioning Adjustments --- */
 @media (max-width: 576px) {
   .toc-panel {
     left: 0.5rem;

@@ -1,8 +1,6 @@
 @use 'config/config' as *;
 
 
-   // Navigation - Base Styles
-
 .nav-container {
   width: 100%;
   position: fixed;
@@ -28,7 +26,6 @@
   flex-wrap: wrap;
 }
 
-// Logo bounce animation - more playful than nav links
 @keyframes logo-bounce {
   0%   { transform: scale(1) rotate(0deg); }
   20%  { transform: scale(1.08) rotate(-1deg); }
@@ -54,12 +51,10 @@
   animation: logo-bounce 0.4s $easing-bounce forwards;
 }
 
-// Mobile logo — hidden by default, shown on mobile only
 .navbar-logo-mobile {
   display: none;
 }
 
-// Divider between name and banner — shown by default, hidden on mobile
 .logo-divider {
   display: inline;
 }
@@ -74,7 +69,6 @@
   padding-right: space(4);
 }
 
-// Bounce animation for nav links
 @keyframes nav-bounce {
   0%   { transform: translateY(0) scale(1); }
   40%  { transform: translateY(-3px) scale(1.03); }
@@ -130,10 +124,9 @@
 }
 
 
-   // Responsive Styles
+// Responsive
 
 
-/* Laptops and small desktops */
 @media (max-width: $widescreen) {
   .navbar {
     height: 70px;
@@ -150,7 +143,6 @@
   }
 }
 
-/* Tablets */
 @media (max-width: $tablet-lg) {
   .navbar {
     height: 60px;
@@ -169,7 +161,6 @@
   }
 }
 
-/* Small tablets and large phones */
 @media (max-width: $tablet) {
   .navbar {
     height: 50px;
@@ -188,7 +179,6 @@
   }
 }
 
-/* Mobile phones */
 @media (max-width: $mobile-lg) {
   .navbar {
     height: 45px;
@@ -275,7 +265,6 @@
   }
 }
 
-/* Small mobile — footer nav text smaller */
 @media (max-width: $mobile-sm) {
   .navbar-mobile .nav-link {
     font-size: font-size(md);
@@ -304,7 +293,6 @@
   }
 }
 
-/* Extra small mobile — footer nav text even smaller */
 @media (max-width: $mobile-xs) {
   .navbar-mobile .nav-link {
     font-size: font-size(sm);
@@ -333,9 +321,7 @@
   }
 }
 
-// ============================================
-// LANDSCAPE
-// ============================================
+// Landscape
 
 @media (max-height: 500px) and (orientation: landscape) {
   .navbar { height: 40px; }

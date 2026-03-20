@@ -1,6 +1,6 @@
 @use 'config/config' as *;
 
-/* Skip to Content — visible only on focus for keyboard users */
+// Skip to Content
 .skip-to-content {
   position: absolute;
   left: -9999px;
@@ -29,7 +29,7 @@
   }
 }
 
-/* Global Reset */
+// Reset
 
 *,
 *::after,
@@ -49,9 +49,7 @@ html {
   overflow-y: scroll;
 }
 
-/* ============================================
-   BACKGROUND SYSTEM
-   ============================================ */
+// Background
 
 body {
   min-height: 100vh;
@@ -178,7 +176,6 @@ a {
   margin-bottom: 3.5rem;
 }
 
-/* Keyframes */
 @-webkit-keyframes wobble-hor-top {
   0%, 100% {
     -webkit-transform: translateX(0%);
@@ -251,7 +248,7 @@ a {
   cursor: not-allowed;
 }
 
-/* HEADINGS */
+// Headings
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-barlow;
   line-height: 1.3;
@@ -293,7 +290,7 @@ p {
   font-size: font-size(md);
 }
 
-/* MEDIA QUERY TYPOGRAPHY */
+// Responsive typography
 @media (max-width: $mobile-lg) {
   html {
     font-size: 87.5%;
@@ -361,7 +358,6 @@ p {
   body .project-description h6 { font-size: font-size(xs); }
   body .project-description p  { font-size: font-size(md); line-height: 1.4; }
 
-  // Reduce shadows on mobile — brutal shadows get chunky at small sizes
   .content-block {
     box-shadow: $solid-shadow-md;
     border-width: $border-sm;
@@ -405,12 +401,10 @@ p {
   }
 }
 
-// ============================================
-// MOBILE XS — 320px (iPhone SE, smallest devices)
-// ============================================
+// Mobile XS
 @media (max-width: $mobile-xs) {
   html {
-    font-size: 81.25%; // 13px base — tighter than 87.5% at $mobile-lg
+    font-size: 81.25%;
   }
 
   body h1 { font-size: font-size(lg); }
@@ -442,9 +436,7 @@ p {
   }
 }
 
-// ============================================
-// LANDSCAPE
-// ============================================
+// Landscape
 
 @media (max-height: 500px) and (orientation: landscape) {
   .content-block { margin-top: 4.5rem; }
@@ -454,9 +446,7 @@ p {
   .content-block { margin-top: 3.5rem; }
 }
 
-// ============================================
-// 404 ERROR PAGE
-// ============================================
+// Error page
 .error-page {
   text-align: center;
   padding: space(8) space(4);

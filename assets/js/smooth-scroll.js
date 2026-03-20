@@ -1,14 +1,9 @@
-/**
- * smooth-scroll.js
- * Spring physics scroll + sticky project nav + scroll-to-top button.
- * Project pages only. Never fires scroll on load/reload.
- * Respects prefers-reduced-motion (reactive).
- */
+// Spring physics scroll, sticky nav, and TOC panel.
+// Project pages only. Respects prefers-reduced-motion.
 
 (function () {
   'use strict';
 
-  // ─── Kill native hash-jump and scroll restoration ─────────────────────────────
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
@@ -16,7 +11,6 @@
     window.scrollTo(0, 0);
   }
 
-  // ─── Reactive reduced-motion preference ──────────────────────────────────────
   var reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   var prefersReduced = reducedMotionQuery.matches;
 
@@ -24,13 +18,12 @@
     prefersReduced = e.matches;
   });
 
-  // ─── Navbar height ────────────────────────────────────────────────────────────
   function getNavbarHeight() {
     var navbar = document.querySelector('.navbar');
     return navbar ? navbar.offsetHeight + 16 : 96;
   }
 
-  // ─── Spring physics scroll ────────────────────────────────────────────────────
+  // Spring scroll
   var activeRafId = null;
 
   function springScrollTo(targetY) {
@@ -66,7 +59,6 @@
     activeRafId = requestAnimationFrame(step);
   }
 
-  // ─── Shared scroll-to-hash helper ─────────────────────────────────────────────
   function scrollToHash(hash) {
     if (!hash || hash === '#') return;
 
@@ -83,7 +75,6 @@
     }
   }
 
-  // ─── Anchor click handler ─────────────────────────────────────────────────────
   document.addEventListener('click', function (e) {
     var link = e.target.closest('a[href^="#"]');
     if (!link) return;
@@ -96,11 +87,9 @@
 
     e.preventDefault();
 
-    // Never push on-page anchor hashes to the URL on project pages.
     scrollToHash(hash);
   });
 
-  // ─── Popstate handler — browser back/forward with spring scroll ───────────────
   window.addEventListener('popstate', function () {
     var hash = window.location.hash;
     if (hash) {
@@ -114,7 +103,6 @@
     }
   });
 
-  // ─── Scroll-to-top buttons (sticky nav + mobile inline) ──────────────────────
   var scrollTopBtns = document.querySelectorAll('.scroll-to-top');
 
   scrollTopBtns.forEach(function (btn) {
@@ -128,11 +116,7 @@
     });
   });
 
-  // ─── Sticky nav — unified scroll listener ─────────────────────────────────────
-  // Entrance: is-animating-in suppresses transition so pop-in keyframe plays clean.
-  // Exit:     is-animating-in is removed after 510ms, restoring the base transition
-  //           so removing is-visible slides the bar back down smoothly.
-  // On mobile: CSS !important overrides make JS classes irrelevant for visibility.
+  // Sticky nav
   var stickyNav = document.querySelector('.project-nav-sticky');
   var bottomNav = document.getElementById('project-nav-bottom');
 
@@ -153,13 +137,11 @@
     if (stickyNav) {
       if (pastTop) {
         if (!wasVisible) {
-          // Clear any stale cleanup timer from a previous entrance
           if (animatingInTimer) {
             clearTimeout(animatingInTimer);
             animatingInTimer = null;
           }
 
-          // Entrance: force animation restart, add both classes simultaneously
           stickyNav.classList.remove('is-visible');
           stickyNav.classList.remove('is-animating-in');
           void stickyNav.offsetHeight; // force reflow so animation restarts cleanly
@@ -167,15 +149,12 @@
           stickyNav.classList.add('is-animating-in');
           wasVisible = true;
 
-          // Remove is-animating-in after pop-in completes (500ms + 10ms buffer)
-          // This restores the base transition so the exit animates properly
           animatingInTimer = setTimeout(function () {
             stickyNav.classList.remove('is-animating-in');
             animatingInTimer = null;
           }, 510);
         }
       } else {
-        // Exit: cancel any pending cleanup, strip both classes
         if (animatingInTimer) {
           clearTimeout(animatingInTimer);
           animatingInTimer = null;
@@ -186,7 +165,6 @@
         wasVisible = false;
       }
 
-      // Near-bottom: prev/next slide away, scroll-to-top stays
       if (pastTop && nearBottom) {
         stickyNav.classList.add('is-near-bottom');
       } else {
@@ -204,7 +182,7 @@
     }
   }, { passive: true });
 
-  // ─── TOC panel ────────────────────────────────────────────────────────────
+  // TOC panel
   var tocBtns  = document.querySelectorAll('.toc-toggle');
   var tocPanel = document.getElementById('toc-panel');
   var tocInner = tocPanel ? tocPanel.querySelector('.toc-inner') : null;
@@ -227,7 +205,6 @@
     tocInner.classList.toggle('is-scrollable', tocInner.scrollHeight > tocInner.clientHeight + 2);
   }
 
-  // ─── Active item tracking via IntersectionObserver ───────────────────────
   var currentActiveId = null;
 
   function setActiveTocLink(id) {
@@ -279,14 +256,12 @@
       });
     });
 
-    // Escape key
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && tocPanel.classList.contains('is-open')) {
         closeToc();
       }
     });
 
-    // Close when clicking outside
     document.addEventListener('click', function (e) {
       if (!tocPanel.classList.contains('is-open')) return;
       if (tocPanel.contains(e.target)) return;
@@ -297,7 +272,6 @@
       if (!clickedTocBtn) closeToc();
     });
 
-    // Close when a TOC link is clicked (spring scroll handled by existing listener)
     tocPanel.addEventListener('click', function (e) {
       if (e.target.closest('a')) {
         closeToc();

@@ -1,51 +1,36 @@
 @use 'config/config' as *;
 
-// ============================================
-// FOOTER HEIGHT VARIABLES
-// ============================================
-// These CSS custom properties track footer height at each breakpoint
-// so content can have matching padding-bottom to prevent overlap.
-// 
-// IMPORTANT: The mobile nav appears inside footer at $mobile-lg (576px),
-// so --footer-height must increase at that same breakpoint!
+// Footer height
 
 :root {
-  // Base footer height (desktop) - approximately 120px with content
   --footer-height: 7.5rem;
 }
 
 @media screen and (max-width: $tablet) {
   :root {
-    // Tablet - slightly smaller
     --footer-height: 6.5rem;
   }
 }
 
 @media screen and (max-width: $mobile-lg) {
   :root {
-    // Mobile - TALLER because mobile nav is now included in footer
-    // Mobile nav + socials + logo + copyright
-    // This breakpoint matches when .navbar-mobile becomes visible
     --footer-height: 12rem;
   }
 }
 
 @media screen and (max-width: $mobile-sm) {
   :root {
-    // Small mobile - footer gets more compact but still has mobile nav
     --footer-height: 11rem;
   }
 }
 
 @media screen and (max-width: $mobile-xs) {
   :root {
-    // Extra small mobile
     --footer-height: 10rem;
   }
 }
 
 
-/* Base footer styling */
 footer {
   background: $black-dark;
   border-radius: $radius-medium $radius-medium 0 0;
@@ -115,10 +100,8 @@ footer {
   -ms-user-select: none;
   height: 7rem;
   width: auto;
-  // Pop out of the footer top
   margin-top: -10.5rem;
   
-  // Juice it up — subtle idle shadow gives depth
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
   transition: transform 0.3s $easing-pop,
               filter 0.3s $easing-bounce;
@@ -126,7 +109,6 @@ footer {
   cursor: pointer;
 }
 
-// Subtle idle floating animation
 @keyframes logo-float {
   0%, 100% {
     transform: translateY(0);
@@ -136,14 +118,12 @@ footer {
   }
 }
 
-// Juicy hover state
 .footer-logo:hover {
   transform: scale(1.15) rotate(-3deg);
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
   animation: logo-wobble 0.5s $easing-pop;
 }
 
-// Wobble animation on hover
 @keyframes logo-wobble {
   0% { transform: scale(1) rotate(0deg); }
   25% { transform: scale(1.2) rotate(-5deg); }
@@ -152,7 +132,7 @@ footer {
   100% { transform: scale(1.15) rotate(-3deg); }
 }
 
-/* Footer Social Links */
+// Social links
 .socials {
   display: flex;
   justify-content: center;
@@ -177,7 +157,6 @@ footer {
   animation: icon-bounce 0.4s $easing-pop;
 }
 
-// Bounce animation for social icons - ends at same scale as hover state
 @keyframes icon-bounce {
   0% { transform: scale(1); }
   30% { transform: scale(1.35) rotate(-8deg); }
@@ -199,7 +178,7 @@ footer {
   display: none;
 }
 
-/* Responsive styles for smaller screens */
+// Responsive
 @media screen and (max-width: $tablet) {
   footer {
     padding: 1.2rem 0;
@@ -233,14 +212,11 @@ footer {
   }
 }
 
-/* Mobile - hide logo, fix grid alignment for even columns */
 @media screen and (max-width: $mobile-lg) {
   .footer-logo {
     display: none;
   }
 
-  // Logo gone → switch from auto center column to equal thirds
-  // so left/right social columns are properly balanced
   .footer-container {
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
@@ -344,7 +320,6 @@ footer {
   }
 }
 
-/* Handle extremely small screens */
 @media screen and (max-width: $mobile-xs) {
   footer {
     padding: 0.6rem 0 0.5rem 0;
@@ -377,11 +352,7 @@ footer {
   }
 }
 
-// ============================================
-// LANDSCAPE
-// ============================================
-
-// Landscape: keep desktop 3-column layout, just scale down
+// Landscape
 @media (max-height: 500px) and (orientation: landscape) {
   :root { --footer-height: 4rem; }
   footer { padding: 0.5rem 0; }

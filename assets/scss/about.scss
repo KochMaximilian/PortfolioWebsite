@@ -1,6 +1,5 @@
 @use 'config/config' as *;
 
-/* About Section */
 .about-content {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -68,7 +67,6 @@ body.variant-ok .about-profile-header,
 body.variant-ok .about-profile-hotbar,
 body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/pattern_ok.png'); }
 
-/* Card Art Wrapper (image + focus bar) */
 .about-card-art {
   position: relative;
   flex: 1;
@@ -76,7 +74,7 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   overflow: hidden;
 }
 
-/* Now Playing Tag */
+// Now Playing
 .now-playing-tag {
   position: absolute;
   top: 0.8rem;
@@ -161,7 +159,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   padding: 0.15rem 0.5rem 0.15rem 0.6rem;
 }
 
-/* Inner frame border (card art box) */
 .about-card-art::after {
   content: '';
   position: absolute;
@@ -189,7 +186,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   transition: transform 0.4s $easing-pop;
 }
 
-/* About Card Header */
 .about-card-header {
   display: flex;
   align-items: center;
@@ -210,7 +206,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   transition: color 0.3s $easing-pop;
 }
 
-/* About Card Focus Bar (fav games overlay) */
 .about-card-focus-bar {
   position: absolute;
   bottom: 0;
@@ -264,7 +259,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   transition: transform 0.3s $easing-pop;
 }
 
-/* About Card Type Line */
 .about-card-type-line {
   display: flex;
   align-items: center;
@@ -302,7 +296,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   }
 }
 
-/* About Card Language Tags — top-left overlay on card art */
 .about-card-lang-tags {
   position: absolute;
   top: 0.8rem;
@@ -329,7 +322,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   transition: transform 0.3s $easing-pop;
 }
 
-/* About Card Footer */
 .about-card-footer {
   display: flex;
   justify-content: space-between;
@@ -354,7 +346,7 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   letter-spacing: 0.05em;
 }
 
-/* About Profile Panel (Character Sheet) */
+// Profile Panel
 .about-profile-header {
   display: flex;
   align-items: center;
@@ -495,9 +487,7 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   }
 }
 
-/* ============================================
-   HOVER EFFECTS - All Devices
-   ============================================ */
+// Hover Effects
 .about-image:hover img {
   transform: scale(1.08);
 }
@@ -517,14 +507,12 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   color: $white;
 }
 
-// Keywords keep their organic rotations on card hover — no transform override
-
 .about-image:hover .about-card-footer-left,
 .about-image:hover .about-card-footer-right {
   color: rgba($white, 0.85);
 }
 
-/* Responsive Media Queries - Desktop First */
+// Responsive
 @media (min-width: 1441px) {
   .about-content {
     max-width: 1400px;
@@ -709,10 +697,7 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   }
 }
 
-/* ============================================
-   DESKTOP 3D TILT + GLARE + SHIMMER
-   ============================================ */
-
+// Desktop 3D Effects
 @keyframes about-shimmer-sweep {
   0% { transform: rotate(0deg) translateX(-100%); }
   100% { transform: rotate(0deg) translateX(100%); }
@@ -797,20 +782,12 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
 }
 
 
-/* ============================================
-   SKILLS PANEL — Block Grid Layout
-   ============================================ */
-
-/* ============================================
-   SKILL TREE
-   ============================================ */
-
+// Skill Tree
 .skills-tree {
   margin-top: -#{space(4)};
   margin-bottom: space(8);
 }
 
-// Heading — header bar inside the card frame, matches .about-card-header
 .skills-tree__heading {
   display: flex;
   align-items: center;
@@ -829,7 +806,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   transition: background 0.3s $easing-pop;
 }
 
-// Outer frame — matches .card-frame DNA
 .skills-tree__branches {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -854,7 +830,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   overflow: hidden;
   position: relative;
 
-  // Idle shimmer sweep — same as about card
   &::after {
     content: '';
     position: absolute;
@@ -879,7 +854,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   }
 }
 
-// Each branch — a mini card block inside the frame
 .skills-tree__branch {
   display: flex;
   flex-direction: column;
@@ -889,13 +863,11 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   outline: 1px solid rgba($gray-dark, 0.4);
   outline-offset: -3px;
 
-  // Game Design spans full width
   &--gd {
     grid-column: 1 / -1;
   }
 }
 
-// Category root — header bar per block
 .skills-tree__root {
   display: flex;
   align-items: center;
@@ -918,12 +890,10 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   }
 }
 
-// Hide connector
 .skills-tree__connector {
   display: none;
 }
 
-// Nodes container — frosted glass body
 .skills-tree__nodes {
   display: flex;
   flex-wrap: wrap;
@@ -933,7 +903,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   backdrop-filter: blur(6px);
 }
 
-// Individual skill node — matches .card-tag
 .skills-tree__node {
   font-family: $font-barlow;
   font-weight: $weight-bold;
@@ -958,7 +927,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   }
 }
 
-// Skill tree responsive
 @media (max-width: $mobile-lg) {
   .skills-tree__heading {
     font-size: font-size(md);

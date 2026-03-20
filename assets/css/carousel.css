@@ -1,4 +1,3 @@
-/*Slider*/
 .carousel-cell {
   width: 100%;
   height: auto;
@@ -39,12 +38,10 @@
   border-color: #0A0A0A;
 }
 
-/* position dots in carousel */
 .flickity-page-dots {
   bottom: 10.5rem;
 }
 
-/* white circles */
 .flickity-page-dots .dot {
   width: 0.75rem;
   height: 0.75rem;
@@ -53,7 +50,6 @@
   z-index: 1000;
 }
 
-/* fill-in selected dot */
 .flickity-page-dots .dot.is-selected {
   background: #FCBB3F;
   width: 1rem;
@@ -110,7 +106,6 @@
   word-wrap: break-word;
 }
 
-/* Keyframes for the bounce animations */
 @keyframes bounce-left {
   0%, 95%, 100% {
     transform: translateY(-50%);
@@ -163,7 +158,6 @@
   box-shadow: #0A0A0A 1.4px 3.5px 0px 1.4px;
 }
 
-/* Apply the animations to both buttons */
 .flickity-prev-next-button.previous {
   left: -4rem;
   animation: bounce-left 5s cubic-bezier(0.25, 1.75, 0.5, 1.2) infinite;
@@ -174,18 +168,15 @@
   animation: bounce-right 5s cubic-bezier(0.25, 1.75, 0.5, 1.2) infinite;
 }
 
-/* Pause the animations on hover to improve usability */
 .flickity-prev-next-button:hover {
   animation-play-state: paused;
 }
 
-/* icon color */
 .flickity-button-icon {
   fill: #0A0A0A;
   width: 80%;
 }
 
-/* Ratio of the svg position */
 .flickity-prev-next-button .flickity-button-icon {
   height: 70%;
   width: 70%;
@@ -198,7 +189,6 @@
   margin-bottom: 0.5rem;
 }
 
-/* Responsive font size variables */
 @media screen and (max-width: 1440px) {
   .flickity-prev-next-button {
     width: 3.5rem;

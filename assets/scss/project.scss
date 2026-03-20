@@ -1,12 +1,6 @@
 @use 'config/config' as *;
 
-// ============================================
 // Project Detail Page
-// ============================================
-
-// ============================================
-// OUTER CONTAINER
-// ============================================
 
 .project-main-container {
   border-radius: $radius-medium;
@@ -16,14 +10,11 @@
   background: $white;
 }
 
-// Engine pattern textures — same as project cards
 .engine-unity { --engine-pattern: url('/assets/img/holo/pattern_unity.png'); }
 .engine-unreal { --engine-pattern: url('/assets/img/holo/pattern_unreal.png'); }
 .engine-godot { --engine-pattern: url('/assets/img/holo/pattern_godot.png'); }
 
-// ============================================
-// HERO
-// ============================================
+// Hero
 
 .project-hero {
   width: 100%;
@@ -48,9 +39,7 @@
   max-height: 50vh; object-fit: cover;
 }
 
-// ============================================
-// NAME PLATE
-// ============================================
+// Name Plate
 
 .stat-name-plate {
   display: flex; justify-content: space-between; align-items: center;
@@ -105,9 +94,7 @@
   svg { width: 1.4rem; height: 1.4rem; fill: rgba($white, 0.9); stroke: $black-dark; stroke-width: 0.5px; filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6)); }
 }
 
-// ============================================
-// FLAVOR TEXT
-// ============================================
+// Flavor Text
 
 .stat-flavor {
   padding: space(2) space(5); background: $black-dark;
@@ -119,9 +106,7 @@
   }
 }
 
-// ============================================
-// AWARD ROW
-// ============================================
+// Award Row
 
 .stat-award-row {
   display: flex; align-items: center; gap: space(2);
@@ -136,24 +121,16 @@
   color: $black-dark; letter-spacing: 0.03em;
 }
 
-// ============================================
-// STAT BODY
-// ============================================
+// Stat Body
 
 .stat-body {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: space(4); padding: space(4) space(5);
 }
 
-// ============================================
-// LEFT COLUMN
-// ============================================
-
 .stat-col-left { display: flex; flex-direction: column; gap: space(3); }
 
-// ============================================
-// STAT TABLE
-// ============================================
+// Stat Table
 
 .stat-table { display: flex; flex-direction: column; margin: 0; }
 
@@ -174,10 +151,6 @@
   }
 }
 
-// ============================================
-// SHARED LABEL + TAG BLOCK
-// ============================================
-
 .stat-label {
   font-family: $font-barlow; font-weight: $weight-black;
   font-size: font-size(xs); text-transform: uppercase;
@@ -186,10 +159,6 @@
 
 .stat-tag-block { display: flex; flex-direction: column; gap: space(1); }
 .stat-tag-group { display: flex; flex-wrap: wrap; gap: space(1); margin: 0; }
-
-// ============================================
-// TAGS
-// ============================================
 
 .stat-tag {
   font-family: $font-barlow; font-weight: $weight-bold;
@@ -203,15 +172,7 @@
 .stat-tag-platform { background: $black-dark; color: $white; i { font-size: font-size(xs); } }
 .stat-tag-focus { background: $yellow-dark; color: $black-dark; font-weight: $weight-black; }
 
-// ============================================
-// RIGHT COLUMN
-// ============================================
-
 .stat-col-right { display: flex; flex-direction: column; gap: space(3); }
-
-// ============================================
-// DESCRIPTION
-// ============================================
 
 .stat-description { display: flex; flex-direction: column; gap: space(1); flex: 1; }
 
@@ -222,10 +183,6 @@
   p { margin: 0 0 space(2) 0; &:last-child { margin-bottom: 0; } }
   a { color: $yellow-dark; text-decoration: none; transition: text-decoration 0.15s ease; &:hover { text-decoration: underline; } }
 }
-
-// ============================================
-// EXTERNAL LINKS
-// ============================================
 
 .stat-links-block { display: flex; flex-direction: column; gap: space(1); }
 .stat-links-group { display: flex; flex-wrap: wrap; gap: space(3); }
@@ -240,9 +197,7 @@
   }
 }
 
-// ============================================
-// SECTION DIVIDER
-// ============================================
+// Section Divider
 
 .section-divider {
   display: flex; align-items: center; justify-content: center;
@@ -264,9 +219,7 @@
   color: $white; letter-spacing: 0.05em;
 }
 
-// ============================================
-// GALLERY
-// ============================================
+// Gallery
 
 .lightbox { margin-bottom: 0; transition: margin-bottom 0.3s $easing-bounce; }
 
@@ -339,9 +292,7 @@
   transition: transform 0.3s $easing-pop, color 0.2s ease, filter 0.3s ease;
 }
 
-// ============================================
-// PROJECT NAVIGATION (bottom, in-page)
-// ============================================
+// Project Navigation
 
 .project-nav {
   display: flex; justify-content: space-between; align-items: stretch;
@@ -377,14 +328,11 @@
   overflow: hidden; text-overflow: ellipsis;
 }
 
-// Mobile utility buttons — hidden always, sticky bar handles everything
 .project-nav-mobile-utils {
   display: none;
 }
 
-// ============================================
-// TABLE OF CONTENTS — TOGGLE + PANEL
-// ============================================
+// Table of Contents
 
 .toc-toggle {
   display: flex; align-items: center; gap: space(1);
@@ -408,8 +356,6 @@
 }
 
 
-/* --- Table of Contents Panel --- */
-
 .toc-panel {
   position: fixed;
   bottom: calc(var(--footer-height, 7.5rem) + 3.3rem + var(--sticky-nav-height, 70px) + 1rem); // Sits above the sticky bar
@@ -417,7 +363,6 @@
   width: 280px;
   max-height: 60vh;
   
-  // High-end Visuals
   background: rgba($black-dark, 0.85); 
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -425,20 +370,17 @@
   border-radius: $radius-medium;
   box-shadow: $solid-shadow-md, 0 10px 30px rgba(0,0,0,0.5);
   
-  // Layout
   display: flex;
   flex-direction: column;
   overflow: hidden;
   z-index: 1000;
 
-  // Initial State: Hidden
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px) scale(0.95);
   pointer-events: none;
   transition: all 0.3s $easing-bounce;
 
-// The State the JS triggers
   &.is-open {
     opacity: 1 !important;
     visibility: visible !important;
@@ -446,8 +388,6 @@
     pointer-events: auto !important;
   }
 }
-
-/* --- The Interior Structure --- */
 
 .toc-header {
   padding: space(3) space(4) space(1);
@@ -469,7 +409,6 @@
 .toc-inner {
   padding: space(2) 0;
   overflow-y: auto;
-  // Your existing mask-image for scroll fading
   mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
   -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
 }
@@ -507,9 +446,7 @@
   }
 }
 
-// ============================================
-// INLINE TABLE OF CONTENTS (collapsible)
-// ============================================
+// Inline TOC
 
 .toc-inline {
   margin-bottom: space(6);
@@ -602,7 +539,6 @@
   }
 }
 
-/* --- Mobile Positioning Adjustments --- */
 @media (max-width: $mobile-lg) {
   .toc-panel {
     left: space(2);
@@ -611,9 +547,7 @@
     bottom: 6rem;
   }
 }
-// ============================================
-// STICKY NAV
-// ============================================
+// Sticky Nav
 
 @keyframes pop-in-sticky {
   0%   { transform: translateX(-50%) translateY(3rem); opacity: 0; }
@@ -712,8 +646,6 @@
   &:active { transform: translateY(3px); }
 }
 
-// ── Sticky nav responsive ──
-
 @media (max-width: $tablet-lg) {
   .project-nav-sticky-name { max-width: 10rem; }
   .project-nav-sticky-link { padding: space(2) space(3); font-size: font-size(md); }
@@ -728,10 +660,8 @@
   .toc-toggle { padding: space(2); font-size: font-size(xs); i { font-size: font-size(2xs); } }
 }
 
-// Mobile: sticky bar is PERMANENT with all buttons — replaces in-page nav entirely
 @media (max-width: $mobile-lg) {
   .project-nav-sticky {
-    // Always visible — override JS hidden state and near-bottom completely
     opacity: 1 !important;
     transform: translateX(-50%) translateY(0) !important;
     pointer-events: none !important;
@@ -748,10 +678,8 @@
   .toc-toggle {
     pointer-events: auto !important;
   }
-  // Hide project names — not enough space on mobile, arrows only
   .project-nav-sticky-name { display: none; }
 
-  // Override is-near-bottom — NOTHING hides on mobile, bar is permanent
 .project-nav-sticky.is-near-bottom > .project-nav-sticky-link:not(.project-nav-sticky-dead),
   .project-nav-sticky.is-near-bottom .project-nav-sticky-group > .project-nav-sticky-link:not(.project-nav-sticky-dead) {
     transform: none !important;
@@ -763,10 +691,9 @@
   .project-nav-sticky.is-near-bottom .project-nav-sticky-group > .project-nav-sticky-dead {
     transform: none !important;
     opacity: 0.4 !important; // Keeps the button looking disabled
-    pointer-events: none !important; // Ensures it cannot be clicked
+    pointer-events: none !important;
   }
 
-  // Scale down buttons for mobile
   .project-nav-sticky-link {
     padding: space(2); font-size: font-size(md); border-width: $border-xs;
     box-shadow: $solid-shadow-xs;
@@ -785,7 +712,6 @@
     border-width: $border-xs; box-shadow: $solid-shadow-xs;
   }
 
-  // Hide in-page bottom nav — sticky bar handles everything on mobile
   .project-nav { display: none !important; }
 
   .toc-panel {
@@ -802,9 +728,7 @@
 }
 
 
-// ============================================
-// GLIGHTBOX OVERRIDES
-// ============================================
+// GLightbox
 
 .glightbox-clean .gclose,
 .glightbox-clean .gnext,
@@ -816,14 +740,12 @@
   opacity: 1 !important;
   transition: transform 0.2s $easing-bounce, box-shadow 0.2s $easing-bounce !important;
 
-  // FontAwesome icon styling
   i {
     color: $black-dark;
     font-size: font-size(lg);
     transition: color 0.2s $easing-bounce;
   }
 
-  // Hide default SVGs
   svg { display: none !important; }
 
   &:hover {
@@ -869,9 +791,7 @@
 }
 
 
-// ============================================
-// DEVLOG
-// ============================================
+// Devlog
 
 .devlog { margin-top: space(8); }
 
@@ -879,9 +799,7 @@
   margin: 0 auto; display: flex; flex-direction: column; gap: space(6);
 }
 
-// ============================================
-// BLOCK: HEADING
-// ============================================
+// Headings
 
 [class^="devlog-heading--"] { scroll-margin-top: 6rem; }
 
@@ -963,10 +881,6 @@
   &:hover .devlog-heading-anchor { opacity: 1; transform: translateX(0); pointer-events: auto; }
 }
 
-// ============================================
-// SHARED DEVLOG PROSE
-// ============================================
-
 %devlog-prose {
   font-family: $font-poppins; font-size: font-size(md);
   font-weight: $weight-normal; color: $white;
@@ -979,10 +893,6 @@
   ol li::marker { color: $yellow-dark; font-weight: $weight-black; font-family: $font-barlow; }
 }
 
-// ============================================
-// BLOCK: TEXT
-// ============================================
-
 .devlog-text {
   @extend %devlog-prose;
   line-height: 1.8; padding: 0 space(4);
@@ -993,10 +903,6 @@
     border: 1px solid $black-light;
   }
 }
-
-// ============================================
-// BLOCK: QUOTE
-// ============================================
 
 .devlog-quote {
   width: 80%; max-width: 80%; align-self: center; margin: 0;
@@ -1019,9 +925,7 @@
   }
 }
 
-// ============================================
-// BLOCK: IMAGE
-// ============================================
+// Image
 
 .devlog-figure {
   margin: 0; display: flex; flex-direction: column;
@@ -1071,9 +975,7 @@
 .devlog-figure .devlog-figcaption--center { left: 50%; transform: translateX(-50%); }
 .devlog-figure .devlog-figcaption--right  { left: auto; right: space(4); transform: none; }
 
-// ============================================
-// BLOCK: VIDEO
-// ============================================
+// Video
 
 .devlog-video { margin: 0; display: flex; flex-direction: column; gap: space(2); }
 
@@ -1084,17 +986,13 @@
   iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; display: block; }
 }
 
-// ============================================
-// SIZE MODIFIERS
-// ============================================
+// Size Modifiers
 
 .devlog-figure--large, .devlog-video--large, .devlog-table-wrap--large { width: 80%; max-width: 80%; margin-left: auto; margin-right: auto; align-self: center; }
 .devlog-figure--medium, .devlog-video--medium, .devlog-table-wrap--medium { width: 60%; max-width: 60%; margin-left: auto; margin-right: auto; align-self: center; }
 .devlog-figure--small, .devlog-video--small, .devlog-table-wrap--small { width: 40%; max-width: 40%; margin-left: auto; margin-right: auto; align-self: center; }
 
-// ============================================
-// BLOCK: TABLE
-// ============================================
+// Table
 
 .devlog-table-wrap {
   overflow-x: auto; border-radius: $radius-medium;
@@ -1124,9 +1022,7 @@
   }
 }
 
-// ============================================
-// BLOCK: LIST
-// ============================================
+// List
 
 .devlog-list {
   padding: 0 space(4);
@@ -1138,9 +1034,7 @@
   ol li::marker { color: $yellow-dark; font-weight: $weight-black; font-family: $font-barlow; }
 }
 
-// ============================================
-// BLOCK: LINE
-// ============================================
+// Line
 
 .devlog-line { display: flex; align-items: center; justify-content: center; gap: space(4); }
 .devlog-line-rule { width: 60px; flex: none; height: $border-sm; background: $black-dark; border-radius: 2px; display: block; }
@@ -1157,9 +1051,7 @@
   object-fit: contain; display: block; filter: brightness(0);
 }
 
-// ============================================
-// BLOCK: SIDE BY SIDE
-// ============================================
+// Side by Side
 
 .devlog-sidebyside { display: grid; grid-template-columns: 1fr 1fr; gap: space(6); align-items: start; }
 .devlog-sidebyside--right { .devlog-sidebyside-text { order: 1; } .devlog-sidebyside-media { order: 2; } }
@@ -1168,9 +1060,7 @@
 .devlog-sidebyside-media .devlog-image-link { border-width: $border-sm; }
 .devlog-sidebyside-text { @extend %devlog-prose; line-height: 1.75; }
 
-// ============================================
-// DEVLOG RESPONSIVE
-// ============================================
+// Devlog Responsive
 
 @media (max-width: $tablet) {
   .devlog-content { gap: space(5); }
@@ -1213,9 +1103,7 @@
   .image-caption-badge { font-size: font-size(2xs); padding: 0.1rem space(1); border-width: 2px; }
 }
 
-// ============================================
-// RESPONSIVE
-// ============================================
+// Responsive
 
 @media (max-width: $desktop-lg) {
   .stat-name-plate { padding: space(2) space(4); }
@@ -1349,9 +1237,7 @@
   .devlog-caption-text { font-size: font-size(3xs); padding: 0.05rem space(1); }
 }
 
-// ============================================
-// LANDSCAPE
-// ============================================
+// Landscape
 
 @media (max-height: 500px) and (orientation: landscape) {
   .project-hero-image { max-height: 30vh; }

@@ -1,6 +1,6 @@
 @use 'config/config' as *;
 
-/*Slider*/
+// Carousel
 
 .carousel-cell {
   width: 100%;
@@ -42,12 +42,10 @@
   border-color: $black-dark;
 }
 
-/* position dots in carousel */
 .flickity-page-dots {
   bottom: 10.5rem;
 }
 
-/* white circles */
 .flickity-page-dots .dot {
   width: space(3);
   height: space(3);
@@ -56,7 +54,6 @@
   z-index: z(loader);
 }
 
-/* fill-in selected dot */
 .flickity-page-dots .dot.is-selected {
   background: $yellow-dark;
   width: space(4);
@@ -113,7 +110,6 @@
   word-wrap: break-word;
 }
 
-/* Keyframes for the bounce animations */
 @keyframes bounce-left {
   0%, 95%, 100% {
     transform: translateY(-50%);
@@ -170,7 +166,6 @@
   box-shadow: $solid-shadow-md;
 }
 
-/* Apply the animations to both buttons */
 .flickity-prev-next-button.previous {
   left: -4rem;
   animation: bounce-left 5s $easing-bounce infinite;
@@ -181,18 +176,15 @@
   animation: bounce-right 5s $easing-bounce infinite;
 }
 
-/* Pause the animations on hover to improve usability */
 .flickity-prev-next-button:hover {
   animation-play-state: paused;
 }
 
-/* icon color */
 .flickity-button-icon {
   fill: $black-dark;
   width: 80%;
 }
 
-/* Ratio of the svg position */
 .flickity-prev-next-button .flickity-button-icon {
   height: 70%;
   width: 70%;
@@ -205,7 +197,7 @@
   margin-bottom: 0.5rem;
 }
 
-/* Responsive font size variables */
+// Responsive
 @media screen and (max-width: $widescreen) {
   .flickity-prev-next-button {
     width: 3.5rem;

@@ -1,36 +1,40 @@
-<img src="http://getkirby.com/assets/images/github/plainkit.jpg" width="300">
+# Game Design Portfolio
 
-**Kirby: the CMS that adapts to any project, loved by developers and editors alike.**
-The Plainkit is a minimal Kirby setup with the basics you need to start a project from scratch. It is the ideal choice if you are already familiar with Kirby and want to start step-by-step.
+A handcrafted portfolio website for showcasing game design work, built with **Kirby CMS** and a custom **neobrutalist design system**. Every interaction is designed to feel like a game UI — bouncy easing, solid-shadow borders, tactile hover states, and spring-physics scrolling.
 
-You can learn more about Kirby at [getkirby.com](https://getkirby.com).
 
-### Try Kirby for free
+## Features
 
-You can try Kirby and the Plainkit on your local machine or on a test server as long as you need to make sure it is the right tool for your next project. … and when you’re convinced, [buy your license](https://getkirby.com/buy).
+**Design & Interaction**
+- Neobrutalist aesthetic with thick solid-shadow borders, yellow accent pops, and a dark color palette
+- 3D card tilt with glare and holographic shimmer on project cards (desktop)
+- Spring-physics smooth scrolling with configurable stiffness and damping
+- Sticky project navigation that appears on scroll
+- Bounce and pop easing curves on all interactive elements
+- Fully responsive border/shadow hierarchy that scales down gracefully across breakpoints
 
-### Get going
+**Content System**
+- Devlog-style project pages with structured blocks: headings, text, images, video embeds, quotes, tables, side-by-side layouts, accordions
+- Inline collapsible table of contents
+- Project filtering by genre, platform, engine, and type
+- Featured project carousel on the home page
+- Per-page SEO fields with Open Graph and Twitter Card support
+- Dynamic sitemap and robots.txt generation
 
-Read our guide on [how to get started with Kirby](https://getkirby.com/docs/guide/quickstart).
+**Performance & Security**
+- Gzip compression, browser caching (1 year images/fonts, 1 month CSS/JS)
+- Lazy-loaded images with responsive srcsets
+- `.htaccess` hardening: blocks direct access to CMS internals, enforces HTTPS, sets security headers
+- `prefers-reduced-motion` support throughout
 
-You can [download the latest version](https://github.com/getkirby/plainkit/archive/main.zip) of the Plainkit.
-If you are familiar with Git, you can clone Kirby's Plainkit repository from Github.
+## Tech Stack
 
-    git clone https://github.com/getkirby/plainkit.git
-
-## What's Kirby?
-
--   **[getkirby.com](https://getkirby.com)** – Get to know the CMS.
--   **[Try it](https://getkirby.com/try)** – Take a test ride with our online demo. Or download one of our kits to get started.
--   **[Documentation](https://getkirby.com/docs/guide)** – Read the official guide, reference and cookbook recipes.
--   **[Issues](https://github.com/getkirby/kirby/issues)** – Report bugs and other problems.
--   **[Feedback](https://feedback.getkirby.com)** – You have an idea for Kirby? Share it.
--   **[Forum](https://forum.getkirby.com)** – Whenever you get stuck, don't hesitate to reach out for questions and support.
--   **[Discord](https://chat.getkirby.com)** – Hang out and meet the community.
--   **[Mastodon](https://mastodon.social/@getkirby)** – Spread the word.
--   **[Instagram](https://www.instagram.com/getkirby/)** – Share your creations: #madewithkirby.
-
----
-
-© 2009 Bastian Allgeier
-[getkirby.com](https://getkirby.com) · [License agreement](https://getkirby.com/license)
+| Layer    | Technology                             |
+|----------|----------------------------------------|
+| CMS      | [Kirby 4](https://getkirby.com)        |
+| Backend  | PHP 8.1+                               |
+| Styling  | SCSS (Sass)                            |
+| JS       | Vanilla JavaScript (no framework)      |
+| Icons    | Font Awesome 6 + custom engine icons   |
+| Lightbox | GLightbox,                |            |
+| Server   | Apache with mod_rewrite                |

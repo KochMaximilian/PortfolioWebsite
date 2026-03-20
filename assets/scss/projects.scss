@@ -1,6 +1,5 @@
 @use 'config/config' as *;
 
-// Register custom properties so CSS can animate them (needed for idle holo drift)
 @property --background-x {
     syntax: '<percentage>';
     inherits: true;
@@ -99,7 +98,6 @@
     transition: transform 0.3s $easing-pop,
                 box-shadow 0.3s $easing-pop;
 
-    // Holo CSS custom property defaults (JS overrides on hover)
     --pointer-x: 50%;
     --pointer-y: 50%;
     --card-opacity: 0;
@@ -125,7 +123,6 @@
     gap: 0.35rem;
     transition: box-shadow 0.3s $easing-pop;
 
-    // Base background — engine texture applied via --engine-pattern set by engine classes below
     background: var(--engine-pattern, none) repeat, linear-gradient(
         45deg,
         $purple-light 0%,
@@ -139,15 +136,12 @@
     backface-visibility: hidden;
     
 
-    // Double border / inset frame — all cards
     outline: 2px solid rgba($gray-dark, 0.4);
     outline-offset: -4px;
     border: 2px solid rgba($black-light, 0.3);
 }
 
-// ============================================
-// ENGINE PATTERN TEXTURES — must be after .card-frame to win specificity
-// ============================================
+// Engine Textures
 .engine-unity { --engine-pattern: url('/assets/img/holo/pattern_unity.png'); }
 .engine-unreal { --engine-pattern: url('/assets/img/holo/pattern_unreal.png'); }
 .engine-godot { --engine-pattern: url('/assets/img/holo/pattern_godot.png'); }
@@ -179,7 +173,7 @@
     transition: color 0.3s $easing-pop;
 }
 
-// Engine icon — gem-like gradient for all cards
+// Engine Icon
 .card-mana {
     display: flex;
     align-items: center;
@@ -239,7 +233,7 @@
     transition: transform 0.4s $easing-pop;
 }
 
-// Award Badge - lower left of card art
+// Award Badge
 // TODO: Replace FontAwesome trophy with custom award icon before project completion
 .card-award-badge {
     position: absolute;
@@ -367,7 +361,7 @@
     flex-shrink: 0;
 }
 
-// Focus Area Keywords Bar
+// Focus Keywords
 .card-focus-bar {
     display: flex;
     justify-content: center;
@@ -470,11 +464,8 @@
 }
 
 
-// ============================================
-// POKEMON V HOLOGRAPHIC EFFECT - Featured Cards
-// ============================================
+// Holographic Effect
 
-// ---- EDGE GLOW ----
 @keyframes edge-glow {
     0%, 100% {
         box-shadow:
@@ -490,8 +481,6 @@
     }
 }
 
-// ---- IDLE HOLO DRIFT ----
-// Slowly moves holo background position at idle so foil catches light organically
 @keyframes idle-holo-drift {
     0%, 100% {
         --background-x: 15%;
@@ -511,7 +500,6 @@
     }
 }
 
-// ---- MANA ORB PULSE (featured only) ----
 @keyframes mana-glow {
     0%, 100% {
         box-shadow:
@@ -529,12 +517,10 @@
     }
 }
 
-// Featured card figure - idle holo drift
 .is-featured .projects-figure {
     animation: idle-holo-drift 8s ease-in-out infinite;
 }
 
-// Featured card frame - gold foil metallic treatment with engine-specific texture
 .is-featured .card-frame {
     --sunpillar-1: hsl(2, 100%, 73%);
     --sunpillar-2: hsl(53, 100%, 69%);
@@ -552,7 +538,6 @@
 
     --grain: url('/assets/img/holo/grain.webp');
 
-    // Gold foil metallic frame — uses engine-specific pattern via --engine-pattern
     background:
         var(--engine-pattern, none) repeat scroll,  
         linear-gradient(
@@ -569,23 +554,19 @@
     
     filter: contrast(1.05) brightness(1.02);
 
-    // Ambient edge glow
     animation: edge-glow 3s ease-in-out infinite;
 
-    // Featured double border override — purple/gold
     outline: 2px solid rgba($purple-light, 0.8);
     outline-offset: -4px;
     border: 2px solid rgba($purple-dark, 0.5);
 }
 
-// Featured card footer text - brighter on gold frame
 .is-featured .card-footer-engine,
 .is-featured .card-footer-set {
     color: rgba($white, 0.8);
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-// Featured card - white inner panels with gold-tinted shadow
 .is-featured .card-header {
     background: transparent;
 }
@@ -603,16 +584,10 @@
                 inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
-// ---- IDLE HOLO FOIL (Option A) ----
-// Featured card shine has a faint base opacity so foil is visible at rest
-// JS --card-opacity takes over on hover via max()
 .is-featured .card-shine {
     opacity: max(var(--card-opacity), 0.25);
 }
 
-// ---- ENHANCED MANA ORB (featured only — adds pulse) ----
-// All cards already get the gem gradient from base .card-mana
-// Featured adds the breathing glow animation on top
 .is-featured .card-mana {
     background: rgba($purple-light, 0.4);
     backdrop-filter: blur(6px);
@@ -620,7 +595,6 @@
     animation: mana-glow 3s ease-in-out infinite;
 }
 
-// Featured mana orb hover — stop pulse, lock to bright state
 .projects-link:hover .is-featured .card-mana {
     animation: none;
     background: rgba($purple-light, 0.5);
@@ -633,7 +607,6 @@
 }
 
 
-// Shared positioning for holo layers
 .card-shine,
 .card-glare {
     position: absolute;
@@ -646,7 +619,6 @@
     overflow: hidden;
 }
 
-// Shine layer - from base.css .card__shine + v-regular.css overrides
 .card-shine {
     --space: 5%;
     --angle: 133deg;
@@ -693,8 +665,6 @@
     opacity: var(--card-opacity);
 }
 
-// Shine ::after layer - shifted sunpillar colors, reversed positions
-// from base.css .card__shine:after + v-regular.css overrides
 .card-shine::after {
     content: "";
     position: absolute;
@@ -749,7 +719,6 @@
     mix-blend-mode: soft-light;
 }
 
-// Glare layer - from base.css .card__glare + v-regular.css overrides
 .card-glare {
     z-index: 4;
     transform: translateZ(1.41px);
@@ -767,11 +736,8 @@
     filter: brightness(.9) contrast(1.75);
 }
 
-// ============================================
-// HOVER EFFECTS - All Devices
-// ============================================
+// Hover Effects
 
-// Shake on hover entry
 @keyframes card-shake {
     0% { transform: rotate(0deg); }
     20% { transform: rotate(-2deg); }
@@ -789,7 +755,6 @@
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-// Featured card hover — stop edge-glow animation, lock to peak glow + purple hover glow
 .projects-link:hover .is-featured .card-frame {
     animation: none;
     box-shadow:
@@ -819,7 +784,6 @@
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
-// All cards — gem glow on mana orb hover
 .projects-link:hover .card-mana {
     transform: scale(1.2);
     box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4),
@@ -841,12 +805,9 @@
     color: rgba(255, 255, 255, 0.85);
 }
 
-// ============================================
-// DESKTOP 3D TILT + GLARE + PARALLAX
-// ============================================
+// Desktop 3D Effects
 @media (min-width: $desktop) and (hover: hover) and (pointer: fine) {
-    
-    // Idle floating animation
+
     @keyframes card-float {
         0%, 100% { 
             transform: perspective(1000px) translateY(0px) rotateX(0deg) rotateY(0deg); 
@@ -871,12 +832,10 @@
         transform: perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) scale(var(--card-scale));
     }
 
-    // Featured cards: float + holo drift combined
     .is-featured .projects-figure {
         animation: card-float 4s ease-in-out infinite, idle-holo-drift 8s ease-in-out infinite;
     }
     
-    // Stagger the float animation for each card
     .projects-link:nth-child(2) .projects-figure { animation-delay: -0.5s; }
     .projects-link:nth-child(3) .projects-figure { animation-delay: -1s; }
     .projects-link:nth-child(4) .projects-figure { animation-delay: -1.5s; }
@@ -891,7 +850,6 @@
             0 5px 15px rgba(0, 0, 0, 0.2);
     }
     
-    // Holographic glare overlay (generic, for non-featured cards)
     .card-frame::before {
         content: '';
         position: absolute;
@@ -913,14 +871,12 @@
         mix-blend-mode: overlay;
     }
 
-    // Hide generic glare on featured cards (they have Pokemon V holo instead)
     .is-featured .card-frame::before {
         display: none;
     }
 
 
     
-    // Shimmer sweep effect
     .card-frame::after {
         content: '';
         position: absolute;
@@ -944,7 +900,6 @@
         animation-delay: var(--shimmer-delay, 0s);
     }
 
-    // Featured card shimmer uses gold tint
     .is-featured .card-frame::after {
         background: linear-gradient(
             115deg, 
@@ -956,7 +911,6 @@
         );
     }
     
-    // Hover sweep — all cards
     .projects-link:hover .card-frame::after {
         opacity: 1;
         animation: shimmer-sweep 0.8s ease-out forwards;
@@ -977,7 +931,6 @@
         100% { transform: rotate(25deg) translateX(110%); opacity: 0; }
     }
     
-    // Parallax depth on inner elements
     .projects-link:hover .card-header {
         transform: translateZ(20px);
     }
@@ -1002,7 +955,6 @@
         transform: translateZ(30px) scale(1.2);
     }
 
-    // Parallax for holo layers
     .projects-link:hover .card-shine {
         transform: translateZ(1px);
     }
@@ -1012,9 +964,7 @@
     }
 }
 
-// ============================================
-// PAGINATION
-// ============================================
+// Pagination
 .pagination-dead-link {
     display: inline-block;
     color: $black-dark;
@@ -1069,9 +1019,7 @@ nav {
     margin: space(6) 0;
 }
 
-// ============================================
-// RESPONSIVE STYLES
-// ============================================
+// Responsive Styles
 
 // Large Screens
 @media (min-width: 1441px) {

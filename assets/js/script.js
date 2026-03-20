@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // 3D CARD TILT + GLARE + HOLO - Desktop only
+    // 3D card tilt
 
     const isDesktop = window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)').matches;
 
-    // Math helpers from pokemon-cards-css Math.js
+    // Math helpers
     const round = (value, precision = 3) => parseFloat(value.toFixed(precision));
     const clamp = (value, min = 0, max = 1) => Math.min(Math.max(value, min), max);
     const adjust = (value, fromMin, fromMax, toMin, toMax) => {
@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let targetGlare = 0;
         let rafId = null;
 
-        // Lerp speeds - fast in, slow out
         const lerpTiltIn = 0.15;
         const lerpTiltOut = 0.045;
         const lerpScaleIn = 0.12;
@@ -63,17 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const tiltLerp = isHovering ? lerpTiltIn : lerpTiltOut;
             const scaleLerp = isHovering ? lerpScaleIn : lerpScaleOut;
             
-            // Smooth tilt
             currentX = lerp(currentX, targetX, tiltLerp);
             currentY = lerp(currentY, targetY, tiltLerp);
             
-            // Smooth scale
             currentScale = lerp(currentScale, targetScale, scaleLerp);
             
-            // Smooth glare
             currentGlare = lerp(currentGlare, targetGlare, scaleLerp);
             
-            // Check if close enough to stop
             const tiltDone = Math.abs(currentX - targetX) < 0.001 && Math.abs(currentY - targetY) < 0.001;
             const scaleDone = Math.abs(currentScale - targetScale) < 0.001;
             
@@ -88,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.style.setProperty('--shadow-y', '15px');
                 card.style.setProperty('--glare-opacity', '0');
                 card.style.setProperty('--card-scale', '1');
-                // Reset holo properties
                 card.style.setProperty('--card-opacity', '0');
                 card.style.setProperty('--pointer-x', '50%');
                 card.style.setProperty('--pointer-y', '50%');
@@ -101,15 +95,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             
-            // Apply tilt (max 12 degrees)
             const tiltY = currentX * 12;
             const tiltX = currentY * -12;
             
-            // Dynamic shadow
             const shadowX = currentX * -20;
             const shadowY = 15 + (currentY * -12);
             
-            // Glare position
             const glareX = 50 + (currentX * 30);
             const glareY = 50 + (currentY * 30);
             
@@ -130,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
             targetScale = 1.08;
             targetGlare = 1;
             
-            // Activate holo effect
             card.style.setProperty('--card-opacity', '1');
             
             if (!rafId) {
@@ -145,33 +135,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const centerX = rect.left + rect.width / 2;
             const centerY = rect.top + rect.height / 2;
             
-            // Normalize to -1 to 1 (for tilt)
             targetX = (e.clientX - centerX) / (rect.width / 2);
             targetY = (e.clientY - centerY) / (rect.height / 2);
             
-            // Clamp
             targetX = Math.max(-1, Math.min(1, targetX));
             targetY = Math.max(-1, Math.min(1, targetY));
 
-            // Pokemon V holo properties (0-1 range from top-left)
             const px = clamp((e.clientX - rect.left) / rect.width);
             const py = clamp((e.clientY - rect.top) / rect.height);
 
-            // Pointer position as percentage (0-100%)
             card.style.setProperty('--pointer-x', round(px * 100) + '%');
             card.style.setProperty('--pointer-y', round(py * 100) + '%');
 
-            // Background position (mapped to narrow range for subtle movement)
             card.style.setProperty('--background-x', adjust(px, 0, 1, 37, 63) + '%');
             card.style.setProperty('--background-y', adjust(py, 0, 1, 33, 67) + '%');
 
-            // Distance from center (0 = center, 1 = edge)
             const dx = px - 0.5;
             const dy = py - 0.5;
             const fromCenter = clamp(Math.sqrt(dx * dx + dy * dy) / 0.5);
             card.style.setProperty('--pointer-from-center', round(fromCenter).toString());
 
-            // Normalized position (0-1)
             card.style.setProperty('--pointer-from-top', round(py).toString());
             card.style.setProperty('--pointer-from-left', round(px).toString());
         });
@@ -183,7 +166,6 @@ document.addEventListener('DOMContentLoaded', () => {
             targetScale = 1;
             targetGlare = 0;
             
-            // Fade out holo
             card.style.setProperty('--card-opacity', '0');
             
             if (!rafId) {
@@ -192,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // About card 3D tilt (simplified - no holo)
+    // About card tilt
     const aboutCard = document.querySelector('.about-image');
     if (aboutCard && isDesktop) {
         let abIsHovering = false;
@@ -273,7 +255,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const textEl = nowPlayingTag.querySelector('.now-playing-text');
         let naturalWidth = 0;
 
-        // Measure the natural width once
         if (textEl) {
             textEl.style.transition = 'none';
             textEl.style.width = 'auto';
@@ -293,7 +274,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Randomize idle shimmer delays so cards glint organically
     document.querySelectorAll('.card-frame').forEach(frame => {
         const delay = -(Math.random() * 10).toFixed(2);
         frame.style.setProperty('--shimmer-delay', delay + 's');
