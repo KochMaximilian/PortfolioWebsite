@@ -199,8 +199,30 @@
 
 // Responsive
 
-// Sub-2K desktops
-@media screen and (max-width: $fullhd) and (min-width: $desktop-lg + 1) {
+// Sub-2K — tall screens (2K display, narrower window)
+@media screen and (max-width: $fullhd) and (min-width: 1201px) and (min-height: 1201px) {
+  .slider-figure {
+    padding: 1.1rem;
+  }
+
+  .flickity-prev-next-button {
+    width: 3.8rem;
+    height: 6.5rem;
+    border-width: $border-sm;
+    box-shadow: $solid-shadow-md;
+  }
+
+  .flickity-prev-next-button.previous {
+    left: -2rem;
+  }
+
+  .flickity-prev-next-button.next {
+    right: -2rem;
+  }
+}
+
+// Sub-2K — short screens (1080p laptops)
+@media screen and (max-width: $fullhd) and (min-width: 1201px) and (max-height: 1200px) {
   .slider-figure {
     padding: 1rem;
   }

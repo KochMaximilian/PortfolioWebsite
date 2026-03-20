@@ -302,7 +302,23 @@ p {
   }
 }
 
-@media (max-width: $fullhd) and (min-width: $desktop-lg + 1) {
+// Sub-2K — tall screens (2K display, narrower window)
+@media (max-width: $fullhd) and (min-width: 1201px) and (min-height: 1201px) {
+  .content-block {
+    margin-top: 6.5rem;
+  }
+
+  .main-wrapper {
+    gap: space(6);
+  }
+
+  .wrapper {
+    padding-bottom: calc(var(--footer-height) + 1rem);
+  }
+}
+
+// Sub-2K — short screens (1080p laptops)
+@media (max-width: $fullhd) and (min-width: 1201px) and (max-height: 1200px) {
   .content-block {
     margin-top: 6rem;
   }

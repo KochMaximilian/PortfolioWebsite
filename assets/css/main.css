@@ -287,7 +287,18 @@ p {
     font-size: 93.75%;
   }
 }
-@media (max-width: 1920px) and (min-width: 1201px) {
+@media (max-width: 1920px) and (min-width: 1201px) and (min-height: 1201px) {
+  .content-block {
+    margin-top: 6.5rem;
+  }
+  .main-wrapper {
+    gap: 1.5rem;
+  }
+  .wrapper {
+    padding-bottom: calc(var(--footer-height) + 1rem);
+  }
+}
+@media (max-width: 1920px) and (min-width: 1201px) and (max-height: 1200px) {
   .content-block {
     margin-top: 6rem;
   }

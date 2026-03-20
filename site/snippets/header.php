@@ -180,7 +180,7 @@
     <script type="application/ld+json"><?= json_encode($s, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
     <?php endforeach ?>
 
-    <?php snippet('favicon') ?>
+    <link rel="icon" href="<?= url('assets/favicon/favicon.ico') ?>" type="image/x-icon">
 
     <?php
     // Pick a random site variant per page load — drives both background pattern + footer logo

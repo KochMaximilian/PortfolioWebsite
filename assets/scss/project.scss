@@ -1105,8 +1105,35 @@
 
 // Responsive
 
-// Sub-2K desktops
-@media (max-width: $fullhd) and (min-width: $desktop-lg + 1) {
+// Sub-2K — tall screens (2K display, narrower window)
+@media (max-width: $fullhd) and (min-width: 1201px) and (min-height: 1201px) {
+  .project-image-container {
+    max-width: 1150px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: space(5);
+  }
+
+  .toc-panel {
+    width: 270px;
+  }
+
+  .stat-name-plate { padding: space(2) space(6); }
+  .stat-project-title { font-size: font-size(4xl); }
+  .stat-flavor { padding: space(2) space(6); }
+  .stat-body { padding: space(3) space(6); }
+  .image-caption-badge { font-size: font-size(md); }
+
+  .project-nav-sticky {
+    bottom: calc(var(--footer-height) + 4.5rem);
+  }
+
+  .toc-panel {
+    bottom: calc(var(--footer-height) + 4.5rem + var(--sticky-nav-height, 70px) + 1rem);
+  }
+}
+
+// Sub-2K — short screens (1080p laptops)
+@media (max-width: $fullhd) and (min-width: 1201px) and (max-height: 1200px) {
   .project-image-container {
     max-width: 1050px;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));

@@ -189,7 +189,24 @@
   margin-bottom: 0.5rem;
 }
 
-@media screen and (max-width: 1920px) and (min-width: 1201px) {
+@media screen and (max-width: 1920px) and (min-width: 1201px) and (min-height: 1201px) {
+  .slider-figure {
+    padding: 1.1rem;
+  }
+  .flickity-prev-next-button {
+    width: 3.8rem;
+    height: 6.5rem;
+    border-width: 4px;
+    box-shadow: #0A0A0A 1.4px 3.5px 0px 1.4px;
+  }
+  .flickity-prev-next-button.previous {
+    left: -2rem;
+  }
+  .flickity-prev-next-button.next {
+    right: -2rem;
+  }
+}
+@media screen and (max-width: 1920px) and (min-width: 1201px) and (max-height: 1200px) {
   .slider-figure {
     padding: 1rem;
   }

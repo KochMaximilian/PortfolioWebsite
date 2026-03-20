@@ -1879,7 +1879,38 @@
     border-width: 2px;
   }
 }
-@media (max-width: 1920px) and (min-width: 1201px) {
+@media (max-width: 1920px) and (min-width: 1201px) and (min-height: 1201px) {
+  .project-image-container {
+    max-width: 1150px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+  .toc-panel {
+    width: 270px;
+  }
+  .stat-name-plate {
+    padding: 0.5rem 1.5rem;
+  }
+  .stat-project-title {
+    font-size: 2.5rem;
+  }
+  .stat-flavor {
+    padding: 0.5rem 1.5rem;
+  }
+  .stat-body {
+    padding: 0.75rem 1.5rem;
+  }
+  .image-caption-badge {
+    font-size: 1rem;
+  }
+  .project-nav-sticky {
+    bottom: calc(var(--footer-height) + 4.5rem);
+  }
+  .toc-panel {
+    bottom: calc(var(--footer-height) + 4.5rem + var(--sticky-nav-height, 70px) + 1rem);
+  }
+}
+@media (max-width: 1920px) and (min-width: 1201px) and (max-height: 1200px) {
   .project-image-container {
     max-width: 1050px;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
