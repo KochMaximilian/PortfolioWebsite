@@ -141,14 +141,6 @@ a {
   box-sizing: border-box;
   padding-bottom: calc(var(--footer-height) + 2rem);
 }
-
-// Scale down on smaller desktop displays to match 1440p design
-@media (max-width: 1920px) and (min-width: $desktop) {
-  .page-zoom {
-    zoom: 0.85;
-  }
-}
-
 .main-content {
   display: flex;
   flex-direction: column;
@@ -310,7 +302,7 @@ p {
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 2000px) {
   html {
     font-size: 112.5%;
   }
