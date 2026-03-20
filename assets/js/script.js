@@ -276,6 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.card-frame').forEach(frame => {
         const delay = -(Math.random() * 10).toFixed(2);
+        const duration = (8 + Math.random() * 8).toFixed(2);
         frame.style.setProperty('--shimmer-delay', delay + 's');
+        frame.style.setProperty('--shimmer-duration', duration + 's');
     });
 });

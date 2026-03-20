@@ -897,7 +897,7 @@
         opacity: 0;
         pointer-events: none;
         z-index: 16;
-        animation: idle-shimmer 10s ease-in-out infinite;
+        animation: idle-shimmer var(--shimmer-duration, 10s) ease-in-out infinite;
         animation-delay: var(--shimmer-delay, 0s);
     }
 

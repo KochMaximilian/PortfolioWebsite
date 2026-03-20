@@ -179,6 +179,39 @@ footer {
 }
 
 // Responsive
+
+// Sub-2K desktops
+@media screen and (max-width: $fullhd) and (min-width: $desktop-lg + 1) {
+  :root {
+    --footer-height: 6rem;
+  }
+
+  footer {
+    padding: 1.2rem 0;
+  }
+
+  .footer-logo {
+    height: 5.5rem;
+    margin-top: -8.5rem;
+  }
+
+  .custom-icon-size {
+    font-size: 1.6rem;
+  }
+
+  .socials {
+    gap: space(3);
+  }
+
+  .slogan {
+    font-size: font-size(md);
+  }
+
+  .copyright {
+    font-size: font-size(xs);
+  }
+}
+
 @media screen and (max-width: $tablet) {
   footer {
     padding: 1.2rem 0;
