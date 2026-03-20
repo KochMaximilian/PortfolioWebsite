@@ -8,7 +8,6 @@
 <?php endsnippet() ?>
 
 <div class="wrapper">
-    <div class="page-zoom">
         <main class="main-wrapper" id="main-content">
 
             <section class="content-block">
@@ -28,6 +27,5 @@
             </section>
 
         </main>
-    </div>
 </div>
 <?php snippet('footer') ?>

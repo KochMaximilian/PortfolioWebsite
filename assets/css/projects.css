@@ -912,6 +912,106 @@ nav {
     font-size: 0.55rem;
   }
 }
+@media (max-width: 1920px) and (min-width: 1201px) {
+  .content-block {
+    margin-top: 4.5rem;
+  }
+  .main-wrapper {
+    gap: 1rem;
+  }
+  .projects {
+    gap: 0.75rem !important;
+  }
+  .filter a {
+    font-size: 1rem;
+    padding: 0 0.75rem;
+    line-height: 1.8;
+  }
+  .card-frame {
+    padding: 0.4rem;
+    gap: 0.28rem;
+  }
+  .card-header {
+    padding: 0.35rem 0.6rem;
+  }
+  .card-title {
+    font-size: 1rem;
+  }
+  .card-mana {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  .card-mana svg {
+    width: 1rem;
+    height: 1rem;
+  }
+  .card-type-line {
+    padding: 0.25rem 0.5rem;
+    min-height: 1.75rem;
+    gap: 0.3rem;
+  }
+  .card-type {
+    font-size: 0.65rem;
+  }
+  .card-tag {
+    font-size: 0.5rem;
+    padding: 0.05rem 0.25rem;
+  }
+  .card-year {
+    font-size: 0.65rem;
+    padding: 0.05rem 0.35rem;
+  }
+  .card-focus-bar {
+    padding: 0.2rem 0.35rem;
+    gap: 0.25rem;
+  }
+  .card-focus-keyword {
+    font-size: 0.5rem;
+    padding: 0.08rem 0.35rem;
+  }
+  .card-text-box {
+    min-height: 2.8rem;
+    max-height: 2.8rem;
+    padding: 0.4rem 0.6rem;
+  }
+  .card-description {
+    font-size: 0.75rem;
+  }
+  .card-footer {
+    padding: 0.15rem 0.4rem;
+  }
+  .card-footer-engine,
+  .card-footer-set {
+    font-size: 0.45rem;
+  }
+  .card-art {
+    aspect-ratio: 16/10;
+  }
+  .card-set-symbol i {
+    width: 1.35rem;
+    height: 1.35rem;
+    font-size: 0.75rem;
+  }
+  .card-award-badge {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+  .card-award-badge i {
+    font-size: 0.85rem;
+  }
+  .pagination-link,
+  .pagination-dead-link {
+    font-size: 1.25rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .indicate-page-text {
+    font-size: 1rem;
+    margin: 0 1rem;
+  }
+  nav {
+    margin: 1rem 0;
+  }
+}
 @media (max-width: 1440px) {
   .filter a {
     font-size: calc(1.25rem * 0.9);
