@@ -72,7 +72,7 @@
     <meta property="og:description" content="<?= esc($metaDescription, 'attr') ?>">
     <?php endif ?>
     <?php if ($ogImage): ?>
-    <?php $ogThumb = $ogImage->crop(1200, 630, 'center')->thumb(['format' => 'jpg', 'quality' => 80]); ?>
+    <?php $ogThumb = $ogImage->thumb(['width' => 1200, 'height' => 630, 'crop' => 'center', 'format' => 'jpg', 'quality' => 80]); ?>
     <meta property="og:image" content="<?= $ogThumb->url() ?>">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -141,7 +141,7 @@
             $projectSchema['genre'] = (string) $page->genre();
         }
         if ($ogImage) {
-            $projectSchema['image'] = $ogImage->crop(1200, 630, 'center')->thumb(['format' => 'jpg', 'quality' => 80])->url();
+            $projectSchema['image'] = $ogImage->thumb(['width' => 1200, 'height' => 630, 'crop' => 'center', 'format' => 'jpg', 'quality' => 80])->url();
         }
         $schema[] = $projectSchema;
     }
