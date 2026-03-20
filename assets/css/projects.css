@@ -716,7 +716,8 @@
     z-index: 15;
     border-radius: 0.75rem;
     transition: opacity 0.3s ease-out;
-    mix-blend-mode: overlay;
+    -webkit-transform: translateZ(0.5px);
+    transform: translateZ(0.5px);
   }
   .is-featured .card-frame::before {
     display: none;

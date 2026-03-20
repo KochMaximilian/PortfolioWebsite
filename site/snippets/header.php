@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
     <title><?= $page->title()->html() ?> | <?= $site->title()->html() ?></title>
 
     <?php
@@ -197,9 +198,14 @@
         <?= css('assets/glightbox/glightbox.min.css') ?>
     <?php endif ?>
 
-    <?= css('assets/fontawesome/css/fontawesome.min.css') ?>
-    <?= css('assets/fontawesome/css/brands.min.css') ?>
-    <?= css('assets/fontawesome/css/solid.min.css') ?>
+    <link rel="stylesheet" href="<?= url('assets/fontawesome/css/fontawesome.min.css') ?>" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="<?= url('assets/fontawesome/css/brands.min.css') ?>" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="<?= url('assets/fontawesome/css/solid.min.css') ?>" media="print" onload="this.media='all'">
+    <noscript>
+        <?= css('assets/fontawesome/css/fontawesome.min.css') ?>
+        <?= css('assets/fontawesome/css/brands.min.css') ?>
+        <?= css('assets/fontawesome/css/solid.min.css') ?>
+    </noscript>
 
     <?= css('assets/css/footer.css') ?>
     <?php if ($page->intendedTemplate()->name() === 'about'): ?>
@@ -221,9 +227,7 @@
         <?= $slots->head() ?>
     <?php endif ?>
 
-    <link rel="preconnect" href="https://fonts.bunny.net/css">
-    <link href="https://fonts.bunny.net/css2?family=Barlow:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.bunny.net/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.bunny.net/css2?family=Barlow:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body class="variant-<?= $GLOBALS['siteVariant'] ?>">

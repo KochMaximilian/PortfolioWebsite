@@ -34,15 +34,18 @@
 
     var pos      = window.scrollY;
     var velocity = 0;
+    var distance = Math.abs(targetY - pos);
 
-    var stiffness = 0.18;
-    var damping   = 0.74;
+    var stiffness = distance > 2000 ? 0.08 : distance > 800 ? 0.12 : 0.18;
+    var damping   = 0.78;
+    var maxVelocity = 60;
 
     document.documentElement.style.scrollBehavior = 'auto';
 
     function step() {
       var displacement = targetY - pos;
       velocity = (velocity + displacement * stiffness) * damping;
+      velocity = Math.max(-maxVelocity, Math.min(maxVelocity, velocity));
       pos += velocity;
 
       window.scrollTo(0, pos);

@@ -5,7 +5,11 @@
       "Bash(grep -o body[^{]*{[^}]*} E:WebProjectsPortfolioWebsiteassetsglightboxglightbox.min.css)",
       "Bash(gh api:*)",
       "WebSearch",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//e/WebProjects/PortfolioWebsite/**)",
+      "Bash(done)"
     ]
   }
 }

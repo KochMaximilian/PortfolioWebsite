@@ -13,7 +13,8 @@ return function ($page) {
         ->paginate(3);
 
     $pagination = $projects->pagination();
-    $filters = $unfilterd->pluck('year', null, true); /* unique values = true */
+    $filters = array_map('strval', $unfilterd->pluck('year', null, true));
+    rsort($filters, SORT_NUMERIC);
 
     return [
         'filterBy' => $filterBy,
