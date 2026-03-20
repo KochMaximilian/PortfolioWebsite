@@ -914,9 +914,9 @@ nav {
 }
 @media (max-width: 1920px) and (min-width: 1201px) {
   .projects {
-    grid-template-columns: repeat(3, minmax(0, 280px));
+    grid-template-columns: repeat(3, minmax(0, 300px));
     justify-content: center;
-    gap: 0.5rem !important;
+    gap: 1rem !important;
   }
   .filter {
     padding: 0;
