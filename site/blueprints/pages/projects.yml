@@ -76,6 +76,17 @@ tabs:
                 type: tags
                 width: 1/1
                 help: Page-specific keywords. Combined with site-wide keywords in the meta tag.
+          og_image:
+            label: Social Sharing Thumbnail
+            type: files
+            layout: cards
+            max: 1
+            uploads:
+              template: og-image
+            image:
+              ratio: 1200/630
+              cover: true
+            help: "Upload a 1200×630px image. Shown when this page is shared on social media. Falls back to the first project's cover if empty."
       - width: 1/2
         sections:
           seo_info:
@@ -84,7 +95,7 @@ tabs:
             text: |
               **Auto-generated from your content:**
               - **Title tag:** Projects | Site Title
-              - **OG image:** First listed project's cover image
+              - **OG image:** Custom thumbnail → first project's cover
               - **Canonical URL:** Auto-set to this page's URL
 
               Only fill in the fields on the left if you want to override the defaults.

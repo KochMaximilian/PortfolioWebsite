@@ -1,0 +1,9 @@
+title: Social Sharing Image
+accept:
+  extension: jpg, jpeg, png, webp
+  mime: image/jpeg, image/png, image/webp
+fields:
+  alt:
+    type: text
+    label: Alternative Text
+    width: 1/1

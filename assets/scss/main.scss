@@ -142,6 +142,13 @@ a {
   padding-bottom: calc(var(--footer-height) + 2rem);
 }
 
+// Scale down on smaller desktop displays to match 1440p design
+@media (max-width: 1920px) and (min-width: $desktop) {
+  .page-zoom {
+    zoom: 0.85;
+  }
+}
+
 .main-content {
   display: flex;
   flex-direction: column;

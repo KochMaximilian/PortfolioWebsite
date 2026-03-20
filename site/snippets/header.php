@@ -32,15 +32,16 @@
         $keywords = $site->keywords()->value();
     }
 
-    // OG image: project cover, or about profile photo, or first listed project cover
-    $ogImage = null;
-    if ($page->intendedTemplate()->name() === 'project') {
-        $ogImage = $page->images()->template('gallery-image')->first();
-    } elseif ($page->intendedTemplate()->name() === 'about') {
-        $ogImage = $page->images()->template('personal-img')->first();
+    // OG image: custom og-image → template-specific → first listed project cover
+    $ogImage = $page->images()->template('og-image')->first();
+    if (!$ogImage) {
+        if ($page->intendedTemplate()->name() === 'project') {
+            $ogImage = $page->images()->template('gallery-image')->first();
+        } elseif ($page->intendedTemplate()->name() === 'about') {
+            $ogImage = $page->images()->template('personal-img')->first();
+        }
     }
     if (!$ogImage) {
-        // Fallback: first listed project's cover
         $fallbackProject = page('projects') ? page('projects')->children()->listed()->first() : null;
         if ($fallbackProject) {
             $ogImage = $fallbackProject->images()->template('gallery-image')->first();
