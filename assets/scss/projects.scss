@@ -1098,7 +1098,7 @@ nav {
 // Sub-2K Desktops (1080p displays)
 @media (max-width: $fullhd) and (min-width: $desktop-lg + 1) {
     .projects {
-        grid-template-columns: repeat(3, minmax(0, 260px));
+        grid-template-columns: repeat(3, minmax(0, 280px));
         justify-content: center;
         gap: space(2) !important;
     }

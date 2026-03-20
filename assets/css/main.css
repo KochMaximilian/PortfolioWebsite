@@ -289,7 +289,7 @@ p {
 }
 @media (max-width: 1920px) and (min-width: 1201px) {
   .content-block {
-    margin-top: 4.5rem;
+    margin-top: 6rem;
   }
   .main-wrapper {
     gap: 0.75rem;
