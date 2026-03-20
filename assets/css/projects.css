@@ -916,7 +916,7 @@ nav {
   .projects {
     grid-template-columns: repeat(3, minmax(0, 360px));
     justify-content: center;
-    gap: 1rem !important;
+    gap: 1.25rem !important;
   }
   .filter {
     padding: 0;

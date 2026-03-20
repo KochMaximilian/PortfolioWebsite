@@ -513,7 +513,9 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
 }
 
 // Responsive
-@media (min-width: 1441px) {
+
+// Large screens (2K+)
+@media (min-width: 2000px) {
   .about-content {
     max-width: 1400px;
     margin: 0 auto;
@@ -524,11 +526,28 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   }
 }
 
-@media (max-width: $widescreen) {
-  .about-image {
-    width: 450px;
+// Sub-2K desktops
+@media (max-width: $fullhd) and (min-width: $desktop-lg + 1) {
+  .about-content {
+    max-width: 1100px;
+    margin: 0 auto;
   }
-  
+
+  .about-image {
+    width: 380px;
+  }
+
+  .about-profile-body {
+    max-height: 450px;
+    padding: 1.25rem;
+  }
+
+  .about-profile-header span {
+    font-size: font-size(lg);
+  }
+}
+
+@media (max-width: $widescreen) {
   .about-profile-body {
     max-height: 500px;
   }

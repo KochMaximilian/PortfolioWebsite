@@ -143,6 +143,25 @@
   display: none;
 }
 
+@media (max-width: 1920px) and (min-width: 1201px) {
+  .navbar {
+    height: 70px;
+    max-width: calc(100% - 3em);
+    padding: 0 1.5rem;
+  }
+  .logo-container .logo {
+    font-size: 1.25rem;
+  }
+  .navbar-nav {
+    gap: 1rem;
+    padding-right: 0.75rem;
+  }
+  .nav-link {
+    font-size: 1.125rem;
+    padding: 0.25rem;
+    padding-bottom: 0.5rem;
+  }
+}
 @media (max-width: 1440px) {
   .navbar {
     height: 70px;

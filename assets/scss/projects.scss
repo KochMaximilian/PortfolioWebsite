@@ -1100,7 +1100,7 @@ nav {
     .projects {
         grid-template-columns: repeat(3, minmax(0, 360px));
         justify-content: center;
-        gap: space(4) !important;
+        gap: space(5) !important;
     }
 
     .filter {

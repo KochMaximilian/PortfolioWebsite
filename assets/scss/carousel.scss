@@ -198,6 +198,29 @@
 }
 
 // Responsive
+
+// Sub-2K desktops
+@media screen and (max-width: $fullhd) and (min-width: $desktop-lg + 1) {
+  .slider-figure {
+    padding: 1rem;
+  }
+
+  .flickity-prev-next-button {
+    width: 3.5rem;
+    height: 6rem;
+    border-width: $border-sm;
+    box-shadow: $solid-shadow-sm;
+  }
+
+  .flickity-prev-next-button.previous {
+    left: -1.5rem;
+  }
+
+  .flickity-prev-next-button.next {
+    right: -1.5rem;
+  }
+}
+
 @media screen and (max-width: $widescreen) {
   .flickity-prev-next-button {
     width: 3.5rem;

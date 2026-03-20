@@ -476,7 +476,7 @@ body.variant-ok .skills-tree__branches {
   color: rgba(254, 254, 254, 0.85);
 }
 
-@media (min-width: 1441px) {
+@media (min-width: 2000px) {
   .about-content {
     max-width: 1400px;
     margin: 0 auto;
@@ -485,10 +485,23 @@ body.variant-ok .skills-tree__branches {
     width: 450px;
   }
 }
-@media (max-width: 1440px) {
-  .about-image {
-    width: 450px;
+@media (max-width: 1920px) and (min-width: 1201px) {
+  .about-content {
+    max-width: 1100px;
+    margin: 0 auto;
   }
+  .about-image {
+    width: 380px;
+  }
+  .about-profile-body {
+    max-height: 450px;
+    padding: 1.25rem;
+  }
+  .about-profile-header span {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 1440px) {
   .about-profile-body {
     max-height: 500px;
   }
