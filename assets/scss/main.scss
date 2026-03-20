@@ -302,6 +302,16 @@ p {
   }
 }
 
+@media (max-width: $fullhd) and (min-width: $desktop-lg + 1) {
+  .content-block {
+    margin-top: 3rem;
+  }
+
+  .main-wrapper {
+    gap: space(3);
+  }
+}
+
 @media (min-width: 2000px) {
   html {
     font-size: 112.5%;

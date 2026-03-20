@@ -287,6 +287,14 @@ p {
     font-size: 93.75%;
   }
 }
+@media (max-width: 1920px) and (min-width: 1201px) {
+  .content-block {
+    margin-top: 3rem;
+  }
+  .main-wrapper {
+    gap: 0.75rem;
+  }
+}
 @media (min-width: 2000px) {
   html {
     font-size: 112.5%;
