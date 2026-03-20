@@ -72,8 +72,11 @@
     <meta property="og:description" content="<?= esc($metaDescription, 'attr') ?>">
     <?php endif ?>
     <?php if ($ogImage): ?>
-    <meta property="og:image" content="<?= $ogImage->resize(1200)->url() ?>">
+    <?php $ogThumb = $ogImage->crop(1200, 630, 'center')->thumb(['format' => 'jpg', 'quality' => 80]); ?>
+    <meta property="og:image" content="<?= $ogThumb->url() ?>">
     <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
     <?php endif ?>
     <meta property="og:site_name" content="<?= $site->title()->html() ?>">
 
@@ -84,7 +87,7 @@
     <meta name="twitter:description" content="<?= esc($metaDescription, 'attr') ?>">
     <?php endif ?>
     <?php if ($ogImage): ?>
-    <meta name="twitter:image" content="<?= $ogImage->resize(1200)->url() ?>">
+    <meta name="twitter:image" content="<?= $ogThumb->url() ?>">
     <?php endif ?>
 
     <?php
@@ -138,7 +141,7 @@
             $projectSchema['genre'] = (string) $page->genre();
         }
         if ($ogImage) {
-            $projectSchema['image'] = $ogImage->resize(1200)->url();
+            $projectSchema['image'] = $ogImage->crop(1200, 630, 'center')->thumb(['format' => 'jpg', 'quality' => 80])->url();
         }
         $schema[] = $projectSchema;
     }
