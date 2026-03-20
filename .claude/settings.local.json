@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(grep -r href=\"\".*\"\"\"\\\\s*target=\"\"_blank\" \" E:/WebProjects/PortfolioWebsite/site/snippets)",
-      "Bash(grep -o body[^{]*{[^}]*} E:WebProjectsPortfolioWebsiteassetsglightboxglightbox.min.css)"
+      "Bash(grep -o body[^{]*{[^}]*} E:WebProjectsPortfolioWebsiteassetsglightboxglightbox.min.css)",
+      "Bash(gh api:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)"
     ]
   }
 }
