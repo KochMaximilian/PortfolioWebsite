@@ -304,11 +304,15 @@ p {
 
 @media (max-width: $fullhd) and (min-width: $desktop-lg + 1) {
   .content-block {
-    margin-top: 3rem;
+    margin-top: 4.5rem;
   }
 
   .main-wrapper {
     gap: space(3);
+  }
+
+  .wrapper {
+    padding-bottom: calc(var(--footer-height) + 0.5rem);
   }
 }
 

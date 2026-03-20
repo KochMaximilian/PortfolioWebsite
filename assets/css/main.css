@@ -289,10 +289,13 @@ p {
 }
 @media (max-width: 1920px) and (min-width: 1201px) {
   .content-block {
-    margin-top: 3rem;
+    margin-top: 4.5rem;
   }
   .main-wrapper {
     gap: 0.75rem;
+  }
+  .wrapper {
+    padding-bottom: calc(var(--footer-height) + 0.5rem);
   }
 }
 @media (min-width: 2000px) {
