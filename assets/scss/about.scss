@@ -605,20 +605,20 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
 @media (max-width: $widescreen) and (min-width: 993px) and (max-height: 1200px) {
   .about-content {
     max-width: none;
-    gap: space(3);
+    gap: space(4);
   }
 
   .about-image {
-    width: 280px;
+    width: 380px;
   }
 
   .about-profile-body {
-    max-height: 300px;
-    padding: 0.8rem;
+    max-height: 400px;
+    padding: 1rem;
   }
 
   .about-profile-header span {
-    font-size: font-size(sm);
+    font-size: font-size(md);
   }
 }
 
