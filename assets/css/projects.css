@@ -1020,7 +1020,7 @@
 }
 @media (max-width: 1440px) {
   .projects {
-    grid-template-columns: repeat(3, minmax(0, 340px));
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     gap: 1.25rem !important;
   }
@@ -1028,8 +1028,10 @@
     padding: 0;
   }
   .filter a {
-    font-size: calc(1.25rem * 0.9);
-    padding: 0 0.75rem;
+    font-size: 0.875rem;
+    padding: 0 0.5rem;
+    line-height: 1.8;
+    margin: 0.1rem;
   }
   .card-frame {
     padding: 0.4rem;
@@ -1108,11 +1110,6 @@
   .indicate-page-text {
     font-size: 1.125rem;
     margin: 0 1.25rem;
-  }
-}
-@media (max-width: 1200px) {
-  .projects {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width: 992px) {

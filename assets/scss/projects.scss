@@ -1232,7 +1232,7 @@
 // Widescreen
 @media (max-width: $widescreen) {
     .projects {
-        grid-template-columns: repeat(3, minmax(0, 340px));
+        grid-template-columns: repeat(2, 1fr);
         justify-content: center;
         gap: space(5) !important;
     }
@@ -1242,8 +1242,10 @@
     }
 
     .filter a {
-        font-size: calc(#{font-size(xl)} * 0.9);
-        padding: 0 space(3);
+        font-size: font-size(sm);
+        padding: 0 space(2);
+        line-height: 1.8;
+        margin: space(1) * 0.4;
     }
 
     .card-frame {
@@ -1342,13 +1344,6 @@
     .indicate-page-text {
         font-size: font-size(lg);
         margin: 0 space(5);
-    }
-}
-
-// Desktop Large
-@media (max-width: $desktop-lg) {
-    .projects {
-        grid-template-columns: repeat(2, 1fr);
     }
 }
 
