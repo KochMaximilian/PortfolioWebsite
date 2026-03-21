@@ -32,21 +32,8 @@
         $keywords = $site->keywords()->value();
     }
 
-    // OG image: custom og-image → template-specific → first listed project cover
-    $ogImage = $page->images()->template('og-image')->first();
-    if (!$ogImage) {
-        if ($page->intendedTemplate()->name() === 'project') {
-            $ogImage = $page->images()->template('gallery-image')->first();
-        } elseif ($page->intendedTemplate()->name() === 'about') {
-            $ogImage = $page->images()->template('personal-img')->first();
-        }
-    }
-    if (!$ogImage) {
-        $fallbackProject = page('projects') ? page('projects')->children()->listed()->first() : null;
-        if ($fallbackProject) {
-            $ogImage = $fallbackProject->images()->template('gallery-image')->first();
-        }
-    }
+    // OG image: static default for all pages
+    $ogImageUrl = url('assets/img/og-default.webp');
 
     // OG type
     $ogType = ($page->intendedTemplate()->name() === 'project') ? 'article' : 'website';
@@ -71,24 +58,19 @@
     <?php if ($metaDescription): ?>
     <meta property="og:description" content="<?= esc($metaDescription, 'attr') ?>">
     <?php endif ?>
-    <?php if ($ogImage): ?>
-    <?php $ogThumb = $ogImage->thumb(['width' => 1200, 'height' => 630, 'crop' => 'center', 'format' => 'jpg', 'quality' => 80]); ?>
-    <meta property="og:image" content="<?= $ogThumb->url() ?>">
+    <meta property="og:image" content="<?= $ogImageUrl ?>">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/jpeg">
-    <?php endif ?>
+    <meta property="og:image:type" content="image/webp">
     <meta property="og:site_name" content="<?= $site->title()->html() ?>">
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="<?= $ogImage ? 'summary_large_image' : 'summary' ?>">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= $page->title()->html() ?> | <?= $site->title()->html() ?>">
     <?php if ($metaDescription): ?>
     <meta name="twitter:description" content="<?= esc($metaDescription, 'attr') ?>">
     <?php endif ?>
-    <?php if ($ogImage): ?>
-    <meta name="twitter:image" content="<?= $ogThumb->url() ?>">
-    <?php endif ?>
+    <meta name="twitter:image" content="<?= $ogImageUrl ?>">
 
     <?php
     // ── JSON-LD Structured Data ──
@@ -140,9 +122,7 @@
         if ($page->genre()->isNotEmpty()) {
             $projectSchema['genre'] = (string) $page->genre();
         }
-        if ($ogImage) {
-            $projectSchema['image'] = $ogImage->thumb(['width' => 1200, 'height' => 630, 'crop' => 'center', 'format' => 'jpg', 'quality' => 80])->url();
-        }
+        $projectSchema['image'] = $ogImageUrl;
         $schema[] = $projectSchema;
     }
 
