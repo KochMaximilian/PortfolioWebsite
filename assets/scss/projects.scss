@@ -1232,8 +1232,9 @@
 // Widescreen
 @media (max-width: $widescreen) {
     .projects {
-        grid-template-columns: repeat(3, 1fr);
-        gap: space(4) !important;
+        grid-template-columns: repeat(3, minmax(0, 280px));
+        justify-content: center;
+        gap: space(3) !important;
     }
 
     .filter {
