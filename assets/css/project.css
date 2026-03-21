@@ -1966,10 +1966,10 @@
     font-size: 0.75rem;
   }
   .project-nav-sticky {
-    bottom: calc(var(--footer-height) + 3.5rem);
+    bottom: calc(var(--footer-height) + 2.5rem);
   }
   .toc-panel {
-    bottom: calc(var(--footer-height) + 3.5rem + var(--sticky-nav-height, 65px) + 1rem);
+    bottom: calc(var(--footer-height) + 2.5rem + var(--sticky-nav-height, 65px) + 1rem);
   }
 }
 @media (max-width: 1200px) {

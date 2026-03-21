@@ -330,28 +330,37 @@ p {
 }
 @media (max-width: 1440px) {
   html {
-    font-size: 93.75%;
+    font-size: 87.5%;
   }
   .content-block {
-    margin-top: 5.5rem;
+    margin-top: 5rem;
   }
   .main-wrapper {
-    gap: 1rem;
+    gap: 0.75rem;
   }
   .wrapper {
-    padding-bottom: calc(var(--footer-height) + 3rem);
+    padding-bottom: calc(var(--footer-height) + 2rem);
   }
   body h1 {
-    font-size: 2.5rem;
-  }
-  body h2 {
     font-size: 1.75rem;
   }
-  body h3 {
+  body h2 {
     font-size: 1.5rem;
   }
-  body h4 {
+  body h3 {
     font-size: 1.25rem;
+  }
+  body h4 {
+    font-size: 1.125rem;
+  }
+  body .project-description h1,
+  body .project-description h2,
+  body .project-description h3,
+  body .project-description h4,
+  body .project-description h5,
+  body .project-description h6 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 }
 @media (max-width: 992px) {

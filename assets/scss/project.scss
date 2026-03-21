@@ -1178,11 +1178,11 @@
   .image-caption-badge { font-size: font-size(xs); }
 
   .project-nav-sticky {
-    bottom: calc(var(--footer-height) + 3.5rem);
+    bottom: calc(var(--footer-height) + 2.5rem);
   }
 
   .toc-panel {
-    bottom: calc(var(--footer-height) + 3.5rem + var(--sticky-nav-height, 65px) + 1rem);
+    bottom: calc(var(--footer-height) + 2.5rem + var(--sticky-nav-height, 65px) + 1rem);
   }
 }
 

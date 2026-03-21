@@ -349,25 +349,35 @@ p {
 
 @media (max-width: $widescreen) {
   html {
-    font-size: 93.75%;
+    font-size: 87.5%;
   }
 
   .content-block {
-    margin-top: 5.5rem;
+    margin-top: 5rem;
   }
 
   .main-wrapper {
-    gap: space(4);
+    gap: space(3);
   }
 
   .wrapper {
-    padding-bottom: calc(var(--footer-height) + 3rem);
+    padding-bottom: calc(var(--footer-height) + 2rem);
   }
 
-  body h1 { font-size: font-size(4xl); }
-  body h2 { font-size: font-size(3xl); }
-  body h3 { font-size: font-size(2xl); }
-  body h4 { font-size: font-size(xl); }
+  body h1 { font-size: font-size(3xl); }
+  body h2 { font-size: font-size(2xl); }
+  body h3 { font-size: font-size(xl); }
+  body h4 { font-size: font-size(lg); }
+
+  body .project-description h1,
+  body .project-description h2,
+  body .project-description h3,
+  body .project-description h4,
+  body .project-description h5,
+  body .project-description h6 {
+    margin-top: space(2);
+    margin-bottom: space(2);
+  }
 }
 
 @media (max-width: $tablet-lg) {
