@@ -347,16 +347,44 @@ p {
   body h3 { font-size: font-size(4xl); }
 }
 
+@media (max-width: $widescreen) {
+  .content-block {
+    margin-top: 5.75rem;
+  }
+
+  .main-wrapper {
+    gap: space(5);
+  }
+
+  .wrapper {
+    padding-bottom: calc(var(--footer-height) + 3.25rem);
+  }
+}
+
 @media (max-width: $tablet-lg) {
+  .content-block {
+    margin-top: 5.5rem;
+  }
+
+  .main-wrapper {
+    gap: space(5);
+  }
+
+  .wrapper {
+    padding-bottom: calc(var(--footer-height) + 3rem);
+  }
+
   body h1 { font-size: font-size(4xl); }
   body h2 { font-size: font-size(3xl); }
   body h3 { font-size: font-size(2xl); }
   body h4 { font-size: font-size(xl); }
 }
 
-// Dark body bg on touch devices — prevents Android system bar from showing blue
-@media (hover: none) and (pointer: coarse) {
+// Dark body bg on mobile/tablet — hides blue from Android system bar
+// Pattern goes fully opaque so visual appearance stays the same
+@media (max-width: $desktop-lg) {
   body { background-color: $black-dark; }
+  body::before { opacity: 1; }
 }
 
 @media (max-width: $tablet) {

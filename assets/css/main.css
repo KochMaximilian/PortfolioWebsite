@@ -328,7 +328,27 @@ p {
     font-size: 2.5rem;
   }
 }
+@media (max-width: 1440px) {
+  .content-block {
+    margin-top: 5.75rem;
+  }
+  .main-wrapper {
+    gap: 1.25rem;
+  }
+  .wrapper {
+    padding-bottom: calc(var(--footer-height) + 3.25rem);
+  }
+}
 @media (max-width: 992px) {
+  .content-block {
+    margin-top: 5.5rem;
+  }
+  .main-wrapper {
+    gap: 1.25rem;
+  }
+  .wrapper {
+    padding-bottom: calc(var(--footer-height) + 3rem);
+  }
   body h1 {
     font-size: 2.5rem;
   }
@@ -342,9 +362,12 @@ p {
     font-size: 1.25rem;
   }
 }
-@media (hover: none) and (pointer: coarse) {
+@media (max-width: 1200px) {
   body {
     background-color: #0A0A0A;
+  }
+  body::before {
+    opacity: 1;
   }
 }
 @media (max-width: 768px) {
