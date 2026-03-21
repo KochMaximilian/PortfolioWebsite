@@ -52,7 +52,12 @@
     <link rel="canonical" href="<?= $page->url() ?>">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="<?= $page->title()->html() ?> | <?= $site->title()->html() ?>">
+    <?php
+    $ogTitle = $page->isHomePage() || $page->intendedTemplate()->name() === 'projects'
+        ? 'Maximilian Koch — Game Design Portfolio | Projects & Devlogs'
+        : $page->title()->html() . ' | ' . $site->title()->html();
+    ?>
+    <meta property="og:title" content="<?= $ogTitle ?>">
     <meta property="og:type" content="<?= $ogType ?>">
     <meta property="og:url" content="<?= $page->url() ?>">
     <?php if ($metaDescription): ?>
