@@ -111,6 +111,18 @@ body.variant-ok::before {
   background-image: url('/assets/img/pattern_ok.png');
 }
 
+// Dark strip behind footer safe area — hides blue body background on notched devices
+body::after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: env(safe-area-inset-bottom, 0px);
+  background: $black-dark;
+  z-index: z(footer);
+}
+
 a {
   text-decoration: none;
 }
