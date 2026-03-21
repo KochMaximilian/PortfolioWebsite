@@ -1695,3 +1695,32 @@
         font-size: 0.32rem;
     }
 }
+
+// Landscape — tablet/phone horizontal
+@media (max-height: 500px) and (orientation: landscape) {
+    .filter a {
+        font-size: font-size(sm);
+        padding: 0 space(2);
+        line-height: 1.8;
+        margin: calc(#{space(1)} * 0.3);
+    }
+
+    .filter-block {
+        padding: 0 space(2);
+    }
+
+    .pagination-block nav {
+        margin: space(2) 0;
+    }
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+    .filter a {
+        font-size: font-size(xs);
+        line-height: 1.6;
+    }
+
+    .pagination-block nav {
+        margin: space(1) 0;
+    }
+}

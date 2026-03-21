@@ -342,10 +342,12 @@ p {
     font-size: 1.25rem;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   body {
     background-color: #0A0A0A;
   }
+}
+@media (max-width: 768px) {
   body h1 {
     font-size: 1.75rem;
   }

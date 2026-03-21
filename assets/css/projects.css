@@ -1388,5 +1388,28 @@
     font-size: 0.32rem;
   }
 }
+@media (max-height: 500px) and (orientation: landscape) {
+  .filter a {
+    font-size: 0.875rem;
+    padding: 0 0.5rem;
+    line-height: 1.8;
+    margin: calc(0.25rem * 0.3);
+  }
+  .filter-block {
+    padding: 0 0.5rem;
+  }
+  .pagination-block nav {
+    margin: 0.5rem 0;
+  }
+}
+@media (max-height: 400px) and (orientation: landscape) {
+  .filter a {
+    font-size: 0.75rem;
+    line-height: 1.6;
+  }
+  .pagination-block nav {
+    margin: 0.25rem 0;
+  }
+}
 
 /*# sourceMappingURL=projects.css.map */

@@ -906,5 +906,26 @@ body.variant-ok .skills-tree__branches {
     max-width: none;
   }
 }
+@media (max-height: 500px) and (orientation: landscape) {
+  .about-image {
+    width: 200px;
+  }
+  .about-profile-body {
+    max-height: 250px;
+    padding: 0.8rem;
+  }
+  .about-profile-header span {
+    font-size: 0.875rem;
+  }
+}
+@media (max-height: 400px) and (orientation: landscape) {
+  .about-image {
+    width: 160px;
+  }
+  .about-profile-body {
+    max-height: 180px;
+    padding: 0.6rem;
+  }
+}
 
 /*# sourceMappingURL=about.css.map */
