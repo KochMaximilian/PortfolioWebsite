@@ -328,12 +328,10 @@ p {
     font-size: 2.5rem;
   }
 }
-@media (max-width: 1440px) and (min-width: 1025px) {
+@media (max-width: 1440px) and (min-width: 993px) {
   html {
     font-size: 87.5%;
   }
-}
-@media (max-width: 1440px) {
   .content-block {
     margin-top: 5rem;
   }
@@ -363,29 +361,6 @@ p {
   body .project-description h6 {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-  }
-}
-@media (max-width: 992px) {
-  .content-block {
-    margin-top: 5.5rem;
-  }
-  .main-wrapper {
-    gap: 1.25rem;
-  }
-  .wrapper {
-    padding-bottom: calc(var(--footer-height) + 3rem);
-  }
-  body h1 {
-    font-size: 2.5rem;
-  }
-  body h2 {
-    font-size: 1.75rem;
-  }
-  body h3 {
-    font-size: 1.5rem;
-  }
-  body h4 {
-    font-size: 1.25rem;
   }
 }
 @media (max-width: 1440px) {
