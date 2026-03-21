@@ -241,29 +241,29 @@ footer {
 }
 @media screen and (max-width: 1440px) {
   :root {
-    --footer-height: 6rem;
+    --footer-height: 5.5rem;
   }
   footer {
-    padding: 1.2rem 0;
+    padding: 1rem 0;
     max-width: calc(100% - 3rem);
   }
   .footer-logo {
-    height: 5rem;
-    margin-top: -7.5rem;
+    height: 4.5rem;
+    margin-top: -6.5rem;
   }
   .custom-icon-size {
-    font-size: 1.6rem;
-    width: 1.6rem;
-    height: 1.6rem;
+    font-size: 1.4rem;
+    width: 1.4rem;
+    height: 1.4rem;
   }
   .socials {
     gap: 0.5rem;
   }
   .slogan {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
   }
   .copyright {
-    font-size: 0.75rem;
+    font-size: 0.625rem;
   }
 }
 @media screen and (max-width: 992px) {
