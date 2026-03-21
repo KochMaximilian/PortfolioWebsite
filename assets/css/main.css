@@ -342,7 +342,7 @@ p {
     font-size: 1.25rem;
   }
 }
-@media (max-width: 1200px) {
+@media (hover: none) and (pointer: coarse) {
   body {
     background-color: #0A0A0A;
   }

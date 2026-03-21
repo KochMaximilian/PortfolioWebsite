@@ -354,7 +354,8 @@ p {
   body h4 { font-size: font-size(xl); }
 }
 
-@media (max-width: $desktop-lg) {
+// Dark body bg on touch devices — prevents Android system bar from showing blue
+@media (hover: none) and (pointer: coarse) {
   body { background-color: $black-dark; }
 }
 
