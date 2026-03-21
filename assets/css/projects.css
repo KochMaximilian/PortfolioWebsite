@@ -1180,6 +1180,10 @@
   }
 }
 @media (max-width: 768px) {
+  .projects {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
   .filter {
     padding: 0.5rem 0;
   }

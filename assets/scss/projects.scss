@@ -1434,6 +1434,11 @@
 
 // Tablet
 @media (max-width: $tablet) {
+    .projects {
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+
     .filter {
         padding: space(2) 0;
     }
