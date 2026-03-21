@@ -188,7 +188,7 @@
 @media (max-width: 1440px) {
   .navbar {
     height: 65px;
-    max-width: calc(100% - 3em);
+    max-width: calc(100% - 5em);
   }
   .logo-container {
     margin-left: 1rem;

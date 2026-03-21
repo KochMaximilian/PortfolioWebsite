@@ -257,35 +257,35 @@ footer {
 // Widescreen (tablets, small desktops)
 @media screen and (max-width: $widescreen) {
   :root {
-    --footer-height: 5.5rem;
+    --footer-height: 6rem;
   }
 
   footer {
-    padding: 1rem 0;
-    max-width: calc(100% - 3rem);
+    padding: 1.2rem 0;
+    max-width: calc(100% - 5rem);
   }
 
   .footer-logo {
-    height: 4.5rem;
-    margin-top: -6.5rem;
+    height: 5.5rem;
+    margin-top: -8.5rem;
   }
 
   .custom-icon-size {
-    font-size: 1.4rem;
-    width: 1.4rem;
-    height: 1.4rem;
+    font-size: 1.6rem;
+    width: 1.6rem;
+    height: 1.6rem;
   }
 
   .socials {
-    gap: space(2);
+    gap: space(3);
   }
 
   .slogan {
-    font-size: font-size(xs);
+    font-size: font-size(md);
   }
 
   .copyright {
-    font-size: font-size(2xs);
+    font-size: font-size(xs);
   }
 }
 
