@@ -552,8 +552,7 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
 // Sub-2K — short screens (1080p laptops)
 @media (max-width: $fullhd) and (min-width: 1201px) and (max-height: 1200px) {
   .about-content {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: none;
     gap: space(5);
   }
 
@@ -1028,8 +1027,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
 @media (max-width: $fullhd) and (min-width: 1201px) and (max-height: 1200px) {
   .skills-tree {
     margin-top: 0;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: none;
   }
 }
