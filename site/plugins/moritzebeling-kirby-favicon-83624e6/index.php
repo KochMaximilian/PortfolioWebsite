@@ -17,7 +17,7 @@ Kirby::plugin('moritzebeling/kirby-favicon',[
             'sizes' => [ 180, 167, 152 ]
         ],
         'mask' => 'assets/favicon/mask.svg', // fallback to favicon.svg
-        'color' => '#ffffff',
+        'color' => '#0A0A0A',
         
         // for minimal html output
         'minimalist' => false,
@@ -27,7 +27,7 @@ Kirby::plugin('moritzebeling/kirby-favicon',[
 
         'manifest' => [
             'icon' => 'assets/favicon/android-icon.png', // fallback to favicon.png
-            'background_color' => '#ffffff',
+            'background_color' => '#0A0A0A',
             'sizes' => [
                 36 => 0.75,
                 48 => 1.0,
