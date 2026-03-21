@@ -149,6 +149,9 @@
     max-width: calc(100% - 3em);
     padding: 0;
   }
+  .logo-container {
+    margin-left: 1rem;
+  }
   .logo-container .logo {
     font-size: 1.25rem;
   }
@@ -168,6 +171,9 @@
     max-width: calc(100% - 3em);
     padding: 0 1.5rem;
   }
+  .logo-container {
+    margin-left: 1rem;
+  }
   .logo-container .logo {
     font-size: 1.25rem;
   }
@@ -185,6 +191,9 @@
   .navbar {
     height: 70px;
     max-width: calc(100% - 3em);
+  }
+  .logo-container {
+    margin-left: 1rem;
   }
   .logo-container .logo {
     font-size: 1.25rem;
