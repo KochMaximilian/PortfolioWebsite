@@ -1941,6 +1941,37 @@
     bottom: calc(var(--footer-height) + 4.5rem + var(--sticky-nav-height, 70px) + 1rem);
   }
 }
+@media (max-width: 1440px) {
+  .project-image-container {
+    max-width: 1050px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .toc-panel {
+    width: 250px;
+  }
+  .stat-name-plate {
+    padding: 0.5rem 1.25rem;
+  }
+  .stat-project-title {
+    font-size: 1.75rem;
+  }
+  .stat-flavor {
+    padding: 0.5rem 1.25rem;
+  }
+  .stat-body {
+    padding: 0.75rem 1.25rem;
+  }
+  .image-caption-badge {
+    font-size: 0.875rem;
+  }
+  .project-nav-sticky {
+    bottom: calc(var(--footer-height) + 4.5rem);
+  }
+  .toc-panel {
+    bottom: calc(var(--footer-height) + 4.5rem + var(--sticky-nav-height, 70px) + 1rem);
+  }
+}
 @media (max-width: 1200px) {
   .stat-name-plate {
     padding: 0.5rem 1rem;

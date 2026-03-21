@@ -382,7 +382,7 @@ p {
 
 // Dark body bg on mobile/tablet — hides blue from Android system bar
 // Pattern goes fully opaque so visual appearance stays the same
-@media (max-width: $desktop-lg) {
+@media (max-width: $widescreen) {
   body { background-color: $black-dark; }
   body::before { opacity: 1; }
 }

@@ -571,8 +571,22 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
 }
 
 @media (max-width: $widescreen) {
+  .about-content {
+    max-width: none;
+    gap: space(5);
+  }
+
+  .about-image {
+    width: 380px;
+  }
+
   .about-profile-body {
-    max-height: 500px;
+    max-height: 450px;
+    padding: 1.25rem;
+  }
+
+  .about-profile-header span {
+    font-size: font-size(lg);
   }
 }
 

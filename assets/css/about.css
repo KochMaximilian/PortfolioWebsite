@@ -519,8 +519,19 @@ body.variant-ok .skills-tree__branches {
   }
 }
 @media (max-width: 1440px) {
+  .about-content {
+    max-width: none;
+    gap: 1.25rem;
+  }
+  .about-image {
+    width: 380px;
+  }
   .about-profile-body {
-    max-height: 500px;
+    max-height: 450px;
+    padding: 1.25rem;
+  }
+  .about-profile-header span {
+    font-size: 1.125rem;
   }
 }
 @media (max-width: 1200px) {
