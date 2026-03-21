@@ -1099,7 +1099,7 @@
     font-size: 1rem;
     margin: 0 1rem;
   }
-  nav {
+  .pagination-block nav {
     margin: 1.25rem 0;
   }
   .projects-block {
@@ -1325,7 +1325,7 @@
     font-size: 0.75rem;
     margin: 0 0.5rem;
   }
-  nav {
+  .pagination-block nav {
     margin: 0.75rem 0;
   }
 }
