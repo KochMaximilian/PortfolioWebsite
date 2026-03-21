@@ -1117,21 +1117,17 @@
 }
 @media (max-width: 992px) {
   .filter a {
-    font-size: calc(1.25rem * 1.1);
-    padding: 0 1rem;
-    line-height: 2.2;
+    font-size: 0.875rem;
+    padding: 0 0.5rem;
+    line-height: 1.8;
+    margin: 0.1rem;
   }
   .filter-block {
-    padding: 0 1.25rem;
+    padding: 0 0.75rem;
   }
   .projects {
-    grid-template-columns: 1fr;
-    gap: 1.5rem !important;
-  }
-  .projects-link {
-    display: block;
-    max-width: 400px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem !important;
   }
   .card-frame {
     padding: 0.45rem;

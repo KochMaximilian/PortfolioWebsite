@@ -917,6 +917,12 @@ body.variant-ok .skills-tree__branches {
     max-width: none;
   }
 }
+@media (max-width: 1440px) {
+  .skills-tree {
+    margin-top: 0;
+    max-width: none;
+  }
+}
 @media (max-height: 500px) and (orientation: landscape) {
   .about-image {
     width: 200px;

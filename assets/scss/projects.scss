@@ -1355,24 +1355,19 @@
 // Tablet Large
 @media (max-width: $tablet-lg) {
     .filter a {
-        font-size: calc(#{font-size(xl)} * 1.1);
-        padding: 0 space(4);
-        line-height: 2.2;
+        font-size: font-size(sm);
+        padding: 0 space(2);
+        line-height: 1.8;
+        margin: space(1) * 0.4;
     }
 
     .filter-block {
-        padding: 0 space(5);
+        padding: 0 space(3);
     }
 
     .projects {
-        grid-template-columns: 1fr;
-        gap: space(6) !important;
-    }
-
-    .projects-link {
-        display: block;
-        max-width: 400px;
-        margin: 0 auto;
+        grid-template-columns: repeat(2, 1fr);
+        gap: space(5) !important;
     }
     
     .card-frame {

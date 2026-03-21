@@ -1045,6 +1045,14 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   }
 }
 
+// Widescreen + tablet skills-tree spacing
+@media (max-width: $widescreen) {
+  .skills-tree {
+    margin-top: 0;
+    max-width: none;
+  }
+}
+
 // Landscape — tablet/phone horizontal
 @media (max-height: 500px) and (orientation: landscape) {
   .about-image {
