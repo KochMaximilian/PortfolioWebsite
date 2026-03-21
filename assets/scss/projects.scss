@@ -1224,7 +1224,7 @@
         margin: 0 space(3);
     }
 
-    nav {
+    .pagination-block nav {
         margin: space(2) 0;
     }
 }
@@ -1395,7 +1395,7 @@
         margin: 0 space(3);
     }
 
-    nav {
+    .pagination-block nav {
         margin: space(4) 0;
     }
 }
@@ -1403,10 +1403,10 @@
 // Mobile Large
 @media (max-width: $mobile-lg) {
     .filter a {
-        font-size: calc(#{font-size(xl)} * 1.1);
-        margin: space(2);
-        padding: 0 space(3);
-        line-height: 2.4;
+        font-size: font-size(sm);
+        margin: calc(#{space(1)} * 0.5);
+        padding: 0 space(2);
+        line-height: 2;
     }
 
     .filter-block {
@@ -1517,12 +1517,12 @@
 // Mobile Small
 @media (max-width: $mobile-sm) {
     .filter {
-        gap: space(2);
+        gap: space(1);
     }
 
     .filter a {
-        font-size: font-size(md);
-        line-height: 2.5;
+        font-size: font-size(xs);
+        line-height: 1.8;
         margin: calc(#{space(1)} * 0.2);
         padding: 0 space(2);
     }
