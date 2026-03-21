@@ -518,7 +518,7 @@ body.variant-ok .skills-tree__branches {
     font-size: 1.125rem;
   }
 }
-@media (max-width: 1440px) {
+@media (max-width: 1440px) and (min-width: 993px) {
   .about-content {
     max-width: none;
     gap: 0.75rem;

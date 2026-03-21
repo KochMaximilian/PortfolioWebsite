@@ -347,7 +347,7 @@ p {
   body h3 { font-size: font-size(4xl); }
 }
 
-@media (max-width: $widescreen) and (min-width: $tablet-lg + 1) {
+@media (max-width: $widescreen) and (min-width: 993px) {
   html {
     font-size: 87.5%;
   }

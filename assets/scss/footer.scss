@@ -255,7 +255,7 @@ footer {
 }
 
 // Widescreen (tablets, small desktops)
-@media screen and (max-width: $widescreen) {
+@media screen and (max-width: $widescreen) and (min-width: 993px) {
   :root {
     --footer-height: 6rem;
   }

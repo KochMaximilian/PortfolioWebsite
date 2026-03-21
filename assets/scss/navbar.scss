@@ -162,7 +162,7 @@
   }
 }
 
-@media (max-width: $widescreen) {
+@media (max-width: $widescreen) and (min-width: 993px) {
   .navbar {
     height: 65px;
     max-width: calc(100% - 5em);

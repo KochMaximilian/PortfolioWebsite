@@ -1160,7 +1160,7 @@
 }
 
 // Widescreen (tablets, small desktops)
-@media (max-width: $widescreen) {
+@media (max-width: $widescreen) and (min-width: 993px) {
   .project-image-container {
     max-width: 900px;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

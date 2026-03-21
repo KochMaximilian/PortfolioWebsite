@@ -239,7 +239,7 @@ footer {
     font-size: 0.75rem;
   }
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1440px) and (min-width: 993px) {
   :root {
     --footer-height: 6rem;
   }

@@ -243,7 +243,7 @@
   }
 }
 
-@media screen and (max-width: $widescreen) {
+@media screen and (max-width: $widescreen) and (min-width: 993px) {
   .slider-figure {
     padding: 0.8rem;
   }

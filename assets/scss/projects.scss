@@ -1229,8 +1229,8 @@
     }
 }
 
-// Widescreen
-@media (max-width: $widescreen) {
+// Widescreen (tablet landscape / small desktop only — don't cascade to phone)
+@media (max-width: $widescreen) and (min-width: 993px) {
     .projects {
         grid-template-columns: repeat(3, minmax(0, 280px));
         justify-content: center;

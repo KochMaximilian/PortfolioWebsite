@@ -1018,7 +1018,7 @@
     margin: 0.5rem 0;
   }
 }
-@media (max-width: 1440px) {
+@media (max-width: 1440px) and (min-width: 993px) {
   .projects {
     grid-template-columns: repeat(3, minmax(0, 280px));
     justify-content: center;

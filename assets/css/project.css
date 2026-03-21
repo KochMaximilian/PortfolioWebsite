@@ -1941,7 +1941,7 @@
     bottom: calc(var(--footer-height) + 4.5rem + var(--sticky-nav-height, 70px) + 1rem);
   }
 }
-@media (max-width: 1440px) {
+@media (max-width: 1440px) and (min-width: 993px) {
   .project-image-container {
     max-width: 900px;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
