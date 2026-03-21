@@ -224,7 +224,9 @@
     border-radius: 0 0 $radius-small $radius-small;
     justify-content: center;
   }
-  
+
+  .logo-container { margin-left: 0; }
+
   .logo-container .logo {
     font-size: font-size(xs);
     white-space: nowrap;

@@ -1,25 +1,26 @@
 :root {
   --footer-height: 7.5rem;
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 @media screen and (max-width: 768px) {
   :root {
-    --footer-height: 6.5rem;
+    --footer-height: calc(6.5rem + var(--safe-area-bottom));
   }
 }
 @media screen and (max-width: 576px) {
   :root {
-    --footer-height: 12rem;
+    --footer-height: calc(12rem + var(--safe-area-bottom));
   }
 }
 @media screen and (max-width: 480px) {
   :root {
-    --footer-height: 11rem;
+    --footer-height: calc(11rem + var(--safe-area-bottom));
   }
 }
 @media screen and (max-width: 320px) {
   :root {
-    --footer-height: 10rem;
+    --footer-height: calc(10rem + var(--safe-area-bottom));
   }
 }
 footer {
@@ -28,6 +29,7 @@ footer {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   color: #FEFEFE;
   padding: 1.8rem 0;
+  padding-bottom: calc(1.8rem + env(safe-area-inset-bottom, 0px));
   text-align: center;
   z-index: 900;
   width: 80em;

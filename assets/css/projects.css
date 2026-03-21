@@ -848,7 +848,7 @@
   text-transform: uppercase;
 }
 
-nav {
+.pagination-block nav {
   display: flex;
   justify-content: center;
   align-items: center;
