@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0A0A0A">
     <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
     <title><?= $page->title()->html() ?> | <?= $site->title()->html() ?></title>
 
