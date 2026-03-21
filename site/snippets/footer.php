@@ -1,14 +1,22 @@
 <?php snippet('footer-content') ?>
 
+<?php
+// Cache-busting for JS (mirrors cssv() in header.php)
+function jsv($path, $options = []) {
+    $file = kirby()->root('index') . '/' . $path;
+    $v = file_exists($file) ? filemtime($file) : '';
+    return js($path . '?v=' . $v, $options);
+}
+?>
 
 <!-- Load JS for all pages -->
-<?= js('assets/js/script.js') ?>
+<?= jsv('assets/js/script.js') ?>
 
 <!-- Load JS for project pages -->
 <?php if ($page->intendedTemplate()->name() === 'project'): ?>
 
-    <?= js('assets/glightbox/glightbox.min.js') ?>
-    <?= js('assets/js/smooth-scroll.js', ['defer' => true]) ?>
+    <?= jsv('assets/glightbox/glightbox.min.js') ?>
+    <?= jsv('assets/js/smooth-scroll.js', ['defer' => true]) ?>
     <script>
         const glightboxSvg = {
             close: '<i class="fa-solid fa-xmark"></i>',

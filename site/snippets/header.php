@@ -178,13 +178,22 @@
 
     <link rel="preload" href="/assets/img/pattern_<?= $GLOBALS['siteVariant'] ?>.png" as="image">
 
+    <?php
+    // Cache-busting: appends ?v=<filemtime> so nginx serves fresh CSS after changes
+    function cssv($path) {
+        $file = kirby()->root('index') . '/' . $path;
+        $v = file_exists($file) ? filemtime($file) : '';
+        return css($path . '?v=' . $v);
+    }
+    ?>
+
     <?php if ($page->intendedTemplate()->name() === 'home'): ?>
-        <?= css('assets/css/config/utility/flickity.css') ?>
-        <?= css('assets/css/carousel.css') ?>
+        <?= cssv('assets/css/config/utility/flickity.css') ?>
+        <?= cssv('assets/css/carousel.css') ?>
     <?php endif; ?>
 
     <?php if ($page->intendedTemplate()->name() === 'project'): ?>
-        <?= css('assets/glightbox/glightbox.min.css') ?>
+        <?= cssv('assets/glightbox/glightbox.min.css') ?>
     <?php endif ?>
 
     <link rel="stylesheet" href="<?= url('assets/fontawesome/css/fontawesome.min.css') ?>" media="print" onload="this.media='all'">
@@ -196,21 +205,21 @@
         <?= css('assets/fontawesome/css/solid.min.css') ?>
     </noscript>
 
-    <?= css('assets/css/footer.css') ?>
+    <?= cssv('assets/css/footer.css') ?>
     <?php if ($page->intendedTemplate()->name() === 'about'): ?>
-        <?= css('assets/css/about.css') ?>
+        <?= cssv('assets/css/about.css') ?>
     <?php endif ?>
 
     <?php if ($page->intendedTemplate()->name() === 'projects'): ?>
-        <?= css('assets/css/projects.css') ?>
+        <?= cssv('assets/css/projects.css') ?>
     <?php endif ?>
 
     <?php if ($page->intendedTemplate()->name() === 'project'): ?>
-        <?= css('assets/css/project.css') ?>
+        <?= cssv('assets/css/project.css') ?>
     <?php endif ?>
 
-    <?= css('assets/css/navbar.css') ?>
-    <?= css('assets/css/main.css') ?>
+    <?= cssv('assets/css/navbar.css') ?>
+    <?= cssv('assets/css/main.css') ?>
 
     <?php if (isset($slots) && $slots->head()): ?>
         <?= $slots->head() ?>
