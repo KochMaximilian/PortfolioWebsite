@@ -232,11 +232,6 @@
   font-size: 0.95rem;
 }
 
-.projects-link:hover .card-award-badge {
-  transform: translateY(-3px) scale(1.15);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-}
-
 .card-set-symbol {
   position: absolute;
   bottom: 0.4rem;
@@ -457,10 +452,6 @@
     box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.5), inset 0 -3px 6px rgba(0, 0, 0, 0.3), 0 0 14px rgba(72, 66, 80, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 }
-.is-featured .projects-figure {
-  animation: idle-holo-drift 8s ease-in-out infinite;
-}
-
 .is-featured .card-frame {
   --sunpillar-1: hsl(2, 100%, 73%);
   --sunpillar-2: hsl(53, 100%, 69%);
@@ -516,13 +507,6 @@
   backdrop-filter: blur(6px);
   border-color: rgba(10, 10, 10, 0.8);
   animation: mana-glow 3s ease-in-out infinite;
-}
-
-.projects-link:hover .is-featured .card-mana {
-  animation: none;
-  background: rgba(72, 66, 80, 0.5);
-  backdrop-filter: blur(6px);
-  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.6), inset 0 -3px 6px rgba(0, 0, 0, 0.3), 0 0 16px rgba(72, 66, 80, 0.6), 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .card-shine,
@@ -605,23 +589,6 @@
     transform: rotate(0deg);
   }
 }
-.projects-link:hover .projects-figure {
-  animation: card-shake 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.projects-link:hover .card-frame {
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-}
-
-.projects-link:hover .is-featured .card-frame {
-  animation: none;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 18px rgba(254, 221, 159, 0.4), 0 0 40px rgba(254, 221, 159, 0.2), 0 0 25px rgba(72, 66, 80, 0.45), 0 0 50px rgba(72, 66, 80, 0.2);
-}
-
-.projects-link:hover .card-header {
-  background: transparent;
-}
-
 @keyframes card-header-slide-in {
   0% {
     background-position: 100% 0;
@@ -630,43 +597,148 @@
     background-position: 0% 0;
   }
 }
-.projects-link:hover .card-art img {
-  transform: scale(1.08);
-}
-
-.projects-link:hover .card-tag {
-  background: #0A0A0A;
-  transform: translateY(-2px);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-}
-
-.projects-link:hover .card-mana {
-  transform: scale(1.2);
-  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.2), 0 0 10px rgba(72, 66, 80, 0.3), 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.projects-link:hover .card-set-symbol i {
-  transform: translateY(-3px) scale(1.1);
-}
-
-.projects-link:hover .card-focus-keyword {
-  transform: translateY(-1.5px);
-}
-
-.projects-link:hover .card-footer-engine,
-.projects-link:hover .card-footer-set {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
-  @keyframes card-float {
-    0%, 100% {
-      transform: perspective(1000px) translateY(0px) rotateX(0deg) rotateY(0deg);
-    }
-    50% {
-      transform: perspective(1000px) translateY(-4px) rotateX(1deg) rotateY(-1deg);
-    }
+@keyframes card-float {
+  0%, 100% {
+    transform: translateY(0px);
   }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+@keyframes idle-shimmer {
+  0% {
+    transform: rotate(25deg) translateX(-110%);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0;
+  }
+  13% {
+    opacity: 0.35;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  24% {
+    opacity: 0;
+  }
+  25% {
+    transform: rotate(25deg) translateX(110%);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(25deg) translateX(110%);
+    opacity: 0;
+  }
+}
+@keyframes shimmer-sweep {
+  0% {
+    transform: rotate(0deg) translateX(-100%);
+  }
+  100% {
+    transform: rotate(0deg) translateX(100%);
+  }
+}
+.projects-figure {
+  animation: card-float 4s ease-in-out infinite;
+}
+
+.is-featured .projects-figure {
+  animation: card-float 4s ease-in-out infinite, idle-holo-drift 8s ease-in-out infinite;
+}
+
+.projects-link:nth-child(2) .projects-figure {
+  animation-delay: -0.5s;
+}
+
+.projects-link:nth-child(3) .projects-figure {
+  animation-delay: -1s;
+}
+
+.projects-link:nth-child(4) .projects-figure {
+  animation-delay: -1.5s;
+}
+
+.projects-link:nth-child(5) .projects-figure {
+  animation-delay: -2s;
+}
+
+.projects-link:nth-child(6) .projects-figure {
+  animation-delay: -2.5s;
+}
+
+.card-frame::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.4) 60%, transparent 80%);
+  transform: rotate(0deg) translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 16;
+  animation: idle-shimmer var(--shimmer-duration, 10s) ease-in-out infinite;
+  animation-delay: var(--shimmer-delay, 0s);
+}
+
+.is-featured .card-frame::after {
+  background: linear-gradient(115deg, transparent 18%, rgba(252, 187, 63, 0.45) 36%, rgba(253, 204, 111, 0.7) 50%, rgba(252, 187, 63, 0.45) 64%, transparent 82%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .projects-link:hover .projects-figure {
+    animation: card-shake 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .projects-link:hover .card-frame {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  }
+  .projects-link:hover .is-featured .card-frame {
+    animation: none;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 18px rgba(254, 221, 159, 0.4), 0 0 40px rgba(254, 221, 159, 0.2), 0 0 25px rgba(72, 66, 80, 0.45), 0 0 50px rgba(72, 66, 80, 0.2);
+  }
+  .projects-link:hover .card-header {
+    background: transparent;
+  }
+  .projects-link:hover .card-art img {
+    transform: scale(1.08);
+  }
+  .projects-link:hover .card-tag {
+    background: #0A0A0A;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  }
+  .projects-link:hover .card-mana {
+    transform: scale(1.2);
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.2), 0 0 10px rgba(72, 66, 80, 0.3), 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  .projects-link:hover .card-set-symbol i {
+    transform: translateY(-3px) scale(1.1);
+  }
+  .projects-link:hover .card-focus-keyword {
+    transform: translateY(-1.5px);
+  }
+  .projects-link:hover .card-footer-engine,
+  .projects-link:hover .card-footer-set {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .projects-link:hover .card-award-badge {
+    transform: translateY(-3px) scale(1.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  .projects-link:hover .is-featured .card-mana {
+    animation: none;
+    background: rgba(72, 66, 80, 0.5);
+    backdrop-filter: blur(6px);
+    box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.6), inset 0 -3px 6px rgba(0, 0, 0, 0.3), 0 0 16px rgba(72, 66, 80, 0.6), 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  .projects-link:hover .card-frame::after {
+    opacity: 1;
+    animation: shimmer-sweep 0.8s ease-out forwards;
+  }
+}
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
   .projects-figure {
     --tilt-x: 0deg;
     --tilt-y: 0deg;
@@ -682,21 +754,6 @@
   }
   .is-featured .projects-figure {
     animation: card-float 4s ease-in-out infinite, idle-holo-drift 8s ease-in-out infinite;
-  }
-  .projects-link:nth-child(2) .projects-figure {
-    animation-delay: -0.5s;
-  }
-  .projects-link:nth-child(3) .projects-figure {
-    animation-delay: -1s;
-  }
-  .projects-link:nth-child(4) .projects-figure {
-    animation-delay: -1.5s;
-  }
-  .projects-link:nth-child(5) .projects-figure {
-    animation-delay: -2s;
-  }
-  .projects-link:nth-child(6) .projects-figure {
-    animation-delay: -2.5s;
   }
   .projects-link:hover .projects-figure {
     animation: none;
@@ -721,62 +778,6 @@
   }
   .is-featured .card-frame::before {
     display: none;
-  }
-  .card-frame::after {
-    content: "";
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 300%;
-    height: 300%;
-    background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.4) 60%, transparent 80%);
-    transform: rotate(0deg) translateX(-100%);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 16;
-    animation: idle-shimmer var(--shimmer-duration, 10s) ease-in-out infinite;
-    animation-delay: var(--shimmer-delay, 0s);
-  }
-  .is-featured .card-frame::after {
-    background: linear-gradient(115deg, transparent 18%, rgba(252, 187, 63, 0.45) 36%, rgba(253, 204, 111, 0.7) 50%, rgba(252, 187, 63, 0.45) 64%, transparent 82%);
-  }
-  .projects-link:hover .card-frame::after {
-    opacity: 1;
-    animation: shimmer-sweep 0.8s ease-out forwards;
-  }
-  @keyframes shimmer-sweep {
-    0% {
-      transform: rotate(0deg) translateX(-100%);
-    }
-    100% {
-      transform: rotate(0deg) translateX(100%);
-    }
-  }
-  @keyframes idle-shimmer {
-    0% {
-      transform: rotate(25deg) translateX(-110%);
-      opacity: 0;
-    }
-    8% {
-      opacity: 0;
-    }
-    13% {
-      opacity: 0.35;
-    }
-    20% {
-      opacity: 0.3;
-    }
-    24% {
-      opacity: 0;
-    }
-    25% {
-      transform: rotate(25deg) translateX(110%);
-      opacity: 0;
-    }
-    100% {
-      transform: rotate(25deg) translateX(110%);
-      opacity: 0;
-    }
   }
   .projects-link:hover .card-header {
     transform: translateZ(20px);

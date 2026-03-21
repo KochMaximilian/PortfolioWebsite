@@ -487,29 +487,9 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   }
 }
 
-// Hover Effects
-.about-image:hover img {
-  transform: scale(1.08);
-}
-
-.about-image:hover .about-card-header {
-  background: linear-gradient(to right, rgba($purple-light, 0.6) 0%, transparent 60%);
-  background-size: 100% 100%;
-  animation: header-slide-in 1s ease-out forwards;
-}
-
 @keyframes header-slide-in {
   0% { background-position: -100% 0; }
   100% { background-position: 0% 0; }
-}
-
-.about-image:hover .about-card-name {
-  color: $white;
-}
-
-.about-image:hover .about-card-footer-left,
-.about-image:hover .about-card-footer-right {
-  color: rgba($white, 0.85);
 }
 
 // Responsive
@@ -820,15 +800,57 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   }
 }
 
-@media (min-width: $desktop) and (hover: hover) and (pointer: fine) {
+// Float + shimmer — works on all devices (touch + mouse)
+.about-image {
+  animation: about-card-float 4s ease-in-out infinite;
+}
 
-  .about-image {
-    animation: about-card-float 4s ease-in-out infinite;
-  }
+.about-image::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.4) 40%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.4) 60%,
+    transparent 80%
+  );
+  transform: rotate(0deg) translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 16;
+  animation: about-idle-shimmer 6s ease-in-out infinite;
+}
 
+// Hover effects — only for devices with a real cursor
+@media (hover: hover) and (pointer: fine) {
   .about-image:hover {
     animation: none;
     transform: perspective(800px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) scale(var(--card-scale));
+  }
+
+  .about-image:hover img {
+    transform: scale(1.08);
+  }
+
+  .about-image:hover .about-card-header {
+    background: linear-gradient(to right, rgba($purple-light, 0.6) 0%, transparent 60%);
+    background-size: 100% 100%;
+    animation: header-slide-in 1s ease-out forwards;
+  }
+
+  .about-image:hover .about-card-name {
+    color: $white;
+  }
+
+  .about-image:hover .about-card-footer-left,
+  .about-image:hover .about-card-footer-right {
+    color: rgba($white, 0.85);
   }
 
   .about-image::before {
@@ -850,28 +872,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
     border-radius: $radius-large;
     transition: opacity 0.3s ease-out;
     mix-blend-mode: overlay;
-  }
-
-  .about-image::after {
-    content: '';
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 300%;
-    height: 300%;
-    background: linear-gradient(
-      105deg,
-      transparent 20%,
-      rgba(255, 255, 255, 0.4) 40%,
-      rgba(255, 255, 255, 0.6) 50%,
-      rgba(255, 255, 255, 0.4) 60%,
-      transparent 80%
-    );
-    transform: rotate(0deg) translateX(-100%);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 16;
-    animation: about-idle-shimmer 6s ease-in-out infinite;
   }
 
   .about-image:hover::after {

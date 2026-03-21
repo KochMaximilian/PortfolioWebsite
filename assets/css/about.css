@@ -449,16 +449,6 @@ body.variant-ok .skills-tree__branches {
   transform: scale(0.95);
 }
 
-.about-image:hover img {
-  transform: scale(1.08);
-}
-
-.about-image:hover .about-card-header {
-  background: linear-gradient(to right, rgba(72, 66, 80, 0.6) 0%, transparent 60%);
-  background-size: 100% 100%;
-  animation: header-slide-in 1s ease-out forwards;
-}
-
 @keyframes header-slide-in {
   0% {
     background-position: -100% 0;
@@ -467,15 +457,6 @@ body.variant-ok .skills-tree__branches {
     background-position: 0% 0;
   }
 }
-.about-image:hover .about-card-name {
-  color: #FEFEFE;
-}
-
-.about-image:hover .about-card-footer-left,
-.about-image:hover .about-card-footer-right {
-  color: rgba(254, 254, 254, 0.85);
-}
-
 @media (min-width: 2000px) {
   .about-content {
     max-width: 1400px;
@@ -733,13 +714,44 @@ body.variant-ok .skills-tree__branches {
     transform: perspective(800px) translateY(-4px) rotateX(1deg) rotateY(-1deg);
   }
 }
-@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
-  .about-image {
-    animation: about-card-float 4s ease-in-out infinite;
-  }
+.about-image {
+  animation: about-card-float 4s ease-in-out infinite;
+}
+
+.about-image::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.4) 60%, transparent 80%);
+  transform: rotate(0deg) translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 16;
+  animation: about-idle-shimmer 6s ease-in-out infinite;
+}
+
+@media (hover: hover) and (pointer: fine) {
   .about-image:hover {
     animation: none;
     transform: perspective(800px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) scale(var(--card-scale));
+  }
+  .about-image:hover img {
+    transform: scale(1.08);
+  }
+  .about-image:hover .about-card-header {
+    background: linear-gradient(to right, rgba(72, 66, 80, 0.6) 0%, transparent 60%);
+    background-size: 100% 100%;
+    animation: header-slide-in 1s ease-out forwards;
+  }
+  .about-image:hover .about-card-name {
+    color: #FEFEFE;
+  }
+  .about-image:hover .about-card-footer-left,
+  .about-image:hover .about-card-footer-right {
+    color: rgba(254, 254, 254, 0.85);
   }
   .about-image::before {
     content: "";
@@ -755,20 +767,6 @@ body.variant-ok .skills-tree__branches {
     border-radius: 0.75rem;
     transition: opacity 0.3s ease-out;
     mix-blend-mode: overlay;
-  }
-  .about-image::after {
-    content: "";
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 300%;
-    height: 300%;
-    background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.4) 60%, transparent 80%);
-    transform: rotate(0deg) translateX(-100%);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 16;
-    animation: about-idle-shimmer 6s ease-in-out infinite;
   }
   .about-image:hover::after {
     animation: about-shimmer-sweep 0.8s ease-out forwards;
