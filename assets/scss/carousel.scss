@@ -245,14 +245,14 @@
 
 @media screen and (max-width: $widescreen) {
   .slider-figure {
-    padding: 1rem;
+    padding: 0.8rem;
   }
 
   .flickity-prev-next-button {
-    width: 3.5rem;
-    height: 6rem;
-    border-width: $border-sm;
-    box-shadow: $solid-shadow-sm;
+    width: 3rem;
+    height: 5rem;
+    border-width: $border-xs;
+    box-shadow: $solid-shadow-xs;
   }
   
   .flickity-prev-next-button.previous {

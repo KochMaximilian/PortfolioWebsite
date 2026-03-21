@@ -164,19 +164,20 @@
 
 @media (max-width: $widescreen) {
   .navbar {
-    height: 70px;
+    height: 65px;
     max-width: calc(100% - 3em);
   }
 
   .logo-container { margin-left: space(4); }
 
-  .logo-container .logo { font-size: font-size(xl); }
-  .navbar-nav { gap: space(3); padding-right: space(3); }
+  .logo-container .logo { font-size: font-size(lg); }
+  .navbar-nav { gap: space(2); padding-right: space(2); }
 
   .nav-link {
-    font-size: font-size(lg);
+    font-size: font-size(md);
     padding: space(1);
     padding-bottom: space(2);
+    &::after { height: 3px; }
   }
 }
 

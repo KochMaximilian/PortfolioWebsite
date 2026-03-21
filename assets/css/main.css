@@ -329,14 +329,29 @@ p {
   }
 }
 @media (max-width: 1440px) {
+  html {
+    font-size: 93.75%;
+  }
   .content-block {
-    margin-top: 5.75rem;
+    margin-top: 5.5rem;
   }
   .main-wrapper {
-    gap: 1.25rem;
+    gap: 1rem;
   }
   .wrapper {
-    padding-bottom: calc(var(--footer-height) + 3.25rem);
+    padding-bottom: calc(var(--footer-height) + 3rem);
+  }
+  body h1 {
+    font-size: 2.5rem;
+  }
+  body h2 {
+    font-size: 1.75rem;
+  }
+  body h3 {
+    font-size: 1.5rem;
+  }
+  body h4 {
+    font-size: 1.25rem;
   }
 }
 @media (max-width: 992px) {

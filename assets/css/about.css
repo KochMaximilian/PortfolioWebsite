@@ -521,17 +521,17 @@ body.variant-ok .skills-tree__branches {
 @media (max-width: 1440px) {
   .about-content {
     max-width: none;
-    gap: 1.25rem;
+    gap: 1rem;
   }
   .about-image {
-    width: 380px;
+    width: 320px;
   }
   .about-profile-body {
-    max-height: 450px;
-    padding: 1.25rem;
+    max-height: 400px;
+    padding: 1rem;
   }
   .about-profile-header span {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 }
 @media (max-width: 1200px) {

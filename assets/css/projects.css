@@ -1020,7 +1020,7 @@
 }
 @media (max-width: 1440px) {
   .projects {
-    grid-template-columns: repeat(2, minmax(0, 360px));
+    grid-template-columns: repeat(2, minmax(0, 300px));
     justify-content: center;
     gap: 1.25rem !important;
   }

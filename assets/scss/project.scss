@@ -1159,30 +1159,30 @@
   }
 }
 
-// Widescreen (tablets landscape, small desktops)
+// Widescreen (tablets, small desktops)
 @media (max-width: $widescreen) {
   .project-image-container {
-    max-width: 1050px;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    max-width: 900px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: space(4);
   }
 
   .toc-panel {
-    width: 250px;
+    width: 230px;
   }
 
-  .stat-name-plate { padding: space(2) space(5); }
-  .stat-project-title { font-size: font-size(3xl); }
-  .stat-flavor { padding: space(2) space(5); }
-  .stat-body { padding: space(3) space(5); }
-  .image-caption-badge { font-size: font-size(sm); }
+  .stat-name-plate { padding: space(2) space(4); }
+  .stat-project-title { font-size: font-size(2xl); }
+  .stat-flavor { padding: space(2) space(4); }
+  .stat-body { padding: space(3) space(4); }
+  .image-caption-badge { font-size: font-size(xs); }
 
   .project-nav-sticky {
-    bottom: calc(var(--footer-height) + 4.5rem);
+    bottom: calc(var(--footer-height) + 3.5rem);
   }
 
   .toc-panel {
-    bottom: calc(var(--footer-height) + 4.5rem + var(--sticky-nav-height, 70px) + 1rem);
+    bottom: calc(var(--footer-height) + 3.5rem + var(--sticky-nav-height, 65px) + 1rem);
   }
 }
 
