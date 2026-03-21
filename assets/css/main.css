@@ -328,10 +328,12 @@ p {
     font-size: 2.5rem;
   }
 }
-@media (max-width: 1440px) {
+@media (max-width: 1440px) and (min-width: 1025px) {
   html {
     font-size: 87.5%;
   }
+}
+@media (max-width: 1440px) {
   .content-block {
     margin-top: 5rem;
   }

@@ -1965,8 +1965,35 @@
   .image-caption-badge {
     font-size: 0.75rem;
   }
+  .project-nav-link {
+    padding: 0.5rem 0.75rem;
+  }
+  .project-nav-label {
+    font-size: 1rem;
+  }
+  .project-nav-name {
+    font-size: 0.875rem;
+  }
   .project-nav-sticky {
     bottom: calc(var(--footer-height) + 2.5rem);
+  }
+  .project-nav-sticky-name {
+    max-width: 12rem;
+  }
+  .project-nav-sticky-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+  }
+  .scroll-to-top {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  .toc-toggle {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+  .toc-toggle i {
+    font-size: 0.75rem;
   }
   .toc-panel {
     bottom: calc(var(--footer-height) + 2.5rem + var(--sticky-nav-height, 65px) + 1rem);

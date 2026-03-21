@@ -1337,13 +1337,17 @@
 
     .pagination-link,
     .pagination-dead-link {
-        font-size: font-size(xl);
-        padding: space(2);
+        font-size: font-size(lg);
+        padding: space(1);
     }
 
     .indicate-page-text {
-        font-size: font-size(lg);
-        margin: 0 space(5);
+        font-size: font-size(sm);
+        margin: 0 space(3);
+    }
+
+    .pagination-block nav {
+        margin: space(2) 0;
     }
 }
 

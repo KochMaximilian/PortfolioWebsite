@@ -1177,9 +1177,18 @@
   .stat-body { padding: space(3) space(4); }
   .image-caption-badge { font-size: font-size(xs); }
 
+  .project-nav-link { padding: space(2) space(3); }
+  .project-nav-label { font-size: font-size(md); }
+  .project-nav-name { font-size: font-size(sm); }
+
   .project-nav-sticky {
     bottom: calc(var(--footer-height) + 2.5rem);
   }
+
+  .project-nav-sticky-name { max-width: 12rem; }
+  .project-nav-sticky-link { padding: space(2) space(3); font-size: font-size(md); }
+  .scroll-to-top { padding: space(2); font-size: font-size(md); }
+  .toc-toggle { padding: space(2); font-size: font-size(sm); i { font-size: font-size(xs); } }
 
   .toc-panel {
     bottom: calc(var(--footer-height) + 2.5rem + var(--sticky-nav-height, 65px) + 1rem);

@@ -573,20 +573,20 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
 @media (max-width: $widescreen) {
   .about-content {
     max-width: none;
-    gap: space(4);
+    gap: space(3);
   }
 
   .about-image {
-    width: 320px;
+    width: 280px;
   }
 
   .about-profile-body {
-    max-height: 400px;
-    padding: 1rem;
+    max-height: 350px;
+    padding: 0.8rem;
   }
 
   .about-profile-header span {
-    font-size: font-size(md);
+    font-size: font-size(sm);
   }
 }
 
@@ -1049,6 +1049,7 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
 @media (max-width: $widescreen) {
   .skills-tree {
     margin-top: 0;
+    margin-bottom: space(4);
     max-width: none;
   }
 }
