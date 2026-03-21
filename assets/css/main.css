@@ -343,6 +343,9 @@ p {
   }
 }
 @media (max-width: 768px) {
+  body {
+    background-color: #0A0A0A;
+  }
   body h1 {
     font-size: 1.75rem;
   }

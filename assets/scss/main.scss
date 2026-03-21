@@ -355,6 +355,7 @@ p {
 }
 
 @media (max-width: $tablet) {
+  body { background-color: $black-dark; }
   body h1 { font-size: font-size(3xl); }
   body h2 { font-size: font-size(2xl); }
   body h3 { font-size: font-size(xl); }

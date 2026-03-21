@@ -10,7 +10,9 @@
       "Bash(do echo:*)",
       "Read(//e/WebProjects/PortfolioWebsite/**)",
       "Bash(done)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(icon /e/WebProjects/PortfolioWebsite/site/templates /e/WebProjects/PortfolioWebsite/site/snippets)",
+      "Bash(embed /e/WebProjects/PortfolioWebsite/site/templates /e/WebProjects/PortfolioWebsite/site/snippets /e/WebProjects/PortfolioWebsite/site/blueprints)"
     ]
   }
 }
