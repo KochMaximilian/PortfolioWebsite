@@ -547,12 +547,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
     font-size: font-size(xl);
   }
 
-  .skills-tree {
-    margin-top: space(4);
-    max-width: 1300px;
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
 
 // Sub-2K — short screens (1080p laptops)
@@ -574,13 +568,6 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
 
   .about-profile-header span {
     font-size: font-size(lg);
-  }
-
-  .skills-tree {
-    margin-top: space(2);
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -1025,5 +1012,24 @@ body.variant-ok .skills-tree__branches { --site-pattern: url('/assets/img/patter
   .skills-tree__root {
     padding: 0.3rem 0.5rem;
     font-size: font-size(2xs);
+  }
+}
+
+// Sub-2K skills-tree spacing (must come after base .skills-tree rule)
+@media (max-width: $fullhd) and (min-width: 1201px) and (min-height: 1201px) {
+  .skills-tree {
+    margin-top: 0;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: $fullhd) and (min-width: 1201px) and (max-height: 1200px) {
+  .skills-tree {
+    margin-top: 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

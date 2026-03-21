@@ -81,6 +81,12 @@ body::before {
   pointer-events: none;
 }
 
+@media (max-width: $fullhd) and (min-width: 1201px) and (min-height: 1201px) {
+  body::before {
+    background-size: 2560px 1440px;
+  }
+}
+
 @media (min-width: 2000px) {
   body::before {
     background-size: 2560px 1440px;
@@ -313,7 +319,7 @@ p {
   }
 
   .wrapper {
-    padding-bottom: calc(var(--footer-height) + 1rem);
+    padding-bottom: calc(var(--footer-height) + 3.25rem);
   }
 }
 
@@ -328,7 +334,7 @@ p {
   }
 
   .wrapper {
-    padding-bottom: calc(var(--footer-height) + 0.5rem);
+    padding-bottom: calc(var(--footer-height) + 3.25rem);
   }
 }
 

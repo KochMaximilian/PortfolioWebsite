@@ -130,7 +130,7 @@
 @media (max-width: $fullhd) and (min-width: 1201px) and (min-height: 1201px) {
   .navbar {
     height: 75px;
-    max-width: calc(100% - 3em);
+    max-width: calc(100% - 5em);
   }
 
   .logo-container { margin-left: space(4); }
@@ -148,7 +148,7 @@
 @media (max-width: $fullhd) and (min-width: 1201px) and (max-height: 1200px) {
   .navbar {
     height: 70px;
-    max-width: calc(100% - 3em);
+    max-width: calc(100% - 5em);
   }
 
   .logo-container { margin-left: space(4); }

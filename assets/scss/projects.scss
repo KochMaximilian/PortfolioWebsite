@@ -1101,6 +1101,10 @@ nav {
         grid-template-columns: repeat(3, 1fr);
         gap: space(5) !important;
     }
+
+    .card-art {
+        aspect-ratio: 5 / 4;
+    }
 }
 
 // Sub-2K Desktops — short screens (1080p laptops)
