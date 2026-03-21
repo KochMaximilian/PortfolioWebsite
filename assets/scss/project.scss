@@ -1159,8 +1159,47 @@
   }
 }
 
-// Widescreen (tablets, small desktops)
-@media (max-width: $widescreen) and (min-width: 993px) {
+@media (max-width: $desktop-lg) {
+  .stat-name-plate { padding: space(2) space(4); }
+  .stat-project-title { font-size: font-size(2xl); }
+  .stat-engine-orb { width: 2.3rem; height: 2.3rem; svg { width: 1.2rem; height: 1.2rem; } }
+  .stat-flavor { padding: space(2) space(4); }
+  .stat-body { padding: space(3) space(4); gap: space(3); }
+  .stat-award-row { padding: space(2) space(4); }
+  .stat-row dt { width: 5rem; }
+  .project-image-container { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: space(5); }
+  .image-caption-badge { font-size: font-size(sm); }
+}
+
+// Widescreen — 2K desktop scaled down (tall screen)
+@media (max-width: $widescreen) and (min-width: 993px) and (min-height: 1201px) {
+  .project-image-container {
+    max-width: 1050px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: space(4);
+  }
+
+  .toc-panel {
+    width: 250px;
+  }
+
+  .stat-name-plate { padding: space(2) space(5); }
+  .stat-project-title { font-size: font-size(3xl); }
+  .stat-flavor { padding: space(2) space(5); }
+  .stat-body { padding: space(3) space(5); }
+  .image-caption-badge { font-size: font-size(sm); }
+
+  .project-nav-sticky {
+    bottom: calc(var(--footer-height) + 3.5rem);
+  }
+
+  .toc-panel {
+    bottom: calc(var(--footer-height) + 3.5rem + var(--sticky-nav-height, 65px) + 1rem);
+  }
+}
+
+// Widescreen — tablet / 1080p scaled down (short screen)
+@media (max-width: $widescreen) and (min-width: 993px) and (max-height: 1200px) {
   .project-image-container {
     max-width: 900px;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1195,18 +1234,6 @@
   }
 }
 
-@media (max-width: $desktop-lg) {
-  .stat-name-plate { padding: space(2) space(4); }
-  .stat-project-title { font-size: font-size(2xl); }
-  .stat-engine-orb { width: 2.3rem; height: 2.3rem; svg { width: 1.2rem; height: 1.2rem; } }
-  .stat-flavor { padding: space(2) space(4); }
-  .stat-body { padding: space(3) space(4); gap: space(3); }
-  .stat-award-row { padding: space(2) space(4); }
-  .stat-row dt { width: 5rem; }
-  .project-image-container { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: space(5); }
-  .image-caption-badge { font-size: font-size(sm); }
-}
-
 @media (max-width: $tablet-lg) {
   .project-main-container { border-width: $border-md; }
   .stat-name-plate { padding: space(2) space(3); }
@@ -1224,6 +1251,30 @@
   .project-nav-link { padding: space(2) space(3); }
   .project-nav-label { font-size: font-size(md); }
   .project-nav-name { font-size: font-size(sm); }
+}
+
+// Tablet Large — 2K desktop scaled down (tall screen)
+@media (max-width: $tablet-lg) and (min-height: 1201px) {
+  .project-image-container {
+    max-width: 1050px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: space(4);
+  }
+
+  .toc-panel { width: 250px; }
+  .stat-name-plate { padding: space(2) space(4); }
+  .stat-project-title { font-size: font-size(2xl); }
+  .stat-flavor { padding: space(2) space(4); }
+  .stat-body { padding: space(3) space(4); }
+  .image-caption-badge { font-size: font-size(sm); }
+
+  .project-nav-sticky {
+    bottom: calc(var(--footer-height) + 3.5rem);
+  }
+
+  .toc-panel {
+    bottom: calc(var(--footer-height) + 3.5rem + var(--sticky-nav-height, 65px) + 1rem);
+  }
 }
 
 @media (max-width: $tablet) {

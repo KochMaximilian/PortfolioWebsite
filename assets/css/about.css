@@ -518,22 +518,6 @@ body.variant-ok .skills-tree__branches {
     font-size: 1.125rem;
   }
 }
-@media (max-width: 1440px) and (min-width: 993px) {
-  .about-content {
-    max-width: none;
-    gap: 0.75rem;
-  }
-  .about-image {
-    width: 280px;
-  }
-  .about-profile-body {
-    max-height: 350px;
-    padding: 0.8rem;
-  }
-  .about-profile-header span {
-    font-size: 0.875rem;
-  }
-}
 @media (max-width: 1200px) {
   .about-image {
     width: 350px;
@@ -542,12 +526,60 @@ body.variant-ok .skills-tree__branches {
     max-height: 450px;
   }
 }
+@media (max-width: 1440px) and (min-width: 993px) and (min-height: 1201px) {
+  .about-content {
+    max-width: none;
+    gap: 1rem;
+  }
+  .about-image {
+    width: 350px;
+  }
+  .about-profile-body {
+    max-height: 400px;
+    padding: 1.2rem;
+  }
+  .about-profile-header span {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1440px) and (min-width: 993px) and (max-height: 1200px) {
+  .about-content {
+    max-width: none;
+    gap: 0.75rem;
+  }
+  .about-image {
+    width: 280px;
+  }
+  .about-profile-body {
+    max-height: 300px;
+    padding: 0.8rem;
+  }
+  .about-profile-header span {
+    font-size: 0.875rem;
+  }
+}
 @media (max-width: 992px) {
   .about-image {
     width: 300px;
   }
   .about-profile-body {
     max-height: 400px;
+    padding: 1.25rem;
+  }
+  .about-profile-header span {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 992px) and (min-height: 1201px) {
+  .about-content {
+    max-width: none;
+    gap: 1.25rem;
+  }
+  .about-image {
+    width: 350px;
+  }
+  .about-profile-body {
+    max-height: 450px;
     padding: 1.25rem;
   }
   .about-profile-header span {

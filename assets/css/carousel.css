@@ -223,7 +223,24 @@
     right: -1.5rem;
   }
 }
-@media screen and (max-width: 1440px) and (min-width: 993px) {
+@media screen and (max-width: 1440px) and (min-width: 993px) and (min-height: 1201px) {
+  .slider-figure {
+    padding: 1rem;
+  }
+  .flickity-prev-next-button {
+    width: 3.5rem;
+    height: 6rem;
+    border-width: 4px;
+    box-shadow: #0A0A0A 1px 3px 0px 1px;
+  }
+  .flickity-prev-next-button.previous {
+    left: -1.5rem;
+  }
+  .flickity-prev-next-button.next {
+    right: -1.5rem;
+  }
+}
+@media screen and (max-width: 1440px) and (min-width: 993px) and (max-height: 1200px) {
   .slider-figure {
     padding: 0.8rem;
   }
@@ -258,6 +275,24 @@
   .flickity-prev-next-button.next {
     right: -1rem;
     animation: bounce-right 5s cubic-bezier(0.25, 1.75, 0.5, 1.2) infinite;
+  }
+}
+@media screen and (max-width: 992px) and (min-height: 1201px) {
+  .slider-figure {
+    margin: 0 1.5rem 1rem 1.5rem;
+    padding: 1rem;
+  }
+  .flickity-prev-next-button {
+    width: 3.5rem;
+    height: 5.5rem;
+    border-width: 4px;
+    box-shadow: #0A0A0A 1px 3px 0px 1px;
+  }
+  .flickity-prev-next-button.previous {
+    left: -1.5rem;
+  }
+  .flickity-prev-next-button.next {
+    right: -1.5rem;
   }
 }
 @media screen and (max-width: 768px) {
