@@ -1173,18 +1173,23 @@
 
 // Widescreen — 2K desktop scaled down (tall screen)
 @media (max-width: $widescreen) and (min-width: 993px) and (min-height: 1201px) {
+  .project-hero-image { max-height: 40vh; }
+  .project-hero-embed { max-width: 85%; margin: 0 auto; }
+
   .project-image-container {
     max-width: 1050px;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: space(4);
   }
 
+  .devlog-video { max-width: 85%; margin-left: auto; margin-right: auto; }
+
   .toc-panel {
     width: 250px;
   }
 
   .stat-name-plate { padding: space(2) space(5); }
-  .stat-project-title { font-size: font-size(3xl); }
+  .stat-project-title { font-size: font-size(2xl); }
   .stat-flavor { padding: space(2) space(5); }
   .stat-body { padding: space(3) space(5); }
   .image-caption-badge { font-size: font-size(sm); }
@@ -1255,11 +1260,16 @@
 
 // Tablet Large — 2K desktop scaled down (tall screen)
 @media (max-width: $tablet-lg) and (min-height: 1201px) {
+  .project-hero-image { max-height: 38vh; }
+  .project-hero-embed { max-width: 80%; margin: 0 auto; }
+
   .project-image-container {
     max-width: 1050px;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: space(4);
   }
+
+  .devlog-video { max-width: 80%; margin-left: auto; margin-right: auto; }
 
   .toc-panel { width: 250px; }
   .stat-name-plate { padding: space(2) space(4); }
